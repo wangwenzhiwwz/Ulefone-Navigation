@@ -1,0 +1,91 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后台管理</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html" class="back-link">← 返回导航</a>
+    <h1>后台管理</h1>
+  </div>
+  <div class="container">
+    <div class="admin-form">
+      <h2>添加书签</h2>
+      <div class="form-group">
+        <input type="text" id="bookmark-name" placeholder="书签名称">
+        <input type="text" id="bookmark-url" placeholder="书签网址">
+        <select id="bookmark-category">
+          <option value="">选择分类</option>
+        </select>
+        <button onclick="addBookmark()">添加</button>
+      </div>
+      <h2>添加分类</h2>
+      <div class="form-group">
+        <button onclick="addCategory()">添加新分类</button>
+      </div>
+      <h2>书签管理</h2>
+      <div class="form-group">
+        <button onclick="clearAllBookmarks()">清空全部书签</button>
+        <button onclick="downloadData()">下载 data.js</button>
+      </div>
+      <h2>编辑书签</h2>
+      <div class="form-group" id="edit-form" style="display: none;">
+        <input type="text" id="edit-bookmark-name" placeholder="书签名称">
+        <input type="text" id="edit-bookmark-url" placeholder="书签网址">
+        <select id="edit-bookmark-category">
+          <option value="">选择分类</option>
+        </select>
+        <button onclick="saveEditBookmark()">保存</button>
+        <button class="cancel" onclick="cancelEdit()">取消</button>
+      </div>
+    </div>
+    <div class="main">
+      <div id="bookmark-list"></div>
+    </div>
+  </div>
+</body>
+</html>
