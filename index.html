@@ -1,14 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ulefone | Navigation</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ulefone | Navigation</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" rel="icon" sizes="32x32" type="image/png"/>
+<style>
     /* 基础样式 - 黑白简约主题 */
+a {
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: none !important;
+}
     :root {
       --bg-primary: #ffffff;
       --bg-secondary: #f8f9fa;
@@ -149,7 +156,7 @@
     }
 
     .admin-link {
-      text-decoration: none;
+      text-decoration: none; text-underline-offset: 0; text-decoration-line: none;
       color: var(--text-secondary);
       font-weight: 500;
       padding: 6px 12px;
@@ -173,6 +180,18 @@
 
     /* 侧边栏 */
     .sidebar {
+  position: fixed;
+  left: 0;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+  z-index: 99;
+  left: 0;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+  z-index: 99;
+
       min-width: var(--sidebar-width);
       background: var(--bg-primary);
       padding: 24px 0;
@@ -230,6 +249,7 @@
 
     /* 主内容区 */
     .main {
+  padding-left: var(--sidebar-width);
       flex: 1;
       padding: 24px;
       display: flex;
@@ -319,7 +339,7 @@
       font-size: 14px;
       font-weight: 500;
       color: var(--text-primary);
-      text-decoration: none;
+      text-decoration: none; text-underline-offset: 0; text-decoration-line: none;
       transition: var(--transition);
       flex: 1;
       line-height: 1.3;
@@ -357,6 +377,18 @@
 
     @media (max-width: 768px) {
       .sidebar {
+  position: fixed;
+  left: 0;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+  z-index: 99;
+  left: 0;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+  z-index: 99;
+
         position: fixed;
         left: -100%;
         top: var(--header-height);
@@ -374,6 +406,7 @@
       }
       
       .main {
+  padding-left: var(--sidebar-width);
         padding: 20px 16px;
       }
       
@@ -485,63 +518,137 @@
   </style>
 </head>
 <body>
-  <div class="header">
-    <div class="logo-container">
-      <button class="menu-toggle" id="menuToggle">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="logo">
-        <img id="site-logo" src="https://wangwenzhi.eu.org/images/ulefone-logo/logo.png" alt="Logo" style="width: 100%; height: 100%;">
-      </div>
-    </div>
-    <div class="header-controls">
-      <div class="search-wrapper">
-        <i class="fas fa-search search-icon"></i>
-        <input type="text" id="search" class="search-input" placeholder="搜索书签...">
-      </div>
-      <button class="dark-btn" onclick="toggleDarkMode()" aria-label="切换深色模式">
-        <i class="fas fa-moon"></i>
-      </button>
-      <a href="admin.html" class="admin-link">
-        <i class="fas fa-cog"></i>
-      </a>
-    </div>
-  </div>
-  
-  <div class="overlay" id="overlay"></div>
-  
-  <div class="container">
-    <div class="sidebar" id="sidebar">
-      <div class="sidebar-header">导航分类</div>
-      <ul id="category-list">
-        <!-- 动态生成分类 -->
-      </ul>
-    </div>
-
-    <div class="main" id="bookmark-container">
-      <div class="welcome-section">
-        <div class="welcome-title">Ulefone Navigation</div>
-        <div class="welcome-text">精心整理的书签资源，简约设计，高效访问。所有书签按类别整理，支持快速搜索。</div>
-        <div class="stats-container">
-          <div class="stat-card"><div class="stat-value">--</div><div class="stat-label">书签总数</div></div>
-          <div class="stat-card"><div class="stat-value">--</div><div class="stat-label">分类</div></div>
-          <div class="stat-card"><div class="stat-value">--</div><div class="stat-label">常用工具</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div>简约书签导航 &copy; 2023 - 高效工作，精致生活</div>
-    <div style="font-size: 11px; margin-top: 8px; color: var(--text-tertiary);">
-      <span>当前版本 v1.0.0</span> | 
+<div class="header">
+<div class="logo-container">
+<button class="menu-toggle" id="menuToggle">
+<i class="fas fa-bars"></i>
+</button>
+<div class="logo">
+<img alt="Logo" id="site-logo" src="https://wangwenzhi.eu.org/images/ulefone-logo/logo.png" style="width: 100%; height: 100%;"/>
+</div>
+</div>
+<div class="header-controls">
+<div class="search-wrapper">
+<i class="fas fa-search search-icon"></i>
+<input class="search-input" id="search" placeholder="搜索书签..." type="text"/>
+</div>
+<button aria-label="切换深色模式" class="dark-btn" onclick="toggleDarkMode()">
+<i class="fas fa-moon"></i>
+</button>
+<a class="admin-link" href="admin.html">
+<i class="fas fa-cog"></i>
+</a>
+</div>
+</div>
+<div class="overlay" id="overlay"></div>
+<div class="container">
+<div class="sidebar" id="sidebar">
+<div class="sidebar-header">导航分类</div>
+<ul id="category-list">
+<!-- 动态生成分类 -->
+</ul>
+</div>
+<div class="main" id="bookmark-container">
+<div class="welcome-section">
+<div class="welcome-title">Ulefone Navigation</div>
+<div class="welcome-text">精心整理的书签资源，简约设计，高效访问。所有书签按类别整理，支持快速搜索。</div>
+<div class="stats-container">
+<div class="stat-card"><div class="stat-value">--</div><div class="stat-label">书签总数</div></div>
+<div class="stat-card"><div class="stat-value">--</div><div class="stat-label">分类</div></div>
+<div class="stat-card"><div class="stat-value">--</div><div class="stat-label">常用工具</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div>简约书签导航 © 2023 - 高效工作，精致生活</div>
+<div style="font-size: 11px; margin-top: 8px; color: var(--text-tertiary);">
+<span>当前版本 v1.0.0</span> | 
       <span>最后更新: 2023-10-15</span>
-    </div>
-  </div>
+</div>
+</div>
+<script src="data.js"></script>
+<script>function createCard(item) {
+  const domain = new URL(item.url).hostname;
+  return `
+    <a class="card" href="${item.url}" target="_blank">
+      <div class="card-header">
+        <div class="card-icon">
+          <img src="https://www.google.com/s2/favicons?sz=32&domain=${domain}" alt="${item.name}">
+        </div>
+        <div class="card-title">${item.name}</div>
+      </div>
+      <div class="card-url">${domain}</div>
+    </a>
+  `;
+}
 
-  <script src="data.js"></script>
-  <script>
-    function loadDarkMode() {
+function renderSidebar(dataObj) {
+  const ul = document.getElementById("category-list");
+  ul.innerHTML = '';
+
+  const allLi = document.createElement('li');
+  allLi.classList.add('active');
+  allLi.innerHTML = `<div class="category-icon"><i class="fas fa-home"></i></div><span>全部</span>`;
+  ul.appendChild(allLi);
+
+  Object.keys(dataObj).forEach(key => {
+    const li = document.createElement('li');
+    li.innerHTML = `<div class="category-icon"><i class="fas fa-folder"></i></div><span>${getCategoryName(key)}</span>`;
+    ul.appendChild(li);
+  });
+}
+
+function renderSections(dataObj) {
+  const container = document.getElementById("bookmark-container");
+  container.querySelectorAll(".section").forEach(sec => sec.remove());
+
+  Object.keys(dataObj).forEach(category => {
+    const section = document.createElement("div");
+    section.className = "section";
+    section.innerHTML = `
+      <div class="section-header">
+        <div class="section-icon"><i class="fas fa-folder"></i></div>
+        <h2>${getCategoryName(category)}</h2>
+      </div>
+      <div class="cards">
+        ${dataObj[category].map(createCard).join('')}
+      </div>
+    `;
+    container.appendChild(section);
+  });
+}
+
+function enableCategoryFiltering(dataObj) {
+  const lis = document.querySelectorAll('#category-list li');
+  const container = document.getElementById("bookmark-container");
+
+  lis.forEach((li, index) => {
+    li.addEventListener('click', () => {
+      lis.forEach(i => i.classList.remove('active'));
+      li.classList.add('active');
+      container.querySelectorAll(".section").forEach(sec => sec.remove());
+
+      if (index === 0) {
+        renderSections(dataObj);
+      } else {
+        const key = Object.keys(dataObj)[index - 1];
+        renderSections({ [key]: dataObj[key] });
+      }
+    });
+
+    li.addEventListener('dblclick', () => {
+      if (index === 0) {
+        Object.values(dataObj).flat().forEach(b => window.open(b.url, '_blank'));
+      } else {
+        const key = Object.keys(dataObj)[index - 1];
+        dataObj[key].forEach(b => window.open(b.url, '_blank'));
+      }
+    });
+  });
+}
+
+function loadDarkMode() {
       if (localStorage.getItem('darkMode') === 'enabled') {
         document.body.classList.add('dark-mode');
         document.querySelector('.dark-btn i').className = 'fas fa-sun';
@@ -584,21 +691,6 @@
       });
     });
 
-    function createCard(item) {
-      const domain = new URL(item.url).hostname;
-      return `
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">
-              <img src="https://www.google.com/s2/favicons?sz=32&domain=${domain}" alt="${item.name}">
-            </div>
-            <a href="${item.url}" class="card-title" target="_blank">${item.name}</a>
-          </div>
-          <div class="card-url">${domain}</div>
-        </div>
-      `;
-    }
-
     function getCategoryName(key) {
       const map = {
         "ulefone": "Ulefone",
@@ -606,51 +698,6 @@
         "effects": "Effects"
       };
       return map[key] || key;
-    }
-
-    function renderSidebar(dataObj) {
-      const ul = document.getElementById("category-list");
-      ul.innerHTML = '';
-
-      const allLi = document.createElement('li');
-      allLi.classList.add('active');
-      allLi.innerHTML = `<div class="category-icon"><i class="fas fa-home"></i></div><span>全部</span>`;
-      ul.appendChild(allLi);
-
-      Object.keys(dataObj).forEach(key => {
-        const li = document.createElement('li');
-        const iconMap = {
-          "ulefone": "fa-cloud",
-          "work": "fa-briefcase",
-          "effects": "fa-palette"
-        };
-        li.innerHTML = `<div class="category-icon"><i class="fas ${iconMap[key] || 'fa-folder'}"></i></div><span>${getCategoryName(key)}</span>`;
-        ul.appendChild(li);
-      });
-    }
-
-    function renderSections(dataObj) {
-      const container = document.getElementById("bookmark-container");
-      container.querySelectorAll(".section").forEach(sec => sec.remove());
-      Object.keys(dataObj).forEach(category => {
-        const section = document.createElement("div");
-        section.className = "section";
-        const iconMap = {
-          "ulefone": "fa-cloud",
-          "work": "fa-briefcase",
-          "effects": "fa-palette"
-        };
-        section.innerHTML = `
-          <div class="section-header">
-            <div class="section-icon"><i class="fas ${iconMap[category] || 'fa-folder'}"></i></div>
-            <h2>${getCategoryName(category)}</h2>
-          </div>
-          <div class="cards">
-            ${dataObj[category].map(createCard).join('')}
-          </div>
-        `;
-        container.appendChild(section);
-      });
     }
 
     function updateStats(dataObj) {
@@ -673,27 +720,6 @@
         const url = card.querySelector('.card-url').textContent.toLowerCase();
         card.style.display = (title.includes(query) || url.includes(query)) ? 'flex' : 'none';
       });
-    }
-
-    function enableCategoryFiltering(dataObj) {
-      const lis = document.querySelectorAll('#category-list li');
-      const container = document.getElementById("bookmark-container");
-
-      lis.forEach((li, index) => {
-        li.addEventListener('click', () => {
-          lis.forEach(i => i.classList.remove('active'));
-          li.classList.add('active');
-          container.querySelectorAll(".section").forEach(sec => sec.remove());
-
-          if (index === 0) {
-            renderSections(dataObj);
-          } else {
-            const key = Object.keys(dataObj)[index - 1];
-            renderSections({ [key]: dataObj[key] });
-          }
-        });
-      });
-    }
-  </script>
+    }</script>
 </body>
 </html>

@@ -118,7 +118,7 @@ button.cancel {
   gap: 1rem;
   flex-wrap: wrap;
 }
-pre#data-view {
+pre#dataView {
   white-space: pre-wrap;
   word-break: break-word;
   background: #444;
@@ -144,7 +144,7 @@ pre#data-view {
       <button onclick="copyToClipboard()">复制 data.js</button>
     </div>
     <h2>当前数据</h2>
-    <pre id="data-view">(数据加载中...)</pre>
+    <pre id="dataView">(数据加载中...)</pre>
   </div>
 
 <script>
@@ -153,7 +153,7 @@ let bookmarksData = data;
 
 window.onload = () => {
   renderBookmarkList();
-  document.getElementById("data-view").textContent = generateDataFileContent();
+  document.getElementById("dataView").textContent = generateDataFileContent();
   enableDragSort();
 };
 
@@ -221,7 +221,7 @@ function renameCategory(oldName) {
   bookmarksData[newName] = bookmarksData[oldName];
   delete bookmarksData[oldName];
   renderBookmarkList();
-  document.getElementById("data-view").textContent = generateDataFileContent();
+  document.getElementById("dataView").textContent = generateDataFileContent();
 }
 
 function addBookmark(cat) {
@@ -230,7 +230,7 @@ function addBookmark(cat) {
   if (!name || !url) return alert("请填写完整");
   bookmarksData[cat].push({ name, url });
   renderBookmarkList();
-  document.getElementById("data-view").textContent = generateDataFileContent();
+  document.getElementById("dataView").textContent = generateDataFileContent();
 }
 
 function startEditBookmark(cat, idx) {
@@ -253,13 +253,13 @@ function saveBookmark(cat, idx) {
   if (!name || !url) return;
   bookmarksData[cat][idx] = { name, url };
   renderBookmarkList();
-  document.getElementById("data-view").textContent = generateDataFileContent();
+  document.getElementById("dataView").textContent = generateDataFileContent();
 }
 function deleteCategory(name) {
   if (confirm(`确定删除分类 "${name}" 吗？`)) {
     delete bookmarksData[name];
     renderBookmarkList();
-    document.getElementById("data-view").textContent = generateDataFileContent();
+    document.getElementById("dataView").textContent = generateDataFileContent();
   }
 }
 
@@ -322,7 +322,7 @@ function enableDragSort() {
     dragging.classList.remove("dragging");
     dragging = null;
     renderBookmarkList();
-    document.getElementById("data-view").textContent = generateDataFileContent();
+    document.getElementById("dataView").textContent = generateDataFileContent();
   });
 }
 </script>
