@@ -5,24 +5,32 @@ const data = {
       "url": "https://www.ulefone.com/"
     },
     {
-      "name": "Google Drive",
-      "url": "https://drive.google.com"
-    },
-    {
-      "name": "Whimsical",
-      "url": "https://whimsical.com"
-    },
-    {
-      "name": "Artlist.io",
-      "url": "https://artlist.io"
+      "name": "Teambition",
+      "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
     },
     {
       "name": "Mediastory",
       "url": "https://web.mediastory.cc/#/"
     },
     {
+      "name": "Whimsical",
+      "url": "https://whimsical.com"
+    },
+    {
       "name": "Notion",
       "url": "https://www.notion.so/"
+    },
+    {
+      "name": "Milanote",
+      "url": "https://milanote.com/"
+    },
+    {
+      "name": "Artlist.io",
+      "url": "https://artlist.io"
+    },
+    {
+      "name": "Google Drive",
+      "url": "https://drive.google.com/"
     },
     {
       "name": "Yandex Mail",
@@ -37,8 +45,8 @@ const data = {
       "url": "https://mail.qq.com/"
     },
     {
-      "name": "Teambition",
-      "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
+      "name": "APP",
+      "url": "https://app.wwz.im/#android"
     }
   ],
   "Work": [
@@ -69,12 +77,72 @@ const data = {
     {
       "name": "专项拍摄方案",
       "url": "https://alidocs.dingtalk.com/i/nodes/e5vdDPq4wYa8avNrL0ZGWj7nbm10NkB9"
+    },
+    {
+      "name": "服装道具",
+      "url": "https://alidocs.dingtalk.com/i/nodes/od245kZmnOeW4p3XxO70WYbzxL6R0wMQ"
+    },
+    {
+      "name": "视频制作流程",
+      "url": "https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbZlyXGvfgzBv2laJMGjLRb3"
+    },
+    {
+      "name": "我的文档笔记",
+      "url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV54o0RQqSeK6bbz1Wgk9rpMq"
+    },
+    {
+      "name": "品牌中心需求收集",
+      "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSd76EmR9JA7depqY?iframeQuery=sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
     }
   ],
   "Video": [
     {
       "name": "千库网",
       "url": "https://588ku.com/video/"
+    },
+    {
+      "name": "影视飓风",
+      "url": "https://www.ysjf.com/home"
+    },
+    {
+      "name": "电影色彩",
+      "url": "https://film-grab.com/"
+    },
+    {
+      "name": "Pexels",
+      "url": "https://www.pexels.com/videos/"
+    },
+    {
+      "name": "Pixabay",
+      "url": "https://pixabay.com/zh/videos/"
+    }
+  ],
+  "Images": [
+    {
+      "name": "Pinterest",
+      "url": "https://www.pinterest.com/"
+    },
+    {
+      "name": "影视飓风",
+      "url": "https://www.ysjf.com/home"
+    },
+    {
+      "name": "电影色彩",
+      "url": "https://film-grab.com/"
+    },
+    {
+      "name": "Pexels",
+      "url": "https://www.pexels.com/videos/"
+    },
+    {
+      "name": "Pixabay",
+      "url": "https://pixabay.com/zh/videos/"
+    }
+  ],
+  "3D": [
+    {
+      "name": "Polyhaven",
+      "url": "https://polyhaven.com/"
     },
     {
       "name": "影视飓风",
@@ -109,6 +177,50 @@ const data = {
     {
       "name": "doyoudo",
       "url": "https://www.doyoudo.com/"
+    }
+  ],
+  "Music": [
+    {
+      "name": "Polyhaven",
+      "url": "https://polyhaven.com/"
+    },
+    {
+      "name": "影视飓风",
+      "url": "https://www.ysjf.com/home"
+    },
+    {
+      "name": "电影色彩",
+      "url": "https://film-grab.com/"
+    },
+    {
+      "name": "Pexels",
+      "url": "https://www.pexels.com/videos/"
+    },
+    {
+      "name": "Pixabay",
+      "url": "https://pixabay.com/zh/videos/"
+    }
+  ],
+  "Font": [
+    {
+      "name": "Misanse",
+      "url": "https://hyperos.mi.com/font/zh/"
+    },
+    {
+      "name": "Dafont",
+      "url": "https://www.dafont.com/batman-forever.font"
+    },
+    {
+      "name": "得意黑",
+      "url": "https://atelier-anchor.com/typefaces/smiley-sans"
+    },
+    {
+      "name": "Pexels",
+      "url": "https://www.pexels.com/videos/"
+    },
+    {
+      "name": "Pixabay",
+      "url": "https://pixabay.com/zh/videos/"
     }
   ]
 };
