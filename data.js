@@ -21,10 +21,6 @@ const data = {
       "url": "https://web.mediastory.cc/#/"
     },
     {
-      "name": "企业邮箱",
-      "url": "https://work.weixin.qq.com/mail"
-    },
-    {
       "name": "Notion",
       "url": "https://www.notion.so/"
     },

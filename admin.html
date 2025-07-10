@@ -1,91 +1,330 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>后台管理</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>书签管理</title>
+  <style>
+:root {
+  --bg: #f9f9f9;
+  --text: #222;
+  --border: #ccc;
+  --accent: #333;
+  --hover: #555;
+  --card: #fff;
+}
+body.dark {
+  --bg: #181818;
+  --text: #f0f0f0;
+  --border: #444;
+  --accent: #bbb;
+  --hover: #fff;
+  --card: #222;
+}
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+button, input {
+  font-family: inherit;
+}
+.header {
+  background: var(--accent);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+.category-block {
+  background: var(--card);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  position: relative;
+}
+.drag-handle {
+  cursor: grab;
+  font-size: 1.2rem;
+  margin-right: 0.75rem;
+  user-select: none;
+}
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.category-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.category-header input {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+}
+.category-content {
+  margin-top: 1rem;
+}
+.bookmark-item {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  gap: 0.5rem;
+}
+.bookmark-item a {
+  color: var(--accent);
+  text-decoration: none;
+  flex: 1;
+  word-break: break-all;
+}
+.bookmark-item input {
+  flex: 1;
+}
+button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+}
+button.cancel {
+  background: var(--border);
+  color: black;
+}
+.actions {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+pre#data-view {
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #444;
+  color: #eee;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow: auto;
+}
+  </style>
   <script src="data.js"></script>
-  <script src="script.js"></script>
 </head>
 <body>
   <div class="header">
-    <a href="index.html" class="back-link">← 返回导航</a>
-    <h1>后台管理</h1>
+    <a href="index.html">← 返回主页</a>
+    <h1>书签管理</h1>
+    <button onclick="toggleTheme()">🌓 切换主题</button>
   </div>
   <div class="container">
-    <div class="admin-form">
-      <h2>添加书签</h2>
-      <div class="form-group">
-        <input type="text" id="bookmark-name" placeholder="书签名称">
-        <input type="text" id="bookmark-url" placeholder="书签网址">
-        <select id="bookmark-category">
-          <option value="">选择分类</option>
-        </select>
-        <button onclick="addBookmark()">添加</button>
-      </div>
-      <h2>添加分类</h2>
-      <div class="form-group">
-        <button onclick="addCategory()">添加新分类</button>
-      </div>
-      <h2>书签管理</h2>
-      <div class="form-group">
-        <button onclick="clearAllBookmarks()">清空全部书签</button>
-        <button onclick="downloadData()">下载 data.js</button>
-      </div>
-      <h2>编辑书签</h2>
-      <div class="form-group" id="edit-form" style="display: none;">
-        <input type="text" id="edit-bookmark-name" placeholder="书签名称">
-        <input type="text" id="edit-bookmark-url" placeholder="书签网址">
-        <select id="edit-bookmark-category">
-          <option value="">选择分类</option>
-        </select>
-        <button onclick="saveEditBookmark()">保存</button>
-        <button class="cancel" onclick="cancelEdit()">取消</button>
-      </div>
+    <div id="bookmark-list"></div>
+    <div class="actions">
+      <button onclick="addCategory()">添加分类</button>
+      <button onclick="downloadData()">下载 data.js</button>
+      <button onclick="copyToClipboard()">复制 data.js</button>
     </div>
-    <div class="main">
-      <div id="bookmark-list"></div>
-    </div>
+    <h2>当前数据</h2>
+    <pre id="data-view">(数据加载中...)</pre>
   </div>
+
+<script>
+let isDark = false;
+let bookmarksData = data;
+
+window.onload = () => {
+  renderBookmarkList();
+  document.getElementById("data-view").textContent = generateDataFileContent();
+  enableDragSort();
+};
+
+function toggleTheme() {
+  isDark = !isDark;
+  document.body.classList.toggle("dark", isDark);
+}
+function renderBookmarkList() {
+  const container = document.getElementById("bookmark-list");
+  container.innerHTML = '';
+  Object.entries(bookmarksData).forEach(([category, bookmarks]) => {
+    const block = document.createElement("div");
+    block.className = "category-block";
+    block.dataset.cat = category;
+
+    block.innerHTML = `
+      <div class="category-header" onclick="toggleFold('${category}')">
+        <div class="category-left">
+          <span class="drag-handle" draggable="true" title="拖动排序">☰</span>
+          <input id="cat-${category}" value="${category}" onchange="renameCategory('${category}')" />
+        </div>
+        <span>
+          <button onclick="event.stopPropagation(); deleteCategory('${category}')">🗑️</button>
+        </span>
+      </div>
+      <div class="category-content" id="content-${category}"></div>
+    `;
+
+    const content = block.querySelector(".category-content");
+    bookmarks.forEach((b, i) => {
+      const item = document.createElement("div");
+      item.className = "bookmark-item";
+      item.innerHTML = `
+        <a href="${b.url}" target="_blank">${b.name}</a>
+        <button onclick="startEditBookmark('${category}', ${i})">✏️</button>`;
+      content.appendChild(item);
+    });
+
+    const addForm = document.createElement("div");
+    addForm.className = "bookmark-item";
+    addForm.innerHTML = `
+      <input type="text" placeholder="书签名称" id="name-${category}"/>
+      <input type="text" placeholder="网址" id="url-${category}"/>
+      <button onclick="addBookmark('${category}')">添加</button>`;
+    content.appendChild(addForm);
+
+    container.appendChild(block);
+  });
+}
+
+function toggleFold(category) {
+  const el = document.getElementById(`content-${category}`);
+  if (el) el.style.display = el.style.display === 'none' ? '' : 'none';
+}
+
+function renameCategory(oldName) {
+  const input = document.getElementById(`cat-${oldName}`);
+  const newName = input.value.trim();
+  if (!newName || newName === oldName) return;
+  if (bookmarksData[newName]) {
+    alert("分类已存在");
+    input.value = oldName;
+    return;
+  }
+  bookmarksData[newName] = bookmarksData[oldName];
+  delete bookmarksData[oldName];
+  renderBookmarkList();
+  document.getElementById("data-view").textContent = generateDataFileContent();
+}
+
+function addBookmark(cat) {
+  const name = document.getElementById(`name-${cat}`).value;
+  const url = document.getElementById(`url-${cat}`).value;
+  if (!name || !url) return alert("请填写完整");
+  bookmarksData[cat].push({ name, url });
+  renderBookmarkList();
+  document.getElementById("data-view").textContent = generateDataFileContent();
+}
+
+function startEditBookmark(cat, idx) {
+  const container = document.querySelector(`.category-block[data-cat="${cat}"] .category-content`);
+  const itemDivs = container.querySelectorAll(".bookmark-item");
+  const div = itemDivs[idx];
+
+  const current = bookmarksData[cat][idx];
+  div.innerHTML = `
+    <input type="text" id="edit-name-${cat}-${idx}" value="${current.name}" />
+    <input type="text" id="edit-url-${cat}-${idx}" value="${current.url}" />
+    <button onclick="saveBookmark('${cat}', ${idx})">✅</button>
+    <button class="cancel" onclick="renderBookmarkList()">❌</button>
+  `;
+}
+
+function saveBookmark(cat, idx) {
+  const name = document.getElementById(`edit-name-${cat}-${idx}`).value.trim();
+  const url = document.getElementById(`edit-url-${cat}-${idx}`).value.trim();
+  if (!name || !url) return;
+  bookmarksData[cat][idx] = { name, url };
+  renderBookmarkList();
+  document.getElementById("data-view").textContent = generateDataFileContent();
+}
+function deleteCategory(name) {
+  if (confirm(`确定删除分类 "${name}" 吗？`)) {
+    delete bookmarksData[name];
+    renderBookmarkList();
+    document.getElementById("data-view").textContent = generateDataFileContent();
+  }
+}
+
+function generateDataFileContent() {
+  return "const data = " + JSON.stringify(bookmarksData, null, 2) + ";";
+}
+
+function downloadData() {
+  const blob = new Blob([generateDataFileContent()], { type: "application/javascript" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "data.js";
+  a.click();
+}
+
+function copyToClipboard() {
+  const content = generateDataFileContent();
+  navigator.clipboard.writeText(content).then(() => alert("已复制"));
+}
+
+function enableDragSort() {
+  let dragging = null;
+  const container = document.getElementById("bookmark-list");
+
+  container.addEventListener("dragstart", e => {
+    if (!e.target.classList.contains("drag-handle")) return;
+    const block = e.target.closest(".category-block");
+    const cat = block?.dataset.cat;
+    const folded = document.getElementById(`content-${cat}`).style.display === 'none';
+    if (folded) {
+      dragging = block;
+      block.classList.add("dragging");
+    } else {
+      e.preventDefault();
+    }
+  });
+
+  container.addEventListener("dragover", e => {
+    e.preventDefault();
+    if (!dragging) return;
+    const after = [...container.children].find(el => {
+      const box = el.getBoundingClientRect();
+      return e.clientY < box.top + box.height / 2;
+    });
+    if (after && after !== dragging) {
+      container.insertBefore(dragging, after);
+    } else {
+      container.appendChild(dragging);
+    }
+  });
+
+  container.addEventListener("drop", () => {
+    if (!dragging) return;
+    const newOrder = {};
+    [...container.children].forEach(el => {
+      const cat = el.dataset.cat;
+      newOrder[cat] = bookmarksData[cat];
+    });
+    bookmarksData = newOrder;
+    dragging.classList.remove("dragging");
+    dragging = null;
+    renderBookmarkList();
+    document.getElementById("data-view").textContent = generateDataFileContent();
+  });
+}
+</script>
 </body>
 </html>
