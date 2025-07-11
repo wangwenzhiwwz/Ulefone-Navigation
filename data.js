@@ -1,8 +1,12 @@
 const data = {
   "Ulefone": [
     {
-      "name": "Ulefone",
-      "url": "https://www.ulefone.com/"
+      "name": "Notion",
+      "url": "https://www.notion.so/"
+    },
+    {
+      "name": "Whimsical",
+      "url": "https://whimsical.com"
     },
     {
       "name": "Teambition",
@@ -11,14 +15,6 @@ const data = {
     {
       "name": "Mediastory",
       "url": "https://web.mediastory.cc/#/"
-    },
-    {
-      "name": "Whimsical",
-      "url": "https://whimsical.com"
-    },
-    {
-      "name": "Notion",
-      "url": "https://www.notion.so/"
     },
     {
       "name": "Milanote",
@@ -47,6 +43,10 @@ const data = {
     {
       "name": "APP",
       "url": "https://app.wwz.im/#android"
+    },
+    {
+      "name": "Ulefone",
+      "url": "https://www.ulefone.com/"
     }
   ],
   "Work": [
@@ -415,12 +415,12 @@ const data = {
       "url": "https://www.sucaitu.cc/"
     },
     {
-      "name": "OpenClash",
-      "url": "http://192.168.4.5:9090/ui/dashboard/#/proxies?host=192.168.4.5&port=9090&secret=GnDCxHeL"
-    },
-    {
       "name": "Sony",
       "url": "https://www.sony.rs/electronics/support/software/00263050"
+    },
+    {
+      "name": "OpenClash",
+      "url": "http://192.168.4.5:9090/ui/dashboard/#/proxies?host=192.168.4.5&port=9090&secret=GnDCxHeL"
     }
   ]
 };
