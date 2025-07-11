@@ -111,6 +111,16 @@ const data = {
       "url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWr7ZzOrXhoYd0vrKVGXn6lpz"
     }
   ],
+  "AI": [
+    {
+      "name": "ChatGPT",
+      "url": "https://chatgpt.com/"
+    },
+    {
+      "name": "Grok",
+      "url": "https://grok.com/"
+    }
+  ],
   "Video": [
     {
       "name": "千库网",
