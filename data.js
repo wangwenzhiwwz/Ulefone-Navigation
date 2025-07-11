@@ -119,6 +119,34 @@ const data = {
     {
       "name": "Grok",
       "url": "https://grok.com/"
+    },
+    {
+      "name": "Gemini",
+      "url": "https://gemini.google.com/app"
+    },
+    {
+      "name": "Hyper3d",
+      "url": "https://hyper3d.ai/"
+    },
+    {
+      "name": "Playground",
+      "url": "https://playground.com/design/c/mobile-wallpaper"
+    },
+    {
+      "name": "Suno",
+      "url": "https://suno.com/"
+    },
+    {
+      "name": "Labs",
+      "url": "https://labs.google/fx/tools/whisk"
+    },
+    {
+      "name": "Deepseek",
+      "url": "https://chat.deepseek.com/"
+    },
+    {
+      "name": "Doubao",
+      "url": "https://www.doubao.com/chat/"
     }
   ],
   "Video": [
