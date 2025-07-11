@@ -1,615 +1,423 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ulefone | Navigation</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link rel="icon" href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" sizes="32x32" type="image/png"/>
 <style>
-    /* 基础样式 - 黑白简约主题 */
-a {
-  text-decoration: none !important;
+:root {
+  --bg: #fff;
+  --fg: #181818;
+  --muted: #aaa;
+  --border: #e6e6e6;
+  --accent: #181818;
+  --radius: 16px;
+  --shadow: 0 1px 8px 0 rgba(24,24,24,0.02);
+  --header-height: 56px;
+  --sidebar-width: 210px;
+  --card-bg: #f7f7f7;
 }
-a:hover {
-  text-decoration: none !important;
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', 'Segoe UI', 'PingFang SC', Arial, sans-serif;
+  font-size: 15px;
+  transition: background .18s, color .18s;
+  min-height: 100vh;
 }
-    :root {
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8f9fa;
-      --bg-tertiary: #e9ecef;
-      --bg-card: #ffffff;
-      --text-primary: #212529;
-      --text-secondary: #495057;
-      --text-tertiary: #6c757d;
-      --border-primary: #dee2e6;
-      --border-secondary: #e9ecef;
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
-      --radius-sm: 4px;
-      --radius-md: 6px;
-      --radius-lg: 8px;
-      --radius-xl: 16px;
-      --transition: all 0.2s ease;
-      --sidebar-width: 220px;
-      --header-height: 64px;
-    }
-
-    .dark-mode {
-      --bg-primary: #121212;
-      --bg-secondary: #1e1e1e;
-      --bg-tertiary: #2d2d2d;
-      --bg-card: #1a1a1a;
-      --text-primary: #f8f9fa;
-      --text-secondary: #e9ecef;
-      --text-tertiary: #adb5bd;
-      --border-primary: #343a40;
-      --border-secondary: #2d2d2d;
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', Arial, sans-serif;
-      background-color: var(--bg-secondary);
-      color: var(--text-primary);
-      min-height: 100vh;
-      transition: background-color 0.3s, color 0.3s;
-      line-height: 1.5;
-    }
-
-    /* 头部样式 */
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-      background: var(--bg-primary);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: var(--header-height);
-      border-bottom: 1px solid var(--border-primary);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      height: 36px;
-      width: 100%;
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-
-    .header-controls {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .search-wrapper {
-      position: relative;
-      width: 240px;
-    }
-
-    .search-input {
-      padding: 8px 16px 8px 40px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-primary);
-      background: var(--bg-primary);
-      font-size: 14px;
-      width: 100%;
-      color: var(--text-primary);
-      transition: var(--transition);
-    }
-
-    .search-input:focus {
-      outline: none;
-      border-color: var(--text-tertiary);
-      box-shadow: 0 0 0 2px rgba(108, 117, 125, 0.1);
-    }
-
-    .search-icon {
-      position: absolute;
-      top: 50%;
-      left: 16px;
-      transform: translateY(-50%);
-      font-size: 14px;
-      color: var(--text-tertiary);
-    }
-
-    .dark-btn {
-      background: none;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-      color: var(--text-secondary);
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-
-    .dark-btn:hover {
-      background: var(--bg-tertiary);
-    }
-
-    .admin-link {
-      text-decoration: none; text-underline-offset: 0; text-decoration-line: none;
-      color: var(--text-secondary);
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: var(--radius-md);
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      border: 1px solid var(--border-primary);
-    }
-
-    .admin-link:hover {
-      background: var(--bg-tertiary);
-    }
-
-    .container {
-      display: flex;
-      min-height: calc(100vh - var(--header-height));
-    }
-
-    /* 侧边栏 */
-    .sidebar {
+body.dark-mode {
+  --bg: #181818;
+  --fg: #f2f2f2;
+  --muted: #888;
+  --border: #2e2e2e;
+  --accent: #fff;
+  --card-bg: #232323;
+}
+* {box-sizing: border-box;}
+a {color: inherit; text-decoration: none;}
+a:active, a:focus, a:hover {color: var(--accent);}
+.header {
+  height: var(--header-height);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px 0 32px;
   position: fixed;
-  left: 0;
-  top: var(--header-height);
-  height: calc(100vh - var(--header-height));
-  overflow-y: auto;
-  z-index: 99;
-  left: 0;
-  top: var(--header-height);
-  height: calc(100vh - var(--header-height));
-  overflow-y: auto;
-  z-index: 99;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  box-shadow: none;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.logo-container {display: flex; align-items: center;}
+.logo {
+  height: 38px; 
+  width: auto; 
+  min-width: 120px;
+  max-width: 180px;
+  display: flex; align-items: center; justify-content: flex-start;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+}
+body.dark-mode .logo {background: #232323;}
+.logo img {
+  height: 100%; 
+  width: auto; 
+  object-fit: contain;
+  display: block;
+}
+.header-controls {
+  display: flex; align-items: center; gap: 18px;
+}
+.search-input {
+  border: none;
+  outline: none;
+  background: #ededed;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--fg);
+  width: 120px;
+  transition: background .16s;
+}
+body.dark-mode .search-input {background: #232323;}
+.search-input:focus {background: #e0e0e0;}
+.dark-btn, .admin-link {
+  background: none;
+  border: none;
+  color: var(--fg);
+  padding: 0;
+  font-size: 18px;
+  width: 36px; height: 36px;
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background .16s;
+}
+.admin-link {font-size: 16px;}
+.dark-btn:hover, .admin-link:hover {background: #ededed; color: var(--accent);}
+body.dark-mode .dark-btn:hover, body.dark-mode .admin-link:hover {background: #232323;}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--fg);
+  font-size: 22px;
+  width: 36px; height: 36px;
+  border-radius: var(--radius);
+  align-items: center; justify-content: center;
+  cursor: pointer;
+}
+@media (max-width: 700px) {.menu-toggle {display: flex;}}
 
-      min-width: var(--sidebar-width);
-      background: var(--bg-primary);
-      padding: 24px 0;
-      border-right: 1px solid var(--border-primary);
-      position: sticky;
-      top: var(--header-height);
-      height: calc(100vh - var(--header-height));
-      overflow-y: auto;
-    }
-
-    .sidebar-header {
-      padding: 0 20px 16px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    #category-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    #category-list li {
-      padding: 8px 20px;
-      cursor: pointer;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: var(--transition);
-      color: var(--text-secondary);
-    }
-
-    #category-list li:hover {
-      background: var(--bg-tertiary);
-    }
-
-    #category-list .active {
-      background: var(--bg-tertiary);
-      font-weight: 500;
-    }
-
-    .category-icon {
-      width: 18px;
-      height: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-tertiary);
-      font-size: 13px;
-    }
-
-    /* 主内容区 */
-    .main {
-  padding-left: var(--sidebar-width);
-      flex: 1;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      background: var(--bg-secondary);
-    }
-
-    .section {
-      margin-bottom: 20px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 16px;
-      gap: 10px;
-    }
-
-    .section-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: var(--radius-sm);
-      background: var(--bg-tertiary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-secondary);
-      font-size: 13px;
-    }
-
-    .section h2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 16px;
-    }
-
-    /* 卡片样式 - 简约小巧 */
-    .card {
-      background: var(--bg-card);
-      border-radius: var(--radius-xl);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      padding: 16px;
-      transition: var(--transition);
-      position: relative;
-      border: 1px solid var(--border-primary);
-      height: 100%;
-    }
-
-    .card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-      border-color: var(--text-tertiary);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .card-icon {
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .card-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-primary);
-      text-decoration: none; text-underline-offset: 0; text-decoration-line: none;
-      transition: var(--transition);
-      flex: 1;
-      line-height: 1.3;
-    }
-
-    .card-title:hover {
-      color: var(--text-tertiary);
-    }
-
-    .card-url {
-      font-size: 11px;
-      color: var(--text-tertiary);
-      word-break: break-all;
-      padding-top: 8px;
-      margin-top: auto;
-    }
-
-    /* 页脚样式 */
-    .footer {
-      background: var(--bg-primary);
-      color: var(--text-tertiary);
-      text-align: center;
-      font-size: 12px;
-      padding: 20px 0;
-      border-top: 1px solid var(--border-primary);
-      margin-top: auto;
-    }
-
-    /* 响应式设计 */
-    @media (max-width: 1024px) {
-      .cards {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      }
-    }
-
-    @media (max-width: 768px) {
-      .sidebar {
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  padding: 36px 0 0 0;
   position: fixed;
-  left: 0;
-  top: var(--header-height);
+  left: 0; top: var(--header-height); bottom: 0;
   height: calc(100vh - var(--header-height));
-  overflow-y: auto;
-  z-index: 99;
-  left: 0;
-  top: var(--header-height);
-  height: calc(100vh - var(--header-height));
-  overflow-y: auto;
-  z-index: 99;
+  z-index: 10;
+  display: flex; flex-direction: column;
+  align-items: flex-start;
+  transition: background .18s, border-color .18s;
+}
+#category-list {
+  width: 100%;
+  display: flex; flex-direction: column;
+  padding: 0 10px;
+  margin: 0;
+  list-style: none;
+  gap: 6px;
+}
+#category-list li {
+  width: 100%;
+  font-size: 15px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  display: flex; align-items: center; justify-content: flex-start;
+  padding: 11px 0 11px 18px;
+  margin: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background .13s, color .13s;
+  user-select: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  box-sizing: border-box;
+}
+#category-list li .category-icon {
+  margin-right: 10px; font-size: 18px; color: #bdbdbd; width: 22px; display: flex; align-items: center; justify-content: center;
+}
+#category-list li.active, #category-list li:hover {
+  background: #ededed;
+  color: var(--fg);
+}
+body.dark-mode #category-list li.active,
+body.dark-mode #category-list li:hover {
+  background: #232323;
+  color: var(--fg);
+}
+.sidebar-sep {
+  width: 85%;
+  height: 1px;
+  background: var(--border);
+  margin: 12px auto 4px auto;
+  border: none;
+  border-radius: var(--radius);
+  display: block;
+}
+.main {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  background: var(--bg);
+  padding: calc(var(--header-height) + 32px) 32px 18px 32px;
+  display: flex; flex-direction: column; gap: 20px;
+  min-width: 0;
+  transition: padding .13s, background .18s;
+  scroll-behavior: smooth;
+}
+@media (max-width: 700px) {
+  .sidebar {display: none;}
+  .main {margin-left: 0; padding: calc(var(--header-height) + 10px) 2vw 10px 2vw;}
+  .header {padding: 0 10px;}
+  .logo {height: 30px; min-width: 70px;}
+}
+.section {margin-bottom: 8px;}
+.section-header {
+  display: flex; align-items: center; gap: 13px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--fg);
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+.section-icon {
+  width: 28px; height: 28px; background: #ededed; border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  color: #bbb; font-size: 20px;
+  transition: background .18s, color .18s;
+}
+body.dark-mode .section-icon {background: #232323; color: #888;}
+.section h2 {font-size: 16px; margin: 0; position: relative;}
 
-        position: fixed;
-        left: -100%;
-        top: var(--header-height);
-        height: calc(100vh - var(--header-height));
-        z-index: 90;
-        transition: left 0.3s ease;
-      }
-      
-      .sidebar.active {
-        left: 0;
-      }
-      
-      .menu-toggle {
-        display: flex;
-      }
-      
-      .main {
-  padding-left: var(--sidebar-width);
-        padding: 20px 16px;
-      }
-      
-      .header {
-        padding: 0 16px;
-      }
-      
-      .search-wrapper {
-        width: 160px;
-      }
-    }
+/* 分类提示小字样式 */
+.section-tip {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 2px 10px 2px 10px;
+  margin-left: 10px;
+  z-index: 10;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+  pointer-events: none;
+}
+.section-header .section-tip {
+  pointer-events: none;
+}
 
-    @media (max-width: 480px) {
-      .cards {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      }
-      
-      .header-controls {
-        gap: 8px;
-      }
-      
-      .search-wrapper {
-        width: 120px;
-      }
-      
-      .logo-text {
-        font-size: 16px;
-      }
-    }
+.section-header.show-tip .section-tip,
+.section-header:focus .section-tip,
+.section-header:hover .section-tip {
+  display: block;
+}
 
-    /* 新增元素 */
-    .menu-toggle {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius-sm);
-      background: none;
-      border: none;
-      color: var(--text-primary);
-      font-size: 18px;
-      cursor: pointer;
-    }
-    
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: 80;
-      display: none;
-    }
-    
-    .overlay.active {
-      display: block;
-    }
-    
-    .welcome-section {
-      background: var(--bg-card);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-primary);
-    }
-    
-    .welcome-title {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    
-    .welcome-text {
-      color: var(--text-secondary);
-      max-width: 600px;
-      font-size: 14px;
-    }
-    
-    .stats-container {
-      display: flex;
-      gap: 12px;
-      margin-top: 8px;
-      flex-wrap: wrap;
-    }
-    
-    .stat-card {
-      background: var(--bg-tertiary);
-      border-radius: var(--radius-md);
-      padding: 12px;
-      min-width: 100px;
-      flex: 1;
-    }
-    
-    .stat-value {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    
-    .stat-label {
-      font-size: 12px;
-      color: var(--text-tertiary);
-    }
-  </style>
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(188px, 1fr));
+  gap: 13px;
+}
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 12px 10px 12px;
+  display: flex; flex-direction: column;
+  box-shadow: var(--shadow);
+  transition: box-shadow .13s, border .13s, background .18s;
+  cursor: pointer;
+  min-width: 0;
+}
+body.dark-mode .card {background: #232323; border-color: #232323;}
+.card:hover {
+  border-color: var(--accent);
+  background: #ededed;
+  box-shadow: 0 2px 14px 0 rgba(24,24,24,0.04);
+}
+body.dark-mode .card:hover {background: #2a2a2a;}
+.card-header {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 7px;
+}
+.card-icon {
+  width: 32px; height: 32px; border-radius: var(--radius);
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+body.dark-mode .card-icon {background: #232323;}
+.card-icon img {
+  width: 90%; height: 90%; object-fit: contain; border-radius: var(--radius); background: #fff;
+  display: block;
+}
+.card-title {
+  font-size: 16px;
+  color: var(--fg);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.01em;
+  flex: 1;
+}
+.card-url {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.welcome-section {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  display: flex; flex-direction: column; gap: 13px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  font-size: 15px;
+  transition: background .18s, border .18s;
+}
+body.dark-mode .welcome-section {background: #232323; border-color: #232323;}
+.welcome-title {font-size: 20px; font-weight: 700; color: var(--fg);}
+.welcome-text {color: var(--muted);}
+.stats-container {
+  display: flex; gap: 11px; flex-wrap: wrap;
+}
+.stat-card {
+  background: #ededed; border-radius: var(--radius); padding: 7px 12px; min-width: 80px; flex: 1;
+  border: 1px solid #e6e6e6;
+  font-size: 13px;
+  display: flex; flex-direction: column; align-items: flex-start;
+  transition: background .18s, border .18s;
+}
+body.dark-mode .stat-card {background: #232323; border-color: #232323;}
+.stat-value {font-size: 16px; font-weight: 700; color: var(--fg);}
+.stat-label {font-size: 12px; color: var(--muted);}
+.footer {
+  background: var(--bg);
+  color: #b7b7b7;
+  text-align: center;
+  font-size: 12px;
+  padding: 12px 0 3px 0;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+  transition: background .18s, color .18s, border-color .18s;
+}
+.overlay {display: none;}
+.category-modal {display: none;}
+@media (max-width: 480px) {
+  .main {padding: calc(var(--header-height) + 5px) 1vw 5px 1vw;}
+  .cards {gap: 8px;}
+  .card {padding: 8px 6px 7px 6px;}
+  .card-header {gap: 7px;}
+  .card-title {font-size: 14px;}
+  .welcome-section {padding: 10px 4vw;}
+  .welcome-title {font-size: 16px;}
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
 <div class="header">
-<div class="logo-container">
-<button class="menu-toggle" id="menuToggle">
-<i class="fas fa-bars"></i>
-</button>
-<div class="logo">
-<img alt="Logo" id="site-logo" src="https://wangwenzhi.eu.org/images/ulefone-logo/logo.png" style="width: 100%; height: 100%;"/>
+  <div class="logo-container">
+    <button class="menu-toggle" id="menuToggle" style="display:none"><i class="fas fa-bars"></i></button>
+    <div class="logo" id="logoBtn">
+      <img alt="Logo" id="site-logo" src="https://wangwenzhi.eu.org/images/ulefone-logo/logo.png"/>
+    </div>
+  </div>
+  <div class="header-controls">
+    <input class="search-input" id="search" placeholder="搜索..." type="text"/>
+    <button aria-label="切换深色模式" class="dark-btn" id="darkToggle"><i class="fas fa-moon"></i></button>
+    <a class="admin-link" href="admin.html"><i class="fas fa-cog"></i></a>
+  </div>
 </div>
-</div>
-<div class="header-controls">
-<div class="search-wrapper">
-<i class="fas fa-search search-icon"></i>
-<input class="search-input" id="search" placeholder="搜索书签..." type="text"/>
-</div>
-<button aria-label="切换深色模式" class="dark-btn" onclick="toggleDarkMode()">
-<i class="fas fa-moon"></i>
-</button>
-<a class="admin-link" href="admin.html">
-<i class="fas fa-cog"></i>
-</a>
-</div>
-</div>
-<div class="overlay" id="overlay"></div>
 <div class="container">
-<div class="sidebar" id="sidebar">
-<div class="sidebar-header">导航分类</div>
-<ul id="category-list">
-<!-- 动态生成分类 -->
-</ul>
-</div>
-<div class="main" id="bookmark-container">
-<div class="welcome-section">
-<div class="welcome-title">Ulefone Navigation</div>
-<div class="welcome-text">精心整理的书签资源，简约设计，高效访问。所有书签按类别整理，支持快速搜索。</div>
-<div class="stats-container">
-<div class="stat-card"><div class="stat-value">--</div><div class="stat-label">书签总数</div></div>
-<div class="stat-card"><div class="stat-value">--</div><div class="stat-label">分类</div></div>
-<div class="stat-card"><div class="stat-value">--</div><div class="stat-label">常用工具</div></div>
-</div>
-</div>
-</div>
+  <nav class="sidebar" id="sidebar">
+    <ul id="category-list"></ul>
+  </nav>
+  <main class="main" id="bookmark-container">
+    <div class="welcome-section" id="top">
+      <div class="welcome-title">Ulefone Navigation</div>
+      <div class="welcome-text">黑白灰极简风格书签导航，专注内容，便捷高效。</div>
+      <div class="stats-container">
+        <div class="stat-card"><div class="stat-value">--</div><div class="stat-label">书签</div></div>
+        <div class="stat-card"><div class="stat-value">--</div><div class="stat-label">分类</div></div>
+        <div class="stat-card"><div class="stat-value">--</div><div class="stat-label">工具</div></div>
+      </div>
+    </div>
+  </main>
 </div>
 <div class="footer">
-<div>简约书签导航 © 2023 - 高效工作，精致生活</div>
-<div style="font-size: 11px; margin-top: 8px; color: var(--text-tertiary);">
-<span>当前版本 v1.0.0</span> | 
-      <span>最后更新: 2023-10-15</span>
-</div>
+  <div>极简书签导航 © 2023-2025</div>
 </div>
 <script src="data.js"></script>
-<script>function createCard(item) {
+<script>
+// 生成单个卡片
+function createCard(item) {
   const domain = new URL(item.url).hostname;
-  return `
-    <a class="card" href="${item.url}" target="_blank">
-      <div class="card-header">
-        <div class="card-icon">
-          <img src="https://www.google.com/s2/favicons?sz=32&domain=${domain}" alt="${item.name}">
-        </div>
-        <div class="card-title">${item.name}</div>
+  return `<a class="card" href="${item.url}" target="_blank">
+    <div class="card-header">
+      <div class="card-icon">
+        <img src="https://www.google.com/s2/favicons?sz=64&domain=${domain}" alt="${item.name}">
       </div>
-      <div class="card-url">${domain}</div>
-    </a>
-  `;
+      <div class="card-title" title="${item.name}">${item.name}</div>
+    </div>
+    <div class="card-url">${domain}</div>
+  </a>`;
 }
-
+// 渲染侧边栏
 function renderSidebar(dataObj) {
   const ul = document.getElementById("category-list");
   ul.innerHTML = '';
-
   const allLi = document.createElement('li');
   allLi.classList.add('active');
-  allLi.innerHTML = `<div class="category-icon"><i class="fas fa-home"></i></div><span>全部</span>`;
+  allLi.innerHTML = `<span class="category-icon"><i class="fas fa-home"></i></span>全部`;
+  allLi.id = "allCategoryBtn";
   ul.appendChild(allLi);
-
   Object.keys(dataObj).forEach(key => {
     const li = document.createElement('li');
-    li.innerHTML = `<div class="category-icon"><i class="fas fa-folder"></i></div><span>${getCategoryName(key)}</span>`;
+    li.innerHTML = `<span class="category-icon"><i class="fas fa-folder"></i></span>${getCategoryName(key)}`;
     ul.appendChild(li);
   });
 }
-
+// 渲染分区
 function renderSections(dataObj) {
   const container = document.getElementById("bookmark-container");
   container.querySelectorAll(".section").forEach(sec => sec.remove());
-
-  Object.keys(dataObj).forEach(category => {
+  Object.keys(dataObj).forEach((category, idx) => {
     const section = document.createElement("div");
     section.className = "section";
     section.innerHTML = `
-      <div class="section-header">
-        <div class="section-icon"><i class="fas fa-folder"></i></div>
-        <h2>${getCategoryName(category)}</h2>
+      <div class="section-header" data-category="${category}" tabindex="0">
+        <span class="section-icon"><i class="fas fa-folder"></i></span>
+        <h2>${getCategoryName(category)}<span class="section-tip">双击打开全部</span></h2>
       </div>
       <div class="cards">
         ${dataObj[category].map(createCard).join('')}
@@ -617,109 +425,136 @@ function renderSections(dataObj) {
     `;
     container.appendChild(section);
   });
+  enableSectionHeaderTips();
+  enableSectionHeaderDblClick(dataObj);
 }
-
+function enableSectionHeaderTips() {
+  // 移动端（触摸）专用：触摸时显示tips，离开时隐藏
+  document.querySelectorAll('.section-header').forEach(header => {
+    let tip = header.querySelector('.section-tip');
+    if (!tip) return;
+    // 触摸时显示
+    header.addEventListener("touchstart", function() {
+      header.classList.add('show-tip');
+    });
+    // 触摸结束时隐藏
+    header.addEventListener("touchend", function() {
+      header.classList.remove('show-tip');
+    });
+    // 触摸移出时隐藏（有些设备需要）
+    header.addEventListener("touchcancel", function() {
+      header.classList.remove('show-tip');
+    });
+  });
+}
 function enableCategoryFiltering(dataObj) {
   const lis = document.querySelectorAll('#category-list li');
   const container = document.getElementById("bookmark-container");
-
   lis.forEach((li, index) => {
     li.addEventListener('click', () => {
       lis.forEach(i => i.classList.remove('active'));
       li.classList.add('active');
       container.querySelectorAll(".section").forEach(sec => sec.remove());
-
       if (index === 0) {
         renderSections(dataObj);
+        window.scrollTo({top: 0, behavior: 'auto'});
+        location.reload();
       } else {
         const key = Object.keys(dataObj)[index - 1];
         renderSections({ [key]: dataObj[key] });
       }
     });
-
-    li.addEventListener('dblclick', () => {
-      if (index === 0) {
-        Object.values(dataObj).flat().forEach(b => window.open(b.url, '_blank'));
-      } else {
-        const key = Object.keys(dataObj)[index - 1];
-        dataObj[key].forEach(b => window.open(b.url, '_blank'));
+  });
+}
+function enableSectionHeaderDblClick(dataObj) {
+  document.querySelectorAll('.section-header').forEach(header => {
+    header.addEventListener('dblclick', function(e) {
+      e.preventDefault();
+      const category = this.getAttribute('data-category');
+      if (dataObj[category]) {
+        dataObj[category].forEach(b => window.open(b.url, '_blank'));
+      }
+    });
+    // 回车键也可双击效果（无障碍）
+    header.addEventListener('keydown', function(e){
+      if (e.key === "Enter") {
+        const category = this.getAttribute('data-category');
+        if (dataObj[category]) {
+          dataObj[category].forEach(b => window.open(b.url, '_blank'));
+        }
       }
     });
   });
 }
-
 function loadDarkMode() {
-      if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-        document.querySelector('.dark-btn i').className = 'fas fa-sun';
-      }
+  const isDark = localStorage.getItem('darkMode') === 'enabled';
+  document.body.classList.toggle('dark-mode', isDark);
+  document.getElementById('darkToggle').innerHTML =
+      isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+}
+function toggleDarkMode() {
+  const isDark = !document.body.classList.contains('dark-mode');
+  document.body.classList.toggle('dark-mode', isDark);
+  document.getElementById('darkToggle').innerHTML =
+      isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+  localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+}
+document.addEventListener('DOMContentLoaded', () => {
+  loadDarkMode();
+  renderSidebar(data);
+  renderSections(data);
+  updateStats(data);
+  enableCategoryFiltering(data);
+  document.getElementById('logoBtn').addEventListener('click', function() {
+    window.scrollTo({top: 0, behavior: 'auto'});
+    location.reload();
+  });
+  document.getElementById('search').addEventListener('input', filterBookmarks);
+  document.getElementById('darkToggle').addEventListener('click', toggleDarkMode);
+  // 响应式菜单
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+  menuToggle && menuToggle.addEventListener('click', () => {
+    if (sidebar.style.display === "block") {
+      sidebar.style.display = "";
+    } else {
+      sidebar.style.display = "block";
     }
-
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      document.querySelector('.dark-btn i').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-      localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      loadDarkMode();
-      renderSidebar(data);
-      renderSections(data);
-      updateStats(data);
-      enableCategoryFiltering(data);
-
-      const firstLink = Object.values(data).flat()[0]?.url;
-      if (firstLink) {
-        const domain = new URL(firstLink).hostname;
-        document.getElementById('site-logo').src = `https://wangwenzhi.eu.org/images/ulefone-logo/logo.png`;
-      }
-
-      document.getElementById('search').addEventListener('input', filterBookmarks);
-
-      const menuToggle = document.getElementById('menuToggle');
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('overlay');
-
-      menuToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
-      });
-      overlay.addEventListener('click', () => {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-      });
-    });
-
-    function getCategoryName(key) {
-      const map = {
-        "ulefone": "Ulefone",
-        "work": "Work",
-        "effects": "Effects"
-      };
-      return map[key] || key;
-    }
-
-    function updateStats(dataObj) {
-      const total = Object.values(dataObj).flat().length;
-      const categories = Object.keys(dataObj).length;
-      const tools = dataObj['work']?.length || 0;
-      const stats = document.querySelectorAll('.stat-value');
-      if (stats.length >= 3) {
-        stats[0].textContent = total;
-        stats[1].textContent = categories;
-        stats[2].textContent = tools;
-      }
-    }
-
-    function filterBookmarks() {
-      const query = this.value.toLowerCase();
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        const title = card.querySelector('.card-title').textContent.toLowerCase();
-        const url = card.querySelector('.card-url').textContent.toLowerCase();
-        card.style.display = (title.includes(query) || url.includes(query)) ? 'flex' : 'none';
-      });
-    }</script>
+  });
+});
+function getCategoryName(key) {
+  const map = {
+    "ulefone": "Ulefone",
+    "work": "Work",
+    "effects": "Effects",
+    "video": "Video",
+    "images": "Images",
+    "3d": "3D",
+    "music": "Music",
+    "font": "Font"
+  };
+  return map[key.toLowerCase()] || key;
+}
+function updateStats(dataObj) {
+  const total = Object.values(dataObj).flat().length;
+  const categories = Object.keys(dataObj).length;
+  const tools = dataObj['work']?.length || 0;
+  const stats = document.querySelectorAll('.stat-value');
+  if (stats.length >= 3) {
+    stats[0].textContent = total;
+    stats[1].textContent = categories;
+    stats[2].textContent = tools;
+  }
+}
+function filterBookmarks() {
+  const query = this.value.toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    const title = card.querySelector('.card-title').textContent.toLowerCase();
+    const url = card.querySelector('.card-url').textContent.toLowerCase();
+    card.style.display = (title.includes(query) || url.includes(query)) ? 'flex' : 'none';
+  });
+}
+</script>
 </body>
 </html>
