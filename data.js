@@ -293,28 +293,6 @@ const data = {
       "url": "https://moi3d.com/"
     }
   ],
-  "Effects": [
-    {
-      "name": "千库网",
-      "url": "https://www.588ku.com"
-    },
-    {
-      "name": "OpenClash",
-      "url": "http://192.168.4.5:9090/ui/dashboard/#/proxies?host=192.168.4.5&port=9090&secret=GnDCxHeL"
-    },
-    {
-      "name": "GFXCamp",
-      "url": "https://www.gfxcamp.com"
-    },
-    {
-      "name": "doyoudo",
-      "url": "https://www.doyoudo.com/"
-    },
-    {
-      "name": "Anyconv",
-      "url": "https://anyconv.com/"
-    }
-  ],
   "Font": [
     {
       "name": "Misanse",
@@ -401,6 +379,44 @@ const data = {
     {
       "name": "Xaudiopro",
       "url": "https://www.xaudiopro.com/aivoice/"
+    }
+  ],
+  "Other": [
+    {
+      "name": "千库网",
+      "url": "https://www.588ku.com"
+    },
+    {
+      "name": "doyoudo",
+      "url": "https://www.doyoudo.com/"
+    },
+    {
+      "name": "Anyconv",
+      "url": "https://anyconv.com/"
+    },
+    {
+      "name": "Jpsmile",
+      "url": "https://jpsmile.com/"
+    },
+    {
+      "name": "GFXCamp",
+      "url": "https://www.gfxcamp.com"
+    },
+    {
+      "name": "Lookae",
+      "url": "https://www.lookae.com/"
+    },
+    {
+      "name": "Talkae",
+      "url": "https://www.talkae.com/"
+    },
+    {
+      "name": "Sucaitu",
+      "url": "https://www.sucaitu.cc/"
+    },
+    {
+      "name": "OpenClash",
+      "url": "http://192.168.4.5:9090/ui/dashboard/#/proxies?host=192.168.4.5&port=9090&secret=GnDCxHeL"
     }
   ]
 };
