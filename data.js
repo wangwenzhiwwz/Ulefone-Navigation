@@ -315,28 +315,6 @@ const data = {
       "url": "https://anyconv.com/"
     }
   ],
-  "Music": [
-    {
-      "name": "Polyhaven",
-      "url": "https://polyhaven.com/"
-    },
-    {
-      "name": "影视飓风",
-      "url": "https://www.ysjf.com/home"
-    },
-    {
-      "name": "电影色彩",
-      "url": "https://film-grab.com/"
-    },
-    {
-      "name": "Pexels",
-      "url": "https://www.pexels.com/videos/"
-    },
-    {
-      "name": "Pixabay",
-      "url": "https://pixabay.com/zh/videos/"
-    }
-  ],
   "Font": [
     {
       "name": "Misanse",
@@ -347,16 +325,82 @@ const data = {
       "url": "https://www.dafont.com/batman-forever.font"
     },
     {
-      "name": "得意黑",
+      "name": "Smiley-sans",
       "url": "https://atelier-anchor.com/typefaces/smiley-sans"
     },
     {
-      "name": "Pexels",
-      "url": "https://www.pexels.com/videos/"
+      "name": "Hellofont",
+      "url": "https://www.hellofont.cn/font-ai"
     },
     {
-      "name": "Pixabay",
-      "url": "https://pixabay.com/zh/videos/"
+      "name": "Qiuziti",
+      "url": "https://www.qiuziti.com/"
+    },
+    {
+      "name": "100font",
+      "url": "https://www.100font.com/"
+    },
+    {
+      "name": "Maoken",
+      "url": "https://www.maoken.com/"
+    },
+    {
+      "name": "Homefont",
+      "url": "https://www.homefont.cn/"
+    },
+    {
+      "name": "Googlefonts",
+      "url": "http://www.googlefonts.cn/"
+    },
+    {
+      "name": "Myfonts",
+      "url": "https://www.myfonts.com/pages/whatthefont"
+    },
+    {
+      "name": "Famfonts",
+      "url": "https://famfonts.com/tv/#"
+    },
+    {
+      "name": "Fontsquirrel",
+      "url": "https://www.fontsquirrel.com/"
+    }
+  ],
+  "Audio": [
+    {
+      "name": "Freetts",
+      "url": "https://freetts.com/text-to-speech"
+    },
+    {
+      "name": "Aigei",
+      "url": "https://www.aigei.com/"
+    },
+    {
+      "name": "Tosound",
+      "url": "https://www.tosound.com/search/word-/filter-2"
+    },
+    {
+      "name": "Soundcloud",
+      "url": "https://soundcloud.com/"
+    },
+    {
+      "name": "Bensound",
+      "url": "https://www.bensound.com/"
+    },
+    {
+      "name": "Musicbed",
+      "url": "https://www.musicbed.com/"
+    },
+    {
+      "name": "Fiftysounds",
+      "url": "https://www.fiftysounds.com/"
+    },
+    {
+      "name": "Envato",
+      "url": "https://elements.envato.com/audio"
+    },
+    {
+      "name": "Xaudiopro",
+      "url": "https://www.xaudiopro.com/aivoice/"
     }
   ]
 };
