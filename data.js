@@ -5,6 +5,18 @@ const data = {
       "url": "https://www.ulefone.com/"
     },
     {
+      "name": "Youtube",
+      "url": "https://www.youtube.com/@Ulefone/videos"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/ulefone.global/"
+    },
+    {
+      "name": "Tiktok",
+      "url": "https://www.tiktok.com/@ulefone"
+    },
+    {
       "name": "Teambition",
       "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
     },
