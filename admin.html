@@ -410,6 +410,9 @@ pre#dataView {
     <button class="fab-btn" onclick="addCategory()" title="新建分类"><span>➕</span>新建分类</button>
     <button class="fab-btn" onclick="downloadData()" title="导出 data.js"><span>⬇️</span>导出 data.js</button>
     <button class="fab-btn" onclick="copyToClipboard()" title="复制 data.js"><span>📋</span>复制 data.js</button>
+    <button class="fab-btn" onclick="uploadToGithub()" title="上传到 GitHub">
+      <span>⬆️</span>上传到 GitHub
+    </button>
   </div>
 <script>
 // 获取 url 域名
@@ -740,6 +743,9 @@ function downloadData() {
 function copyToClipboard() {
   const content = generateDataFileContent();
   navigator.clipboard.writeText(content).then(() => alert("已复制"));
+}
+function uploadToGithub() {
+  window.open("https://github.com/wangwenzhiwwz/Ulefone-Navigation/upload/main", "_blank");
 }
 function addCategory() {
   let base = "新分类";
