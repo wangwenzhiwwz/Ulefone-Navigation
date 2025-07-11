@@ -4,211 +4,673 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>书签管理</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,500,700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" sizes="32x32" type="image/png"/>
   <style>
 :root {
-  --bg: #f9f9f9;
+  --primary: #606060;
+  --primary-dark: #252525;
+  --primary-light: #e2e2e2;
+  --danger: #f44336;
+  --danger-bg: #ffebee;
+  --bg: #ffffff;
   --text: #222;
-  --border: #ccc;
-  --accent: #333;
-  --hover: #555;
   --card: #fff;
+  --border: #e0e3ea;
+  --radius: 14px;
+  --shadow: 0 2px 8px rgba(60, 80, 120, 0.07);
+  --transition: 0.18s cubic-bezier(.4,0,.2,1);
 }
 body.dark {
-  --bg: #181818;
-  --text: #f0f0f0;
-  --border: #444;
-  --accent: #bbb;
-  --hover: #fff;
-  --card: #222;
+  --primary: #252525;
+  --primary-dark: #21223a;
+  --primary-light: #23263a;
+  --danger: #ef9a9a;
+  --danger-bg: #301d1d;
+  --bg: #181b24;
+  --text: #e0e4ef;
+  --card: #23263a;
+  --border: #262b3c;
+  --shadow: 0 2px 8px rgba(30,36,60,0.18);
 }
 body {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
   margin: 0;
-  padding: 0;
+  min-height: 100vh;
+  transition: background 0.4s, color 0.4s;
 }
-button, input {
-  font-family: inherit;
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--primary-dark);
 }
 .header {
-  background: var(--accent);
+  background: var(--primary);
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.8rem 0;
+  box-shadow: 0 2px 12px rgba(63,81,181,0.08);
+}
+.header-content {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.header-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 1rem;
+  letter-spacing: 2px;
+}
+.header-actions {
+  display: flex;
+  gap: 1rem;
   align-items: center;
 }
-.header a {
+.theme-btn {
+  border: none;
+  background: rgba(255,255,255,0.07);
   color: white;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  width: 2.3rem;
+  height: 2.3rem;
+  cursor: pointer;
+  transition: background var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-btn:hover {
+  background: rgba(255,255,255,0.18);
+}
+.return-btn {
+  background: rgba(255,255,255,0.07);
+  border: none;
+  color: white;
+  font-size: 1.18rem;
+  border-radius: 50%;
+  width: 2.3rem;
+  height: 2.3rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
   text-decoration: none;
-  font-size: 1rem;
+}
+.return-btn:hover {
+  background: var(--primary-dark);
+  color: #fff;
 }
 .container {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
+  max-width: 1100px;
+  margin: 2.5rem auto 0 auto;
+  padding: 0 1.5rem 2rem 1.5rem;
 }
-.category-block {
+.toolbar {
+  display: none;
+}
+
+/* 悬浮按钮组 */
+.fab-group {
+  position: fixed;
+  left: 2.2rem;
+  bottom: 2.2rem;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+.fab-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  padding: 0.7rem 1.5rem 0.7rem 1.1rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  transition: background var(--transition), box-shadow var(--transition);
+  min-width: 0;
+}
+.fab-btn:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 6px 18px #3f51b544;
+}
+.fab-btn span {
+  font-size: 1.3em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.category-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+@media (max-width: 900px) {
+  .category-list {
+    grid-template-columns: 1fr;
+  }
+}
+.category-card {
   background: var(--card);
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0;
+  border: 1px solid var(--border);
+  transition: box-shadow var(--transition), border var(--transition);
   position: relative;
-}
-.drag-handle {
-  cursor: grab;
-  font-size: 1.2rem;
-  margin-right: 0.75rem;
-  user-select: none;
+  overflow: hidden;
+  min-width: 0;
 }
 .category-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  cursor: pointer;
+  justify-content: space-between;
+  padding: 1.1rem 1.4rem 1rem 1.4rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--primary-light);
 }
-.category-left {
+.category-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 1;
+}
+.drag-handle {
+  cursor: grab;
+  color: var(--primary-dark);
+  user-select: none;
+  font-size: 1.25rem;
+  opacity: 0.75;
+  transition: color var(--transition);
+}
+.category-name-input {
+  font-size: 1.1rem;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  padding: 0.12em 0.6em;
+  border-radius: 6px;
+  transition: background var(--transition);
+  max-width: 200px;
+}
+.category-name-input:focus {
+  outline: 2px solid var(--primary);
+  background: #f0f5ff;
+}
+.category-header-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.category-header input {
-  font-size: 1rem;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid var(--border);
+.delete-category-btn {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: none;
   border-radius: 6px;
-  background: var(--bg);
-  color: var(--text);
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  font-size: 1.07rem;
+  transition: background var(--transition);
+}
+.delete-category-btn:hover {
+  background: var(--danger);
+  color: white;
 }
 .category-content {
-  margin-top: 1rem;
+  padding: 1.1rem 1.4rem 1.2rem 1.4rem;
+  background: var(--card);
+}
+.bookmark-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
 .bookmark-item {
   display: flex;
   align-items: center;
-  margin: 0.5rem 0;
-  gap: 0.5rem;
+  gap: 0.7rem;
+  background: none;
+  border-radius: 7px;
+  transition: background 0.19s, box-shadow 0.19s, opacity 0.19s;
+  padding: 0.33em 0 0.33em 0.45em;
 }
-.bookmark-item a {
-  color: var(--accent);
+.bookmark-item.dragging {
+  opacity: 0.5;
+  background: #c5cae9;
+}
+.bookmark-item.over {
+  outline: 2px dashed var(--primary);
+}
+.bookmark-item:hover {
+  background: var(--primary-light);
+}
+.bookmark-drag {
+  cursor: grab;
+  font-size: 1.18rem;
+  color: var(--primary-dark);
+  opacity: 0.85;
+  margin-right: 0.2rem;
+  user-select: none;
+}
+.bookmark-favicon {
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 7px;
+  background: #fff;
+  width: 18px;
+  height: 18px;
+}
+.bookmark-link {
+  flex: 1;
+  font-size: 1.05rem;
+  color: var(--primary-dark);
   text-decoration: none;
-  flex: 1;
   word-break: break-all;
+  transition: color var(--transition);
+  font-weight: 500;
 }
-.bookmark-item input {
+.bookmark-link:hover { color: var(--primary); }
+.bookmark-edit-input,
+.bookmark-edit-url {
   flex: 1;
-}
-button {
-  padding: 0.4rem 0.8rem;
+  font-size: 1.01rem;
+  border: 1px solid var(--border);
   border-radius: 6px;
+  padding: 0.22em 0.7em;
+  margin-right: 0.2em;
+  background: var(--primary-light);
+  color: var(--text);
+  transition: border var(--transition);
+}
+.bookmark-edit-input:focus, .bookmark-edit-url:focus {
+  outline: 2px solid var(--primary);
+  border-color: var(--primary);
+  background: #e8f0fe;
+}
+.bookmark-item button {
+  background: none;
   border: none;
+  color: var(--primary-dark);
+  font-size: 1.13rem;
   cursor: pointer;
-  background: var(--accent);
+  padding: 0.28em 0.6em;
+  border-radius: 5px;
+  transition: background var(--transition), color var(--transition);
+}
+.bookmark-item button:hover {
+  background: var(--primary);
   color: white;
 }
-button.cancel {
-  background: var(--border);
-  color: black;
+.bookmark-item .delete-btn {
+  color: var(--danger);
 }
-.actions {
-  margin: 1rem 0;
+.bookmark-item .delete-btn:hover {
+  background: var(--danger);
+  color: white;
+}
+.add-bookmark-form {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 0.85rem;
+  padding-left: 0.2em;
 }
+.add-bookmark-form input {
+  flex: 1;
+  font-size: 1.01rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.22em 0.7em;
+  background: var(--primary-light);
+  transition: border var(--transition);
+}
+.add-bookmark-form input:focus {
+  outline: 2px solid var(--primary);
+  border-color: var(--primary);
+  background: #e8f0fe;
+}
+.add-bookmark-form button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 0.38rem 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.add-bookmark-form button:hover {
+  background: var(--primary-dark);
+}
+
 pre#dataView {
   white-space: pre-wrap;
   word-break: break-word;
-  background: #444;
-  color: #eee;
-  padding: 1rem;
-  border-radius: 8px;
+  background: #23263a;
+  color: #e0e4ef;
+  padding: 1.2rem;
+  border-radius: 12px;
   overflow: auto;
+  font-size: 0.99rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
 }
+@media (max-width: 600px) {
+  .header-content, .container { padding: 0 0.5rem; }
+  .category-header, .category-content { padding-left: 0.7rem; padding-right: 0.7rem; }
+  .category-header { font-size: 1rem; }
+  .category-list { grid-template-columns: 1fr; }
+  .fab-group { left: 0.7rem; bottom: 1rem; }
+}
+::-webkit-scrollbar { width: 9px; background: var(--bg);}
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px;}
   </style>
   <script src="data.js"></script>
 </head>
 <body>
   <div class="header">
-    <a href="index.html">← 返回主页</a>
-    <h1>书签管理</h1>
-    <button onclick="toggleTheme()">🌓 切换主题</button>
+    <div class="header-content">
+      <a href="index.html" class="return-btn" title="返回主页">←</a>
+      <span class="header-title">书签管理</span>
+      <div class="header-actions">
+        <button class="theme-btn" onclick="toggleTheme()" title="切换主题">🌓</button>
+      </div>
+    </div>
   </div>
   <div class="container">
-    <div id="bookmark-list"></div>
-    <div class="actions">
-      <button onclick="addCategory()">添加分类</button>
-      <button onclick="downloadData()">下载 data.js</button>
-      <button onclick="copyToClipboard()">复制 data.js</button>
-    </div>
-    <h2>当前数据</h2>
+    <div class="toolbar"></div>
+    <div class="category-list" id="bookmark-list"></div>
+    <h2 style="margin-top:2.7rem;margin-bottom:1rem;font-weight:600;font-size:1.2rem;color:var(--primary);letter-spacing:1px;">当前数据</h2>
     <pre id="dataView">(数据加载中...)</pre>
   </div>
-
+  <div class="fab-group">
+    <button class="fab-btn" onclick="addCategory()" title="新建分类"><span>➕</span>新建分类</button>
+    <button class="fab-btn" onclick="downloadData()" title="导出 data.js"><span>⬇️</span>导出 data.js</button>
+    <button class="fab-btn" onclick="copyToClipboard()" title="复制 data.js"><span>📋</span>复制 data.js</button>
+  </div>
 <script>
+// 获取 url 域名
+function getDomain(url) {
+  try {
+    return new URL(url).hostname;
+  } catch {
+    return '';
+  }
+}
+
 let isDark = false;
 let bookmarksData = data;
+let editingBookmark = null;
 
 window.onload = () => {
   renderBookmarkList();
   document.getElementById("dataView").textContent = generateDataFileContent();
-  enableDragSort();
+  enableCategoryDragSort();
 };
 
-function toggleTheme() {
-  isDark = !isDark;
-  document.body.classList.toggle("dark", isDark);
-}
+// 渲染时只负责渲染，拖拽事件每次渲染后都重新挂载（不会事件多次绑定）
 function renderBookmarkList() {
   const container = document.getElementById("bookmark-list");
   container.innerHTML = '';
   Object.entries(bookmarksData).forEach(([category, bookmarks]) => {
     const block = document.createElement("div");
-    block.className = "category-block";
+    block.className = "category-card";
     block.dataset.cat = category;
 
     block.innerHTML = `
       <div class="category-header" onclick="toggleFold('${category}')">
-        <div class="category-left">
-          <span class="drag-handle" draggable="true" title="拖动排序">☰</span>
-          <input id="cat-${category}" value="${category}" onchange="renameCategory('${category}')" />
+        <div class="category-header-left">
+          <span class="drag-handle" draggable="true" title="拖动分类排序">☰</span>
+          <input class="category-name-input" id="cat-${category}" value="${category}" onchange="renameCategory('${category}')" />
         </div>
-        <span>
-          <button onclick="event.stopPropagation(); deleteCategory('${category}')">🗑️</button>
-        </span>
+        <div class="category-header-actions">
+          <button class="delete-category-btn" onclick="event.stopPropagation(); deleteCategory('${category}')" title="删除分类">🗑️</button>
+        </div>
       </div>
-      <div class="category-content" id="content-${category}"></div>
+      <div class="category-content" id="content-${category}">
+        <div class="bookmark-list"></div>
+        <form class="add-bookmark-form" onsubmit="event.preventDefault(); addBookmark('${category}')">
+          <input type="text" placeholder="书签名称" id="name-${category}" autocomplete="off" />
+          <input type="text" placeholder="网址" id="url-${category}" autocomplete="off" />
+          <button type="submit">添加</button>
+        </form>
+      </div>
     `;
 
-    const content = block.querySelector(".category-content");
+    const content = block.querySelector(".bookmark-list");
     bookmarks.forEach((b, i) => {
       const item = document.createElement("div");
       item.className = "bookmark-item";
-      item.innerHTML = `
-        <a href="${b.url}" target="_blank">${b.name}</a>
-        <button onclick="startEditBookmark('${category}', ${i})">✏️</button>`;
+      item.dataset.idx = i;
+      if (editingBookmark && editingBookmark.cat === category && editingBookmark.idx === i) {
+        item.innerHTML = `
+          <input class="bookmark-edit-input" type="text" id="edit-name-${category}-${i}" value="${b.name}" />
+          <input class="bookmark-edit-url" type="text" id="edit-url-${category}-${i}" value="${b.url}" />
+          <button type="button" onclick="saveBookmark('${category}', ${i})" title="保存">✅</button>
+          <button type="button" onclick="cancelEditBookmark()" title="取消">❌</button>
+        `;
+        content.appendChild(item);
+        setTimeout(() => {
+          document.getElementById(`edit-name-${category}-${i}`).focus();
+          document.getElementById(`edit-name-${category}-${i}`).onkeydown = (e) => {
+            if (e.key === "Enter") document.getElementById(`edit-url-${category}-${i}`).focus();
+            if (e.key === "Escape") cancelEditBookmark();
+          };
+          document.getElementById(`edit-url-${category}-${i}`).onkeydown = (e) => {
+            if (e.key === "Enter") saveBookmark(category, i);
+            if (e.key === "Escape") cancelEditBookmark();
+          };
+        }, 0);
+      } else {
+        item.innerHTML = `
+          <span class="bookmark-drag" draggable="true" title="拖动调整标签顺序">☰</span>
+          <img class="bookmark-favicon" src="https://www.google.com/s2/favicons?sz=32&domain=${getDomain(b.url)}" alt="${b.name}">
+          <a class="bookmark-link" href="${b.url}" target="_blank" tabindex="0">${b.name}</a>
+          <button type="button" onclick="startEditBookmark('${category}', ${i})" title="编辑">✏️</button>
+          <button type="button" class="delete-btn" onclick="deleteBookmark('${category}', ${i})" title="删除">🗑️</button>
+        `;
+      }
       content.appendChild(item);
     });
 
-    const addForm = document.createElement("div");
-    addForm.className = "bookmark-item";
-    addForm.innerHTML = `
-      <input type="text" placeholder="书签名称" id="name-${category}"/>
-      <input type="text" placeholder="网址" id="url-${category}"/>
-      <button onclick="addBookmark('${category}')">添加</button>`;
-    content.appendChild(addForm);
+    setTimeout(() => {
+      const nameInput = document.getElementById(`name-${category}`);
+      const urlInput = document.getElementById(`url-${category}`);
+      if (nameInput && urlInput) {
+        nameInput.onkeydown = (e) => {
+          if (e.key === "Enter") urlInput.focus();
+        };
+        urlInput.onkeydown = (e) => {
+          if (e.key === "Enter") addBookmark(category);
+        };
+      }
+    }, 0);
 
     container.appendChild(block);
+  });
+  editingBookmark = null;
+  enableAllBookmarkDragSort(); // 渲染后立即挂载拖拽事件
+}
+
+// 拖拽排序时，只操作DOM，不操作数据，只有在 drop 事件时才同步数据和重渲染
+function enableAllBookmarkDragSort() {
+  document.querySelectorAll('.bookmark-list').forEach(listDom => {
+    // 先移除所有老事件
+    listDom.replaceWith(listDom.cloneNode(true));
+  });
+  document.querySelectorAll('.bookmark-list').forEach(listDom => {
+    const cat = listDom.closest('.category-card').dataset.cat;
+    let dragging = null;
+    let draggingIdx = null;
+    let placeholder = null;
+    listDom.addEventListener("dragstart", (e) => {
+      if (!e.target.classList.contains("bookmark-drag")) return;
+      dragging = e.target.closest(".bookmark-item");
+      draggingIdx = +dragging.dataset.idx;
+      dragging.classList.add("dragging");
+      dragging.style.zIndex = "10";
+      placeholder = document.createElement("div");
+      placeholder.className = "bookmark-item";
+      placeholder.style.height = dragging.offsetHeight + "px";
+      placeholder.style.background = "rgba(63,81,181,0.09)";
+      dragging.parentNode.insertBefore(placeholder, dragging.nextSibling);
+    });
+    listDom.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      if (!dragging) return;
+      let after = null;
+      for (const el of listDom.children) {
+        if (!el.classList.contains("bookmark-item")) continue;
+        if (el === dragging || el === placeholder) continue;
+        const box = el.getBoundingClientRect();
+        if (e.clientY < box.top + box.height / 2) {
+          after = el;
+          break;
+        }
+      }
+      if (after && after !== placeholder) {
+        listDom.insertBefore(placeholder, after);
+      } else if (!after) {
+        listDom.appendChild(placeholder);
+      }
+    });
+    listDom.addEventListener("drop", (e) => {
+      if (!dragging) return;
+      // 先算出新的顺序
+      const items = Array.from(listDom.children).filter(el => el.classList.contains("bookmark-item") && el !== dragging);
+      const newArr = [];
+      let inserted = false;
+      for (const el of items) {
+        if (el === placeholder && !inserted) {
+          newArr.push(bookmarksData[cat][draggingIdx]);
+          inserted = true;
+        }
+        if (el !== placeholder) {
+          const idx = +el.dataset.idx;
+          newArr.push(bookmarksData[cat][idx]);
+        }
+      }
+      // 若拖到最后
+      if (!inserted) newArr.push(bookmarksData[cat][draggingIdx]);
+      bookmarksData[cat] = newArr;
+      dragging.classList.remove("dragging");
+      dragging.style.zIndex = "";
+      if (placeholder && placeholder.parentNode) placeholder.parentNode.removeChild(placeholder);
+      dragging = null;
+      draggingIdx = null;
+      placeholder = null;
+      setTimeout(() => {
+        renderBookmarkList();
+        document.getElementById("dataView").textContent = generateDataFileContent();
+      }, 0);
+    });
+    listDom.addEventListener("dragend", () => {
+      if (dragging) {
+        dragging.classList.remove("dragging");
+        dragging.style.zIndex = "";
+      }
+      if (placeholder && placeholder.parentNode) placeholder.parentNode.removeChild(placeholder);
+      dragging = null;
+      draggingIdx = null;
+      placeholder = null;
+    });
+  });
+}
+
+function enableCategoryDragSort() {
+  let dragging = null;
+  const container = document.getElementById("bookmark-list");
+  let placeholder = null;
+  container.addEventListener("dragstart", e => {
+    if (!e.target.classList.contains("drag-handle")) return;
+    const block = e.target.closest(".category-card");
+    const cat = block?.dataset.cat;
+    const folded = document.getElementById(`content-${cat}`).style.display === 'none';
+    if (folded) {
+      dragging = block;
+      block.style.opacity = 0.5;
+      placeholder = document.createElement("div");
+      placeholder.className = "category-card";
+      placeholder.style.height = block.offsetHeight + "px";
+      placeholder.style.background = "rgba(63,81,181,0.10)";
+      block.parentNode.insertBefore(placeholder, block.nextSibling);
+    } else {
+      e.preventDefault();
+    }
+  });
+  container.addEventListener("dragover", e => {
+    e.preventDefault();
+    if (!dragging) return;
+    let after = null;
+    for (const el of container.children) {
+      if (el === dragging || el === placeholder) continue;
+      const box = el.getBoundingClientRect();
+      if (e.clientY < box.top + box.height / 2) {
+        after = el;
+        break;
+      }
+    }
+    if (after && after !== placeholder) {
+      container.insertBefore(placeholder, after);
+    } else if (!after) {
+      container.appendChild(placeholder);
+    }
+  });
+  container.addEventListener("drop", () => {
+    if (!dragging) return;
+    const newOrder = {};
+    const arr = [];
+    for (const el of container.children) {
+      if (el === dragging) continue;
+      if (el.classList.contains("category-card")) arr.push(el.dataset.cat);
+      else if (el === placeholder) arr.push(dragging.dataset.cat);
+    }
+    for (const cat of arr) {
+      newOrder[cat] = bookmarksData[cat];
+    }
+    bookmarksData = newOrder;
+    dragging.style.opacity = "";
+    if (placeholder && placeholder.parentNode) placeholder.parentNode.removeChild(placeholder);
+    dragging = null;
+    placeholder = null;
+    renderBookmarkList();
+    document.getElementById("dataView").textContent = generateDataFileContent();
+  });
+  container.addEventListener("dragend", () => {
+    if (dragging) dragging.style.opacity = "";
+    if (placeholder && placeholder.parentNode) placeholder.parentNode.removeChild(placeholder);
+    dragging = null;
+    placeholder = null;
   });
 }
 
 function toggleFold(category) {
   const el = document.getElementById(`content-${category}`);
-  if (el) el.style.display = el.style.display === 'none' ? '' : 'none';
+  if (el) el.style.display = el.style.display === 'none' ? '' : '';
 }
-
 function renameCategory(oldName) {
   const input = document.getElementById(`cat-${oldName}`);
   const newName = input.value.trim();
@@ -223,37 +685,40 @@ function renameCategory(oldName) {
   renderBookmarkList();
   document.getElementById("dataView").textContent = generateDataFileContent();
 }
-
 function addBookmark(cat) {
-  const name = document.getElementById(`name-${cat}`).value;
-  const url = document.getElementById(`url-${cat}`).value;
+  const name = document.getElementById(`name-${cat}`).value.trim();
+  const url = document.getElementById(`url-${cat}`).value.trim();
   if (!name || !url) return alert("请填写完整");
   bookmarksData[cat].push({ name, url });
   renderBookmarkList();
   document.getElementById("dataView").textContent = generateDataFileContent();
+  setTimeout(() => {
+    document.getElementById(`name-${cat}`).focus();
+  }, 0);
 }
-
 function startEditBookmark(cat, idx) {
-  const container = document.querySelector(`.category-block[data-cat="${cat}"] .category-content`);
-  const itemDivs = container.querySelectorAll(".bookmark-item");
-  const div = itemDivs[idx];
-
-  const current = bookmarksData[cat][idx];
-  div.innerHTML = `
-    <input type="text" id="edit-name-${cat}-${idx}" value="${current.name}" />
-    <input type="text" id="edit-url-${cat}-${idx}" value="${current.url}" />
-    <button onclick="saveBookmark('${cat}', ${idx})">✅</button>
-    <button class="cancel" onclick="renderBookmarkList()">❌</button>
-  `;
+  editingBookmark = {cat, idx};
+  renderBookmarkList();
 }
-
 function saveBookmark(cat, idx) {
   const name = document.getElementById(`edit-name-${cat}-${idx}`).value.trim();
   const url = document.getElementById(`edit-url-${cat}-${idx}`).value.trim();
   if (!name || !url) return;
   bookmarksData[cat][idx] = { name, url };
+  editingBookmark = null;
   renderBookmarkList();
   document.getElementById("dataView").textContent = generateDataFileContent();
+}
+function cancelEditBookmark() {
+  editingBookmark = null;
+  renderBookmarkList();
+}
+function deleteBookmark(cat, idx) {
+  if (confirm("确定删除该书签吗？")) {
+    bookmarksData[cat].splice(idx, 1);
+    renderBookmarkList();
+    document.getElementById("dataView").textContent = generateDataFileContent();
+  }
 }
 function deleteCategory(name) {
   if (confirm(`确定删除分类 "${name}" 吗？`)) {
@@ -262,11 +727,9 @@ function deleteCategory(name) {
     document.getElementById("dataView").textContent = generateDataFileContent();
   }
 }
-
 function generateDataFileContent() {
   return "const data = " + JSON.stringify(bookmarksData, null, 2) + ";";
 }
-
 function downloadData() {
   const blob = new Blob([generateDataFileContent()], { type: "application/javascript" });
   const a = document.createElement("a");
@@ -274,56 +737,24 @@ function downloadData() {
   a.download = "data.js";
   a.click();
 }
-
 function copyToClipboard() {
   const content = generateDataFileContent();
   navigator.clipboard.writeText(content).then(() => alert("已复制"));
 }
-
-function enableDragSort() {
-  let dragging = null;
-  const container = document.getElementById("bookmark-list");
-
-  container.addEventListener("dragstart", e => {
-    if (!e.target.classList.contains("drag-handle")) return;
-    const block = e.target.closest(".category-block");
-    const cat = block?.dataset.cat;
-    const folded = document.getElementById(`content-${cat}`).style.display === 'none';
-    if (folded) {
-      dragging = block;
-      block.classList.add("dragging");
-    } else {
-      e.preventDefault();
-    }
-  });
-
-  container.addEventListener("dragover", e => {
-    e.preventDefault();
-    if (!dragging) return;
-    const after = [...container.children].find(el => {
-      const box = el.getBoundingClientRect();
-      return e.clientY < box.top + box.height / 2;
-    });
-    if (after && after !== dragging) {
-      container.insertBefore(dragging, after);
-    } else {
-      container.appendChild(dragging);
-    }
-  });
-
-  container.addEventListener("drop", () => {
-    if (!dragging) return;
-    const newOrder = {};
-    [...container.children].forEach(el => {
-      const cat = el.dataset.cat;
-      newOrder[cat] = bookmarksData[cat];
-    });
-    bookmarksData = newOrder;
-    dragging.classList.remove("dragging");
-    dragging = null;
-    renderBookmarkList();
-    document.getElementById("dataView").textContent = generateDataFileContent();
-  });
+function addCategory() {
+  let base = "新分类";
+  let num = 1;
+  let name = base;
+  while (bookmarksData[name]) {
+    name = base + (++num);
+  }
+  bookmarksData[name] = [];
+  renderBookmarkList();
+  setTimeout(() => {
+    document.getElementById(`cat-${name}`).focus();
+    document.getElementById(`cat-${name}`).select();
+  }, 0);
+  document.getElementById("dataView").textContent = generateDataFileContent();
 }
 </script>
 </body>
