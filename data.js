@@ -33,10 +33,6 @@ const data = {
       "url": "https://web.mediastory.cc/#/"
     },
     {
-      "name": "Milanote",
-      "url": "https://milanote.com/"
-    },
-    {
       "name": "Artlist.io",
       "url": "https://artlist.io"
     },
@@ -49,16 +45,8 @@ const data = {
       "url": "https://mail.yandex.com/"
     },
     {
-      "name": "企业邮箱",
-      "url": "https://work.weixin.qq.com/mail/"
-    },
-    {
       "name": "QQ邮箱",
       "url": "https://mail.qq.com/"
-    },
-    {
-      "name": "APP",
-      "url": "https://app.wwz.im/#android"
     }
   ],
   "Work": [
@@ -429,6 +417,22 @@ const data = {
     {
       "name": "Sony",
       "url": "https://www.sony.rs/electronics/support/software/00263050"
+    },
+    {
+      "name": "APP",
+      "url": "https://app.wwz.im/#android"
+    },
+    {
+      "name": "Mail",
+      "url": "https://work.weixin.qq.com/mail/"
+    },
+    {
+      "name": "Milanote",
+      "url": "https://milanote.com/"
+    },
+    {
+      "name": "Drive",
+      "url": "https://drive.google.com/drive/u/0/home"
     },
     {
       "name": "OpenClash",
