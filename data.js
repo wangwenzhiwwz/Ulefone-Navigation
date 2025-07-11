@@ -417,6 +417,10 @@ const data = {
     {
       "name": "OpenClash",
       "url": "http://192.168.4.5:9090/ui/dashboard/#/proxies?host=192.168.4.5&port=9090&secret=GnDCxHeL"
+    },
+    {
+      "name": "Sony",
+      "url": "https://www.sony.rs/electronics/support/software/00263050"
     }
   ]
 };
