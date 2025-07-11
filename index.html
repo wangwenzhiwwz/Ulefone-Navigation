@@ -9,10 +9,10 @@
 :root {
   --bg: #fff;
   --fg: #181818;
-  --muted: #aaa;
+  --muted: #bcbcbc;
   --border: #e6e6e6;
   --accent: #181818;
-  --radius: 16px;
+  --radius: 20px;
   --shadow: 0 1px 8px 0 rgba(24,24,24,0.02);
   --header-height: 56px;
   --sidebar-width: 210px;
@@ -56,15 +56,14 @@ a:active, a:focus, a:hover {color: var(--accent);}
 .logo {
   height: 38px; 
   width: auto; 
-  min-width: 120px;
-  max-width: 180px;
+  min-width: 130px;
+  max-width: 200px;
   display: flex; align-items: center; justify-content: flex-start;
   border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
-  background: #fff;
 }
-body.dark-mode .logo {background: #232323;}
+
 .logo img {
   height: 100%; 
   width: auto; 
@@ -139,7 +138,7 @@ body.dark-mode .dark-btn:hover, body.dark-mode .admin-link:hover {background: #2
 #category-list li {
   width: 100%;
   font-size: 15px;
-  color: var(--muted);
+  color: var(--fg);
   background: none;
   border: none;
   display: flex; align-items: center; justify-content: flex-start;
@@ -154,7 +153,7 @@ body.dark-mode .dark-btn:hover, body.dark-mode .admin-link:hover {background: #2
   box-sizing: border-box;
 }
 #category-list li .category-icon {
-  margin-right: 10px; font-size: 18px; color: #bdbdbd; width: 22px; display: flex; align-items: center; justify-content: center;
+  margin-right: 10px; font-size: 15px; color: #505050; width: 22px; display: flex; align-items: center; justify-content: center;
 }
 #category-list li.active, #category-list li:hover {
   background: #ededed;
@@ -204,7 +203,7 @@ body.dark-mode #category-list li:hover {
 .section-icon {
   width: 28px; height: 28px; background: #ededed; border-radius: var(--radius);
   display: flex; align-items: center; justify-content: center;
-  color: #bbb; font-size: 20px;
+  color: #000000; font-size: 15px;
   transition: background .18s, color .18s;
 }
 body.dark-mode .section-icon {background: #232323; color: #888;}
@@ -277,9 +276,9 @@ body.dark-mode .card-icon {background: #232323;}
   display: block;
 }
 .card-title {
-  font-size: 16px;
+  font-size: 13px;
   color: var(--fg);
-  font-weight: 600;
+  font-weight: 680;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -287,9 +286,10 @@ body.dark-mode .card-icon {background: #232323;}
   flex: 1;
 }
 .card-url {
-  font-size: 12px;
+  font-size: 10px;
   color: var(--muted);
   margin-top: 1px;
+  padding-left: 5px; 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -311,7 +311,7 @@ body.dark-mode .welcome-section {background: #232323; border-color: #232323;}
   display: flex; gap: 11px; flex-wrap: wrap;
 }
 .stat-card {
-  background: #ededed; border-radius: var(--radius); padding: 7px 12px; min-width: 80px; flex: 1;
+  background: #ededed; border-radius: var(--radius); padding: 10px 12px; min-width: 80px;max-width: 200px; flex: 0.5;
   border: 1px solid #e6e6e6;
   font-size: 13px;
   display: flex; flex-direction: column; align-items: flex-start;
