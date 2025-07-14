@@ -47,6 +47,10 @@ const data = {
     {
       "name": "QQ邮箱",
       "url": "https://mail.qq.com/"
+    },
+    {
+      "name": "WWZ.iM",
+      "url": "https://app.wwz.im/#ai"
     }
   ],
   "Work": [
