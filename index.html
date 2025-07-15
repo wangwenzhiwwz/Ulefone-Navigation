@@ -249,17 +249,22 @@ body.dark-mode .section-icon {background: #232323; color: #888;}
   padding: 14px 12px 10px 12px;
   display: flex; flex-direction: column;
   box-shadow: var(--shadow);
-  transition: box-shadow .13s, border .13s, background .18s;
+  transition: background .18s, box-shadow .13s;
   cursor: pointer;
   min-width: 0;
+  /* 去除hover时的outline效果，只保留变深背景 */
 }
 body.dark-mode .card {background: #232323; border-color: #232323;}
 .card:hover {
-  border-color: var(--accent);
-  background: #ededed;
-  box-shadow: 0 2px 14px 0 rgba(24,24,24,0.04);
+  background: #e0e0e0;
+  border-color: var(--border);
+  box-shadow: none;
 }
-body.dark-mode .card:hover {background: #2a2a2a;}
+body.dark-mode .card:hover {
+  background: #383838; /* 或 #282828，#303030，看你喜欢 */
+  border-color: #232323;
+  box-shadow: none;
+}
 .card-header {
   display: flex; align-items: center; gap: 12px; margin-bottom: 7px;
 }
@@ -421,7 +426,7 @@ function renderSections(dataObj) {
     section.innerHTML = `
       <div class="section-header" data-category="${category}" tabindex="0">
         <span class="section-icon"><i class="fas fa-folder"></i></span>
-        <h2>${getCategoryName(category)}<span class="section-tip">双击打开全部</span></h2>
+        <h2>${getCategoryName(category)}<span class="section-tip">点击打开全部</span></h2>
       </div>
       <div class="cards">
         ${dataObj[category].map(createCard).join('')}
@@ -430,7 +435,7 @@ function renderSections(dataObj) {
     container.appendChild(section);
   });
   enableSectionHeaderTips();
-  enableSectionHeaderDblClick(dataObj);
+  enableSectionHeaderClick(dataObj);
 }
 function enableSectionHeaderTips() {
   // 移动端（触摸）专用：触摸时显示tips，离开时隐藏
@@ -470,16 +475,19 @@ function enableCategoryFiltering(dataObj) {
     });
   });
 }
-function enableSectionHeaderDblClick(dataObj) {
+// 替换原来的 enableSectionHeaderDblClick 为点击事件
+function enableSectionHeaderClick(dataObj) {
   document.querySelectorAll('.section-header').forEach(header => {
-    header.addEventListener('dblclick', function(e) {
+    header.addEventListener('click', function(e) {
+      // 避免回车键等重复触发
+      if (e.detail === 0) return;
       e.preventDefault();
       const category = this.getAttribute('data-category');
       if (dataObj[category]) {
         dataObj[category].forEach(b => window.open(b.url, '_blank'));
       }
     });
-    // 回车键也可双击效果（无障碍）
+    // 回车键也可触发（无障碍）
     header.addEventListener('keydown', function(e){
       if (e.key === "Enter") {
         const category = this.getAttribute('data-category');
@@ -491,7 +499,10 @@ function enableSectionHeaderDblClick(dataObj) {
   });
 }
 function loadDarkMode() {
-  const isDark = localStorage.getItem('darkMode') === 'enabled';
+  // 自动跟随系统深色
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const user = localStorage.getItem('darkMode');
+  const isDark = user === 'enabled' || (user === null && prefersDark);
   document.body.classList.toggle('dark-mode', isDark);
   document.getElementById('darkToggle').innerHTML =
       isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
@@ -525,6 +536,17 @@ document.addEventListener('DOMContentLoaded', () => {
       sidebar.style.display = "block";
     }
   });
+
+  // 监听系统深色切换自动切换主题
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (localStorage.getItem('darkMode') === null) { // 仅自动，未手动切换才响应
+        document.body.classList.toggle('dark-mode', e.matches);
+        document.getElementById('darkToggle').innerHTML =
+          e.matches ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      }
+    });
+  }
 });
 function getCategoryName(key) {
   const map = {
