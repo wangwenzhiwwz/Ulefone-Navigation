@@ -151,6 +151,10 @@ const data = {
     {
       "name": "Doubao",
       "url": "https://www.doubao.com/chat/"
+    },
+    {
+      "name": "Copilot",
+      "url": "https://github.com/copilot/"
     }
   ],
   "Video": [
