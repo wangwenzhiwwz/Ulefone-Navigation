@@ -61,7 +61,7 @@ const data = {
       "url": "https://app.wwz.im/#ai"
     }
   ],
-  "Peers": [
+  "Competitor": [
     {
       "name": "Apple",
       "url": "https://www.apple.com/"
