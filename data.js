@@ -470,7 +470,7 @@ const data = {
     },
     {
       "name": "Mail",
-      "url": "https://work.weixin.qq.com/mail/"
+      "url": "https://exmail.qq.com/"
     },
     {
       "name": "Milanote",
