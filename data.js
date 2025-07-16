@@ -61,68 +61,6 @@ const data = {
       "url": "https://app.wwz.im/#ai"
     }
   ],
-  "Competitor": [
-    {
-      "name": "Apple",
-      "url": "https://www.apple.com/"
-    },
-    {
-      "name": "Samsung",
-      "url": "https://www.samsung.com/"
-    },
-    {
-      "name": "Mi",
-      "url": "https://www.mi.com/"
-    },
-    {
-      "name": "Huawei",
-      "url": "https://www.huawei.com/en/"
-    },
-    {
-      "name": "Honor",
-      "url": "https://www.honor.com/global/"
-    },
-    {
-      "name": "vivo",
-      "url": "https://www.vivo.com/en"
-    },
-    {
-      "name": "oppo",
-      "url": "https://www.oppo.com/en/"
-    },
-    {
-      "name": "Blackview",
-      "url": "https://www.blackview.hk/"
-    },
-    {
-      "name": "Doogee",
-      "url": "https://www.doogee.com/"
-    },
-    {
-      "name": "Umidigi",
-      "url": "https://umidigi.com/"
-    },
-    {
-      "name": "AGMdevice",
-      "url": "http://www.agmdevice.com/"
-    },
-    {
-      "name": "Crosscall",
-      "url": "https://www.crosscall.com/"
-    },
-    {
-      "name": "Cat",
-      "url": "https://cat.smartwalkie.com/"
-    },
-    {
-      "name": "Kyocera",
-      "url": "https://www.kyoceramobile.com/"
-    },
-    {
-      "name": "Ruggear",
-      "url": "https://www.ruggear.com"
-    }
-  ],
   "Work": [
     {
       "name": "产品及项目资料",
@@ -183,6 +121,68 @@ const data = {
     {
       "name": "拍摄场景",
       "url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWr7ZzOrXhoYd0vrKVGXn6lpz"
+    }
+  ],
+  "Competitor": [
+    {
+      "name": "Apple",
+      "url": "https://www.apple.com/"
+    },
+    {
+      "name": "Samsung",
+      "url": "https://www.samsung.com/"
+    },
+    {
+      "name": "Mi",
+      "url": "https://www.mi.com/"
+    },
+    {
+      "name": "Huawei",
+      "url": "https://www.huawei.com/en/"
+    },
+    {
+      "name": "Honor",
+      "url": "https://www.honor.com/global/"
+    },
+    {
+      "name": "vivo",
+      "url": "https://www.vivo.com/en"
+    },
+    {
+      "name": "oppo",
+      "url": "https://www.oppo.com/en/"
+    },
+    {
+      "name": "Blackview",
+      "url": "https://www.blackview.hk/"
+    },
+    {
+      "name": "Doogee",
+      "url": "https://www.doogee.com/"
+    },
+    {
+      "name": "Umidigi",
+      "url": "https://umidigi.com/"
+    },
+    {
+      "name": "AGMdevice",
+      "url": "http://www.agmdevice.com/"
+    },
+    {
+      "name": "Crosscall",
+      "url": "https://www.crosscall.com/"
+    },
+    {
+      "name": "Cat",
+      "url": "https://cat.smartwalkie.com/"
+    },
+    {
+      "name": "Kyocera",
+      "url": "https://www.kyoceramobile.com/"
+    },
+    {
+      "name": "Ruggear",
+      "url": "https://www.ruggear.com"
     }
   ],
   "AI": [
