@@ -63,6 +63,14 @@ const data = {
     {
       "name": "ITdog",
       "url": "https://www.itdog.cn/ping/en-cdn.w1997.eu.org"
+    },
+    {
+      "name": "Cloudflare",
+      "url": "https://dash.cloudflare.com/"
+    },
+    {
+      "name": "Github",
+      "url": "https://github.com/"
     }
   ],
   "Work": [
