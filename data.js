@@ -59,6 +59,10 @@ const data = {
     {
       "name": "WWZ.iM",
       "url": "https://app.wwz.im/#ai"
+    },
+    {
+      "name": "ITdog",
+      "url": "https://www.itdog.cn/ping/en-cdn.w1997.eu.org"
     }
   ],
   "Work": [
