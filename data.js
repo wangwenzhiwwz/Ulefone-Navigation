@@ -45,6 +45,10 @@ const data = {
       "url": "https://outlook.live.com/mail/0/"
     },
     {
+      "name": "Gmail",
+      "url": "https://gmail.com/"
+    },
+    {
       "name": "QQ邮箱",
       "url": "https://mail.qq.com/"
     },
