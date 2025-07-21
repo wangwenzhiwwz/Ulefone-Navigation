@@ -237,6 +237,10 @@ const data = {
     {
       "name": "Copilot",
       "url": "https://github.com/copilot/"
+    },
+    {
+      "name": "Elevenlabs",
+      "url": "https://elevenlabs.io/"
     }
   ],
   "Video": [
