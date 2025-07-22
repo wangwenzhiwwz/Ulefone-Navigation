@@ -133,6 +133,10 @@ const data = {
     {
       "name": "拍摄场景",
       "url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWr7ZzOrXhoYd0vrKVGXn6lpz"
+    },
+    {
+      "name": "Xever 7 Pro 视频文案",
+      "url": "https://alidocs.dingtalk.com/i/nodes/6LeBq413JAzr4DvaSv5vQ32l8DOnGvpb?corpId=dinga746ce2278192d4f35c2f4657eb6378f&cid=66077346%3A537454350&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space"
     }
   ],
   "Competitor": [
