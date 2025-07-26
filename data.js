@@ -519,6 +519,10 @@ const data = {
   ],
   "Other": [
     {
+      "name": "uszcn",
+      "url": "https://www.uszcn.com/"
+    },
+    {
       "name": "千库网",
       "url": "https://www.588ku.com"
     },
