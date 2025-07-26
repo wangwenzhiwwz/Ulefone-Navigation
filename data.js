@@ -244,7 +244,7 @@ const data = {
     },
     {
       "name": "Elevenlabs",
-      "url": "https://elevenlabs.io/"
+      "url": "https://elevenlabs.io/app/home"
     }
   ],
   "Video": [
