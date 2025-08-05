@@ -517,6 +517,20 @@ const data = {
       "url": "https://www.xaudiopro.com/aivoice/"
     }
   ],
+  "Plugins": [
+    {
+      "name": "qijishow",
+      "url": "https://www.qijishow.com/down/plug-in.html"
+    },
+    {
+      "name": "至臻版DMX",
+      "url": "https://mp.weixin.qq.com/s/NCTQfwDaFBXjYm-eyBnf1g"
+    },
+    {
+      "name": "DR5至臻版",
+      "url": "https://www.bilibili.com/opus/945685974177808425"
+    }
+  ],
   "Other": [
     {
       "name": "uszcn",
