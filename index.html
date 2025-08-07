@@ -363,7 +363,6 @@ body.dark-mode .stat-card {background: #232323; border-color: #232323;}
   </div>
   <div class="header-controls">
     <input class="search-input" id="search" placeholder="搜索..." type="text"/>
-    <button aria-label="切换深色模式" class="dark-btn" id="darkToggle"><i class="fas fa-moon"></i></button>
     <a class="admin-link" href="admin.html"><i class="fas fa-cog"></i></a>
   </div>
 </div>
@@ -516,22 +515,9 @@ function updateLogoForDarkMode(isDark) {
     : "https://wangwenzhi.eu.org/images/ulefone-logo/logo.png";
 }
 function loadDarkMode() {
-  // 自动跟随系统深色
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const user = localStorage.getItem('darkMode');
-  const isDark = user === 'enabled' || (user === null && prefersDark);
-  document.body.classList.toggle('dark-mode', isDark);
-  document.getElementById('darkToggle').innerHTML =
-      isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-  updateLogoForDarkMode(isDark);
-}
-function toggleDarkMode() {
-  const isDark = !document.body.classList.contains('dark-mode');
-  document.body.classList.toggle('dark-mode', isDark);
-  document.getElementById('darkToggle').innerHTML =
-      isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-  localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-  updateLogoForDarkMode(isDark);
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.body.classList.toggle('dark-mode', prefersDark);
+  updateLogoForDarkMode(prefersDark);
 }
 document.addEventListener('DOMContentLoaded', () => {
   loadDarkMode();
@@ -544,7 +530,6 @@ document.addEventListener('DOMContentLoaded', () => {
     location.reload();
   });
   document.getElementById('search').addEventListener('input', filterBookmarks);
-  document.getElementById('darkToggle').addEventListener('click', toggleDarkMode);
   // 响应式菜单
   const menuToggle = document.getElementById('menuToggle');
   const sidebar = document.getElementById('sidebar');
@@ -559,13 +544,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 监听系统深色切换自动切换主题
   if (window.matchMedia) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (localStorage.getItem('darkMode') === null) { // 仅自动，未手动切换才响应
-        document.body.classList.toggle('dark-mode', e.matches);
-        document.getElementById('darkToggle').innerHTML =
-          e.matches ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-        updateLogoForDarkMode(e.matches);
-      }
-    });
+  document.body.classList.toggle('dark-mode', e.matches);
+  updateLogoForDarkMode(e.matches);
+});
   }
 });
 function getCategoryName(key) {
