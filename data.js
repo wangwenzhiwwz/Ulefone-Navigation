@@ -477,6 +477,10 @@ const data = {
     {
       "name": "Fontsquirrel",
       "url": "https://www.fontsquirrel.com/"
+    },
+    {
+      "name": "Tiktok",
+      "url": "https://www.tiktok.com/font"
     }
   ],
   "Audio": [
