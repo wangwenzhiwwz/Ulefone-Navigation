@@ -197,6 +197,44 @@ const data = {
       "url": "https://veo3.ai/dashboard"
     }
   ],
+  "YouTube": [
+    {
+      "name": "Apple",
+      "url": "https://www.youtube.com/@Apple/videos"
+    },
+    {
+      "name": "Samsung",
+      "url": "https://www.youtube.com/@Samsung/videos"
+    },
+    {
+      "name": "Blackview",
+      "url": "https://www.youtube.com/@BlackviewHk/videos"
+    },
+    {
+      "name": "OUKITEL",
+      "url": "https://www.youtube.com/@OUKITELMobile/videos"
+    },
+    {
+      "name": "Doogee",
+      "url": "https://www.youtube.com/@Doogee/videos"
+    },
+    {
+      "name": "AGM",
+      "url": "https://www.youtube.com/@AGMMobile/videos"
+    },
+    {
+      "name": "8849",
+      "url": "https://www.youtube.com/@8849official/videos"
+    },
+    {
+      "name": "Xiaomi",
+      "url": "https://www.youtube.com/@xiaomi/videos"
+    },
+    {
+      "name": "Google",
+      "url": "https://www.youtube.com/@madebygoogle"
+    }
+  ],
   "Competitor": [
     {
       "name": "Apple",
