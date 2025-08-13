@@ -139,6 +139,64 @@ const data = {
       "url": "https://alidocs.dingtalk.com/i/nodes/6LeBq413JAzr4DvaSv5vQ32l8DOnGvpb?corpId=dinga746ce2278192d4f35c2f4657eb6378f&cid=66077346%3A537454350&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space"
     }
   ],
+  "AI": [
+    {
+      "name": "ChatGPT",
+      "url": "https://chatgpt.com/"
+    },
+    {
+      "name": "Grok",
+      "url": "https://grok.com/"
+    },
+    {
+      "name": "Gemini",
+      "url": "https://gemini.google.com/app"
+    },
+    {
+      "name": "Hyper3d",
+      "url": "https://hyper3d.ai/"
+    },
+    {
+      "name": "Playground",
+      "url": "https://playground.com/design/c/mobile-wallpaper"
+    },
+    {
+      "name": "Suno",
+      "url": "https://suno.com/"
+    },
+    {
+      "name": "Labs",
+      "url": "https://labs.google/fx/tools/whisk"
+    },
+    {
+      "name": "Deepseek",
+      "url": "https://chat.deepseek.com/"
+    },
+    {
+      "name": "Doubao",
+      "url": "https://www.doubao.com/chat/"
+    },
+    {
+      "name": "Copilot",
+      "url": "https://github.com/copilot/"
+    },
+    {
+      "name": "Elevenlabs",
+      "url": "https://elevenlabs.io/app/home"
+    },
+    {
+      "name": "Runway",
+      "url": "https://app.runwayml.com/"
+    },
+    {
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/"
+    },
+    {
+      "name": "Veo3",
+      "url": "https://veo3.ai/dashboard"
+    }
+  ],
   "Competitor": [
     {
       "name": "Apple",
@@ -199,64 +257,6 @@ const data = {
     {
       "name": "Ruggear",
       "url": "https://www.ruggear.com"
-    }
-  ],
-  "AI": [
-    {
-      "name": "ChatGPT",
-      "url": "https://chatgpt.com/"
-    },
-    {
-      "name": "Grok",
-      "url": "https://grok.com/"
-    },
-    {
-      "name": "Gemini",
-      "url": "https://gemini.google.com/app"
-    },
-    {
-      "name": "Hyper3d",
-      "url": "https://hyper3d.ai/"
-    },
-    {
-      "name": "Playground",
-      "url": "https://playground.com/design/c/mobile-wallpaper"
-    },
-    {
-      "name": "Suno",
-      "url": "https://suno.com/"
-    },
-    {
-      "name": "Labs",
-      "url": "https://labs.google/fx/tools/whisk"
-    },
-    {
-      "name": "Deepseek",
-      "url": "https://chat.deepseek.com/"
-    },
-    {
-      "name": "Doubao",
-      "url": "https://www.doubao.com/chat/"
-    },
-    {
-      "name": "Copilot",
-      "url": "https://github.com/copilot/"
-    },
-    {
-      "name": "Elevenlabs",
-      "url": "https://elevenlabs.io/app/home"
-    },
-    {
-      "name": "Runway",
-      "url": "https://app.runwayml.com/"
-    },
-    {
-      "name": "Higgsfield",
-      "url": "https://higgsfield.ai/"
-    },
-    {
-      "name": "Veo3",
-      "url": "https://veo3.ai/dashboard"
     }
   ],
   "Video": [
