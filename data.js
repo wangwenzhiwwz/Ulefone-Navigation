@@ -245,6 +245,18 @@ const data = {
     {
       "name": "Elevenlabs",
       "url": "https://elevenlabs.io/app/home"
+    },
+    {
+      "name": "Runway",
+      "url": "https://app.runwayml.com/"
+    },
+    {
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/"
+    },
+    {
+      "name": "Veo3",
+      "url": "https://veo3.ai/dashboard"
     }
   ],
   "Video": [
