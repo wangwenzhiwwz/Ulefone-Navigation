@@ -25,10 +25,6 @@ const data = {
       "url": "https://whimsical.com"
     },
     {
-      "name": "Notion",
-      "url": "https://www.notion.so/"
-    },
-    {
       "name": "Mediastory",
       "url": "https://web.mediastory.cc/#/"
     },
@@ -53,24 +49,12 @@ const data = {
       "url": "https://mail.yandex.com/"
     },
     {
-      "name": "IThome",
-      "url": "https://www.ithome.com/"
-    },
-    {
-      "name": "WWZ.iM",
-      "url": "https://app.wwz.im/#ai"
-    },
-    {
       "name": "ITdog",
       "url": "https://www.itdog.cn/ping/en-cdn.w1997.eu.org"
     },
     {
-      "name": "Cloudflare",
-      "url": "https://dash.cloudflare.com/"
-    },
-    {
-      "name": "Github",
-      "url": "https://github.com/"
+      "name": "WWZ.iM",
+      "url": "https://app.wwz.im/#ai"
     }
   ],
   "Work": [
