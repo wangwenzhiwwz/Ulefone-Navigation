@@ -473,6 +473,10 @@ const data = {
       "url": "https://hyperos.mi.com/font/zh/"
     },
     {
+      "name": "OPPO Sans",
+      "url": "https://www.coloros.com/article/A00000050/"
+    },
+    {
       "name": "Dafont",
       "url": "https://www.dafont.com/batman-forever.font"
     },
