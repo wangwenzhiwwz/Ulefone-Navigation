@@ -207,6 +207,10 @@ const data = {
       "url": "https://www.youtube.com/@Doogee/videos"
     },
     {
+      "name": "IIIF150",
+      "url": "https://www.youtube.com/@IIIF150/videos"
+    },
+    {
       "name": "AGM",
       "url": "https://www.youtube.com/@AGMMobile/videos"
     },
@@ -215,12 +219,52 @@ const data = {
       "url": "https://www.youtube.com/@8849official/videos"
     },
     {
+      "name": "Cubot",
+      "url": "https://www.youtube.com/@CubotNet/videos"
+    },
+    {
       "name": "Xiaomi",
       "url": "https://www.youtube.com/@xiaomi/videos"
     },
     {
       "name": "Google",
       "url": "https://www.youtube.com/@madebygoogle"
+    },
+    {
+      "name": "TECNO",
+      "url": "https://www.youtube.com/@TECNOMobile/videos"
+    },
+    {
+      "name": "Infinix",
+      "url": "https://www.youtube.com/@infinixindia/videos"
+    },
+    {
+      "name": "Honor",
+      "url": "https://www.youtube.com/@honormalaysia/videos"
+    },
+    {
+      "name": "OnePlus",
+      "url": "https://www.youtube.com/@OnePlusTech/videos"
+    },
+    {
+      "name": "Huawei",
+      "url": "https://www.youtube.com/@HuaweiMobile/videos"
+    },
+    {
+      "name": "Nothing",
+      "url": "https://www.youtube.com/@NothingTechnology/videos"
+    },
+    {
+      "name": "DJI",
+      "url": "https://www.youtube.com/@DJI/videos"
+    },
+    {
+      "name": "Anker",
+      "url": "https://www.youtube.com/@AnkerOfficial/videos"
+    },
+    {
+      "name": "UGREEN",
+      "url": "https://www.youtube.com/@UGREENOfficial/videos"
     }
   ],
   "Competitor": [
