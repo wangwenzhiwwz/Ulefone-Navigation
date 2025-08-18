@@ -55,6 +55,10 @@ const data = {
     {
       "name": "WWZ.iM",
       "url": "https://app.wwz.im/#ai"
+    },
+    {
+      "name": "uszcn",
+      "url": "https://uszcn.kf5.com/hc/request/view/2057872/"
     }
   ],
   "Work": [
