@@ -58,7 +58,7 @@ const data = {
     },
     {
       "name": "uszcn",
-      "url": "https://uszcn.kf5.com/hc/request/view/2057872/"
+      "url": "https://www.uszcn.com/user?u=3007105565894453824"
     }
   ],
   "Work": [
@@ -622,10 +622,6 @@ const data = {
     }
   ],
   "Other": [
-    {
-      "name": "uszcn",
-      "url": "https://www.uszcn.com/"
-    },
     {
       "name": "千库网",
       "url": "https://www.588ku.com"
