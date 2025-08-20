@@ -141,6 +141,10 @@ const data = {
       "url": "https://gemini.google.com/app"
     },
     {
+      "name": "Aistudio",
+      "url": "https://aistudio.google.com/prompts/new_video"
+    },
+    {
       "name": "Hyper3d",
       "url": "https://hyper3d.ai/"
     },
