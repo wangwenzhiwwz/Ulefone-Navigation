@@ -191,6 +191,10 @@ const data = {
     {
       "name": "Veo3",
       "url": "https://veo3.ai/dashboard"
+    },
+    {
+      "name": "jianying",
+      "url": "https://jimeng.jianying.com/ai-tool/home"
     }
   ],
   "YouTube": [
