@@ -6,7 +6,11 @@ const data = {
     },
     {
       "name": "Youtube",
-      "url": "https://www.youtube.com/@Ulefone/videos"
+      "url": "https://www.youtube.com/"
+    },
+    {
+      "name": "Bilibili",
+      "url": "https://www.bilibili.com/"
     },
     {
       "name": "Instagram",
