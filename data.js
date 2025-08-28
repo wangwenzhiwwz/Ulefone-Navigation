@@ -129,6 +129,10 @@ const data = {
     {
       "name": "Xever 7 Pro 视频文案",
       "url": "https://alidocs.dingtalk.com/i/nodes/6LeBq413JAzr4DvaSv5vQ32l8DOnGvpb?corpId=dinga746ce2278192d4f35c2f4657eb6378f&cid=66077346%3A537454350&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space"
+    },
+    {
+      "name": "Xever 7 推广计划",
+      "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSq20KaXjJA7depqY"
     }
   ],
   "AI": [
