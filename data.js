@@ -705,6 +705,14 @@ const data = {
     {
       "name": "OpenClash",
       "url": "http://192.168.4.5:9090/ui/dashboard/#/proxies?host=192.168.4.5&port=9090&secret=GnDCxHeL"
+    },
+    {
+      "name": "chacuo",
+      "url": "http://web.chacuo.net/netocspstapling"
+    },
+    {
+      "name": "ssllabs",
+      "url": "https://www.ssllabs.com/ssltest/index.html"
     }
   ]
 };
