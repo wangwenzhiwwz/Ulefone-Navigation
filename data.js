@@ -141,6 +141,10 @@ const data = {
     {
       "name": "Xever 7 推广计划",
       "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSq20KaXjJA7depqY"
+    },
+    {
+      "name": "RugOne 快速换机",
+      "url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vv6b9n4cG23ddQx85daZ90D?utm_source=tb&utm_medium=tb_task_attach"
     }
   ],
   "AI": [
