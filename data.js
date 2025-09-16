@@ -71,6 +71,10 @@ const data = {
     {
       "name": "Nano-Banana",
       "url": "https://aistudio.google.com/prompts/new_chat"
+    },
+    {
+      "name": "Gotron Pictures",
+      "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
     }
   ],
   "Work": [
