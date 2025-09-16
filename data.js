@@ -211,6 +211,10 @@ const data = {
     {
       "name": "jianying",
       "url": "https://jimeng.jianying.com/ai-tool/home"
+    },
+    {
+      "name": "huggingface",
+      "url": "https://huggingface.co/spaces/finegrain/finegrain-image-enhancer"
     }
   ],
   "YouTube": [
