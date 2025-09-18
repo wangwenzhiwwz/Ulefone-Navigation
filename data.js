@@ -71,44 +71,16 @@ const data = {
     {
       "name": "Nano-Banana",
       "url": "https://aistudio.google.com/prompts/new_chat"
-    },
+    }
+  ],
+  "project": [
     {
       "name": "Gotron Pictures",
       "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
-    }
-  ],
-  "Work": [
-    {
-      "name": "产品及项目资料",
-      "url": "https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWe74qzKghOqGxy0DJxkXOEP2"
-    },
-    {
-      "name": "项目进度管理",
-      "url": "https://alidocs.dingtalk.com/i/nodes/xdqZp24KneBJzgnMX7bL8vyb7RA0Nr1E?utm_scene=team_space&iframeQuery="
-    },
-    {
-      "name": "产品型号及其编码",
-      "url": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWm3k9bNOT3q2AlngJGlDd3mE"
-    },
-    {
-      "name": "视频流程注意事项",
-      "url": "https://alidocs.dingtalk.com/i/nodes/20eMKjyp81Rw2aQqczjpbKzrWxAZB1Gv?corpId=dinga746ce2278192d4f35c2f4657eb6378f&cid=47153057863&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space"
-    },
-    {
-      "name": "数字资产管理",
-      "url": "https://alidocs.dingtalk.com/i/nodes/pq7N1kjGYznWyOXQZlB3JO43vrPX95oA"
-    },
-    {
-      "name": "器材资产管理",
-      "url": "https://alidocs.dingtalk.com/i/nodes/lo1YvX0prG98kB9db2w9JPw7xzbmLdEZ"
     },
     {
       "name": "策划计划",
       "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghXbjgNBEVKe0xjE3"
-    },
-    {
-      "name": "服装道具",
-      "url": "https://alidocs.dingtalk.com/i/nodes/od245kZmnOeW4p3XxO70WYbzxL6R0wMQ"
     },
     {
       "name": "视频制作流程",
@@ -117,10 +89,6 @@ const data = {
     {
       "name": "我的文档笔记",
       "url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV54o0RQqSeK6bbz1Wgk9rpMq"
-    },
-    {
-      "name": "品牌中心需求收集",
-      "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSd76EmR9JA7depqY?iframeQuery=sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
     },
     {
       "name": "开箱文案",
@@ -145,11 +113,42 @@ const data = {
     {
       "name": "Xever 7 推广计划",
       "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSq20KaXjJA7depqY"
+    }
+  ],
+  "Work": [
+    {
+      "name": "项目进度管理",
+      "url": "https://alidocs.dingtalk.com/i/nodes/xdqZp24KneBJzgnMX7bL8vyb7RA0Nr1E?utm_scene=team_space&iframeQuery="
     },
     {
-      "name": "RugOne 快速换机",
-      "url": "https://alidocs.dingtalk.com/i/nodes/14lgGw3P8vv6b9n4cG23ddQx85daZ90D?utm_source=tb&utm_medium=tb_task_attach"
+      "name": "产品及项目资料",
+      "url": "https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWe74qzKghOqGxy0DJxkXOEP2"
+    },
+    {
+      "name": "产品型号及其编码",
+      "url": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWm3k9bNOT3q2AlngJGlDd3mE"
+    },
+    {
+      "name": "视频流程注意事项",
+      "url": "https://alidocs.dingtalk.com/i/nodes/20eMKjyp81Rw2aQqczjpbKzrWxAZB1Gv?corpId=dinga746ce2278192d4f35c2f4657eb6378f&cid=47153057863&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space"
+    },
+    {
+      "name": "数字资产管理",
+      "url": "https://alidocs.dingtalk.com/i/nodes/pq7N1kjGYznWyOXQZlB3JO43vrPX95oA"
+    },
+    {
+      "name": "器材资产管理",
+      "url": "https://alidocs.dingtalk.com/i/nodes/lo1YvX0prG98kB9db2w9JPw7xzbmLdEZ"
+    },
+    {
+      "name": "服装道具",
+      "url": "https://alidocs.dingtalk.com/i/nodes/od245kZmnOeW4p3XxO70WYbzxL6R0wMQ"
+    },
+    {
+      "name": "品牌中心需求收集",
+      "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSd76EmR9JA7depqY?iframeQuery=sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
     }
+    
   ],
   "AI": [
     {
