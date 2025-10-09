@@ -722,7 +722,7 @@ const data = {
     },
     {
       "name": "OpenClash",
-      "url": "http://192.168.4.5:9090/ui/dashboard/#/proxies?host=192.168.4.5&port=9090&secret=GnDCxHeL"
+      "url": "http://192.168.30.20/cgi-bin/luci/admin/services/openclash"
     },
     {
       "name": "chacuo",
