@@ -73,7 +73,7 @@ const data = {
       "url": "https://aistudio.google.com/prompts/new_chat"
     }
   ],
-  "project": [
+  "Project": [
     {
       "name": "Gotron Pictures",
       "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
@@ -148,7 +148,6 @@ const data = {
       "name": "品牌中心需求收集",
       "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSd76EmR9JA7depqY?iframeQuery=sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
     }
-    
   ],
   "AI": [
     {
