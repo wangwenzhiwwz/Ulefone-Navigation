@@ -5,6 +5,10 @@ const data = {
       "url": "https://www.ulefone.com/"
     },
     {
+      "name": "RugOne",
+      "url": "https://rugone.net/"
+    },
+    {
       "name": "Youtube",
       "url": "https://www.youtube.com/"
     },
