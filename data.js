@@ -69,10 +69,6 @@ const data = {
       "url": "https://huggingface.co/spaces"
     },
     {
-      "name": "uszcn",
-      "url": "https://www.uszcn.com/user?u=3007105565894453824"
-    },
-    {
       "name": "Nano-Banana",
       "url": "https://aistudio.google.com/prompts/new_chat"
     }
