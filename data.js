@@ -149,6 +149,28 @@ const data = {
       "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSd76EmR9JA7depqY?iframeQuery=sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
     }
   ],
+  "AI-Video": [
+    {
+      "name": "Google Flow",
+      "url": "https://labs.google/flow/about"
+    },
+    {
+      "name": "Sora",
+      "url": "https://sora.chatgpt.com/explore"
+    },
+    {
+      "name": "Runway",
+      "url": "https://app.runwayml.com/"
+    },
+    {
+      "name": "Higgsfield",
+      "url": "https://higgsfield.ai/"
+    },
+    {
+      "name": "即梦",
+      "url": "https://jimeng.jianying.com/ai-tool/generate?type=video"
+    }
+  ],
   "AI": [
     {
       "name": "ChatGPT",
@@ -197,14 +219,6 @@ const data = {
     {
       "name": "Elevenlabs",
       "url": "https://elevenlabs.io/app/home"
-    },
-    {
-      "name": "Runway",
-      "url": "https://app.runwayml.com/"
-    },
-    {
-      "name": "Higgsfield",
-      "url": "https://higgsfield.ai/"
     },
     {
       "name": "Veo3",
