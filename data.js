@@ -667,6 +667,22 @@ const data = {
     {
       "name": "DR5至臻版",
       "url": "https://www.bilibili.com/opus/945685974177808425"
+    },
+    {
+      "name": "SoMe",
+      "url": "http://192.168.30.20/"
+    },
+    {
+      "name": "Ulefone",
+      "url": "http://192.168.31.1:9999/ui"
+    },
+    {
+      "name": "Work",
+      "url": "http://192.168.6.6/"
+    },
+    {
+      "name": "Home",
+      "url": "http://192.168.7.7/"
     }
   ],
   "Other": [
