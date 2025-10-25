@@ -151,16 +151,16 @@ const data = {
   ],
   "AI-Video": [
     {
-      "name": "Google Flow",
-      "url": "https://labs.google/flow/about"
+      "name": "Sora",
+      "url": "https://sora.chatgpt.com/explore"
     },
     {
       "name": "WatermarkRemoverSora",
       "url": "https://watermarkremoversora.com/"
     },
     {
-      "name": "Sora",
-      "url": "https://sora.chatgpt.com/explore"
+      "name": "Google Flow",
+      "url": "https://labs.google/flow/about"
     },
     {
       "name": "Runway",
