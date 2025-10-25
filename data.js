@@ -155,6 +155,10 @@ const data = {
       "url": "https://labs.google/flow/about"
     },
     {
+      "name": "WatermarkRemoverSora",
+      "url": "https://watermarkremoversora.com/"
+    },
+    {
       "name": "Sora",
       "url": "https://sora.chatgpt.com/explore"
     },
