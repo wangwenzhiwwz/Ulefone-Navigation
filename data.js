@@ -687,6 +687,10 @@ const data = {
     {
       "name": "Home",
       "url": "http://192.168.7.7/"
+    },
+    {
+      "name": "Spaceship",
+      "url": "https://www.spaceship.com/zh/domain-search/?query=7778333.xyz&tab=domains"
     }
   ],
   "Other": [
