@@ -117,6 +117,10 @@ const data = {
   ],
   "Work": [
     {
+      "name": "本周工作安排",
+      "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
+    },
+    {
       "name": "项目进度管理",
       "url": "https://alidocs.dingtalk.com/i/nodes/xdqZp24KneBJzgnMX7bL8vyb7RA0Nr1E?utm_scene=team_space&iframeQuery="
     },
