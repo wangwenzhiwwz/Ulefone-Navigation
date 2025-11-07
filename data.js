@@ -71,10 +71,6 @@ const data = {
     {
       "name": "Nano-Banana",
       "url": "https://aistudio.google.com/prompts/new_chat"
-    },
-    {
-      "name": "Alist",
-      "url": "https://alist.19971008.eu.org/Samples"
     }
   ],
   "Project": [
@@ -681,6 +677,10 @@ const data = {
       "url": "https://www.bilibili.com/opus/945685974177808425"
     },
     {
+      "name": "Spaceship",
+      "url": "https://www.spaceship.com/zh/domain-search/?query=7778333.xyz&tab=domains"
+    },
+    {
       "name": "SoMe",
       "url": "http://192.168.30.20/"
     },
@@ -697,8 +697,8 @@ const data = {
       "url": "http://192.168.7.7/"
     },
     {
-      "name": "Spaceship",
-      "url": "https://www.spaceship.com/zh/domain-search/?query=7778333.xyz&tab=domains"
+      "name": "Alist",
+      "url": "https://alist.19971008.eu.org/Samples"
     }
   ],
   "Other": [
