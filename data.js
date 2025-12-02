@@ -665,6 +665,10 @@ const data = {
   ],
   "Plugins": [
     {
+      "name": "PR视频降噪",
+      "url": "https://www.zhihu.com/question/306556602"
+    },
+    {
       "name": "qijishow",
       "url": "https://www.qijishow.com/down/plug-in.html"
     },
