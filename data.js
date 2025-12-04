@@ -58,7 +58,7 @@ const data = {
     },
     {
       "name": "ITdog",
-      "url": "https://www.itdog.cn/ping/en-cdn.w1997.eu.org"
+      "url": "https://www.itdog.cn/ping/eu-cdn.w1997.eu.org"
     },
     {
       "name": "WWZ.iM",
