@@ -9,12 +9,12 @@ const data = {
       "url": "https://rugone.net/"
     },
     {
-      "name": "Youtube",
-      "url": "https://www.youtube.com/"
+      "name": "Whimsical",
+      "url": "https://whimsical.com"
     },
     {
-      "name": "Bilibili",
-      "url": "https://www.bilibili.com/"
+      "name": "Youtube",
+      "url": "https://www.youtube.com/@Ulefone/videos"
     },
     {
       "name": "Instagram",
@@ -25,12 +25,8 @@ const data = {
       "url": "https://www.tiktok.com/@ulefone"
     },
     {
-      "name": "Teambition",
-      "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
-    },
-    {
-      "name": "Whimsical",
-      "url": "https://whimsical.com"
+      "name": "Bilibili",
+      "url": "https://space.bilibili.com/2057715452/upload/video"
     },
     {
       "name": "Mediastory",
@@ -75,8 +71,12 @@ const data = {
   ],
   "Project": [
     {
-      "name": "Gotron Pictures",
-      "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
+      "name": "Teambition",
+      "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
+    },
+    {
+      "name": "本周视频拍摄事项",
+      "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
     },
     {
       "name": "策划计划",
@@ -117,8 +117,8 @@ const data = {
   ],
   "Work": [
     {
-      "name": "本周工作安排",
-      "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
+      "name": "Gotron Pictures",
+      "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
     },
     {
       "name": "项目进度管理",
