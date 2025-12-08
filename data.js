@@ -705,6 +705,24 @@ const data = {
       "url": "https://alist.19971008.eu.org/Samples"
     }
   ],
+  "English": [
+    {
+      "name": "旧词万用",
+      "url": "https://www.kdocs.cn/l/ckxlS7eOxzf2"
+    },
+    {
+      "name": "日常口语3000词",
+      "url": "https://www.kdocs.cn/l/cawlheZvVj2B"
+    },
+    {
+      "name": "十大误区",
+      "url": "https://www.kdocs.cn/l/ci483g4zfxVl"
+    },
+    {
+      "name": "常用500句",
+      "url": "https://www.kdocs.cn/l/cp3UiPfkxinj"
+    }
+  ],
   "Other": [
     {
       "name": "千库网",
@@ -777,24 +795,6 @@ const data = {
     {
       "name": "ssllabs",
       "url": "https://www.ssllabs.com/ssltest/index.html"
-    }
-  ],
-  "English": [
-    {
-      "name": "旧词万用",
-      "url": "https://www.kdocs.cn/l/ckxlS7eOxzf2"
-    },
-    {
-      "name": "日常口语3000词",
-      "url": "https://www.kdocs.cn/l/cawlheZvVj2B"
-    },
-    {
-      "name": "十大误区",
-      "url": "https://www.kdocs.cn/l/ci483g4zfxVl"
-    },
-    {
-      "name": "常用500句",
-      "url": "https://www.kdocs.cn/l/cp3UiPfkxinj"
     }
   ]
 };
