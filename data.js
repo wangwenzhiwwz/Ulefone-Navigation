@@ -689,6 +689,10 @@ const data = {
       "url": "https://www.spaceship.com/zh/domain-search/?query=7778333.xyz&tab=domains"
     },
     {
+      "name": "电视还原设置",
+      "url": "https://mediastorm.feishu.cn/wiki/VsTHwVXFjioqjtkcrg3cnrVFn4g"
+    },
+    {
       "name": "SoMe",
       "url": "http://192.168.30.20/"
     },
