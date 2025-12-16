@@ -67,6 +67,10 @@ const data = {
     {
       "name": "Nano-Banana",
       "url": "https://aistudio.google.com/prompts/new_chat"
+    },
+    {
+      "name": "Myip.is",
+      "url": "https://myip.is/"
     }
   ],
   "Project": [
