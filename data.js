@@ -193,6 +193,10 @@ const data = {
       "url": "https://chatgpt.com/"
     },
     {
+      "name": "MiMo",
+      "url": "https://aistudio.xiaomimimo.com/#/"
+    },
+    {
       "name": "Grok",
       "url": "https://grok.com/"
     },
