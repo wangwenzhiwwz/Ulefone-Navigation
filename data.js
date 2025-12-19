@@ -1,6 +1,14 @@
 const data = {
   "Ulefone": [
     {
+      "name": "品牌营销中心",
+      "url": "https://alidocs.dingtalk.com/i/spaces/a0gX10nxxO3ALzeJ/overview"
+    },
+    {
+      "name": "Gotron Pictures",
+      "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
+    },
+    {
       "name": "Ulefone",
       "url": "https://www.ulefone.com/"
     },
@@ -11,6 +19,10 @@ const data = {
     {
       "name": "Whimsical",
       "url": "https://whimsical.com"
+    },
+    {
+      "name": "Mediastory",
+      "url": "https://web.mediastory.cc/#/"
     },
     {
       "name": "Youtube",
@@ -25,48 +37,12 @@ const data = {
       "url": "https://www.tiktok.com/@ulefone"
     },
     {
-      "name": "Bilibili",
-      "url": "https://space.bilibili.com/2057715452/upload/video"
-    },
-    {
-      "name": "Mediastory",
-      "url": "https://web.mediastory.cc/#/"
-    },
-    {
       "name": "Artlist.io",
       "url": "https://artlist.io"
     },
     {
-      "name": "Google Drive",
-      "url": "https://drive.google.com/"
-    },
-    {
-      "name": "Outlook",
-      "url": "https://outlook.live.com/mail/0/"
-    },
-    {
-      "name": "QQ邮箱",
-      "url": "https://mail.qq.com/"
-    },
-    {
-      "name": "Yandex Mail",
-      "url": "https://mail.yandex.com/"
-    },
-    {
       "name": "ITdog",
       "url": "https://www.itdog.cn/ping/eu-cdn.w1997.eu.org"
-    },
-    {
-      "name": "WWZ.iM",
-      "url": "https://app.wwz.im/#ai"
-    },
-    {
-      "name": "Huggingface",
-      "url": "https://huggingface.co/spaces"
-    },
-    {
-      "name": "Nano-Banana",
-      "url": "https://aistudio.google.com/prompts/new_chat"
     },
     {
       "name": "Myip.is",
@@ -129,10 +105,6 @@ const data = {
   ],
   "Work": [
     {
-      "name": "Gotron Pictures",
-      "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
-    },
-    {
       "name": "产品及事项项目管理",
       "url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp72kypwh1Gq7bjKV9dEq3XD?cid=43873761291&corpId=dinga746ce2278192d4f35c2f4657eb6378f&iframeQuery=entrance%3Ddata%26sheetId%3DhMBeNQO%26viewId%3DlgsL55a"
     },
@@ -155,10 +127,6 @@ const data = {
     {
       "name": "服装道具",
       "url": "https://alidocs.dingtalk.com/i/nodes/od245kZmnOeW4p3XxO70WYbzxL6R0wMQ"
-    },
-    {
-      "name": "品牌中心需求收集",
-      "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSd76EmR9JA7depqY?iframeQuery=sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
     }
   ],
   "AI-Video": [
@@ -185,6 +153,14 @@ const data = {
     {
       "name": "即梦",
       "url": "https://jimeng.jianying.com/ai-tool/generate?type=video"
+    },
+    {
+      "name": "Nano-Banana",
+      "url": "https://aistudio.google.com/prompts/new_chat"
+    },
+    {
+      "name": "Huggingface",
+      "url": "https://huggingface.co/spaces"
     }
   ],
   "AI": [
