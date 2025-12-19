@@ -677,8 +677,48 @@ const data = {
   ],
   "Panel": [
     {
+      "name": "OpenClash",
+      "url": "http://192.168.31.1:9999/ui/#/proxies"
+    },
+    {
       "name": "CloudCone",
       "url": "https://cc.w1997.eu.org:21170/ngyKV7BdnMKNGX1BqN/panel/inbounds"
+    },
+    {
+      "name": "ColoCrossing",
+      "url": "https://cx.w1997.eu.org:60593/p9hpf1wpmxgsg3QESm/panel/inbounds"
+    },
+    {
+      "name": "EUserv",
+      "url": "https://eu6.w1997.eu.org:16856/dWn3JuRQRaEWZjqJfW/panel/inbounds"
+    },
+    {
+      "name": "BWH_BR",
+      "url": "https://br.w1997.eu.org:13451/GC04J208pCLJyB8eam/panel/inbounds"
+    },
+    {
+      "name": "BWH_WZ",
+      "url": "https://wz.w1997.eu.org:58753/H3IFDq3LLXEeczH49E/panel/inbounds"
+    },
+    {
+      "name": "ARM",
+      "url": "http://arm.w1997.eu.org:44815/weFIvJj3XldL5sWAK9/"
+    },
+    {
+      "name": "VPS",
+      "url": "https://vps.w1997.eu.org:42492/WbJsJUlYrFix1XoRUQ/"
+    },
+    {
+      "name": "GPT",
+      "url": "http://193.122.114.105:15964/Vd1feW82wYrppzTRJX/"
+    },
+    {
+      "name": "DE",
+      "url": "https://de.w1997.eu.org:43685/N1IUQVbmoQWSiWlMyk/"
+    },
+    {
+      "name": "VPS.WWZ.iM",
+      "url": "https://vps.wwz.im/"
     }
   ],
   "Plugins": [
@@ -819,5 +859,4 @@ const data = {
       "url": "https://www.ssllabs.com/ssltest/index.html"
     }
   ]
-  
 };
