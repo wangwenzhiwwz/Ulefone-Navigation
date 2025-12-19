@@ -675,6 +675,12 @@ const data = {
       "url": "https://www.xaudiopro.com/aivoice/"
     }
   ],
+  "Panel": [
+    {
+      "name": "CloudCone",
+      "url": "https://cc.w1997.eu.org:21170/ngyKV7BdnMKNGX1BqN/panel/inbounds"
+    }
+  ],
   "Plugins": [
     {
       "name": "PR视频降噪",
@@ -813,4 +819,5 @@ const data = {
       "url": "https://www.ssllabs.com/ssltest/index.html"
     }
   ]
+  
 };
