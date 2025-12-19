@@ -465,6 +465,10 @@ const data = {
       "url": "https://kaboompics.com/"
     },
     {
+      "name": "Pngtree",
+      "url": "https://pngtree.com/"
+    },
+    {
       "name": "Pngimg",
       "url": "https://pngimg.com/"
     },
