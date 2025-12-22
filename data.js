@@ -678,19 +678,19 @@ const data = {
     },
     {
       "name": "ARM",
-      "url": "http://arm.w1997.eu.org:44815/weFIvJj3XldL5sWAK9/"
+      "url": "http://arm.w1997.eu.org:44815/weFIvJj3XldL5sWAK9/panel/inbounds"
     },
     {
       "name": "VPS",
-      "url": "https://vps.w1997.eu.org:42492/WbJsJUlYrFix1XoRUQ/"
+      "url": "https://vps.w1997.eu.org:42492/WbJsJUlYrFix1XoRUQ/panel/inbounds"
     },
     {
       "name": "GPT",
-      "url": "http://193.122.114.105:15964/Vd1feW82wYrppzTRJX/"
+      "url": "http://193.122.114.105:15964/Vd1feW82wYrppzTRJX/panel/inbounds"
     },
     {
       "name": "DE",
-      "url": "https://de.w1997.eu.org:43685/N1IUQVbmoQWSiWlMyk/"
+      "url": "https://de.w1997.eu.org:43685/N1IUQVbmoQWSiWlMyk/panel/inbounds"
     },
     {
       "name": "VPS.WWZ.iM",
