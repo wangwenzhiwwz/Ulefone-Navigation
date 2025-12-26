@@ -33,6 +33,10 @@ const data = {
       "url": "https://www.youtube.com/@Ulefone/videos"
     },
     {
+      "name": "Vimeo",
+      "url": "https://vimeo.com/home"
+    },
+    {
       "name": "Instagram",
       "url": "https://www.instagram.com/ulefone.global/"
     },
