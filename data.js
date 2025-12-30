@@ -666,7 +666,7 @@ const data = {
     },
     {
       "name": "ColoCrossing",
-      "url": "https://cx.w1997.eu.org:60593/p9hpf1wpmxgsg3QESm/panel/inbounds"
+      "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/inbounds"
     },
     {
       "name": "EUserv",
