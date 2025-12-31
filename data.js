@@ -623,6 +623,10 @@ const data = {
       "url": "https://freetts.com/text-to-speech"
     },
     {
+      "name": "Minimax",
+      "url": "https://www.minimaxi.com/audio"
+    },
+    {
       "name": "Aigei",
       "url": "https://www.aigei.com/"
     },
