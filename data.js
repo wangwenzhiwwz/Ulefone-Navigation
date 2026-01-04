@@ -686,7 +686,7 @@ const data = {
     },
     {
       "name": "ARM",
-      "url": "http://arm.w1997.eu.org:44815/weFIvJj3XldL5sWAK9/panel/inbounds"
+      "url": "http://arm.w1997.eu.org:55156/lrK46wTrMtb2KBiQOT/panel/inbounds"
     },
     {
       "name": "VPS",
