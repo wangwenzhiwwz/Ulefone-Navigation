@@ -1,48 +1,44 @@
-# 📚 Ulefone Bookmark Navigation
+# Ulefone Navigation | 极简书签导航
 
-一个极简、响应式、支持分类管理的书签导航系统，适合团队内部协作或个人高效信息管理。无后端依赖，仅基于 HTML/JS/CSS 实现，支持本地或静态部署。
+![License](https://img.shields.io/badge/license-MIT-blue.svg) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
-## ✨ 功能亮点
+一个基于纯 HTML/CSS/JS 构建的静态个人书签导航页。主打**黑白极简美学**、**无边框设计**与**流畅的交互体验**。包含一个可视化的管理后台，无需数据库即可轻松管理书签数据。
 
-### ✅ 用户导航界面（index.html）
-- 分类书签卡片式展示
-- 双击分类名可一键打开所有书签
-- 快速搜索：支持标题或链接关键词过滤
-- 响应式布局：适配桌面与移动端
-- 一键切换暗黑/浅色主题
+---
 
-### ✅ 管理后台页面（admin.html）
-- 支持添加、删除、重命名分类
-- 每个分类下可添加多个书签
-- 拖拽排序：分类 & 书签均支持
-- 书签信息快速编辑
-- 自动生成并预览数据文件（`data.js`）
-- 一键复制或下载 `data.js` 文件
+## ✨ 设计理念 (Design Philosophy)
 
-## 🗂 文件结构
+* **极致简约**：摒弃多余的阴影与边框，完全依靠**色块层级**（白/浅灰/深灰）构建界面。
+* **胶囊美学**：侧边栏、按钮、输入框统一采用**胶囊形（Pill Shape）**或大圆角矩形设计，视觉柔和。
+* **交互优先**：
+    * 左侧导航与右侧内容**双向联动**。
+    * **单击标题**即可打开该分类下所有链接。
+    * 顶部 Welcome 模块提供日期、问候语及数据统计。
+    * 全局**平滑滚动**与**交错入场动画**。
 
-```
-📁 项目根目录
-├── index.html      # 主页面：用户访问书签导航
-├── admin.html      # 管理后台：添加/编辑/排序书签
-├── data.js         # 所有书签数据，以 JS 对象形式保存
-```
+## 🚀 功能特性 (Features)
 
-## 🚀 快速使用
+### 🖥️ 前台 (index.html)
+* **响应式布局**：完美适配桌面端（左右布局）与移动端（单栏布局）。
+* **深色模式**：自动跟随系统偏好，支持手动一键切换（🌞/🌙）。
+* **智能搜索**：实时过滤书签，支持**关键词高亮**显示。
+* **自动图标**：集成 Google Favicon API，自动获取网站图标。
+* **沉浸体验**：顶部高斯模糊导航栏，右下角全局刷新按钮。
 
-1. 克隆或下载项目：
-```bash
-git clone https://github.com/your-name/bookmark-navigation.git
-```
+### ⚙️ 后台管理 (admin.html)
+* **可视化编辑**：直观的增、删、改操作（支持自定义图标 URL）。
+* **拖拽排序**：支持卡片拖拽调整顺序。
+* **数据导出**：一键生成并下载 `data.js` 配置文件。
+* **数据仓库跳转**：快捷跳转至 GitHub 仓库进行文件托管。
 
-2. 打开 `index.html` 使用导航页；
-3. 使用 `admin.html` 管理书签数据；
-4. 所有书签信息保存在 `data.js`，可手动或自动更新。
+---
 
-## 📦 部署建议
+## 📂 项目结构
 
-支持 GitHub Pages、Vercel、Netlify 等任意静态托管平台部署。无需服务器，无依赖。
-
-## 📝 License
-
-MIT License © 2025 [Your Name]
+```text
+/
+├── index.html      # 前台主页
+├── admin.html      # 后台管理页
+├── data.js         # 数据文件 (存储所有书签数据)
+├── images/         # 本地图片资源 (Logo 等)
+└── README.md       # 说明文档

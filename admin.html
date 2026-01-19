@@ -1,824 +1,607 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>书签管理</title>
-  <link rel="icon" href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" sizes="32x32" type="image/png"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-:root {
-  --bg: #fff;
-  --fg: #181818;
-  --muted: #bcbcbc;
-  --border: #e6e6e6;
-  --accent: #181818;
-  --radius: 20px;
-  --shadow: 0 1px 8px 0 rgba(24,24,24,0.06);
-  --header-height: 56px;
-  --sidebar-width: 210px;
-  --card-bg: #f7f7f7;
-  --danger: #f44336;
-  --danger-bg: #ffebee;
-}
-body.dark-mode {
-  --bg: #181818;
-  --fg: #f2f2f2;
-  --muted: #888;
-  --border: #2e2e2e;
-  --accent: #fff;
-  --card-bg: #232323;
-  --danger: #ef9a9a;
-  --danger-bg: #301d1d;
-}
-body {
-  font-family: 'Inter', 'Segoe UI', 'PingFang SC', Arial, sans-serif;
-  margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-size: 15px;
-  min-height: 100vh;
-  transition: background .18s, color .18s;
-}
-a {color: inherit; text-decoration: none;}
-a:active, a:focus, a:hover {color: var(--accent);}
-.header {
-  height: var(--header-height);
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px 0 32px;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  box-shadow: none;
-  transition: background .18s, color .18s, border-color .18s;
-}
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-.header-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-left: 1.2rem;
-}
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.theme-btn {
-  border: none;
-  background: none;
-  color: var(--fg);
-  font-size: 1.3rem;
-  width: 36px; height: 36px;
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background .16s;
-}
-.theme-btn:hover {background: #ededed; color: var(--accent);}
-body.dark-mode .theme-btn:hover {background: #232323;}
-.return-btn {
-  background: none;
-  border: none;
-  color: var(--fg);
-  font-size: 1.3rem;
-  width: 36px; height: 36px;
-  border-radius: var(--radius);
-  margin-right: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background .16s;
-  text-decoration: none;
-}
-.return-btn:hover {
-  background: #ededed;
-  color: var(--accent);
-}
-body.dark-mode .return-btn:hover {background: #232323;}
-.container {
-  max-width: 1100px;
-  margin: calc(var(--header-height) + 30px) auto 0 auto;
-  padding: 0 1.5rem 2rem 1.5rem;
-}
-@media (max-width: 700px) {
-  .container {padding: 0 4vw;}
-  .header {padding: 0 8px;}
-  .header-title {font-size: 1.13rem;}
-}
-.category-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-@media (max-width: 900px) {
-  .category-list {
-    grid-template-columns: 1fr;
-  }
-}
-.category-card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 0;
-  border: 1px solid var(--border);
-  transition: box-shadow .13s, border .13s, background .18s;
-  position: relative;
-  overflow: hidden;
-  min-width: 0;
-}
-.category-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.1rem 1.4rem 1rem 1.4rem;
-  border-bottom: 1px solid var(--border);
-  background: #ededed;
-}
-body.dark-mode .category-header {background: #232323;}
-.category-header-left {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  flex: 1;
-}
-.drag-handle {
-  cursor: grab;
-  color: #888;
-  user-select: none;
-  font-size: 1.25rem;
-  opacity: 0.7;
-  transition: color .13s;
-}
-.category-name-input {
-  font-size: 1.1rem;
-  font-weight: 500;
-  border: none;
-  background: transparent;
-  color: var(--fg);
-  padding: 0.12em 0.6em;
-  border-radius: 6px;
-  transition: background .15s;
-  max-width: 200px;
-}
-.category-name-input:focus {
-  outline: 2px solid var(--accent);
-  background: #f0f5ff;
-}
-body.dark-mode .category-name-input:focus {background: #232323;}
-.category-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.delete-category-btn {
-  background: var(--danger-bg);
-  color: var(--danger);
-  border: none;
-  border-radius: 8px;
-  padding: 0.32rem 0.82rem;
-  cursor: pointer;
-  font-size: 1.03rem;
-  transition: background .13s;
-}
-.delete-category-btn:hover {
-  background: var(--danger);
-  color: white;
-}
-.category-content {
-  padding: 1.1rem 1.4rem 1.2rem 1.4rem;
-  background: var(--card-bg);
-}
-.bookmark-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
-.bookmark-item {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  background: none;
-  border-radius: 7px;
-  transition: background 0.13s, box-shadow 0.13s, opacity 0.13s;
-  padding: 0.33em 0 0.33em 0.45em;
-}
-.bookmark-item.dragging {
-  opacity: 0.5;
-  background: #c5cae9;
-}
-.bookmark-item.over {
-  outline: 2px dashed var(--accent);
-}
-.bookmark-item:hover {
-  background: #ededed;
-}
-body.dark-mode .bookmark-item:hover {
-  background: #232323;
-}
-.bookmark-drag {
-  cursor: grab;
-  font-size: 1.13rem;
-  color: #888;
-  opacity: 0.8;
-  margin-right: 0.2rem;
-  user-select: none;
-}
-.bookmark-favicon {
-  border-radius: 4px;
-  vertical-align: middle;
-  margin-right: 7px;
-  background: #fff;
-  width: 18px;
-  height: 18px;
-}
-.bookmark-link {
-  flex: 1;
-  font-size: 1.03rem;
-  color: var(--fg);
-  text-decoration: none;
-  word-break: break-all;
-  transition: color .13s;
-  font-weight: 500;
-}
-.bookmark-link:hover { color: var(--accent); }
-.bookmark-edit-input,
-.bookmark-edit-url {
-  flex: 1;
-  font-size: 1.01rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.22em 0.7em;
-  margin-right: 0.2em;
-  background: #f7f7f7;
-  color: var(--fg);
-  transition: border .13s;
-}
-body.dark-mode .bookmark-edit-input, body.dark-mode .bookmark-edit-url {
-  background: #232323;
-}
-.bookmark-edit-input:focus, .bookmark-edit-url:focus {
-  outline: 2px solid var(--accent);
-  border-color: var(--accent);
-  background: #e8f0fe;
-}
-body.dark-mode .bookmark-edit-input:focus, body.dark-mode .bookmark-edit-url:focus {
-  background: #181818;
-}
-.bookmark-item button {
-  background: none;
-  border: none;
-  color: #888;
-  font-size: 1.11rem;
-  cursor: pointer;
-  padding: 0.29em 0.64em;
-  border-radius: 5px;
-  transition: background .13s, color .13s;
-}
-.bookmark-item button:hover {
-  background: var(--accent);
-  color: white;
-}
-.bookmark-item .delete-btn {
-  color: var(--danger);
-}
-.bookmark-item .delete-btn:hover {
-  background: var(--danger);
-  color: white;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理后台 - App WWZ</title>
+<link rel="icon" href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" sizes="32x32" type="image/png"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-/* 改进的添加书签排版 */
-.add-bookmark-form {
-  display: grid;
-  grid-template-columns: 1fr 2fr auto;
-  gap: 0.7rem;
-  margin-top: 0.85rem;
-  padding-left: 0.2em;
-  align-items: center;
-  background: none;
-}
-.add-bookmark-form input {
-  font-size: 1.01rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.22em 0.7em;
-  background: #f7f7f7;
-  transition: border .13s;
-  color: var(--fg);
-  min-width: 0;
-}
-body.dark-mode .add-bookmark-form input {
-  background: #232323;
-}
-.add-bookmark-form input:focus {
-  outline: 2px solid var(--accent);
-  border-color: var(--accent);
-  background: #e8f0fe;
-}
-body.dark-mode .add-bookmark-form input:focus {
-  background: #181818;
-}
-.add-bookmark-form button {
-  background: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 7px;
-  padding: 0.38rem 1.15rem;
-  font-size: 1.05rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background .13s;
-  height: 2.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-}
-.add-bookmark-form button:hover {
-  background: #252525;
-}
-@media (max-width: 700px) {
-  .add-bookmark-form {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    padding-left: 0;
-  }
-  .add-bookmark-form button {
-    width: 100%;
-  }
-}
-pre#dataView {
-  white-space: pre-wrap;
-  word-break: break-word;
-  background: #232323;
-  color: #e0e4ef;
-  padding: 1.2rem;
-  border-radius: 12px;
-  overflow: auto;
-  font-size: 0.99rem;
-  margin-top: 2.5rem;
-  margin-bottom: 0;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-body:not(.dark-mode) pre#dataView {
-  background: #f4f4f4;
-  color: #222;
-}
-.fab-group {
-  position: fixed;
-  left: 2.2rem;
-  bottom: 2.2rem;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  align-items: flex-start;
-}
-.fab-btn {
-  background: var(--accent);
-  color: white;
-  border: none;
-  outline: none;
-  border-radius: 50px;
-  padding: 0.7rem 1.5rem 0.7rem 1.1rem;
-  font-size: 1.08rem;
-  font-weight: 500;
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.6em;
-  transition: background .13s, box-shadow .13s;
-  min-width: 0;
-}
-.fab-btn:hover {
-  background: #252525;
-  box-shadow: 0 6px 18px #3f51b544;
-}
-.fab-btn span {
-  font-size: 1.3em;
-  display: inline-flex;
-  align-items: center;
-}
-@media (max-width: 600px) {
-  .container { padding: 0 0.5rem; }
-  .category-header, .category-content { padding-left: 0.7rem; padding-right: 0.7rem; }
-  .category-header { font-size: 1rem; }
-  .category-list { grid-template-columns: 1fr; }
-  .fab-group { left: 0.7rem; bottom: 1rem; }
-}
-::-webkit-scrollbar { width: 9px; background: var(--bg);}
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px;}
-  </style>
-  <script src="data.js"></script>
+<style>
+    :root {
+        /* 色块系统 */
+        --bg-app: #f5f5f7;        
+        --bg-surface: #ffffff;    
+        --bg-block: #efeff1;      
+        --bg-active: #e5e5e7;     
+        
+        --text-main: #000000;
+        --text-sub: #86868b;
+        
+        --accent: #000000;
+        --accent-fg: #ffffff;
+        
+        --danger: #ff3b30;
+        --danger-bg: #fff2f2;
+        
+        /* 尺寸系统 */
+        --radius-l: 24px;
+        --radius-m: 16px;
+        --radius-s: 12px;
+        --pill: 99px;
+        
+        --sidebar-w: 240px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg-app: #000000;
+            --bg-surface: #1c1c1e;
+            --bg-block: #2c2c2e;
+            --bg-block-hover: #3a3a3c;
+            --text-main: #ffffff;
+            --text-sub: #98989d;
+            --accent: #ffffff;
+            --accent-fg: #000000;
+            --danger-bg: #3a0b0b;
+        }
+    }
+
+    * { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+        background: var(--bg-app);
+        color: var(--text-main);
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        display: flex;
+        font-size: 16px;
+    }
+
+    /* === Sidebar === */
+    aside {
+        width: var(--sidebar-w);
+        background: var(--bg-surface);
+        display: flex; flex-direction: column;
+        padding: 30px 16px;
+        z-index: 10;
+    }
+
+    .brand {
+        display: flex; align-items: center; gap: 14px;
+        font-size: 20px; font-weight: 800; color: var(--text-main);
+        margin-bottom: 40px; padding-left: 8px;
+    }
+    .brand img { width: 36px; height: 36px; border-radius: 8px; }
+
+    .nav-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; }
+    .nav-list::-webkit-scrollbar { display: none; }
+
+    .nav-item {
+        padding: 12px 20px; 
+        border-radius: var(--pill); 
+        cursor: pointer;
+        display: flex; justify-content: space-between; align-items: center;
+        color: var(--text-sub); 
+        font-size: 15px; font-weight: 600;
+        background: transparent;
+        transition: all 0.2s;
+    }
+    .nav-item:hover { background: var(--bg-block); color: var(--text-main); }
+    
+    .nav-item.active { 
+        background: var(--bg-active); 
+        color: var(--text-main); 
+        font-weight: 700;
+    }
+    .nav-item.active .badge { background: #dcdce0; color: var(--text-main); }
+    
+    .badge { 
+        font-size: 12px; background: var(--bg-block); 
+        padding: 2px 8px; border-radius: 99px; color: var(--text-sub); 
+        transition: all 0.2s; font-weight: 600;
+    }
+
+    .sidebar-footer { margin-top: 30px; display: flex; flex-direction: column; gap: 12px; }
+
+    /* === Main Content === */
+    main {
+        flex: 1; height: 100%; overflow-y: auto;
+        padding: 30px 40px 80px 40px; 
+        background: var(--bg-app); 
+    }
+
+    .dashboard-header {
+        background: var(--bg-surface);
+        border-radius: var(--radius-l);
+        padding: 40px;
+        margin-bottom: 40px;
+    }
+    .dash-title { font-size: 28px; font-weight: 800; margin-bottom: 10px; color: var(--text-main); letter-spacing: -0.5px; }
+    .dash-desc { color: var(--text-sub); font-size: 15px; margin-bottom: 30px; font-weight: 500; }
+    
+    .stats-row { display: flex; gap: 20px; flex-wrap: wrap; }
+    .stat-pill {
+        background: var(--bg-block);
+        padding: 20px 30px; border-radius: var(--radius-m);
+        display: flex; flex-direction: column; gap: 4px;
+        min-width: 140px;
+    }
+    .stat-val { font-size: 24px; font-weight: 800; line-height: 1; color: var(--text-main); }
+    .stat-lbl { font-size: 13px; color: var(--text-sub); font-weight: 600; }
+
+    /* Sections */
+    .cat-section { margin-bottom: 50px; scroll-margin-top: 40px; }
+    .cat-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    
+    .cat-title-input {
+        font-size: 22px; font-weight: 800; 
+        background: transparent; border: none;
+        color: var(--text-main); flex: 1; padding: 8px 0;
+        border-radius: 8px; transition: all 0.2s;
+    }
+    .cat-title-input:hover, .cat-title-input:focus { padding-left: 12px; background: var(--bg-block); }
+
+    /* === Cards === */
+    .app-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 12px;
+    }
+
+    .app-card {
+        background: var(--bg-surface);
+        border-radius: var(--radius-m);
+        padding: 16px;
+        display: flex; flex-direction: row; align-items: center;
+        position: relative;
+        cursor: grab;
+        transition: transform 0.2s, background 0.2s;
+        min-height: 80px;
+    }
+    .app-card:hover { transform: translateY(-2px); z-index: 2; outline: 2px solid rgba(0,0,0,0.03); }
+    .app-card:active { cursor: grabbing; transform: scale(0.98); }
+    .app-card.dragging { opacity: 0.4; }
+    
+    .icon-wrapper {
+        width: 44px; height: 44px; 
+        margin-right: 16px; 
+        border-radius: 10px;
+        background: var(--bg-block); 
+        overflow: hidden; flex-shrink: 0;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .app-icon-img { width: 65%; height: 65%; object-fit: contain; }
+    
+    .card-meta { flex: 1; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+    .app-name { 
+        font-size: 16px; font-weight: 700; margin-bottom: 2px; color: var(--text-main);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .app-desc { 
+        font-size: 13px; color: var(--text-sub);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    /* Controls (核心修改：添加编辑按钮) */
+    .card-controls {
+        position: absolute; top: 12px; right: 12px;
+        display: flex; gap: 8px; opacity: 0; transition: opacity 0.2s;
+    }
+    .app-card:hover .card-controls { opacity: 1; }
+
+    .control-btn {
+        width: 32px; height: 32px; border-radius: 50%; border: none; cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        background: var(--bg-block); color: var(--text-main);
+        font-size: 13px; transition: background 0.2s;
+    }
+    .control-btn:hover { background: var(--bg-active); }
+    .control-btn.btn-del { background: var(--danger-bg); color: var(--danger); }
+    .control-btn.btn-del:hover { background: var(--danger); color: #fff; }
+
+    /* Add Button */
+    .add-card {
+        background: transparent; 
+        border: 2px dashed var(--bg-block);
+        border-radius: var(--radius-m);
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        color: var(--text-sub); cursor: pointer; min-height: 80px;
+        font-size: 14px; gap: 8px; font-weight: 600;
+        transition: all 0.2s;
+    }
+    .add-card:hover { border-color: var(--text-main); color: var(--text-main); background: var(--bg-block); }
+
+    .add-category-block {
+        background: var(--bg-surface); border-radius: var(--radius-l); padding: 24px;
+        text-align: center; color: var(--text-sub); cursor: pointer;
+        margin-top: 20px; font-weight: 600; transition: all 0.2s; font-size: 16px;
+    }
+    .add-category-block:hover { background: var(--bg-block); color: var(--text-main); }
+
+    /* Dialog */
+    dialog {
+        border: none; border-radius: var(--radius-l); padding: 0;
+        background: var(--bg-surface); color: var(--text-main);
+        width: 90%; max-width: 460px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1); 
+    }
+    dialog::backdrop { background: rgba(0,0,0,0.4); backdrop-filter: blur(5px); }
+    
+    .modal-header { padding: 24px 30px; font-weight: 800; font-size: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .modal-body { padding: 0 30px 30px; display: flex; flex-direction: column; gap: 20px; }
+    
+    .form-group label { display: block; font-size: 14px; font-weight: 700; color: var(--text-sub); margin-bottom: 8px; }
+    .form-input {
+        width: 100%; padding: 14px 20px; 
+        border-radius: var(--radius-s); border: none;
+        background: var(--bg-block); color: var(--text-main); font-size: 15px; font-weight: 500;
+        transition: background 0.2s;
+    }
+    .form-input:focus { background: var(--bg-active); }
+    .modal-footer { padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; background: var(--bg-app); }
+
+    /* Buttons */
+    .btn { 
+        padding: 14px; border-radius: var(--radius-s); border: none; cursor: pointer; 
+        font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; 
+        transition: all 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: var(--accent-fg); width: 100%; }
+    .btn-primary:hover { opacity: 0.8; }
+    .btn-secondary { background: var(--bg-block); color: var(--text-main); width: 100%; }
+    .btn-secondary:hover { background: var(--bg-active); }
+    .btn-danger { color: var(--danger); background: transparent; padding: 10px 20px; }
+    .btn-danger:hover { background: var(--danger-bg); border-radius: var(--radius-s); }
+
+    .home-link {
+        display: block; text-align: center; color: var(--text-sub); font-size: 14px; 
+        text-decoration: none; margin-top: 15px; font-weight: 600;
+    }
+    .home-link:hover { color: var(--text-main); }
+
+    @media (max-width: 768px) {
+        body { flex-direction: column; height: auto; min-height: 100vh; }
+        aside { width: 100%; padding: 20px; border-bottom: 1px solid var(--bg-block); }
+        .nav-list { display: none; } 
+        .brand { margin-bottom: 15px; }
+        .sidebar-footer { flex-direction: row; flex-wrap: wrap; margin-top: 0; }
+        .sidebar-footer .btn { flex: 1; }
+        main { padding: 20px; }
+        .dashboard-header { padding: 24px; border-radius: var(--radius-m); }
+        .stats-row { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 10px; }
+        .stat-pill { min-width: 120px; padding: 16px; }
+        .app-grid { grid-template-columns: 1fr; gap: 10px; }
+        .card-controls { opacity: 1; position: relative; top: 0; right: 0; margin-left: auto; }
+        .app-card { padding: 16px; }
+    }
+</style>
 </head>
 <body>
-  <div class="header">
-    <div class="header-content">
-      <a href="index.html" class="return-btn" title="返回主页"><i class="fas fa-arrow-left"></i></a>
-      <span class="header-title">书签管理</span>
-      <div class="header-actions">
-        <button class="theme-btn" onclick="toggleTheme()" title="切换主题"><i class="fas fa-moon"></i></button>
-      </div>
+
+<aside>
+    <div class="brand">
+        <img src="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" alt="Logo">
+        <span>管理后台</span>
     </div>
-  </div>
-  <div class="container">
-    <div class="toolbar"></div>
-    <div class="category-list" id="bookmark-list"></div>
-    <h2 style="margin-top:2.7rem;margin-bottom:1rem;font-weight:600;font-size:1.2rem;color:var(--accent);letter-spacing:1px;">当前数据</h2>
-    <pre id="dataView">(数据加载中...)</pre>
-  </div>
-  <div class="fab-group">
-    <button class="fab-btn" onclick="addCategory()" title="新建分类"><span><i class="fas fa-plus"></i></span>新建分类</button>
-    <button class="fab-btn" onclick="downloadData()" title="导出 data.js"><span><i class="fas fa-download"></i></span>导出 data.js</button>
-    <button class="fab-btn" onclick="copyToClipboard()" title="复制 data.js"><span><i class="fas fa-clipboard"></i></span>复制 data.js</button>
-    <button class="fab-btn" onclick="uploadToGithub()" title="上传到 GitHub">
-      <span><i class="fas fa-upload"></i></span>上传到 GitHub
-    </button>
-  </div>
+    
+    <div class="nav-list" id="navList"></div>
+    
+    <div class="sidebar-footer">
+        <button class="btn btn-primary" id="downloadBtn">
+            <i class="fa-solid fa-download"></i> 下载配置
+        </button>
+        <button class="btn btn-secondary" onclick="window.open('https://github.com/wangwenzhiwwz/Ulefone-Navigation/upload/main', '_blank')">
+            <i class="fa-brands fa-github"></i> 数据仓库
+        </button>
+        <a href="index.html" class="home-link">返回前台首页 &rarr;</a>
+    </div>
+</aside>
+
+<main id="mainContent">
+    <div class="dashboard-header">
+        <div class="dash-title">Ulefone Admin</div>
+        <div class="dash-desc">极简后台管理，拖拽排序，点击编辑。</div>
+        <div class="stats-row">
+            <div class="stat-pill">
+                <div class="stat-val" id="totalApps">0</div>
+                <div class="stat-lbl">书签总数</div>
+            </div>
+            <div class="stat-pill">
+                <div class="stat-val" id="totalCats">0</div>
+                <div class="stat-lbl">分类数量</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contentArea"></div>
+    
+    <div class="add-category-block" onclick="addCategory()">
+        <i class="fa-solid fa-plus"></i> 新建分类分组
+    </div>
+</main>
+
+<dialog id="editModal">
+    <div class="modal-header">
+        <span id="modalTitle">编辑应用</span>
+        <button class="control-btn" onclick="closeModal()"><i class="fa-solid fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <div style="width: 64px; height: 64px; border-radius: 16px; background: var(--bg-block); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <img id="modalIconPreview" src="" style="width: 65%; height: 65%; object-fit: contain;">
+            </div>
+            <div style="flex:1;">
+                <label style="font-size:13px; color:var(--text-sub); margin-bottom:5px;">图标预览</label>
+                <div style="font-size:14px; color:var(--text-main); font-weight:500;">自动获取或使用链接</div>
+            </div>
+        </div>
+        
+        <div class="form-group"><label>应用名称</label><input class="form-input" id="inpName" placeholder="例如: Google"></div>
+        <div class="form-group"><label>跳转链接</label><input class="form-input" id="inpLink" placeholder="https://..."></div>
+        <div class="form-group"><label>自定义图标 URL (可选)</label><input class="form-input" id="inpIcon" oninput="updateModalPreview(document.getElementById('inpLink').value, this.value)" placeholder="为空则自动获取 Favicon"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn-danger" onclick="confirmDelete()">删除</button>
+        <button class="btn btn-primary" style="width: auto; padding: 14px 40px;" onclick="saveEdit()">保存</button>
+    </div>
+</dialog>
+
+<script src="data.js"></script>
 <script>
-// 获取 url 域名
+const appsJsTemplate = `const data = %APPDATA_REPLACE%;`;
+let currentEdit = { ci: '', ai: -1 };
+
+function render() {
+    const nav = document.getElementById('navList');
+    const area = document.getElementById('contentArea');
+    
+    const catKeys = Object.keys(data);
+    const totalApps = Object.values(data).flat().length;
+    document.getElementById('totalApps').textContent = totalApps;
+    document.getElementById('totalCats').textContent = catKeys.length;
+
+    nav.innerHTML = '';
+    area.innerHTML = '';
+
+    catKeys.forEach((key, index) => {
+        // Sidebar Item
+        const navItem = document.createElement('div');
+        navItem.className = 'nav-item';
+        navItem.innerHTML = `<span>${key}</span> <span class="badge">${data[key].length}</span>`;
+        navItem.onclick = () => {
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            navItem.classList.add('active');
+            document.getElementById(`group-${index}`).scrollIntoView({behavior: 'smooth', block: 'start'});
+        };
+        nav.appendChild(navItem);
+
+        // Section
+        const section = document.createElement('div');
+        section.className = 'cat-section';
+        section.id = `group-${index}`;
+        
+        // Header
+        const header = document.createElement('div');
+        header.className = 'cat-header';
+        header.innerHTML = `
+            <input class="cat-title-input" value="${key}" onchange="renameCategory('${key}', this.value)">
+            <button class="control-btn btn-del" onclick="deleteCategory('${key}')" title="删除整组"><i class="fa-solid fa-trash"></i></button>
+        `;
+        section.appendChild(header);
+
+        // Grid
+        const grid = document.createElement('div');
+        grid.className = 'app-grid';
+        
+        data[key].forEach((app, ai) => {
+            const domain = getDomain(app.url);
+            const favicon = app.icon || `https://www.google.com/s2/favicons?sz=64&domain_url=${app.url}`;
+            
+            const card = document.createElement('div');
+            card.className = 'app-card';
+            card.draggable = true;
+            card.dataset.cat = key;
+            card.dataset.idx = ai;
+            
+            // 核心逻辑：默认点击跳转，不触发编辑
+            card.onclick = (e) => {
+                if(!e.target.closest('.control-btn')) {
+                    window.open(app.url, '_blank');
+                }
+            };
+
+            // 核心修改：增加编辑按钮
+            card.innerHTML = `
+                <div class="icon-wrapper">
+                    <img class="app-icon-img" src="${favicon}" onerror="this.src='https://ui-avatars.com/api/?name=${app.name}&background=random&color=fff&size=64';">
+                </div>
+                <div class="card-meta">
+                    <div class="app-name">${app.name}</div>
+                    <div class="app-desc">${domain}</div>
+                </div>
+                <div class="card-controls">
+                    <button class="control-btn" onclick="event.stopPropagation(); openEdit('${key}', ${ai})" title="编辑"><i class="fa-solid fa-pen"></i></button>
+                    <button class="control-btn btn-del" onclick="event.stopPropagation(); deleteApp('${key}', ${ai})" title="删除"><i class="fa-solid fa-minus"></i></button>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // Add Btn
+        const addBtn = document.createElement('div');
+        addBtn.className = 'add-card';
+        addBtn.innerHTML = '<i class="fa-solid fa-plus"></i> 添加书签';
+        addBtn.onclick = () => addApp(key);
+        grid.appendChild(addBtn);
+
+        section.appendChild(grid);
+        area.appendChild(section);
+    });
+
+    setupDrag();
+    setupScrollSpy();
+}
+
 function getDomain(url) {
-  try {
-    return new URL(url).hostname;
-  } catch {
-    return '';
-  }
-}
-let bookmarksData = data;
-let editingBookmark = null;
-
-// 深色模式自动&切换
-function loadDarkMode() {
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const user = localStorage.getItem('darkMode');
-  const isDark = user === 'enabled' || (user === null && prefersDark);
-  document.body.classList.toggle('dark-mode', isDark);
-  document.querySelector('.theme-btn').innerHTML =
-      isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-}
-function toggleTheme() {
-  const isDark = !document.body.classList.contains('dark-mode');
-  document.body.classList.toggle('dark-mode', isDark);
-  document.querySelector('.theme-btn').innerHTML =
-      isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-  localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-}
-window.addEventListener('DOMContentLoaded', () => {
-  loadDarkMode();
-  renderBookmarkList();
-  document.getElementById("dataView").textContent = generateDataFileContent();
-  enableCategoryDragSort();
-  // 跟随系统自动切换
-  if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (localStorage.getItem('darkMode') === null) {
-        document.body.classList.toggle('dark-mode', e.matches);
-        document.querySelector('.theme-btn').innerHTML =
-          e.matches ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-      }
-    });
-  }
-});
-
-// 渲染时只负责渲染，拖拽事件每次渲染后都重新挂载（不会事件多次绑定）
-function renderBookmarkList() {
-  const container = document.getElementById("bookmark-list");
-  container.innerHTML = '';
-  Object.entries(bookmarksData).forEach(([category, bookmarks]) => {
-    const block = document.createElement("div");
-    block.className = "category-card";
-    block.dataset.cat = category;
-
-    block.innerHTML = `
-      <div class="category-header" onclick="toggleFold('${category}')">
-        <div class="category-header-left">
-          <span class="drag-handle" draggable="true" title="拖动分类排序"><i class="fas fa-bars"></i></span>
-          <input class="category-name-input" id="cat-${category}" value="${category}" onchange="renameCategory('${category}')" />
-        </div>
-        <div class="category-header-actions">
-          <button class="delete-category-btn" onclick="event.stopPropagation(); deleteCategory('${category}')" title="删除分类"><i class="fas fa-trash"></i></button>
-        </div>
-      </div>
-      <div class="category-content" id="content-${category}">
-        <div class="bookmark-list"></div>
-        <form class="add-bookmark-form" onsubmit="event.preventDefault(); addBookmark('${category}')">
-          <input type="text" placeholder="书签名称" id="name-${category}" autocomplete="off" />
-          <input type="text" placeholder="网址" id="url-${category}" autocomplete="off" />
-          <button type="submit">添加</button>
-        </form>
-      </div>
-    `;
-
-    const content = block.querySelector(".bookmark-list");
-    bookmarks.forEach((b, i) => {
-      const item = document.createElement("div");
-      item.className = "bookmark-item";
-      item.dataset.idx = i;
-      if (editingBookmark && editingBookmark.cat === category && editingBookmark.idx === i) {
-        item.innerHTML = `
-          <input class="bookmark-edit-input" type="text" id="edit-name-${category}-${i}" value="${b.name}" />
-          <input class="bookmark-edit-url" type="text" id="edit-url-${category}-${i}" value="${b.url}" />
-          <button type="button" onclick="saveBookmark('${category}', ${i})" title="保存"><i class="fas fa-check"></i></button>
-          <button type="button" onclick="cancelEditBookmark()" title="取消"><i class="fas fa-times"></i></button>
-        `;
-        content.appendChild(item);
-        setTimeout(() => {
-          document.getElementById(`edit-name-${category}-${i}`).focus();
-          document.getElementById(`edit-name-${category}-${i}`).onkeydown = (e) => {
-            if (e.key === "Enter") document.getElementById(`edit-url-${category}-${i}`).focus();
-            if (e.key === "Escape") cancelEditBookmark();
-          };
-          document.getElementById(`edit-url-${category}-${i}`).onkeydown = (e) => {
-            if (e.key === "Enter") saveBookmark(category, i);
-            if (e.key === "Escape") cancelEditBookmark();
-          };
-        }, 0);
-      } else {
-        item.innerHTML = `
-          <span class="bookmark-drag" draggable="true" title="拖动调整标签顺序"><i class="fas fa-bars"></i></span>
-          <img class="bookmark-favicon" src="https://www.google.com/s2/favicons?sz=32&domain=${getDomain(b.url)}" alt="${b.name}">
-          <a class="bookmark-link" href="${b.url}" target="_blank" tabindex="0">${b.name}</a>
-          <button type="button" onclick="startEditBookmark('${category}', ${i})" title="编辑"><i class="fas fa-pen"></i></button>
-          <button type="button" class="delete-btn" onclick="deleteBookmark('${category}', ${i})" title="删除"><i class="fas fa-trash"></i></button>
-        `;
-      }
-      content.appendChild(item);
-    });
-
-    setTimeout(() => {
-      const nameInput = document.getElementById(`name-${category}`);
-      const urlInput = document.getElementById(`url-${category}`);
-      if (nameInput && urlInput) {
-        nameInput.onkeydown = (e) => {
-          if (e.key === "Enter") urlInput.focus();
-        };
-        urlInput.onkeydown = (e) => {
-          if (e.key === "Enter") addBookmark(category);
-        };
-      }
-    }, 0);
-
-    container.appendChild(block);
-  });
-  editingBookmark = null;
-  enableAllBookmarkDragSort();
+    try { return new URL(url).hostname.replace('www.', ''); } catch { return 'link'; }
 }
 
-// 拖拽排序时，只操作DOM，不操作数据，只有在 drop 事件时才同步数据和重渲染
-function enableAllBookmarkDragSort() {
-  document.querySelectorAll('.bookmark-list').forEach(listDom => {
-    listDom.replaceWith(listDom.cloneNode(true));
-  });
-  document.querySelectorAll('.bookmark-list').forEach(listDom => {
-    const cat = listDom.closest('.category-card').dataset.cat;
-    let dragging = null;
-    let draggingIdx = null;
-    let placeholder = null;
-    listDom.addEventListener("dragstart", (e) => {
-      if (!e.target.classList.contains("bookmark-drag")) return;
-      dragging = e.target.closest(".bookmark-item");
-      draggingIdx = +dragging.dataset.idx;
-      dragging.classList.add("dragging");
-      dragging.style.zIndex = "10";
-      placeholder = document.createElement("div");
-      placeholder.className = "bookmark-item";
-      placeholder.style.height = dragging.offsetHeight + "px";
-      placeholder.style.background = "rgba(63,81,181,0.09)";
-      dragging.parentNode.insertBefore(placeholder, dragging.nextSibling);
-    });
-    listDom.addEventListener("dragover", (e) => {
-      e.preventDefault();
-      if (!dragging) return;
-      let after = null;
-      for (const el of listDom.children) {
-        if (!el.classList.contains("bookmark-item")) continue;
-        if (el === dragging || el === placeholder) continue;
-        const box = el.getBoundingClientRect();
-        if (e.clientY < box.top + box.height / 2) {
-          after = el;
-          break;
-        }
-      }
-      if (after && after !== placeholder) {
-        listDom.insertBefore(placeholder, after);
-      } else if (!after) {
-        listDom.appendChild(placeholder);
-      }
-    });
-    listDom.addEventListener("drop", (e) => {
-      if (!dragging) return;
-      const items = Array.from(listDom.children).filter(el => el.classList.contains("bookmark-item") && el !== dragging);
-      const newArr = [];
-      let inserted = false;
-      for (const el of items) {
-        if (el === placeholder && !inserted) {
-          newArr.push(bookmarksData[cat][draggingIdx]);
-          inserted = true;
-        }
-        if (el !== placeholder) {
-          const idx = +el.dataset.idx;
-          newArr.push(bookmarksData[cat][idx]);
-        }
-      }
-      if (!inserted) newArr.push(bookmarksData[cat][draggingIdx]);
-      bookmarksData[cat] = newArr;
-      dragging.classList.remove("dragging");
-      dragging.style.zIndex = "";
-      if (placeholder && placeholder.parentNode) placeholder.parentNode.removeChild(placeholder);
-      dragging = null;
-      draggingIdx = null;
-      placeholder = null;
-      setTimeout(() => {
-        renderBookmarkList();
-        document.getElementById("dataView").textContent = generateDataFileContent();
-      }, 0);
-    });
-    listDom.addEventListener("dragend", () => {
-      if (dragging) {
-        dragging.classList.remove("dragging");
-        dragging.style.zIndex = "";
-      }
-      if (placeholder && placeholder.parentNode) placeholder.parentNode.removeChild(placeholder);
-      dragging = null;
-      draggingIdx = null;
-      placeholder = null;
-    });
-  });
+function setupScrollSpy() {
+    const main = document.getElementById('mainContent');
+    const sections = document.querySelectorAll('.cat-section');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navItems.forEach(item => item.classList.remove('active'));
+                const index = Array.from(sections).indexOf(entry.target);
+                if (navItems[index]) navItems[index].classList.add('active');
+            }
+        });
+    }, { root: main, threshold: 0.1, rootMargin: "-10% 0px -70% 0px" });
+
+    sections.forEach(section => observer.observe(section));
 }
 
-function enableCategoryDragSort() {
-  let dragging = null;
-  const container = document.getElementById("bookmark-list");
-  let placeholder = null;
-  container.addEventListener("dragstart", e => {
-    if (!e.target.classList.contains("drag-handle")) return;
-    const block = e.target.closest(".category-card");
-    const cat = block?.dataset.cat;
-    const folded = document.getElementById(`content-${cat}`).style.display === 'none';
-    if (folded) {
-      dragging = block;
-      block.style.opacity = 0.5;
-      placeholder = document.createElement("div");
-      placeholder.className = "category-card";
-      placeholder.style.height = block.offsetHeight + "px";
-      placeholder.style.background = "rgba(63,81,181,0.10)";
-      block.parentNode.insertBefore(placeholder, block.nextSibling);
+const modal = document.getElementById('editModal');
+function openEdit(key, ai) {
+    currentEdit = { ci: key, ai: ai };
+    const app = data[key][ai];
+    document.getElementById('inpName').value = app.name;
+    document.getElementById('inpLink').value = app.url;
+    document.getElementById('inpIcon').value = app.icon || '';
+    updateModalPreview(app.url, app.icon);
+    modal.showModal();
+}
+
+function updateModalPreview(url, customIcon) {
+    const img = document.getElementById('modalIconPreview');
+    if(customIcon) {
+        img.src = customIcon;
     } else {
-      e.preventDefault();
+        const domain = getDomain(url);
+        img.src = `https://www.google.com/s2/favicons?sz=64&domain_url=${url}`;
     }
-  });
-  container.addEventListener("dragover", e => {
-    e.preventDefault();
-    if (!dragging) return;
-    let after = null;
-    for (const el of container.children) {
-      if (el === dragging || el === placeholder) continue;
-      const box = el.getBoundingClientRect();
-      if (e.clientY < box.top + box.height / 2) {
-        after = el;
-        break;
-      }
-    }
-    if (after && after !== placeholder) {
-      container.insertBefore(placeholder, after);
-    } else if (!after) {
-      container.appendChild(placeholder);
-    }
-  });
-  container.addEventListener("drop", () => {
-    if (!dragging) return;
-    const newOrder = {};
-    const arr = [];
-    for (const el of container.children) {
-      if (el === dragging) continue;
-      if (el.classList.contains("category-card")) arr.push(el.dataset.cat);
-      else if (el === placeholder) arr.push(dragging.dataset.cat);
-    }
-    for (const cat of arr) {
-      newOrder[cat] = bookmarksData[cat];
-    }
-    bookmarksData = newOrder;
-    dragging.style.opacity = "";
-    if (placeholder && placeholder.parentNode) placeholder.parentNode.removeChild(placeholder);
-    dragging = null;
-    placeholder = null;
-    renderBookmarkList();
-    document.getElementById("dataView").textContent = generateDataFileContent();
-  });
-  container.addEventListener("dragend", () => {
-    if (dragging) dragging.style.opacity = "";
-    if (placeholder && placeholder.parentNode) placeholder.parentNode.removeChild(placeholder);
-    dragging = null;
-    placeholder = null;
-  });
+    img.onerror = () => img.src = `https://ui-avatars.com/api/?name=App&background=f0f0f0&color=333&size=64`;
 }
 
-function toggleFold(category) {
-  const el = document.getElementById(`content-${category}`);
-  if (el) el.style.display = el.style.display === 'none' ? '' : '';
+function saveEdit() {
+    const { ci, ai } = currentEdit;
+    if(!ci) return;
+    
+    const newName = document.getElementById('inpName').value;
+    const newLink = document.getElementById('inpLink').value;
+    const newIcon = document.getElementById('inpIcon').value;
+    
+    data[ci][ai] = {
+        name: newName,
+        url: newLink,
+        ...(newIcon && { icon: newIcon })
+    };
+    
+    closeModal();
+    render();
 }
-function renameCategory(oldName) {
-  const input = document.getElementById(`cat-${oldName}`);
-  const newName = input.value.trim();
-  if (!newName || newName === oldName) return;
-  if (bookmarksData[newName]) {
-    alert("分类已存在");
-    input.value = oldName;
-    return;
-  }
-  bookmarksData[newName] = bookmarksData[oldName];
-  delete bookmarksData[oldName];
-  renderBookmarkList();
-  document.getElementById("dataView").textContent = generateDataFileContent();
+
+function closeModal() { modal.close(); }
+
+window.addApp = (key) => {
+    data[key].push({ name: "新书签", url: "https://example.com" });
+    render();
+    openEdit(key, data[key].length - 1);
+};
+
+window.deleteApp = (key, idx) => {
+    if(confirm('确定删除?')) {
+        data[key].splice(idx, 1);
+        render();
+    }
+};
+
+window.addCategory = () => {
+    const name = prompt("请输入新分类名称:", "新分类");
+    if(name && !data[name]) {
+        data[name] = [];
+        render();
+        setTimeout(() => {
+            const main = document.getElementById('mainContent');
+            main.scrollTop = main.scrollHeight;
+        }, 100);
+    } else if (data[name]) {
+        alert("分类已存在");
+    }
+};
+
+window.renameCategory = (oldName, newName) => {
+    if(oldName === newName) return;
+    if(data[newName]) {
+        alert("分类名已存在");
+        render();
+        return;
+    }
+    const newData = {};
+    Object.keys(data).forEach(key => {
+        if(key === oldName) {
+            newData[newName] = data[oldName];
+        } else {
+            newData[key] = data[key];
+        }
+    });
+    Object.keys(data).forEach(k => delete data[k]);
+    Object.assign(data, newData);
+    render();
+};
+
+window.deleteCategory = (key) => {
+    if(confirm(`确定删除分类 "${key}" 及其所有书签吗?`)) {
+        delete data[key];
+        render();
+    }
+};
+
+function setupDrag() {
+    let dragged = null;
+    document.querySelectorAll('.app-card').forEach(card => {
+        card.addEventListener('dragstart', function() { 
+            dragged = this; 
+            this.style.opacity = '0.5';
+        });
+        card.addEventListener('dragend', function() { 
+            this.style.opacity = '1'; 
+            dragged = null; 
+        });
+        card.addEventListener('dragover', e => e.preventDefault());
+        card.addEventListener('drop', function(e) {
+            e.preventDefault();
+            if(!dragged || dragged === this) return;
+            
+            const sCat = dragged.dataset.cat;
+            const sIdx = parseInt(dragged.dataset.idx);
+            const tCat = this.dataset.cat;
+            const tIdx = parseInt(this.dataset.idx);
+            
+            const item = data[sCat].splice(sIdx, 1)[0];
+            data[tCat].splice(tIdx, 0, item);
+            
+            render();
+        });
+    });
 }
-function addBookmark(cat) {
-  const name = document.getElementById(`name-${cat}`).value.trim();
-  const url = document.getElementById(`url-${cat}`).value.trim();
-  if (!name || !url) return alert("请填写完整");
-  bookmarksData[cat].push({ name, url });
-  renderBookmarkList();
-  document.getElementById("dataView").textContent = generateDataFileContent();
-  setTimeout(() => {
-    document.getElementById(`name-${cat}`).focus();
-  }, 0);
-}
-function startEditBookmark(cat, idx) {
-  editingBookmark = {cat, idx};
-  renderBookmarkList();
-}
-function saveBookmark(cat, idx) {
-  const name = document.getElementById(`edit-name-${cat}-${idx}`).value.trim();
-  const url = document.getElementById(`edit-url-${cat}-${idx}`).value.trim();
-  if (!name || !url) return;
-  bookmarksData[cat][idx] = { name, url };
-  editingBookmark = null;
-  renderBookmarkList();
-  document.getElementById("dataView").textContent = generateDataFileContent();
-}
-function cancelEditBookmark() {
-  editingBookmark = null;
-  renderBookmarkList();
-}
-function deleteBookmark(cat, idx) {
-  if (confirm("确定删除该书签吗？")) {
-    bookmarksData[cat].splice(idx, 1);
-    renderBookmarkList();
-    document.getElementById("dataView").textContent = generateDataFileContent();
-  }
-}
-function deleteCategory(name) {
-  if (confirm(`确定删除分类 "${name}" 吗？`)) {
-    delete bookmarksData[name];
-    renderBookmarkList();
-    document.getElementById("dataView").textContent = generateDataFileContent();
-  }
-}
-function generateDataFileContent() {
-  return "const data = " + JSON.stringify(bookmarksData, null, 2) + ";";
-}
-function downloadData() {
-  const blob = new Blob([generateDataFileContent()], { type: "application/javascript" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "data.js";
-  a.click();
-}
-function copyToClipboard() {
-  const content = generateDataFileContent();
-  navigator.clipboard.writeText(content).then(() => alert("已复制"));
-}
-function uploadToGithub() {
-  window.open("https://github.com/wangwenzhiwwz/Ulefone-Navigation/upload/main", "_blank");
-}
-function addCategory() {
-  let base = "新分类";
-  let num = 1;
-  let name = base;
-  while (bookmarksData[name]) {
-    name = base + (++num);
-  }
-  bookmarksData[name] = [];
-  renderBookmarkList();
-  setTimeout(() => {
-    document.getElementById(`cat-${name}`).focus();
-    document.getElementById(`cat-${name}`).select();
-  }, 0);
-  document.getElementById("dataView").textContent = generateDataFileContent();
-}
+
+document.getElementById('downloadBtn').onclick = () => {
+    const content = appsJsTemplate.replace('%APPDATA_REPLACE%', JSON.stringify(data, null, 4));
+    const blob = new Blob([content], {type: "application/javascript"});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = "data.js";
+    a.click();
+};
+
+render();
 </script>
 </body>
 </html>

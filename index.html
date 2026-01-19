@@ -5,581 +5,653 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ulefone | Navigation</title>
 <link rel="icon" href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" sizes="32x32" type="image/png"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
 <style>
 :root {
-  --bg: #fff;
-  --fg: #181818;
-  --muted: #bcbcbc;
-  --border: #e6e6e6;
-  --accent: #181818;
-  --radius: 20px;
-  --shadow: 0 1px 8px 0 rgba(24,24,24,0.02);
-  --header-height: 56px;
-  --sidebar-width: 210px;
-  --card-bg: #f7f7f7;
+  /* 色块系统 */
+  --bg-app: #f5f5f7;
+  --bg-surface: #ffffff;
+  --bg-block: #efeff1;
+  --bg-active: #e5e5e7;
+  
+  --text-main: #000000;
+  --text-sub: #86868b;
+  --highlight: #ff3b30; /* 搜索高亮色 */
+  
+  --sidebar-width: 240px;
+  --header-height: 72px;
+  
+  --radius-card: 16px;
+  --pill: 99px;
+  --scroll-offset: 100px;
 }
+
+/* 暗黑模式 */
+body.dark-mode {
+  --bg-app: #000000;
+  --bg-surface: #1c1c1e;
+  --bg-block: #2c2c2e;
+  --bg-active: #3a3a3c;
+  --text-main: #ffffff;
+  --text-sub: #98989d;
+  --highlight: #ff453a;
+}
+
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--fg);
-  font-family: 'Inter', 'Segoe UI', 'PingFang SC', Arial, sans-serif;
-  font-size: 15px;
-  transition: background .18s, color .18s;
-  min-height: 100vh;
+  background: var(--bg-app);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background .2s, color .2s;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
-body.dark-mode {
-  --bg: #181818;
-  --fg: #f2f2f2;
-  --muted: #888;
-  --border: #2e2e2e;
-  --accent: #fff;
-  --card-bg: #232323;
+
+a { text-decoration: none; color: inherit; }
+* { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
+
+/* === Animations (新增动画) === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-* {box-sizing: border-box;}
-a {color: inherit; text-decoration: none;}
-a:active, a:focus, a:hover {color: var(--accent);}
+
+/* 搜索高亮样式 */
+mark {
+  background: transparent;
+  color: var(--highlight);
+  font-weight: 800;
+  padding: 0;
+}
+
+/* === Header === */
 .header {
   height: var(--header-height);
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px 0 32px;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  box-shadow: none;
-  transition: background .18s, color .18s, border-color .18s;
-}
-.logo-container {display: flex; align-items: center;}
-.logo {
-  height: 38px; 
-  width: auto; 
-  min-width: 130px;
-  max-width: 200px;
-  display: flex; align-items: center; justify-content: flex-start;
-  border-radius: var(--radius);
-  overflow: hidden;
-  cursor: pointer;
+  background: var(--bg-surface);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
 }
 
-.logo img {
-  height: 100%; 
-  width: auto; 
-  object-fit: contain;
-  display: block;
-}
-.header-controls {
-  display: flex; align-items: center; gap: 18px;
-}
+.logo { height: 36px; display: flex; align-items: center; cursor: pointer; opacity: 0.95; }
+.logo:hover { opacity: 1; }
+.logo img { height: 100%; width: auto; display: block; }
+
+.header-controls { display: flex; align-items: center; gap: 16px; }
+
 .search-input {
   border: none;
-  outline: none;
-  background: #ededed;
-  padding: 8px 14px;
-  border-radius: var(--radius);
-  font-size: 14px;
-  color: var(--fg);
-  width: 120px;
-  transition: background .16s;
+  background: var(--bg-app);
+  padding: 12px 24px;
+  border-radius: var(--pill);
+  font-size: 15px;
+  color: var(--text-main);
+  width: 260px;
+  transition: all 0.2s;
 }
-body.dark-mode .search-input {background: #232323;}
-.search-input:focus {background: #e0e0e0;}
-.dark-btn, .admin-link {
-  background: none;
-  border: none;
-  color: var(--fg);
-  padding: 0;
-  font-size: 18px;
-  width: 36px; height: 36px;
-  border-radius: var(--radius);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  transition: background .16s;
-}
-.admin-link {font-size: 16px;}
-.dark-btn:hover, .admin-link:hover {background: #ededed; color: var(--accent);}
-body.dark-mode .dark-btn:hover, body.dark-mode .admin-link:hover {background: #232323;}
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--fg);
-  font-size: 22px;
-  width: 36px; height: 36px;
-  border-radius: var(--radius);
-  align-items: center; justify-content: center;
-  cursor: pointer;
-}
-@media (max-width: 700px) {.menu-toggle {display: flex;}}
+.search-input:focus { background: var(--bg-block); width: 300px; }
 
+.icon-btn {
+  background: transparent; border: none; padding: 0;
+  color: var(--text-main); font-size: 20px;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background 0.2s;
+}
+.icon-btn:hover { background: var(--bg-block); }
+
+/* === Layout === */
+.container {
+  display: flex;
+  margin-top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  width: 100%;
+}
+
+/* === Sidebar === */
 .sidebar {
   width: var(--sidebar-width);
-  background: var(--bg);
-  border-right: 1px solid var(--border);
-  padding: 36px 0 0 0;
-  position: fixed;
-  left: 0; top: var(--header-height); bottom: 0;
-  height: calc(100vh - var(--header-height));
-  z-index: 10;
-  display: flex; flex-direction: column;
-  align-items: flex-start;
-  transition: background .18s, border-color .18s;
+  background: var(--bg-surface);
+  padding: 24px 16px;
+  overflow-y: auto;
+  flex-shrink: 0;
+  display: flex; flex-direction: column; 
 }
-#category-list {
-  width: 100%;
-  display: flex; flex-direction: column;
-  padding: 0 10px;
-  margin: 0;
-  list-style: none;
-  gap: 6px;
-}
+.sidebar::-webkit-scrollbar { display: none; }
+
+#category-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2px; }
+
 #category-list li {
-  width: 100%;
-  font-size: 15px;
-  color: var(--fg);
-  background: none;
-  border: none;
-  display: flex; align-items: center; justify-content: flex-start;
-  padding: 11px 0 11px 18px;
-  margin: 0;
-  border-radius: var(--radius);
+  padding: 10px 16px;
+  border-radius: var(--pill);
+  font-size: 15px; font-weight: 600;
+  color: var(--text-sub);
   cursor: pointer;
-  transition: background .13s, color .13s;
-  user-select: none;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  box-sizing: border-box;
+  display: flex; align-items: center;
+  transition: all 0.15s;
 }
-#category-list li .category-icon {
-  margin-right: 10px; font-size: 15px; color: #505050; width: 22px; display: flex; align-items: center; justify-content: center;
+#category-list li i { width: 24px; font-size: 16px; margin-right: 12px; text-align: center; color: var(--text-sub); }
+
+#category-list li:hover { background: var(--bg-block); color: var(--text-main); }
+#category-list li:hover i { color: var(--text-main); }
+
+#category-list li.active {
+  background: var(--bg-active);
+  color: var(--text-main);
+  font-weight: 700;
 }
-#category-list li.active, #category-list li:hover {
-  background: #ededed;
-  color: var(--fg);
-}
-body.dark-mode #category-list li.active,
-body.dark-mode #category-list li:hover {
-  background: #232323;
-  color: var(--fg);
-}
-.sidebar-sep {
-  width: 85%;
-  height: 1px;
-  background: var(--border);
-  margin: 12px auto 4px auto;
-  border: none;
-  border-radius: var(--radius);
-  display: block;
-}
+#category-list li.active i { color: var(--text-main); }
+
+/* === Main Content === */
 .main {
-  margin-left: var(--sidebar-width);
   flex: 1;
-  background: var(--bg);
-  padding: calc(var(--header-height) + 32px) 32px 18px 32px;
-  display: flex; flex-direction: column; gap: 20px;
-  min-width: 0;
-  transition: padding .13s, background .18s;
+  background: var(--bg-app);
+  padding: 40px 50px 100px 50px;
+  overflow-y: auto;
   scroll-behavior: smooth;
-}
-@media (max-width: 700px) {
-  .sidebar {display: none;}
-  .main {margin-left: 0; padding: calc(var(--header-height) + 10px) 2vw 10px 2vw;}
-  .header {padding: 0 10px;}
-  .logo {height: 30px; min-width: 70px;}
-}
-.section {margin-bottom: 8px;}
-.section-header {
-  display: flex; align-items: center; gap: 13px;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--fg);
-  margin-bottom: 10px;
   position: relative;
-  cursor: pointer;
-  outline: none;
 }
-.section-icon {
-  width: 28px; height: 28px; background: #ededed; border-radius: var(--radius);
-  display: flex; align-items: center; justify-content: center;
-  color: #000000; font-size: 15px;
-  transition: background .18s, color .18s;
-}
-body.dark-mode .section-icon {background: #232323; color: #888;}
-.section h2 {font-size: 16px; margin: 0; position: relative;}
 
-/* 分类提示小字样式 */
-.section-tip {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  white-space: nowrap;
-  font-size: 12px;
-  color: var(--muted);
-  background: var(--bg);
-  border-radius: var(--radius);
-  padding: 2px 10px 2px 10px;
-  margin-left: 10px;
-  z-index: 10;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+/* Welcome Block */
+.welcome-block {
+  background: var(--bg-surface);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 50px;
+  display: flex; flex-direction: column; gap: 30px;
+  scroll-margin-top: var(--scroll-offset);
+  /* 动画应用 */
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.welcome-header h1 {
+  font-size: 32px;
+  font-weight: 800; margin: 0 0 10px 0; color: var(--text-main); letter-spacing: -0.5px;
+}
+
+.welcome-info {
+  font-size: 15px; color: var(--text-sub); font-weight: 500;
+  display: flex; align-items: center; gap: 16px;
+}
+.welcome-info span { display: flex; align-items: center; gap: 8px; }
+
+.stats-row { display: flex; flex-wrap: wrap; gap: 20px; }
+.stat-item {
+  background: var(--bg-app);
+  border-radius: 16px;
+  padding: 20px 30px; 
+  min-width: 160px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.stat-num { font-size: 24px; font-weight: 800; color: var(--text-main); margin-bottom: 6px; line-height: 1; }
+.stat-label { font-size: 13px; color: var(--text-sub); font-weight: 600; letter-spacing: 0.5px; }
+.stat-img-wrapper { height: 24px; display: flex; align-items: center; margin-bottom: 6px; }
+.stat-img-wrapper img { height: 100%; width: auto; opacity: 0.7; filter: grayscale(100%); transition: 0.2s; }
+.stat-item:hover .stat-img-wrapper img { filter: none; opacity: 1; }
+
+/* Section Header & Tooltip */
+.section { 
+  margin-bottom: 60px; 
+  scroll-margin-top: var(--scroll-offset); 
+  /* 初始透明，JS控制依次显示 */
+  opacity: 0; 
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.section-header {
+  display: flex; align-items: center;
+  margin-bottom: 24px; padding-left: 4px;
+  cursor: pointer; user-select: none;
+  width: fit-content;
+}
+.section-header h2 { 
+  font-size: 22px; margin: 0; font-weight: 800; color: var(--text-main); 
+  display: flex; align-items: center;
+}
+.section-header i { font-size: 20px; color: var(--text-sub); margin-right: 12px; }
+
+/* 点击提示的小标签 */
+.click-tip {
+  font-size: 12px; 
+  color: var(--text-sub); 
+  font-weight: 400; 
+  margin-left: 12px; 
+  opacity: 0; 
+  transform: translateX(-5px);
+  transition: all 0.2s ease-out;
+  background: var(--bg-block);
+  padding: 4px 10px;
+  border-radius: 6px;
   pointer-events: none;
 }
-.section-header .section-tip {
-  pointer-events: none;
-}
+.section-header:hover .click-tip { opacity: 1; transform: translateX(0); }
+.section-header:active { opacity: 0.6; }
 
-.section-header.show-tip .section-tip,
-.section-header:focus .section-tip,
-.section-header:hover .section-tip {
-  display: block;
-}
-
+/* === Cards === */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(188px, 1fr));
-  gap: 13px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
 }
+
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px 12px 10px 12px;
-  display: flex; flex-direction: column;
-  box-shadow: var(--shadow);
-  transition: background .18s, box-shadow .13s;
-  cursor: pointer;
-  min-width: 0;
-  /* 去除hover时的outline效果，只保留变深背景 */
+  background: var(--bg-surface);
+  border-radius: var(--radius-card);
+  padding: 14px;
+  display: flex; flex-direction: row; align-items: center;
+  text-decoration: none; position: relative; overflow: hidden;
+  transition: transform 0.2s, background 0.2s;
+  min-height: 72px;
 }
-body.dark-mode .card {background: #232323; border-color: #232323;}
-.card:hover {
-  background: #e0e0e0;
-  border-color: var(--border);
-  box-shadow: none;
+
+.card:hover { 
+  transform: translateY(-2px); 
+  background: var(--bg-surface);
+  z-index: 2;
+  outline: 2px solid rgba(0,0,0,0.03);
 }
-body.dark-mode .card:hover {
-  background: #383838; /* 或 #282828，#303030，看你喜欢 */
-  border-color: #232323;
-  box-shadow: none;
-}
-.card-header {
-  display: flex; align-items: center; gap: 12px; margin-bottom: 7px;
-}
+.card:active { transform: scale(0.98); }
+
 .card-icon {
-  width: 32px; height: 32px; border-radius: var(--radius);
-  background: #fff;
+  width: 40px; height: 40px;
+  margin-right: 14px;
+  border-radius: 10px;
+  background: var(--bg-app); 
   display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
   flex-shrink: 0;
 }
-body.dark-mode .card-icon {background: #232323;}
-.card-icon img {
-  width: 90%; height: 90%; object-fit: contain; border-radius: var(--radius); background: #fff;
-  display: block;
+
+/* 图片淡入优化 */
+.card-icon img { 
+  width: 65%; height: 65%; object-fit: contain; 
+  opacity: 0; transition: opacity 0.4s ease; 
 }
+.card-icon img.loaded { opacity: 1; }
+
+.card-meta { flex: 1; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
 .card-title {
-  font-size: 13px;
-  color: var(--fg);
-  font-weight: 680;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  letter-spacing: 0.01em;
-  flex: 1;
+  font-size: 15px; font-weight: 700; color: var(--text-main); margin-bottom: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .card-url {
-  font-size: 10px;
-  color: var(--muted);
-  margin-top: 1px;
-  padding-left: 5px; 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 12px; color: var(--text-sub);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.welcome-section {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 15px 18px;
-  display: flex; flex-direction: column; gap: 13px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  font-size: 15px;
-  transition: background .18s, border .18s;
-}
-body.dark-mode .welcome-section {background: #232323; border-color: #232323;}
-.welcome-title {font-size: 20px; font-weight: 700; color: var(--fg);}
-.welcome-text {color: var(--muted);}
-.stats-container {
-  display: flex; gap: 11px; flex-wrap: wrap;
-}
-.stat-card {
-  background: #ededed; border-radius: var(--radius); padding: 10px 12px; min-width: 80px;max-width: 200px; flex: 0.5;
-  border: 1px solid #e6e6e6;
-  font-size: 13px;
-  display: flex; flex-direction: column; align-items: flex-start;
-  transition: background .18s, border .18s;
-}
-body.dark-mode .stat-card {background: #232323; border-color: #232323;}
-.stat-value {
-  font-size: 16px; 
-  font-weight: 700; 
-  color: var(--fg);
-}
-.stat-label {font-size: 12px; color: var(--muted);}
+
+/* Footer */
 .footer {
-  background: var(--bg);
-  color: #b7b7b7;
-  text-align: center;
-  font-size: 12px;
-  padding: 12px 0 3px 0;
-  border-top: 1px solid var(--border);
-  margin-top: auto;
-  transition: background .18s, color .18s, border-color .18s;
+  text-align: center; padding: 40px; font-size: 13px; color: var(--text-sub);
+  background: var(--bg-app);
 }
-.overlay {display: none;}
-.category-modal {display: none;}
-@media (max-width: 480px) {
-  .main {padding: calc(var(--header-height) + 5px) 1vw 5px 1vw;}
-  .cards {gap: 8px;}
-  .card {padding: 8px 6px 7px 6px;}
-  .card-header {gap: 7px;}
-  .card-title {font-size: 14px;}
-  .welcome-section {padding: 10px 4vw;}
-  .welcome-title {font-size: 16px;}
+
+/* Refresh Button */
+.refresh-btn {
+  position: fixed; bottom: 30px; right: 30px;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border: none; 
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; cursor: pointer;
+  opacity: 0; visibility: hidden; transform: translateY(20px);
+  transition: all 0.3s; z-index: 900;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
+body.dark-mode .refresh-btn { background: var(--bg-block); box-shadow: none; }
+
+.refresh-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.refresh-btn:hover { transform: translateY(-3px); background: var(--bg-block); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .header { padding: 0 20px; }
+  .logo { height: 28px; }
+  .container { width: 100%; }
+  .main { padding: 24px 20px 80px 20px; margin-left: 0; width: 100%; }
+  
+  .cards { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .card { padding: 12px; border-radius: 12px; } 
+  .card-icon { width: 32px; height: 32px; margin-right: 10px; border-radius: 8px; }
+  .card-title { font-size: 13px; }
+  .card-url { font-size: 11px; }
+
+  .welcome-block { padding: 20px; border-radius: 16px; }
+  .welcome-header h1 { font-size: 22px; }
+  .stats-row { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 5px; }
+  .stat-item { flex: 0 0 auto; min-width: 120px; padding: 14px; }
+  
+  .menu-toggle { display: block; font-size: 20px; color: var(--text-main); cursor: pointer; }
+  .refresh-btn { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+}
+@media (min-width: 769px) { .menu-toggle { display: none; } }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
+
 <div class="header">
-  <div class="logo-container">
-    <button class="menu-toggle" id="menuToggle" style="display:none"><i class="fas fa-bars"></i></button>
-    <div class="logo" id="logoBtn">
-      <img alt="Logo" id="site-logo" src="https://wangwenzhi.eu.org/images/ulefone-logo/logo.png"/>
+  <div style="display:flex; align-items:center; gap:20px;">
+    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <div class="logo" onclick="location.reload()">
+      <img id="site-logo" src="https://wangwenzhi.eu.org/images/ulefone-logo/logo.png" alt="Ulefone">
     </div>
   </div>
+  
   <div class="header-controls">
-    <input class="search-input" id="search" placeholder="搜索..." type="text"/>
-    <a class="admin-link" href="admin.html"><i class="fas fa-cog"></i></a>
+    <input type="text" class="search-input" id="search" placeholder="搜索...">
+    <button class="icon-btn" onclick="toggleTheme()" title="切换主题"><i class="fas fa-moon"></i></button>
+    <a href="admin.html" class="icon-btn" title="管理后台"><i class="fas fa-cog"></i></a>
   </div>
 </div>
+
 <div class="container">
   <nav class="sidebar" id="sidebar">
     <ul id="category-list"></ul>
   </nav>
-  <main class="main" id="bookmark-container">
-    <div class="welcome-section" id="top">
-      <div class="welcome-title">
-        <a href="https://github.com/wangwenzhiwwz/Ulefone-Navigation/upload/main" target="_blank" rel="noopener noreferrer">
-          Ulefone Navigation
-        </a>
+  
+  <main class="main" id="mainContent">
+    <div class="welcome-block" id="section-top">
+      <div class="welcome-header">
+        <h1 id="greeting-title">Ulefone Navigation</h1>
+        <div class="welcome-info">
+          <span id="date-info">Loading...</span>
+        </div>
       </div>
-      <div class="welcome-text">极简书签导航，专注内容，便捷高效。</div>
-      <div class="stats-container">
-        <div class="stat-card"><div class="stat-value">--</div><div class="stat-label">书签</div></div>
-        <div class="stat-card"><div class="stat-value">--</div><div class="stat-label">分类</div></div>
-        <div class="stat-card">
-          <div class="stat-value">
-            <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fwww.ulefone.gq%2F&color=%23ededed" alt="Visitor Counter">
+      
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-num" id="stat-total">--</div>
+          <div class="stat-label">书签</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" id="stat-cats">--</div>
+          <div class="stat-label">分类</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-img-wrapper">
+            <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fwww.ulefone.gq%2F&color=%23000000" alt="Visitor Counter">
           </div>
           <div class="stat-label">访问量</div>
         </div>
       </div>
     </div>
+
+    <div id="content-area"></div>
+    <div class="footer"><div>© 2023-2025 Ulefone Navigation</div></div>
   </main>
 </div>
-<div class="footer">
-  <div>书签导航 © 2023-2025</div>
-</div>
+
+<button id="refreshBtn" class="refresh-btn" onclick="location.reload()" title="刷新页面">
+  <i class="fas fa-redo-alt"></i>
+</button>
+
 <script src="data.js"></script>
+
 <script>
-// 生成单个卡片
-function createCard(item) {
-  const domain = new URL(item.url).hostname;
-  return `<a class="card" href="${item.url}" target="_blank">
-    <div class="card-header">
-      <div class="card-icon">
-        <img src="https://www.google.com/s2/favicons?sz=64&domain=${domain}" alt="${item.name}">
-      </div>
-      <div class="card-title" title="${item.name}">${item.name}</div>
+function updateLogo(isDark) {
+  const logo = document.getElementById('site-logo');
+  const counter = document.querySelector('.stat-img-wrapper img');
+  if(logo) logo.src = isDark 
+    ? "https://wangwenzhi.eu.org/images/ulefone-logo/logo-white.png" 
+    : "https://wangwenzhi.eu.org/images/ulefone-logo/logo.png";
+  if(counter) {
+      counter.src = isDark 
+        ? "https://hitscounter.dev/api/hit?url=https%3A%2F%2Fwww.ulefone.gq%2F&color=%23ffffff"
+        : "https://hitscounter.dev/api/hit?url=https%3A%2F%2Fwww.ulefone.gq%2F&color=%23000000";
+  }
+}
+
+function loadTheme() {
+  const isDark = localStorage.getItem('darkMode') === 'enabled' || 
+                 (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('darkMode'));
+  document.body.classList.toggle('dark-mode', isDark);
+  updateLogo(isDark);
+  document.querySelector('.fa-moon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+  updateLogo(isDark);
+  document.querySelector('.theme-btn i, .fa-moon, .fa-sun').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+function updateGreeting() {
+    const hour = new Date().getHours();
+    const title = document.getElementById('greeting-title');
+    let greet = "Ulefone Navigation";
+    if (hour >= 5 && hour < 12) greet = "Good Morning";
+    else if (hour >= 12 && hour < 18) greet = "Good Afternoon";
+    else if (hour >= 18 && hour < 22) greet = "Good Evening";
+    else greet = "Good Night";
+    title.textContent = greet;
+}
+
+function updateDate() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('date-info').textContent = now.toLocaleDateString('zh-CN', options);
+}
+
+function getDomain(url) {
+  try { return new URL(url).hostname.replace('www.', ''); } catch { return 'link'; }
+}
+
+// 核心优化：高亮匹配文字
+function highlightText(text, query) {
+  if (!query) return text;
+  const regex = new RegExp(`(${query})`, 'gi');
+  return text.replace(regex, '<mark>$1</mark>');
+}
+
+function createCard(item, query = '') {
+  const domain = getDomain(item.url);
+  const faviconUrl = `https://www.google.com/s2/favicons?sz=64&domain_url=${item.url}`;
+  
+  // 应用高亮
+  const displayName = highlightText(item.name, query);
+  const displayDomain = highlightText(domain, query);
+
+  return `
+  <a class="card" href="${item.url}" target="_blank">
+    <div class="card-icon">
+      <img src="${faviconUrl}" onload="this.classList.add('loaded')" 
+           onerror="this.src='https://ui-avatars.com/api/?name=${item.name}&background=random&color=fff&size=64'; this.classList.add('loaded');">
     </div>
-    <div class="card-url">${domain}</div>
+    <div class="card-meta">
+      <div class="card-title" title="${item.name}">${displayName}</div>
+      <div class="card-url">${displayDomain}</div>
+    </div>
   </a>`;
 }
-// 渲染侧边栏
-function renderSidebar(dataObj) {
-  const ul = document.getElementById("category-list");
-  ul.innerHTML = '';
-  const allLi = document.createElement('li');
-  allLi.classList.add('active');
-  allLi.innerHTML = `<span class="category-icon"><i class="fas fa-home"></i></span>全部`;
-  allLi.id = "allCategoryBtn";
-  ul.appendChild(allLi);
-  Object.keys(dataObj).forEach(key => {
+
+function renderContent(dataObj) {
+  const container = document.getElementById("content-area");
+  const sidebarList = document.getElementById("category-list");
+  
+  container.innerHTML = '';
+  sidebarList.innerHTML = '';
+
+  const homeLi = document.createElement('li');
+  homeLi.className = 'active'; 
+  homeLi.innerHTML = `<i class="fas fa-home"></i> 顶部`;
+  homeLi.dataset.target = 'section-top';
+  homeLi.onclick = () => scrollToSection('section-top');
+  sidebarList.appendChild(homeLi);
+
+  Object.keys(dataObj).forEach((key, index) => {
     const li = document.createElement('li');
-    li.innerHTML = `<span class="category-icon"><i class="fas fa-folder"></i></span>${getCategoryName(key)}`;
-    ul.appendChild(li);
-  });
-}
-// 渲染分区
-function renderSections(dataObj) {
-  const container = document.getElementById("bookmark-container");
-  container.querySelectorAll(".section").forEach(sec => sec.remove());
-  Object.keys(dataObj).forEach((category, idx) => {
+    li.innerHTML = `<i class="fas fa-folder"></i> ${key}`;
+    li.dataset.target = `section-${index}`;
+    li.onclick = () => scrollToSection(`section-${index}`);
+    sidebarList.appendChild(li);
+
     const section = document.createElement("div");
     section.className = "section";
+    section.id = `section-${index}`; 
+    // 增加交错动画延迟
+    section.style.animationDelay = `${index * 0.05}s`;
+    
     section.innerHTML = `
-      <div class="section-header" data-category="${category}" tabindex="0">
-        <span class="section-icon"><i class="fas fa-folder"></i></span>
-        <h2>${getCategoryName(category)}<span class="section-tip">点击打开全部</span></h2>
+      <div class="section-header">
+        <i class="fas fa-folder-open"></i>
+        <h2>${key} <span class="click-tip">点击打开全部</span></h2>
       </div>
       <div class="cards">
-        ${dataObj[category].map(createCard).join('')}
+        ${dataObj[key].map(item => createCard(item)).join('')}
       </div>
     `;
+    
+    const header = section.querySelector('.section-header');
+    header.onclick = () => { dataObj[key].forEach(item => window.open(item.url, '_blank')); };
+    
     container.appendChild(section);
   });
-  enableSectionHeaderTips();
-  enableSectionHeaderClick(dataObj);
+
+  updateStats(dataObj);
+  setupScrollSpy();
 }
-function enableSectionHeaderTips() {
-  // 移动端（触摸）专用：触摸时显示tips，离开时隐藏
-  document.querySelectorAll('.section-header').forEach(header => {
-    let tip = header.querySelector('.section-tip');
-    if (!tip) return;
-    // 触摸时显示
-    header.addEventListener("touchstart", function() {
-      header.classList.add('show-tip');
-    });
-    // 触摸结束时隐藏
-    header.addEventListener("touchend", function() {
-      header.classList.remove('show-tip');
-    });
-    // 触摸移出时隐藏（有些设备需要）
-    header.addEventListener("touchcancel", function() {
-      header.classList.remove('show-tip');
-    });
-  });
+
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if(el) {
+    if(window.innerWidth <= 768) {
+      document.getElementById('sidebar').style.display = 'none';
+    }
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
-function enableCategoryFiltering(dataObj) {
-  const lis = document.querySelectorAll('#category-list li');
-  const container = document.getElementById("bookmark-container");
-  lis.forEach((li, index) => {
-    li.addEventListener('click', () => {
-      lis.forEach(i => i.classList.remove('active'));
-      li.classList.add('active');
-      container.querySelectorAll(".section").forEach(sec => sec.remove());
-      if (index === 0) {
-        renderSections(dataObj);
-        window.scrollTo({top: 0, behavior: 'auto'});
-        location.reload();
-      } else {
-        const key = Object.keys(dataObj)[index - 1];
-        renderSections({ [key]: dataObj[key] });
-      }
-    });
-  });
-}
-// 替换原来的 enableSectionHeaderDblClick 为点击事件
-function enableSectionHeaderClick(dataObj) {
-  document.querySelectorAll('.section-header').forEach(header => {
-    header.addEventListener('click', function(e) {
-      // 避免回车键等重复触发
-      if (e.detail === 0) return;
-      e.preventDefault();
-      const category = this.getAttribute('data-category');
-      if (dataObj[category]) {
-        dataObj[category].forEach(b => window.open(b.url, '_blank'));
-      }
-    });
-    // 回车键也可触发（无障碍）
-    header.addEventListener('keydown', function(e){
-      if (e.key === "Enter") {
-        const category = this.getAttribute('data-category');
-        if (dataObj[category]) {
-          dataObj[category].forEach(b => window.open(b.url, '_blank'));
+
+function setupScrollSpy() {
+  const main = document.getElementById('mainContent');
+  const sections = document.querySelectorAll('.section, .welcome-block');
+  const navItems = document.querySelectorAll('#category-list li');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(item => item.classList.remove('active'));
+        const id = entry.target.id;
+        const activeItem = document.querySelector(`#category-list li[data-target="${id}"]`);
+        if(activeItem) {
+          activeItem.classList.add('active');
+          activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
       }
     });
-  });
-}
-// 切换logo图片（暗黑/明亮模式）
-function updateLogoForDarkMode(isDark) {
-  const logoImg = document.getElementById('site-logo');
-  if (!logoImg) return;
-  logoImg.src = isDark
-    ? "https://wangwenzhi.eu.org/images/ulefone-logo/logo-white.png"
-    : "https://wangwenzhi.eu.org/images/ulefone-logo/logo.png";
-}
-function loadDarkMode() {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  document.body.classList.toggle('dark-mode', prefersDark);
-  updateLogoForDarkMode(prefersDark);
-}
-document.addEventListener('DOMContentLoaded', () => {
-  loadDarkMode();
-  renderSidebar(data);
-  renderSections(data);
-  updateStats(data);
-  enableCategoryFiltering(data);
-  document.getElementById('logoBtn').addEventListener('click', function() {
-    window.scrollTo({top: 0, behavior: 'auto'});
-    location.reload();
-  });
-  document.getElementById('search').addEventListener('input', filterBookmarks);
-  // 响应式菜单
-  const menuToggle = document.getElementById('menuToggle');
-  const sidebar = document.getElementById('sidebar');
-  menuToggle && menuToggle.addEventListener('click', () => {
-    if (sidebar.style.display === "block") {
-      sidebar.style.display = "";
-    } else {
-      sidebar.style.display = "block";
-    }
+  }, {
+    root: main, 
+    threshold: 0.1, 
+    rootMargin: "-20% 0px -60% 0px"
   });
 
-  // 监听系统深色切换自动切换主题
-  if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-  document.body.classList.toggle('dark-mode', e.matches);
-  updateLogoForDarkMode(e.matches);
-});
-  }
-});
-function getCategoryName(key) {
-  const map = {
-    "ulefone": "Ulefone",
-    "work": "Work",
-    "effects": "Effects",
-    "video": "Video",
-    "images": "Images",
-    "3d": "3D",
-    "music": "Music",
-    "font": "Font"
-  };
-  return map[key.toLowerCase()] || key;
+  sections.forEach(section => observer.observe(section));
 }
+
 function updateStats(dataObj) {
   const total = Object.values(dataObj).flat().length;
   const categories = Object.keys(dataObj).length;
-  const stats = document.querySelectorAll('.stat-value');
-  if (stats.length >= 2) {
-    stats[0].textContent = total;
-    stats[1].textContent = categories;
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-cats').textContent = categories;
+}
+
+// 核心优化：搜索逻辑 + 高亮
+function filterBookmarks(e) {
+  const query = e.target.value.toLowerCase().trim();
+  const sections = document.querySelectorAll('.section');
+  
+  if(!query) {
+    // 恢复所有显示，并移除高亮
+    renderContent(data); 
+    return;
+  }
+
+  // 在现有 DOM 上操作或重新渲染（这里为了高亮简单起见，局部重新生成 HTML 可能更好，
+  // 但为了性能，我们操作显隐，并动态替换 innerHTML 来高亮）
+  
+  // 简易方案：遍历数据重新渲染匹配项
+  const container = document.getElementById("content-area");
+  container.innerHTML = ''; // 清空当前
+
+  let hasAnyMatch = false;
+
+  Object.keys(data).forEach((key) => {
+    const items = data[key];
+    // 过滤匹配项
+    const matches = items.filter(item => 
+      item.name.toLowerCase().includes(query) || 
+      item.url.toLowerCase().includes(query)
+    );
+
+    if(matches.length > 0) {
+      hasAnyMatch = true;
+      const section = document.createElement("div");
+      section.className = "section";
+      // 搜索模式下移除动画延迟，立即显示
+      section.style.animation = 'none';
+      section.style.opacity = 1;
+      
+      section.innerHTML = `
+        <div class="section-header">
+          <i class="fas fa-folder-open"></i>
+          <h2>${key}</h2>
+        </div>
+        <div class="cards">
+          ${matches.map(item => createCard(item, query)).join('')}
+        </div>
+      `;
+      container.appendChild(section);
+    }
+  });
+
+  if(!hasAnyMatch) {
+    container.innerHTML = `
+      <div style="text-align:center; padding: 40px; color: var(--text-sub);">
+        <i class="fas fa-ghost" style="font-size: 48px; margin-bottom: 20px; opacity: 0.2;"></i>
+        <p>没有找到相关书签</p>
+      </div>`;
   }
 }
-function filterBookmarks() {
-  const query = this.value.toLowerCase();
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    const title = card.querySelector('.card-title').textContent.toLowerCase();
-    const url = card.querySelector('.card-url').textContent.toLowerCase();
-    card.style.display = (title.includes(query) || url.includes(query)) ? 'flex' : 'none';
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadTheme();
+  
+  if(typeof data !== 'undefined') {
+    renderContent(data);
+  }
+
+  document.getElementById('search').addEventListener('input', filterBookmarks);
+  
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+  if(menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      const isVisible = sidebar.style.display === 'flex';
+      sidebar.style.display = isVisible ? 'none' : 'flex';
+      if(!isVisible) {
+        sidebar.style.position = 'fixed';
+        sidebar.style.top = '72px'; sidebar.style.bottom = '0';
+        sidebar.style.zIndex = '99'; sidebar.style.width = '100%';
+        sidebar.style.borderRight = 'none';
+      }
+    });
+  }
+  
+  const refreshBtn = document.getElementById('refreshBtn');
+  document.getElementById('mainContent').addEventListener('scroll', function() {
+    if(this.scrollTop > 300) refreshBtn.classList.add('show');
+    else refreshBtn.classList.remove('show');
   });
-}
+
+  updateGreeting();
+  updateDate();
+});
 </script>
 </body>
 </html>
