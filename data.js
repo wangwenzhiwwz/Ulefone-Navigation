@@ -227,6 +227,10 @@ const data = {
         {
             "name": "huggingface",
             "url": "https://huggingface.co/spaces/finegrain/finegrain-image-enhancer"
+        },
+        {
+            "name": "Subeasy",
+            "url": "https://www.subeasy.ai/"
         }
     ],
     "YouTube": [
@@ -702,8 +706,7 @@ const data = {
         },
         {
             "name": "VPS.WWZ.iM",
-            "url": "https://vps.wwz.im/",
-            "icon": "https://wangwenzhi.eu.org/images/favicon_io/apple-touch-icon.png"
+            "url": "https://vps.wwz.im/"
         }
     ],
     "Plugins": [
