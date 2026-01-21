@@ -5,12 +5,8 @@ const data = {
             "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
         },
         {
-            "name": "品牌营销中心",
-            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX10nxxO3ALzeJ/overview"
-        },
-        {
-            "name": "Gotron Pictures",
-            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
+            "name": "本周视频拍摄",
+            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
         },
         {
             "name": "Ulefone",
@@ -59,10 +55,6 @@ const data = {
     ],
     "Project": [
         {
-            "name": "本周视频拍摄事项",
-            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
-        },
-        {
             "name": "策划计划",
             "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghXbjgNBEVKe0xjE3"
         },
@@ -105,6 +97,14 @@ const data = {
     ],
     "Work": [
         {
+            "name": "品牌营销中心",
+            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX10nxxO3ALzeJ/overview"
+        },
+        {
+            "name": "冠群影业",
+            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
+        },
+        {
             "name": "产品及事项项目管理",
             "url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp72kypwh1Gq7bjKV9dEq3XD?cid=43873761291&corpId=dinga746ce2278192d4f35c2f4657eb6378f&iframeQuery=entrance%3Ddata%26sheetId%3DhMBeNQO%26viewId%3DlgsL55a"
         },
@@ -131,6 +131,14 @@ const data = {
     ],
     "AI-Video": [
         {
+            "name": "jianying",
+            "url": "https://jimeng.jianying.com/ai-tool/home"
+        },
+        {
+            "name": "Google Flow",
+            "url": "https://labs.google/flow/about"
+        },
+        {
             "name": "Sora",
             "url": "https://sora.chatgpt.com/explore"
         },
@@ -139,20 +147,12 @@ const data = {
             "url": "https://watermarkremoversora.com/"
         },
         {
-            "name": "Google Flow",
-            "url": "https://labs.google/flow/about"
-        },
-        {
             "name": "Runway",
             "url": "https://app.runwayml.com/"
         },
         {
             "name": "Higgsfield",
             "url": "https://higgsfield.ai/"
-        },
-        {
-            "name": "即梦",
-            "url": "https://jimeng.jianying.com/ai-tool/generate?type=video"
         },
         {
             "name": "Nano-Banana",
@@ -219,10 +219,6 @@ const data = {
         {
             "name": "Veo3",
             "url": "https://veo3.ai/dashboard"
-        },
-        {
-            "name": "jianying",
-            "url": "https://jimeng.jianying.com/ai-tool/home"
         },
         {
             "name": "huggingface",
@@ -811,14 +807,6 @@ const data = {
             "url": "https://www.sony.rs/electronics/support/software/00263050"
         },
         {
-            "name": "APP",
-            "url": "https://app.wwz.im/#android"
-        },
-        {
-            "name": "Mail",
-            "url": "https://exmail.qq.com/"
-        },
-        {
             "name": "Milanote",
             "url": "https://milanote.com/"
         },
@@ -827,24 +815,12 @@ const data = {
             "url": "https://drive.google.com/drive/u/0/home"
         },
         {
-            "name": "Google Voice",
-            "url": "https://voice.google.com/u/0/messages"
-        },
-        {
             "name": "Ping",
             "url": "https://ping.chinaz.com/"
         },
         {
-            "name": "OpenClash",
-            "url": "http://192.168.30.20/cgi-bin/luci/admin/services/openclash"
-        },
-        {
-            "name": "chacuo",
-            "url": "http://web.chacuo.net/netocspstapling"
-        },
-        {
-            "name": "ssllabs",
-            "url": "https://www.ssllabs.com/ssltest/index.html"
+            "name": "Mail",
+            "url": "https://exmail.qq.com/"
         }
     ]
 };
