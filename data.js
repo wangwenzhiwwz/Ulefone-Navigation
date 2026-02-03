@@ -670,7 +670,7 @@ const data = {
         },
         {
             "name": "CloudCone",
-            "url": "https://cc.w1997.eu.org:21170/ngyKV7BdnMKNGX1BqN/panel/inbounds"
+            "url": "https://cc.w1997.eu.org:27322/FwS6ZNNEYMK5vIP8Yt/panel/inbounds"
         },
         {
             "name": "ColoCrossing",
