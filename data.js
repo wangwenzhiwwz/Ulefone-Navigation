@@ -665,10 +665,6 @@ const data = {
     ],
     "Panel": [
         {
-            "name": "OpenClash",
-            "url": "http://192.168.31.1:9999/ui/#/proxies"
-        },
-        {
             "name": "CloudCone",
             "url": "https://cc.w1997.eu.org:27322/FwS6ZNNEYMK5vIP8Yt/panel/inbounds"
         },
@@ -703,10 +699,6 @@ const data = {
         {
             "name": "DE",
             "url": "https://de.w1997.eu.org:43685/N1IUQVbmoQWSiWlMyk/panel/inbounds"
-        },
-        {
-            "name": "VPS.WWZ.iM",
-            "url": "https://vps.wwz.im/"
         }
     ],
     "Plugins": [
@@ -731,16 +723,20 @@ const data = {
             "url": "https://www.spaceship.com/zh/domain-search/?query=7778333.xyz&tab=domains"
         },
         {
+            "name": "Alist",
+            "url": "https://alist.19971008.eu.org/Samples"
+        },
+        {
             "name": "电视还原设置",
             "url": "https://mediastorm.feishu.cn/wiki/VsTHwVXFjioqjtkcrg3cnrVFn4g"
         },
         {
-            "name": "SoMe",
-            "url": "http://192.168.30.20/"
-        },
-        {
             "name": "Ulefone",
             "url": "http://192.168.31.1:9999/ui"
+        },
+        {
+            "name": "SoMe",
+            "url": "http://192.168.31.16/"
         },
         {
             "name": "Work",
@@ -749,10 +745,6 @@ const data = {
         {
             "name": "Home",
             "url": "http://192.168.7.7/"
-        },
-        {
-            "name": "Alist",
-            "url": "https://alist.19971008.eu.org/Samples"
         }
     ],
     "English": [
