@@ -47,20 +47,12 @@ const data = {
         {
             "name": "ITdog",
             "url": "https://www.itdog.cn/ping/eu-cdn.w1997.eu.org"
-        },
-        {
-            "name": "Myip.is",
-            "url": "https://myip.is/"
         }
     ],
     "Project": [
         {
             "name": "策划计划",
             "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghXbjgNBEVKe0xjE3"
-        },
-        {
-            "name": "Ulefone 项目资料",
-            "url": "https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWe74qzKghOqGxy0DJxkXOEP2"
         },
         {
             "name": "RugOne 项目资料",
@@ -139,6 +131,10 @@ const data = {
             "url": "https://jimeng.jianying.com/ai-tool/home"
         },
         {
+            "name": "Lovart",
+            "url": "https://www.lovart.ai/canvas?projectId=2463211103164debbdcd014623aee855"
+        },
+        {
             "name": "Google Flow",
             "url": "https://labs.google/flow/about"
         },
@@ -161,10 +157,6 @@ const data = {
         {
             "name": "Nano-Banana",
             "url": "https://aistudio.google.com/prompts/new_chat"
-        },
-        {
-            "name": "Huggingface",
-            "url": "https://huggingface.co/spaces"
         }
     ],
     "AI": [
