@@ -669,12 +669,16 @@ const data = {
             "url": "https://eu6.w1997.eu.org:16856/dWn3JuRQRaEWZjqJfW/panel/inbounds"
         },
         {
+            "name": "BWH_WZ",
+            "url": "https://wz.w1997.eu.org:58753/H3IFDq3LLXEeczH49E/panel/inbounds"
+        },
+        {
             "name": "BWH_BR",
             "url": "https://br.w1997.eu.org:13451/GC04J208pCLJyB8eam/panel/inbounds"
         },
         {
-            "name": "BWH_WZ",
-            "url": "https://wz.w1997.eu.org:58753/H3IFDq3LLXEeczH49E/panel/inbounds"
+            "name": "BWH_XR",
+            "url": "https://xr.w1997.eu.org:46544/sQBMnaoneXnHzcBJsa/panel/inbounds"
         },
         {
             "name": "ARM",
