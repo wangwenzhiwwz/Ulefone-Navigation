@@ -49,45 +49,15 @@ const data = {
             "url": "https://www.itdog.cn/ping/eu-cdn.w1997.eu.org"
         }
     ],
-    "Project": [
-        {
-            "name": "策划计划",
-            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghXbjgNBEVKe0xjE3"
-        },
-        {
-            "name": "RugOne 项目资料",
-            "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSE0rwP7vJA7depqY"
-        },
+    "Work": [
         {
             "name": "视频制作流程",
             "url": "https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbZlyXGvfgzBv2laJMGjLRb3"
         },
         {
-            "name": "视频审核流程",
-            "url": "https://alidocs.dingtalk.com/i/nodes/XPwkYGxZV3RwmnQqcyR7QAZ5WAgozOKL"
+            "name": "策划计划",
+            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghXbjgNBEVKe0xjE3"
         },
-        {
-            "name": "我的文档笔记",
-            "url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV54o0RQqSeK6bbz1Wgk9rpMq"
-        },
-        {
-            "name": "开箱文案",
-            "url": "https://alidocs.dingtalk.com/i/nodes/6LeBq413JAzr4DvaSbeXqYdj8DOnGvpb"
-        },
-        {
-            "name": "测试文案",
-            "url": "https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdlKw2dDSZeDk7Q0WZd1wyK0"
-        },
-        {
-            "name": "跑分文案",
-            "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSQxwvN5nJA7depqY"
-        },
-        {
-            "name": "拍摄场景",
-            "url": "https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWr7ZzOrXhoYd0vrKVGXn6lpz"
-        }
-    ],
-    "Work": [
         {
             "name": "Ulefone 产品线",
             "url": "https://alidocs.dingtalk.com/i/spaces/a0gX14wvlpMlMzeJ/overview"
@@ -133,34 +103,38 @@ const data = {
             "url": "https://alidocs.dingtalk.com/i/nodes/lo1YvX0prG98kB9db2w9JPw7xzbmLdEZ"
         },
         {
+            "name": "我的文档笔记",
+            "url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV54o0RQqSeK6bbz1Wgk9rpMq"
+        },
+        {
             "name": "服装道具",
             "url": "https://alidocs.dingtalk.com/i/nodes/od245kZmnOeW4p3XxO70WYbzxL6R0wMQ"
         }
     ],
-    "AI-Video": [
-        {
-            "name": "jianying",
-            "url": "https://jimeng.jianying.com/ai-tool/home"
-        },
-        {
-            "name": "Lovart",
-            "url": "https://www.lovart.ai/canvas?projectId=2463211103164debbdcd014623aee855"
-        },
+    "AI": [
         {
             "name": "Google Flow",
             "url": "https://labs.google/flow/about"
         },
         {
-            "name": "Sora",
-            "url": "https://sora.chatgpt.com/explore"
+            "name": "jianying",
+            "url": "https://jimeng.jianying.com/ai-tool/home"
+        },
+        {
+            "name": "Runway",
+            "url": "https://app.runwayml.com/"
         },
         {
             "name": "WatermarkRemoverSora",
             "url": "https://watermarkremoversora.com/"
         },
         {
-            "name": "Runway",
-            "url": "https://app.runwayml.com/"
+            "name": "Lovart",
+            "url": "https://www.lovart.ai/canvas?projectId=2463211103164debbdcd014623aee855"
+        },
+        {
+            "name": "Sora",
+            "url": "https://sora.chatgpt.com/explore"
         },
         {
             "name": "Higgsfield",
@@ -169,9 +143,7 @@ const data = {
         {
             "name": "Nano-Banana",
             "url": "https://aistudio.google.com/prompts/new_chat"
-        }
-    ],
-    "AI": [
+        },
         {
             "name": "ChatGPT",
             "url": "https://chatgpt.com/"
@@ -755,7 +727,11 @@ const data = {
             "url": "http://192.168.7.7/"
         }
     ],
-    "English": [
+    "Other": [
+        {
+            "name": "千库网",
+            "url": "https://www.588ku.com"
+        },
         {
             "name": "旧词万用",
             "url": "https://www.kdocs.cn/l/ckxlS7eOxzf2"
@@ -771,12 +747,6 @@ const data = {
         {
             "name": "常用500句",
             "url": "https://www.kdocs.cn/l/cp3UiPfkxinj"
-        }
-    ],
-    "Other": [
-        {
-            "name": "千库网",
-            "url": "https://www.588ku.com"
         },
         {
             "name": "doyoudo",
