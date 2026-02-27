@@ -1,14 +1,6 @@
 const data = {
     "Ulefone": [
         {
-            "name": "Teambition",
-            "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
-        },
-        {
-            "name": "本周视频拍摄",
-            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
-        },
-        {
             "name": "Ulefone",
             "url": "https://www.ulefone.com/"
         },
@@ -51,12 +43,20 @@ const data = {
     ],
     "Work": [
         {
-            "name": "视频制作流程",
-            "url": "https://alidocs.dingtalk.com/i/nodes/N7dx2rn0JbZlyXGvfgzBv2laJMGjLRb3"
+            "name": "Teambition",
+            "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
+        },
+        {
+            "name": "本周视频拍摄",
+            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
         },
         {
             "name": "策划计划",
             "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghXbjgNBEVKe0xjE3"
+        },
+        {
+            "name": "产品型号及其编码",
+            "url": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWm3k9bNOT3q2AlngJGlDd3mE"
         },
         {
             "name": "Ulefone 产品线",
@@ -87,28 +87,8 @@ const data = {
             "url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp72kypwh1Gq7bjKV9dEq3XD?cid=43873761291&corpId=dinga746ce2278192d4f35c2f4657eb6378f&iframeQuery=entrance%3Ddata%26sheetId%3DhMBeNQO%26viewId%3DlgsL55a"
         },
         {
-            "name": "产品型号及其编码",
-            "url": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWm3k9bNOT3q2AlngJGlDd3mE"
-        },
-        {
-            "name": "视频输出注意事项",
-            "url": "https://alidocs.dingtalk.com/i/nodes/20eMKjyp81Rw2aQqczjpbKzrWxAZB1Gv?corpId=dinga746ce2278192d4f35c2f4657eb6378f&cid=47153057863&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space"
-        },
-        {
             "name": "数字资产管理",
             "url": "https://alidocs.dingtalk.com/i/nodes/pq7N1kjGYznWyOXQZlB3JO43vrPX95oA"
-        },
-        {
-            "name": "器材资产管理",
-            "url": "https://alidocs.dingtalk.com/i/nodes/lo1YvX0prG98kB9db2w9JPw7xzbmLdEZ"
-        },
-        {
-            "name": "我的文档笔记",
-            "url": "https://alidocs.dingtalk.com/i/nodes/mExel2BLV54o0RQqSeK6bbz1Wgk9rpMq"
-        },
-        {
-            "name": "服装道具",
-            "url": "https://alidocs.dingtalk.com/i/nodes/od245kZmnOeW4p3XxO70WYbzxL6R0wMQ"
         }
     ],
     "AI": [
@@ -119,10 +99,6 @@ const data = {
         {
             "name": "jianying",
             "url": "https://jimeng.jianying.com/ai-tool/home"
-        },
-        {
-            "name": "Doubao",
-            "url": "https://www.doubao.com/chat/"
         },
         {
             "name": "Runway",
@@ -153,6 +129,10 @@ const data = {
             "url": "https://chatgpt.com/"
         },
         {
+            "name": "MiMo",
+            "url": "https://aistudio.xiaomimimo.com/#/"
+        },
+        {
             "name": "Grok",
             "url": "https://grok.com/"
         },
@@ -177,8 +157,16 @@ const data = {
             "url": "https://suno.com/"
         },
         {
-            "name": "Whisk",
+            "name": "Labs",
             "url": "https://labs.google/fx/tools/whisk"
+        },
+        {
+            "name": "Deepseek",
+            "url": "https://chat.deepseek.com/"
+        },
+        {
+            "name": "Doubao",
+            "url": "https://www.doubao.com/chat/"
         },
         {
             "name": "Copilot",
@@ -720,6 +708,10 @@ const data = {
         }
     ],
     "Other": [
+        {
+            "name": "千库网",
+            "url": "https://www.588ku.com"
+        },
         {
             "name": "旧词万用",
             "url": "https://www.kdocs.cn/l/ckxlS7eOxzf2"
