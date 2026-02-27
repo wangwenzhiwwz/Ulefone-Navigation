@@ -121,6 +121,10 @@ const data = {
             "url": "https://jimeng.jianying.com/ai-tool/home"
         },
         {
+            "name": "Doubao",
+            "url": "https://www.doubao.com/chat/"
+        },
+        {
             "name": "Runway",
             "url": "https://app.runwayml.com/"
         },
@@ -149,10 +153,6 @@ const data = {
             "url": "https://chatgpt.com/"
         },
         {
-            "name": "MiMo",
-            "url": "https://aistudio.xiaomimimo.com/#/"
-        },
-        {
             "name": "Grok",
             "url": "https://grok.com/"
         },
@@ -177,16 +177,8 @@ const data = {
             "url": "https://suno.com/"
         },
         {
-            "name": "Labs",
+            "name": "Whisk",
             "url": "https://labs.google/fx/tools/whisk"
-        },
-        {
-            "name": "Deepseek",
-            "url": "https://chat.deepseek.com/"
-        },
-        {
-            "name": "Doubao",
-            "url": "https://www.doubao.com/chat/"
         },
         {
             "name": "Copilot",
@@ -728,10 +720,6 @@ const data = {
         }
     ],
     "Other": [
-        {
-            "name": "千库网",
-            "url": "https://www.588ku.com"
-        },
         {
             "name": "旧词万用",
             "url": "https://www.kdocs.cn/l/ckxlS7eOxzf2"
