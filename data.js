@@ -93,24 +93,36 @@ const data = {
     ],
     "AI": [
         {
+            "name": "Gemini",
+            "url": "https://gemini.google.com/app"
+        },
+        {
+            "name": "ChatGPT",
+            "url": "https://chatgpt.com/"
+        },
+        {
+            "name": "Grok",
+            "url": "https://grok.com/"
+        },
+        {
+            "name": "Jianying",
+            "url": "https://jimeng.jianying.com/ai-tool/home"
+        },
+        {
+            "name": "Labs",
+            "url": "https://labs.google/fx"
+        },
+        {
             "name": "Google Flow",
             "url": "https://labs.google/flow/about"
         },
         {
-            "name": "jianying",
-            "url": "https://jimeng.jianying.com/ai-tool/home"
-        },
-        {
-            "name": "Runway",
-            "url": "https://app.runwayml.com/"
-        },
-        {
-            "name": "WatermarkRemoverSora",
-            "url": "https://watermarkremoversora.com/"
+            "name": "Google AI Studio",
+            "url": "https://aistudio.google.com/"
         },
         {
             "name": "Lovart",
-            "url": "https://www.lovart.ai/canvas?projectId=2463211103164debbdcd014623aee855"
+            "url": "https://www.lovart.ai/"
         },
         {
             "name": "Sora",
@@ -121,72 +133,28 @@ const data = {
             "url": "https://higgsfield.ai/"
         },
         {
-            "name": "Nano-Banana",
-            "url": "https://aistudio.google.com/prompts/new_chat"
-        },
-        {
-            "name": "ChatGPT",
-            "url": "https://chatgpt.com/"
-        },
-        {
-            "name": "MiMo",
-            "url": "https://aistudio.xiaomimimo.com/#/"
-        },
-        {
-            "name": "Grok",
-            "url": "https://grok.com/"
-        },
-        {
-            "name": "Gemini",
-            "url": "https://gemini.google.com/app"
-        },
-        {
-            "name": "Aistudio",
-            "url": "https://aistudio.google.com/prompts/new_video"
-        },
-        {
-            "name": "Hyper3d",
-            "url": "https://hyper3d.ai/"
-        },
-        {
-            "name": "Playground",
-            "url": "https://playground.com/design/c/mobile-wallpaper"
-        },
-        {
             "name": "Suno",
             "url": "https://suno.com/"
-        },
-        {
-            "name": "Labs",
-            "url": "https://labs.google/fx/tools/whisk"
-        },
-        {
-            "name": "Deepseek",
-            "url": "https://chat.deepseek.com/"
         },
         {
             "name": "Doubao",
             "url": "https://www.doubao.com/chat/"
         },
         {
-            "name": "Copilot",
-            "url": "https://github.com/copilot/"
-        },
-        {
             "name": "Elevenlabs",
             "url": "https://elevenlabs.io/app/home"
         },
         {
-            "name": "Veo3",
-            "url": "https://veo3.ai/dashboard"
-        },
-        {
-            "name": "huggingface",
-            "url": "https://huggingface.co/spaces/finegrain/finegrain-image-enhancer"
+            "name": "Minimax",
+            "url": "https://www.minimaxi.com/audio"
         },
         {
             "name": "Subeasy",
             "url": "https://www.subeasy.ai/"
+        },
+        {
+            "name": "Hyper3d",
+            "url": "https://hyper3d.ai/"
         }
     ],
     "YouTube": [
@@ -583,10 +551,6 @@ const data = {
             "url": "https://freetts.com/text-to-speech"
         },
         {
-            "name": "Minimax",
-            "url": "https://www.minimaxi.com/audio"
-        },
-        {
             "name": "Aigei",
             "url": "https://www.aigei.com/"
         },
@@ -658,7 +622,7 @@ const data = {
         },
         {
             "name": "DE",
-            "url": "https://de.w1997.eu.org:15162/PBYBNXnyr9Jja7lLva/panel/inbounds"
+            "url": "https://de.w1997.eu.org:15162/PBYBNXnyr9Jja7lLva/panel/"
         }
     ],
     "Plugins": [
