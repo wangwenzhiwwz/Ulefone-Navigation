@@ -319,28 +319,8 @@ const data = {
             "url": "https://www.pexels.com/videos/"
         },
         {
-            "name": "Pixabay",
-            "url": "https://pixabay.com/zh/videos/"
-        },
-        {
             "name": "Vidcoder",
             "url": "https://vidcoder.net/"
-        },
-        {
-            "name": "Freepik",
-            "url": "https://www.freepik.com/videos"
-        },
-        {
-            "name": "Vidsplay",
-            "url": "https://www.vidsplay.com/"
-        },
-        {
-            "name": "Skypixel",
-            "url": "https://www.skypixel.com/"
-        },
-        {
-            "name": "ScreenCaps",
-            "url": "https://animationscreencaps.com/"
         },
         {
             "name": "GoogleEarth",
@@ -357,17 +337,9 @@ const data = {
         {
             "name": "Tuchong",
             "url": "https://stock.tuchong.com/video"
-        },
-        {
-            "name": "Coverr",
-            "url": "https://coverr.co/"
         }
     ],
     "Images": [
-        {
-            "name": "Pinterest",
-            "url": "https://www.pinterest.com/"
-        },
         {
             "name": "Unsplash",
             "url": "https://unsplash.com/"
@@ -545,44 +517,6 @@ const data = {
             "url": "https://www.tiktok.com/font"
         }
     ],
-    "Audio": [
-        {
-            "name": "Freetts",
-            "url": "https://freetts.com/text-to-speech"
-        },
-        {
-            "name": "Aigei",
-            "url": "https://www.aigei.com/"
-        },
-        {
-            "name": "Tosound",
-            "url": "https://www.tosound.com/search/word-/filter-2"
-        },
-        {
-            "name": "Soundcloud",
-            "url": "https://soundcloud.com/"
-        },
-        {
-            "name": "Bensound",
-            "url": "https://www.bensound.com/"
-        },
-        {
-            "name": "Musicbed",
-            "url": "https://www.musicbed.com/"
-        },
-        {
-            "name": "Fiftysounds",
-            "url": "https://www.fiftysounds.com/"
-        },
-        {
-            "name": "Envato",
-            "url": "https://elements.envato.com/audio"
-        },
-        {
-            "name": "Xaudiopro",
-            "url": "https://www.xaudiopro.com/aivoice/"
-        }
-    ],
     "Panel": [
         {
             "name": "CloudCone",
@@ -627,8 +561,12 @@ const data = {
     ],
     "Plugins": [
         {
-            "name": "PR视频降噪",
-            "url": "https://www.zhihu.com/question/306556602"
+            "name": "Freetts",
+            "url": "https://freetts.com/text-to-speech"
+        },
+        {
+            "name": "Xaudiopro",
+            "url": "https://www.xaudiopro.com/aivoice/"
         },
         {
             "name": "qijishow",
@@ -649,32 +587,16 @@ const data = {
         {
             "name": "Alist",
             "url": "https://alist.19971008.eu.org/Samples"
-        },
-        {
-            "name": "电视还原设置",
-            "url": "https://mediastorm.feishu.cn/wiki/VsTHwVXFjioqjtkcrg3cnrVFn4g"
-        },
-        {
-            "name": "Ulefone",
-            "url": "http://192.168.31.1:9999/ui"
-        },
-        {
-            "name": "SoMe",
-            "url": "http://192.168.31.16/"
-        },
-        {
-            "name": "Work",
-            "url": "http://192.168.6.6/"
-        },
-        {
-            "name": "Home",
-            "url": "http://192.168.7.7/"
         }
     ],
     "Other": [
         {
             "name": "千库网",
             "url": "https://www.588ku.com"
+        },
+        {
+            "name": "Aigei",
+            "url": "https://www.aigei.com/"
         },
         {
             "name": "旧词万用",
@@ -733,12 +655,16 @@ const data = {
             "url": "https://drive.google.com/drive/u/0/home"
         },
         {
-            "name": "Ping",
-            "url": "https://ping.chinaz.com/"
+            "name": "Mail",
+            "url": "https://exmail.qq.com/login"
         },
         {
-            "name": "Mail",
-            "url": "https://exmail.qq.com/"
+            "name": "SoMe",
+            "url": "http://192.168.31.16/"
+        },
+        {
+            "name": "Ulefone",
+            "url": "http://192.168.31.1:9999/ui"
         }
     ]
 };
