@@ -369,18 +369,6 @@ const data = {
             "url": "https://pngtree.com/"
         },
         {
-            "name": "Pngimg",
-            "url": "https://pngimg.com/"
-        },
-        {
-            "name": "Manypixels",
-            "url": "https://www.manypixels.co/gallery"
-        },
-        {
-            "name": "Undraw",
-            "url": "https://undraw.co/illustrations"
-        },
-        {
             "name": "Seying123",
             "url": "https://www.seying123.com/"
         },
@@ -559,37 +547,31 @@ const data = {
             "url": "https://de.w1997.eu.org:15162/PBYBNXnyr9Jja7lLva/panel/"
         }
     ],
-    "Plugins": [
+    "Other": [
         {
             "name": "Freetts",
             "url": "https://freetts.com/text-to-speech"
-        },
-        {
-            "name": "Xaudiopro",
-            "url": "https://www.xaudiopro.com/aivoice/"
-        },
-        {
-            "name": "qijishow",
-            "url": "https://www.qijishow.com/down/plug-in.html"
-        },
-        {
-            "name": "至臻版DMX",
-            "url": "https://mp.weixin.qq.com/s/NCTQfwDaFBXjYm-eyBnf1g"
-        },
-        {
-            "name": "DR5至臻版",
-            "url": "https://www.bilibili.com/opus/945685974177808425"
         },
         {
             "name": "Spaceship",
             "url": "https://www.spaceship.com/zh/domain-search/?query=7778333.xyz&tab=domains"
         },
         {
-            "name": "Alist",
-            "url": "https://alist.19971008.eu.org/Samples"
-        }
-    ],
-    "Other": [
+            "name": "DR5至臻版",
+            "url": "https://www.bilibili.com/opus/945685974177808425"
+        },
+        {
+            "name": "至臻版DMX",
+            "url": "https://mp.weixin.qq.com/s/NCTQfwDaFBXjYm-eyBnf1g"
+        },
+        {
+            "name": "qijishow",
+            "url": "https://www.qijishow.com/down/plug-in.html"
+        },
+        {
+            "name": "Xaudiopro",
+            "url": "https://www.xaudiopro.com/aivoice/"
+        },
         {
             "name": "千库网",
             "url": "https://www.588ku.com"
@@ -653,6 +635,10 @@ const data = {
         {
             "name": "Drive",
             "url": "https://drive.google.com/drive/u/0/home"
+        },
+        {
+            "name": "Alist",
+            "url": "https://alist.19971008.eu.org/Samples"
         },
         {
             "name": "Mail",
