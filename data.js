@@ -544,7 +544,7 @@ const data = {
         },
         {
             "name": "DE",
-            "url": "https://de.w1997.eu.org:15162/PBYBNXnyr9Jja7lLva/panel/"
+            "url": "https://de.w1997.eu.org:15162/PBYBNXnyr9Jja7lLva/panel/inbounds"
         }
     ],
     "Other": [
