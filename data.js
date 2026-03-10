@@ -399,6 +399,10 @@ const data = {
     ],
     "3D": [
         {
+            "name": "BlenderKit",
+            "url": "https://www.blenderkit.com/"
+        },
+        {
             "name": "Polyhaven",
             "url": "https://polyhaven.com/"
         },
@@ -407,16 +411,12 @@ const data = {
             "url": "https://www.textures.com/library"
         },
         {
+            "name": "CGtrader",
+            "url": "https://www.cgtrader.com/"
+        },
+        {
             "name": "Sketchfab",
             "url": "https://sketchfab.com/3d-models"
-        },
-        {
-            "name": "Cgchan",
-            "url": "https://www.cgchan.com/sceneskies"
-        },
-        {
-            "name": "Blenderco",
-            "url": "https://blenderco.cn/"
         },
         {
             "name": "Free3d",
@@ -544,7 +544,7 @@ const data = {
         },
         {
             "name": "DE",
-            "url": "https://de.w1997.eu.org:15162/PBYBNXnyr9Jja7lLva/panel/inbounds"
+            "url": "https://de.w1997.eu.org:15162/PBYBNXnyr9Jja7lLva/panel/"
         }
     ],
     "Other": [
