@@ -646,7 +646,7 @@ const data = {
         },
         {
             "name": "SoMe",
-            "url": "http://192.168.31.16/"
+            "url": "http://192.168.30.23/"
         },
         {
             "name": "Ulefone",
