@@ -37,8 +37,8 @@ const data = {
             "url": "https://artlist.io"
         },
         {
-            "name": "ITdog",
-            "url": "https://www.itdog.cn/ping/cx.w1997.eu.org"
+            "name": "新片场",
+            "url": "https://www.xinpianchang.com/recommend"
         }
     ],
     "Work": [
@@ -157,88 +157,6 @@ const data = {
             "url": "https://hyper3d.ai/"
         }
     ],
-    "YouTube": [
-        {
-            "name": "Apple",
-            "url": "https://www.youtube.com/@Apple/videos"
-        },
-        {
-            "name": "Samsung",
-            "url": "https://www.youtube.com/@Samsung/videos"
-        },
-        {
-            "name": "Blackview",
-            "url": "https://www.youtube.com/@BlackviewHk/videos"
-        },
-        {
-            "name": "OUKITEL",
-            "url": "https://www.youtube.com/@OUKITELMobile/videos"
-        },
-        {
-            "name": "Doogee",
-            "url": "https://www.youtube.com/@Doogee/videos"
-        },
-        {
-            "name": "IIIF150",
-            "url": "https://www.youtube.com/@IIIF150/videos"
-        },
-        {
-            "name": "AGM",
-            "url": "https://www.youtube.com/@AGMMobile/videos"
-        },
-        {
-            "name": "8849",
-            "url": "https://www.youtube.com/@8849official/videos"
-        },
-        {
-            "name": "Cubot",
-            "url": "https://www.youtube.com/@CubotNet/videos"
-        },
-        {
-            "name": "Xiaomi",
-            "url": "https://www.youtube.com/@xiaomi/videos"
-        },
-        {
-            "name": "Google",
-            "url": "https://www.youtube.com/@madebygoogle"
-        },
-        {
-            "name": "TECNO",
-            "url": "https://www.youtube.com/@TECNOMobile/videos"
-        },
-        {
-            "name": "Infinix",
-            "url": "https://www.youtube.com/@infinixindia/videos"
-        },
-        {
-            "name": "Honor",
-            "url": "https://www.youtube.com/@honormalaysia/videos"
-        },
-        {
-            "name": "OnePlus",
-            "url": "https://www.youtube.com/@OnePlusTech/videos"
-        },
-        {
-            "name": "Huawei",
-            "url": "https://www.youtube.com/@HuaweiMobile/videos"
-        },
-        {
-            "name": "Nothing",
-            "url": "https://www.youtube.com/@NothingTechnology/videos"
-        },
-        {
-            "name": "DJI",
-            "url": "https://www.youtube.com/@DJI/videos"
-        },
-        {
-            "name": "Anker",
-            "url": "https://www.youtube.com/@AnkerOfficial/videos"
-        },
-        {
-            "name": "UGREEN",
-            "url": "https://www.youtube.com/@UGREENOfficial/videos"
-        }
-    ],
     "Competitor": [
         {
             "name": "Apple",
@@ -269,6 +187,10 @@ const data = {
             "url": "https://www.oppo.com/en/"
         },
         {
+            "name": "Oukitel",
+            "url": "https://oukitel.com/"
+        },
+        {
             "name": "Blackview",
             "url": "https://www.blackview.hk/"
         },
@@ -293,12 +215,100 @@ const data = {
             "url": "https://cat.smartwalkie.com/"
         },
         {
+            "name": "Fossibot",
+            "url": "https://www.fossibot.com/"
+        },
+        {
+            "name": "Hotwav",
+            "url": "https://www.hotwav.com/"
+        },
+        {
             "name": "Kyocera",
             "url": "https://www.kyoceramobile.com/"
         },
         {
             "name": "Ruggear",
             "url": "https://www.ruggear.com"
+        },
+        {
+            "name": "IIIF150",
+            "url": "https://www.youtube.com/@IIIF150/videos"
+        },
+        {
+            "name": "Samsung",
+            "url": "https://www.youtube.com/@Samsung/videos"
+        },
+        {
+            "name": "Xiaomi",
+            "url": "https://www.youtube.com/@xiaomi/videos"
+        },
+        {
+            "name": "Huawei",
+            "url": "https://www.youtube.com/@HuaweiMobile/videos"
+        },
+        {
+            "name": "Blackview",
+            "url": "https://www.youtube.com/@BlackviewHk/videos"
+        },
+        {
+            "name": "OUKITEL",
+            "url": "https://www.youtube.com/@OUKITELMobile/videos"
+        },
+        {
+            "name": "Doogee",
+            "url": "https://www.youtube.com/@Doogee/videos"
+        },
+        {
+            "name": "Apple",
+            "url": "https://www.youtube.com/@Apple/videos"
+        },
+        {
+            "name": "AGM",
+            "url": "https://www.youtube.com/@AGMMobile/videos"
+        },
+        {
+            "name": "8849",
+            "url": "https://www.youtube.com/@8849official/videos"
+        },
+        {
+            "name": "Cubot",
+            "url": "https://www.youtube.com/@CubotNet/videos"
+        },
+        {
+            "name": "Google",
+            "url": "https://www.youtube.com/@madebygoogle"
+        },
+        {
+            "name": "TECNO",
+            "url": "https://www.youtube.com/@TECNOMobile/videos"
+        },
+        {
+            "name": "Honor",
+            "url": "https://www.youtube.com/@honormalaysia/videos"
+        },
+        {
+            "name": "Infinix",
+            "url": "https://www.youtube.com/@infinixindia/videos"
+        },
+        {
+            "name": "OnePlus",
+            "url": "https://www.youtube.com/@OnePlusTech/videos"
+        },
+        {
+            "name": "Nothing",
+            "url": "https://www.youtube.com/@NothingTechnology/videos"
+        },
+        {
+            "name": "DJI",
+            "url": "https://www.youtube.com/@DJI/videos"
+        },
+        {
+            "name": "Anker",
+            "url": "https://www.youtube.com/@AnkerOfficial/videos"
+        },
+        {
+            "name": "UGREEN",
+            "url": "https://www.youtube.com/@UGREENOfficial/videos"
         }
     ],
     "Video": [
@@ -335,12 +345,6 @@ const data = {
             "url": "https://stock.xinpianchang.com/"
         },
         {
-            "name": "Tuchong",
-            "url": "https://stock.tuchong.com/video"
-        }
-    ],
-    "Images": [
-        {
             "name": "Unsplash",
             "url": "https://unsplash.com/"
         },
@@ -349,32 +353,32 @@ const data = {
             "url": "https://pixabay.com/"
         },
         {
-            "name": "Pexels",
-            "url": "https://www.pexels.com/"
-        },
-        {
             "name": "Pxhere",
             "url": "https://pxhere.com/"
         },
         {
-            "name": "Lifeofpix",
-            "url": "https://www.lifeofpix.com/"
-        },
-        {
-            "name": "Kaboompics",
-            "url": "https://kaboompics.com/"
-        },
-        {
-            "name": "Pngtree",
-            "url": "https://pngtree.com/"
+            "name": "Moshpro",
+            "url": "https://moshpro.app/#top"
         },
         {
             "name": "Seying123",
             "url": "https://www.seying123.com/"
         },
         {
-            "name": "Moshpro",
-            "url": "https://moshpro.app/#top"
+            "name": "Pngtree",
+            "url": "https://pngtree.com/"
+        },
+        {
+            "name": "Kaboompics",
+            "url": "https://kaboompics.com/"
+        },
+        {
+            "name": "Lifeofpix",
+            "url": "https://www.lifeofpix.com/"
+        },
+        {
+            "name": "Pexels",
+            "url": "https://www.pexels.com/"
         },
         {
             "name": "Waifu2x",
@@ -385,58 +389,40 @@ const data = {
             "url": "https://kepler.gl/demo"
         },
         {
-            "name": "Halftone",
-            "url": "https://halftonemaker.com/"
-        },
-        {
             "name": "Upscale",
             "url": "https://www.upscale.media/"
         },
         {
+            "name": "Halftone",
+            "url": "https://halftonemaker.com/"
+        },
+        {
             "name": "iloveimg",
             "url": "https://www.iloveimg.com/zh-cn"
-        }
-    ],
-    "3D": [
-        {
-            "name": "BlenderKit",
-            "url": "https://www.blenderkit.com/"
-        },
-        {
-            "name": "Polyhaven",
-            "url": "https://polyhaven.com/"
-        },
-        {
-            "name": "Textures",
-            "url": "https://www.textures.com/library"
         },
         {
             "name": "CGtrader",
             "url": "https://www.cgtrader.com/"
         },
         {
-            "name": "Sketchfab",
-            "url": "https://sketchfab.com/3d-models"
+            "name": "Textures",
+            "url": "https://www.textures.com/library"
+        },
+        {
+            "name": "Polyhaven",
+            "url": "https://polyhaven.com/"
+        },
+        {
+            "name": "BlenderKit",
+            "url": "https://www.blenderkit.com/"
         },
         {
             "name": "Free3d",
             "url": "https://free3d.com/"
         },
         {
-            "name": "Pinshape",
-            "url": "https://pinshape.com/"
-        },
-        {
-            "name": "Meshtek",
-            "url": "https://www.meshtek.cn/#/download"
-        },
-        {
-            "name": "Blenderartists",
-            "url": "https://blenderartists.org/latest"
-        },
-        {
-            "name": "Blueprints",
-            "url": "https://www.the-blueprints.com/"
+            "name": "Sketchfab",
+            "url": "https://sketchfab.com/3d-models"
         },
         {
             "name": "Kim",
@@ -445,64 +431,26 @@ const data = {
         {
             "name": "Moi3d",
             "url": "https://moi3d.com/"
-        }
-    ],
-    "Font": [
-        {
-            "name": "Misanse",
-            "url": "https://hyperos.mi.com/font/zh/"
         },
         {
-            "name": "OPPO Sans",
-            "url": "https://www.coloros.com/article/A00000050/"
+            "name": "Blueprints",
+            "url": "https://www.the-blueprints.com/"
         },
         {
-            "name": "Dafont",
-            "url": "https://www.dafont.com/batman-forever.font"
+            "name": "Blenderartists",
+            "url": "https://blenderartists.org/latest"
         },
         {
-            "name": "Smiley-sans",
-            "url": "https://atelier-anchor.com/typefaces/smiley-sans"
+            "name": "Meshtek",
+            "url": "https://www.meshtek.cn/#/download"
         },
         {
-            "name": "Hellofont",
-            "url": "https://www.hellofont.cn/font-ai"
+            "name": "Pinshape",
+            "url": "https://pinshape.com/"
         },
         {
-            "name": "Qiuziti",
-            "url": "https://www.qiuziti.com/"
-        },
-        {
-            "name": "100font",
-            "url": "https://www.100font.com/"
-        },
-        {
-            "name": "Maoken",
-            "url": "https://www.maoken.com/"
-        },
-        {
-            "name": "Homefont",
-            "url": "https://www.homefont.cn/"
-        },
-        {
-            "name": "Googlefonts",
-            "url": "http://www.googlefonts.cn/"
-        },
-        {
-            "name": "Myfonts",
-            "url": "https://www.myfonts.com/pages/whatthefont"
-        },
-        {
-            "name": "Famfonts",
-            "url": "https://famfonts.com/tv/#"
-        },
-        {
-            "name": "Fontsquirrel",
-            "url": "https://www.fontsquirrel.com/"
-        },
-        {
-            "name": "Tiktok",
-            "url": "https://www.tiktok.com/font"
+            "name": "Tuchong",
+            "url": "https://stock.tuchong.com/video"
         }
     ],
     "Panel": [
@@ -548,6 +496,42 @@ const data = {
         }
     ],
     "Other": [
+        {
+            "name": "Famfonts",
+            "url": "https://famfonts.com/tv/#"
+        },
+        {
+            "name": "100font",
+            "url": "https://www.100font.com/"
+        },
+        {
+            "name": "Qiuziti",
+            "url": "https://www.qiuziti.com/"
+        },
+        {
+            "name": "Hellofont",
+            "url": "https://www.hellofont.cn/font-ai"
+        },
+        {
+            "name": "Smiley-sans",
+            "url": "https://atelier-anchor.com/typefaces/smiley-sans"
+        },
+        {
+            "name": "Tiktok",
+            "url": "https://www.tiktok.com/font"
+        },
+        {
+            "name": "OPPO Sans",
+            "url": "https://www.coloros.com/article/A00000050/"
+        },
+        {
+            "name": "Misanse",
+            "url": "https://hyperos.mi.com/font/zh/"
+        },
+        {
+            "name": "Dafont",
+            "url": "https://www.dafont.com/batman-forever.font"
+        },
         {
             "name": "Freetts",
             "url": "https://freetts.com/text-to-speech"
