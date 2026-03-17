@@ -1,5 +1,5 @@
 const data = {
-    "Ulefone": [
+    "Favorites": [
         {
             "name": "Ulefone",
             "url": "https://www.ulefone.com/"
@@ -41,7 +41,7 @@ const data = {
             "url": "https://www.xinpianchang.com/recommend"
         }
     ],
-    "Work": [
+    "Workspace": [
         {
             "name": "Teambition",
             "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
@@ -91,7 +91,7 @@ const data = {
             "url": "https://alidocs.dingtalk.com/i/nodes/pq7N1kjGYznWyOXQZlB3JO43vrPX95oA"
         }
     ],
-    "AI Studio": [
+    "Generative": [
         {
             "name": "Gemini",
             "url": "https://gemini.google.com/app"
