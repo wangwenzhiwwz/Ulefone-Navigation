@@ -91,7 +91,7 @@ const data = {
             "url": "https://alidocs.dingtalk.com/i/nodes/pq7N1kjGYznWyOXQZlB3JO43vrPX95oA"
         }
     ],
-    "AI": [
+    "AI Studio": [
         {
             "name": "Gemini",
             "url": "https://gemini.google.com/app"
@@ -157,7 +157,7 @@ const data = {
             "url": "https://hyper3d.ai/"
         }
     ],
-    "Competitor": [
+    "Tech": [
         {
             "name": "Apple",
             "url": "https://www.apple.com/"
@@ -311,7 +311,7 @@ const data = {
             "url": "https://www.youtube.com/@UGREENOfficial/videos"
         }
     ],
-    "Video": [
+    "Assets": [
         {
             "name": "千库网",
             "url": "https://588ku.com/video/"
@@ -447,10 +447,6 @@ const data = {
         {
             "name": "Pinshape",
             "url": "https://pinshape.com/"
-        },
-        {
-            "name": "Tuchong",
-            "url": "https://stock.tuchong.com/video"
         }
     ],
     "Panel": [
