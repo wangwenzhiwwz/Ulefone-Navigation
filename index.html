@@ -11,14 +11,13 @@
 :root {
   /* === 纯粹黑白灰配色 === */
   --bg-app: #f5f5f7;
-  --bg-surface: #ffffff;
+  --bg-surface: rgba(255, 255, 255, 0.7); /* 调整为半透明以支持毛玻璃 */
   --bg-block: #efeff1;
   --bg-active: #e0e0e0; 
+  --border-glass: rgba(255, 255, 255, 0.6); /* 亮色模式玻璃边框 */
   
-  --text-main: #000000; /* 纯黑 */
-  --text-sub: #666666;  /* 深灰 */
-  
-  --highlight: #000000; /* 高亮纯黑 */
+  --text-main: #000000;
+  --text-sub: #666666;
   
   --sidebar-width: 240px;
   --header-height: 72px;
@@ -29,14 +28,13 @@
 
 body.dark-mode {
   --bg-app: #000000;
-  --bg-surface: #1c1c1e;
+  --bg-surface: rgba(28, 28, 30, 0.65); /* 暗色模式半透明背景 */
   --bg-block: #2c2c2e;
   --bg-active: #333333;
+  --border-glass: rgba(255, 255, 255, 0.08); /* 暗色模式玻璃边框 */
   
-  --text-main: #ffffff; /* 纯白 */
+  --text-main: #ffffff;
   --text-sub: #999999;
-  
-  --highlight: #ffffff; /* 高亮纯白 */
 }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -119,6 +117,7 @@ body.dark-mode .header { background: rgba(28, 28, 30, 0.85); border-bottom: 1px 
 .sidebar {
   width: var(--sidebar-width);
   background: var(--bg-surface);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   padding: 24px 16px; 
   position: fixed; top: var(--header-height); bottom: 0; left: 0;
   z-index: 900;
@@ -149,6 +148,14 @@ body.dark-mode .sidebar { border-right: 1px solid rgba(255,255,255,0.05); }
 #category-list li i { 
   width: 20px; text-align: center; font-size: 16px; 
   color: var(--text-sub); transition: color 0.2s; opacity: 0.8;
+}
+
+/* 文件夹图标状态切换 */
+#category-list li i.icon-folder::before {
+    content: "\f07b"; 
+}
+#category-list li.active i.icon-folder::before {
+    content: "\f07c"; 
 }
 
 /* 悬停态 */
@@ -189,11 +196,13 @@ body.dark-mode #category-list li.active {
 }
 
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-mark { background: var(--text-main); color: var(--bg-surface); font-weight: 800; padding: 0 4px; }
+mark { background: var(--text-main); color: var(--bg-surface); font-weight: 800; padding: 0 4px; border-radius: 4px; }
 
 /* === Modules === */
 .welcome-block {
   background: var(--bg-surface); 
+  border: 1px solid var(--border-glass); /* 毛玻璃边框 */
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
   padding: 24px 32px;
   margin-bottom: 24px; 
@@ -204,20 +213,29 @@ mark { background: var(--text-main); color: var(--bg-surface); font-weight: 800;
   min-height: 100px;
   transition: all 0.3s ease;
   overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.02);
 }
 .welcome-block.hidden { 
   margin-bottom: 0; padding-top: 0; padding-bottom: 0; 
   max-height: 0; opacity: 0; min-height: 0; 
+  border: none;
 }
 
-.welcome-header h1 { 
-  font-size: 26px; 
-  font-weight: 900; 
-  margin: 0 0 6px 0; 
-  letter-spacing: -0.5px; 
-  color: var(--text-main);
+/* === 胶囊时间模块 === */
+.time-capsule {
+  font-size: 32px; 
+  font-weight: 900;
+  margin: 0 0 8px 0;
+  letter-spacing: 2px;
+  color: var(--text-main);       
+  background: var(--bg-block);   
+  padding: 4px 20px;             
+  border-radius: var(--pill);    
+  display: inline-block;
+  font-variant-numeric: tabular-nums; 
 }
-.welcome-info { font-size: 14px; color: var(--text-sub); font-weight: 600; display: flex; align-items: center; gap: 16px; }
+
+.welcome-info { font-size: 15px; color: var(--text-sub); font-weight: 600; display: flex; align-items: center; gap: 16px; padding-left: 8px; }
 
 .stats-row { display: flex; flex-wrap: wrap; gap: 16px; }
 .stat-item {
@@ -241,15 +259,26 @@ mark { background: var(--text-main); color: var(--bg-surface); font-weight: 800;
     scroll-margin-top: var(--scroll-offset); 
     opacity: 0; animation: fadeInUp 0.6s ease forwards; 
 }
+
+/* === Sticky Header (分类标题吸顶) === */
 .section-header { 
+  position: sticky;
+  top: var(--header-height);
+  z-index: 100; /* 低于主顶栏，高于卡片 */
+  background: rgba(245, 245, 247, 0.85); /* 浅色模式背景模糊 */
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  padding: 16px 0; 
+  margin-top: -16px; /* 抵消 padding 保持原本间距 */
+  margin-bottom: 12px; 
   display: flex; align-items: center; 
-  margin-bottom: 14px; 
-  cursor: pointer; user-select: none; width: fit-content; 
+  cursor: pointer; user-select: none; width: 100%; 
   transition: opacity 0.2s;
+}
+body.dark-mode .section-header {
+  background: rgba(0, 0, 0, 0.85); /* 暗色模式背景模糊 */
 }
 .section-header:hover { opacity: 0.7; }
 
-/* === 核心：标题改为800粗体，前置圆点装饰 === */
 .section-header h2 { 
   font-size: 24px; 
   font-weight: 800; 
@@ -261,26 +290,33 @@ mark { background: var(--text-main); color: var(--bg-surface); font-weight: 800;
 .section-header h2::before {
   content: '';
   display: inline-block;
-  width: 8px;  /* 圆点宽度 */
-  height: 8px; /* 圆点高度 */
-  background-color: var(--text-main); /* 颜色跟随文字 */
-  border-radius: 50%; /* 圆形 */
+  width: 8px;  
+  height: 8px; 
+  background-color: var(--text-main); 
+  border-radius: 50%; 
   margin-right: 12px;
   vertical-align: middle;
-  transform: translateY(1px); /* 居中微调 */
+  transform: translateY(1px); 
 }
 
-/* Cards */
+/* Cards (毛玻璃化) */
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
 .card {
-  background: var(--bg-surface); border-radius: var(--radius-card); padding: 16px;
+  background: var(--bg-surface); 
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-card); padding: 16px;
   display: flex; flex-direction: row; align-items: center; text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s; min-height: 80px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s; min-height: 80px;
 }
 
 .card:hover { 
   transform: translateY(-3px); z-index: 2; 
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08); 
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06); 
+  background: var(--bg-surface); /* 保持一致性 */
+}
+body.dark-mode .card:hover {
+  box-shadow: 0 10px 24px rgba(0,0,0,0.4); 
 }
 .card:active { transform: scale(0.98); }
 
@@ -299,15 +335,33 @@ mark { background: var(--text-main); color: var(--bg-surface); font-weight: 800;
 }
 .card-url { font-size: 12px; color: var(--text-sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
+/* === Empty State (空状态) === */
+.empty-state {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 80px 20px; text-align: center;
+  animation: fadeInUp 0.4s ease forwards;
+}
+.empty-state svg {
+  color: var(--text-sub); opacity: 0.5; margin-bottom: 20px;
+}
+.empty-state h3 {
+  font-size: 20px; font-weight: 800; color: var(--text-main); margin: 0 0 8px 0;
+}
+.empty-state p {
+  font-size: 14px; font-weight: 500; color: var(--text-sub); margin: 0;
+}
+
 /* Scroll Top Button (圆形) */
 .scroll-top-btn {
   position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; 
   border-radius: 50%;
-  background: var(--bg-active); 
+  background: var(--bg-surface); 
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-glass);
   color: var(--text-main); 
-  border: none;
   display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer;
   opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s; z-index: 900;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 .scroll-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
 .scroll-top-btn:hover { background: var(--bg-block); }
@@ -327,11 +381,8 @@ mark { background: var(--text-main); color: var(--bg-surface); font-weight: 800;
   .sidebar { 
     transform: translateX(-100%); width: 100%; 
     border-right: none; 
-    background: rgba(255, 255, 255, 0.95); 
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     top: 0; padding: 20px;
   }
-  body.dark-mode .sidebar { background: rgba(28, 28, 30, 0.95); }
   
   .sidebar.mobile-active { transform: translateX(0); }
   .sidebar-mobile-header { display: flex; } 
@@ -344,7 +395,7 @@ mark { background: var(--text-main); color: var(--bg-surface); font-weight: 800;
   .card-icon { width: 42px; height: 42px; margin-right: 12px; } 
   
   .welcome-block { flex-direction: column; align-items: flex-start; padding: 20px; gap: 16px; }
-  .welcome-header h1 { font-size: 24px; }
+  .time-capsule { font-size: 26px; padding: 4px 16px; } 
   .stats-row { width: 100%; }
   .stat-item { flex: 1; }
   .scroll-top-btn { bottom: 20px; right: 20px; width: 44px; height: 44px; }
@@ -388,7 +439,7 @@ mark { background: var(--text-main); color: var(--bg-surface); font-weight: 800;
 <main class="main" id="mainContent">
   <div class="welcome-block" id="section-top">
     <div class="welcome-header">
-      <h1 id="greeting-title">Ulefone Navigation</h1>
+      <div id="live-time" class="time-capsule">00:00:00</div>
       <div class="welcome-info">
         <span id="date-info">Loading...</span>
       </div>
@@ -419,43 +470,15 @@ mark { background: var(--text-main); color: var(--bg-surface); font-weight: 800;
 <script src="data.js"></script>
 
 <script>
-// --- 图标映射表 ---
-const categoryIcons = {
-    "ulefone": "fas fa-mobile-alt",
-    "home": "fas fa-home",
-    "project": "fas fa-project-diagram",
-    "work": "fas fa-briefcase",
-    "office": "fas fa-building",
-    "youtube": "fab fa-youtube",
-    "video": "fas fa-video",
-    "media": "fas fa-photo-video",
-    "film": "fas fa-film",
-    "images": "fas fa-images",
-    "image": "fas fa-image",
-    "design": "fas fa-palette",
-    "ui": "fas fa-pen-nib",
-    "font": "fas fa-font",
-    "3d": "fas fa-cube",
-    "ai": "fas fa-robot",
-    "gpt": "fas fa-robot",
-    "panel": "fas fa-tachometer-alt",
-    "plugins": "fas fa-plug",
-    "tools": "fas fa-tools",
-    "dev": "fas fa-code",
-    "competitor": "fas fa-chart-line",
-    "audio": "fas fa-music",
-    "english": "fas fa-language",
-    "other": "fas fa-ellipsis-h",
-    "more": "fas fa-ellipsis-h"
-};
-
-function getCategoryIcon(name) {
-    const lowerName = name.toLowerCase();
-    if (categoryIcons[lowerName]) return categoryIcons[lowerName];
-    for (const key in categoryIcons) {
-        if (lowerName.includes(key)) return categoryIcons[key];
+function updateLiveTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timeElement = document.getElementById('live-time');
+    if (timeElement) {
+        timeElement.textContent = `${hours}:${minutes}:${seconds}`;
     }
-    return "fas fa-folder"; 
 }
 
 function scrollToTop() {
@@ -490,17 +513,6 @@ function toggleTheme() {
   document.querySelector('.theme-btn i, .fa-moon, .fa-sun').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
 }
 
-function updateGreeting() {
-    const hour = new Date().getHours();
-    const title = document.getElementById('greeting-title');
-    let greet = "Ulefone Navigation";
-    if (hour >= 5 && hour < 12) greet = "Good Morning";
-    else if (hour >= 12 && hour < 18) greet = "Good Afternoon";
-    else if (hour >= 18 && hour < 22) greet = "Good Evening";
-    else greet = "Good Night";
-    title.textContent = greet;
-}
-
 function updateDate() {
     const now = new Date();
     document.getElementById('date-info').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -525,7 +537,7 @@ function createCard(item, query = '') {
   return `
   <a class="card" href="${item.url}" target="_blank">
     <div class="card-icon">
-      <img src="${faviconUrl}" onload="this.classList.add('loaded')" 
+      <img src="${faviconUrl}" loading="lazy" onload="this.classList.add('loaded')" 
            onerror="this.src='https://ui-avatars.com/api/?name=${item.name}&background=random&color=fff&size=64'; this.classList.add('loaded');">
     </div>
     <div class="card-meta">
@@ -552,8 +564,10 @@ function renderContent(dataObj) {
   sidebarList.appendChild(homeLi);
 
   Object.keys(dataObj).forEach((key, index) => {
-    const iconClass = getCategoryIcon(key); // 获取图标
     const li = document.createElement('li');
+    let iconClass = "fas icon-folder";
+    if (key.toLowerCase() === "other") iconClass = "fas fa-ellipsis-h";
+
     li.innerHTML = `<div class="item-left"><i class="${iconClass}"></i> ${key}</div>`;
     li.onclick = () => {
         const el = document.getElementById(`section-${index}`);
@@ -567,7 +581,6 @@ function renderContent(dataObj) {
     section.id = `section-${index}`; 
     section.style.animationDelay = `${index * 0.05}s`;
     
-    // JS不再生成图标，使用CSS伪元素代替
     section.innerHTML = `
       <div class="section-header">
         <h2>${key}</h2>
@@ -652,8 +665,20 @@ function filterBookmarks(e) {
     }
   });
 
+  // === 全新 Empty State ===
   if(!hasAnyMatch) {
-    container.innerHTML = `<div style="text-align:center; padding:40px; color:var(--text-sub); opacity:0.6;">No results found</div>`;
+    container.innerHTML = `
+      <div class="empty-state">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        <h3>No results found</h3>
+        <p>We couldn't find anything matching "<strong>${query}</strong>".</p>
+      </div>
+    `;
   }
 }
 
@@ -671,6 +696,10 @@ document.addEventListener('keydown', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   loadTheme();
+  
+  updateLiveTime();
+  setInterval(updateLiveTime, 1000);
+
   if(typeof data !== 'undefined') renderContent(data);
   document.getElementById('search').addEventListener('input', filterBookmarks);
   
@@ -690,7 +719,6 @@ document.addEventListener('DOMContentLoaded', () => {
     else scrollTopBtn.classList.remove('show');
   });
 
-  updateGreeting();
   updateDate();
 });
 </script>
