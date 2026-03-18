@@ -39,6 +39,10 @@ const data = {
         {
             "name": "新片场",
             "url": "https://www.xinpianchang.com/recommend"
+        },
+        {
+            "name": "itdog",
+            "url": "https://www.itdog.cn/ping/cx.w1997.eu.org"
         }
     ],
     "Workspace": [
@@ -341,6 +345,10 @@ const data = {
             "url": "https://www.vjshi.com/"
         },
         {
+            "name": "doyoudo",
+            "url": "https://www.doyoudo.com/"
+        },
+        {
             "name": "Xinpianchang",
             "url": "https://stock.xinpianchang.com/"
         },
@@ -379,14 +387,6 @@ const data = {
         {
             "name": "Pexels",
             "url": "https://www.pexels.com/"
-        },
-        {
-            "name": "Waifu2x",
-            "url": "https://www.waifu2x.net/"
-        },
-        {
-            "name": "Kepler",
-            "url": "https://kepler.gl/demo"
         },
         {
             "name": "Upscale",
@@ -435,10 +435,6 @@ const data = {
         {
             "name": "Blueprints",
             "url": "https://www.the-blueprints.com/"
-        },
-        {
-            "name": "Blenderartists",
-            "url": "https://blenderartists.org/latest"
         },
         {
             "name": "Meshtek",
@@ -493,10 +489,6 @@ const data = {
     ],
     "Other": [
         {
-            "name": "Famfonts",
-            "url": "https://famfonts.com/tv/#"
-        },
-        {
             "name": "100font",
             "url": "https://www.100font.com/"
         },
@@ -537,14 +529,6 @@ const data = {
             "url": "https://www.spaceship.com/zh/domain-search/?query=7778333.xyz&tab=domains"
         },
         {
-            "name": "DR5至臻版",
-            "url": "https://www.bilibili.com/opus/945685974177808425"
-        },
-        {
-            "name": "至臻版DMX",
-            "url": "https://mp.weixin.qq.com/s/NCTQfwDaFBXjYm-eyBnf1g"
-        },
-        {
             "name": "qijishow",
             "url": "https://www.qijishow.com/down/plug-in.html"
         },
@@ -561,10 +545,6 @@ const data = {
             "url": "https://www.aigei.com/"
         },
         {
-            "name": "旧词万用",
-            "url": "https://www.kdocs.cn/l/ckxlS7eOxzf2"
-        },
-        {
             "name": "日常口语3000词",
             "url": "https://www.kdocs.cn/l/cawlheZvVj2B"
         },
@@ -575,10 +555,6 @@ const data = {
         {
             "name": "常用500句",
             "url": "https://www.kdocs.cn/l/cp3UiPfkxinj"
-        },
-        {
-            "name": "doyoudo",
-            "url": "https://www.doyoudo.com/"
         },
         {
             "name": "Anyconv",
