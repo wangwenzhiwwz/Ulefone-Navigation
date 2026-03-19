@@ -113,6 +113,10 @@ const data = {
             "url": "https://jimeng.jianying.com/ai-tool/home"
         },
         {
+            "name": "Liblib",
+            "url": "https://www.liblib.art/video-effect"
+        },
+        {
             "name": "Labs",
             "url": "https://labs.google/fx"
         },
@@ -159,6 +163,10 @@ const data = {
         {
             "name": "Hyper3d",
             "url": "https://hyper3d.ai/"
+        },
+        {
+            "name": "Coze",
+            "url": "https://www.coze.cn/"
         }
     ],
     "Tech": [
