@@ -29,6 +29,14 @@ const data = {
             "url": "https://www.instagram.com/ulefone.global/"
         },
         {
+            "name": "Facebook",
+            "url": "https://www.facebook.com/"
+        },
+        {
+            "name": "Linkedin",
+            "url": "https://www.linkedin.com/feed/"
+        },
+        {
             "name": "Tiktok",
             "url": "https://www.tiktok.com/@ulefone"
         },
