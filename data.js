@@ -617,6 +617,10 @@ const data = {
             "url": "https://exmail.qq.com/login"
         },
         {
+            "name": "UOM 无人机登记",
+            "url": "https://uom.caac.gov.cn/"
+        },
+        {
             "name": "SoMe",
             "url": "http://192.168.30.23/"
         },
