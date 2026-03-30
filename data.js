@@ -505,6 +505,10 @@ const data = {
     ],
     "Other": [
         {
+            "name": "artvee",
+            "url": "https://artvee.com/"
+        },
+        {
             "name": "100font",
             "url": "https://www.100font.com/"
         },
