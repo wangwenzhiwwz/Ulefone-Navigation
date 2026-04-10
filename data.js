@@ -45,12 +45,8 @@ const data = {
             "url": "https://artlist.io"
         },
         {
-            "name": "新片场",
-            "url": "https://www.xinpianchang.com/recommend"
-        },
-        {
             "name": "itdog",
-            "url": "https://www.itdog.cn/ping/cx.w1997.eu.org"
+            "url": "https://www.itdog.cn/ping/kr.w1997.eu.org"
         }
     ],
     "Workspace": [
