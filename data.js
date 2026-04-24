@@ -460,7 +460,7 @@ const data = {
     "Panel": [
         {
             "name": "CloudCone",
-            "url": "https://cc.w1997.eu.org:27322/FwS6ZNNEYMK5vIP8Yt/panel/inbounds"
+            "url": "https://cc.w1997.eu.org:37486/bmKQSmIgCm3WQCdGKK/panel/inbounds"
         },
         {
             "name": "ColoCrossing",
