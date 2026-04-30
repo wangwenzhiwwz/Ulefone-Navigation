@@ -488,7 +488,7 @@ const data = {
         },
         {
             "name": "VPS",
-            "url": "https://vps.w1997.eu.org:34446/DeplLQqrh2wpji4aM4/panel/inbounds"
+            "url": "https://vps.w1997.eu.org:58139/a5MwFWGwyJne0zqEuL/panel/inbounds"
         },
         {
             "name": "GPT",
