@@ -109,24 +109,24 @@ const data = {
             "url": "https://chatgpt.com/"
         },
         {
-            "name": "Grok",
-            "url": "https://grok.com/"
+            "name": "LibTV",
+            "url": "https://www.liblib.tv/"
+        },
+        {
+            "name": "Google Flow",
+            "url": "https://labs.google/flow/about"
         },
         {
             "name": "Jianying",
             "url": "https://jimeng.jianying.com/ai-tool/home"
         },
         {
-            "name": "Liblib",
-            "url": "https://www.liblib.art/video-effect"
-        },
-        {
             "name": "Labs",
             "url": "https://labs.google/fx"
         },
         {
-            "name": "Google Flow",
-            "url": "https://labs.google/flow/about"
+            "name": "Grok",
+            "url": "https://grok.com/"
         },
         {
             "name": "Google AI Studio",
@@ -135,10 +135,6 @@ const data = {
         {
             "name": "Lovart",
             "url": "https://www.lovart.ai/"
-        },
-        {
-            "name": "Sora",
-            "url": "https://sora.chatgpt.com/explore"
         },
         {
             "name": "Higgsfield",
@@ -227,24 +223,12 @@ const data = {
             "url": "https://www.crosscall.com/"
         },
         {
-            "name": "Cat",
-            "url": "https://cat.smartwalkie.com/"
-        },
-        {
             "name": "Fossibot",
             "url": "https://www.fossibot.com/"
         },
         {
             "name": "Hotwav",
             "url": "https://www.hotwav.com/"
-        },
-        {
-            "name": "Kyocera",
-            "url": "https://www.kyoceramobile.com/"
-        },
-        {
-            "name": "Ruggear",
-            "url": "https://www.ruggear.com"
         },
         {
             "name": "IIIF150",
@@ -409,10 +393,6 @@ const data = {
             "url": "https://halftonemaker.com/"
         },
         {
-            "name": "iloveimg",
-            "url": "https://www.iloveimg.com/zh-cn"
-        },
-        {
             "name": "CGtrader",
             "url": "https://www.cgtrader.com/"
         },
@@ -451,10 +431,6 @@ const data = {
         {
             "name": "Meshtek",
             "url": "https://www.meshtek.cn/#/download"
-        },
-        {
-            "name": "Pinshape",
-            "url": "https://pinshape.com/"
         }
     ],
     "Panel": [
@@ -622,7 +598,7 @@ const data = {
         },
         {
             "name": "SoMe",
-            "url": "http://192.168.30.23/"
+            "url": "http://192.168.31.23/"
         },
         {
             "name": "Ulefone",
