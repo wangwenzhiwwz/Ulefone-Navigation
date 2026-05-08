@@ -469,10 +469,6 @@ const data = {
         {
             "name": "GPT",
             "url": "http://gpt.w1997.eu.org:6819/vEFiuDihCflgxKSVdb/panel/inbounds"
-        },
-        {
-            "name": "DE",
-            "url": "https://de.w1997.eu.org:15162/PBYBNXnyr9Jja7lLva/panel/inbounds"
         }
     ],
     "Other": [
