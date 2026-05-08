@@ -463,12 +463,12 @@ const data = {
             "url": "http://arm.w1997.eu.org:55156/lrK46wTrMtb2KBiQOT/panel/inbounds"
         },
         {
-            "name": "VPS",
-            "url": "https://vps.w1997.eu.org:58139/a5MwFWGwyJne0zqEuL/panel/inbounds"
-        },
-        {
             "name": "GPT",
             "url": "http://gpt.w1997.eu.org:6819/vEFiuDihCflgxKSVdb/panel/inbounds"
+        },
+        {
+            "name": "VPS",
+            "url": "https://vps.w1997.eu.org:58139/a5MwFWGwyJne0zqEuL/panel/inbounds"
         }
     ],
     "Other": [
