@@ -444,7 +444,7 @@ const data = {
         },
         {
             "name": "EUserv",
-            "url": "https://eu6.w1997.eu.org:2053/wpColtUkZo6UJnKw2V/panel/inbounds"
+            "url": "https://eu6.w1997.eu.org:8248/N5dnwkICtGZzibPq7B/panel/inbounds"
         },
         {
             "name": "BWH_WZ",
