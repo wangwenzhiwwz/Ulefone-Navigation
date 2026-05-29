@@ -435,6 +435,10 @@ const data = {
         {
             "name": "glTF Viewer",
             "url": "https://gltf-viewer.donmccurdy.com/"
+        },
+        {
+            "name": "glTF Report",
+            "url": "https://gltf.report/"
         }
     ],
     "Panel": [
