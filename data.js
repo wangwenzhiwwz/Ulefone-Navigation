@@ -452,7 +452,7 @@ const data = {
         },
         {
             "name": "EUserv",
-            "url": "https://eu6.w1997.eu.org:8248/N5dnwkICtGZzibPq7B/panel/inbounds"
+            "url": "https://eu.w1997.eu.org:8248/N5dnwkICtGZzibPq7B/panel/inbounds"
         },
         {
             "name": "BWH_WZ",
