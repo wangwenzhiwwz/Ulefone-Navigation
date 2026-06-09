@@ -476,7 +476,7 @@ const data = {
         },
         {
             "name": "VPS",
-            "url": "https://vps.w1997.eu.org:58139/a5MwFWGwyJne0zqEuL/panel/inbounds"
+            "url": "https://kr.w1997.eu.org:58139/a5MwFWGwyJne0zqEuL/panel/inbounds"
         }
     ],
     "Other": [
