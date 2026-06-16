@@ -460,7 +460,7 @@ const data = {
         },
         {
             "name": "BWH_BR",
-            "url": "https://br.w1997.eu.org:13451/GC04J208pCLJyB8eam/panel/inbounds"
+            "url": "https://br.w1997.eu.org:30769/6h8BMCPH0Leg95Vnws/panel/inbounds"
         },
         {
             "name": "BWH_XR",
