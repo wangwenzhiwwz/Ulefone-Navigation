@@ -464,7 +464,7 @@ const data = {
         },
         {
             "name": "BWH_XR",
-            "url": "https://xr.w1997.eu.org:46544/sQBMnaoneXnHzcBJsa/panel/inbounds"
+            "url": "https://xr.w1997.eu.org:46544/5vzAnUCAMTL1hPDk45/panel/inbounds"
         },
         {
             "name": "ARM",
