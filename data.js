@@ -460,11 +460,11 @@ const data = {
         },
         {
             "name": "BWH_BR",
-            "url": "https://br.w1997.eu.org:30769/6h8BMCPH0Leg95Vnws/panel/inbounds"
+            "url": "https://br.w1997.eu.org:49899/Dm8TUjpcDBKTlVWAjj/panel/inbounds"
         },
         {
             "name": "BWH_XR",
-            "url": "https://xr.w1997.eu.org:46544/5vzAnUCAMTL1hPDk45/panel/inbounds"
+            "url": "https://xr.w1997.eu.org:16263/gH1lwwLBrdI2BpVQHT/panel/inbounds"
         },
         {
             "name": "ARM",
