@@ -472,11 +472,11 @@ const data = {
         },
         {
             "name": "GPT",
-            "url": "http://gpt.w1997.eu.org:6819/vEFiuDihCflgxKSVdb/panel/inbounds"
+            "url": "http://gpt.w1997.eu.org:59421/zg9M0cnOd9CfuKLSBw/panel/inbounds"
         },
         {
             "name": "VPS",
-            "url": "https://kr.w1997.eu.org:58139/a5MwFWGwyJne0zqEuL/panel/inbounds"
+            "url": "https://kr.w1997.eu.org:54011/V4DB6v4dLLTbhHQADI/panel/inbounds"
         }
     ],
     "Other": [
