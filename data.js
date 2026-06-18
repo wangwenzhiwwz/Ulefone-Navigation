@@ -468,11 +468,11 @@ const data = {
         },
         {
             "name": "ARM",
-            "url": "http://arm.w1997.eu.org:55156/lrK46wTrMtb2KBiQOT/panel/inbounds"
+            "url": "https://193.123.244.140:5246/X1EIFrCGdsBhU6AHg8/panel/inbounds"
         },
         {
             "name": "GPT",
-            "url": "http://gpt.w1997.eu.org:59421/zg9M0cnOd9CfuKLSBw/panel/inbounds"
+            "url": "https://193.122.114.105:59421/zg9M0cnOd9CfuKLSBw/panel/inbounds"
         },
         {
             "name": "VPS",
