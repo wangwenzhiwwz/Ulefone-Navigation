@@ -444,39 +444,43 @@ const data = {
     "Panel": [
         {
             "name": "CloudCone",
-            "url": "https://cc.w1997.eu.org:37486/bmKQSmIgCm3WQCdGKK/panel/inbounds"
+            "url": "https://cc.w1997.eu.org:37486/bmKQSmIgCm3WQCdGKK/panel/clients"
         },
         {
             "name": "ColoCrossing",
-            "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/inbounds"
+            "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/clients"
         },
         {
             "name": "EUserv",
-            "url": "https://eu.w1997.eu.org:8248/N5dnwkICtGZzibPq7B/panel/inbounds"
+            "url": "https://eu.w1997.eu.org:8248/N5dnwkICtGZzibPq7B/panel/clients"
         },
         {
             "name": "BWH_WZ",
-            "url": "https://wz.w1997.eu.org:58753/H3IFDq3LLXEeczH49E/panel/inbounds"
+            "url": "https://wz.w1997.eu.org:58753/H3IFDq3LLXEeczH49E/panel/clients"
         },
         {
             "name": "BWH_BR",
-            "url": "https://br.w1997.eu.org:49899/Dm8TUjpcDBKTlVWAjj/panel/inbounds"
+            "url": "https://br.w1997.eu.org:49899/Dm8TUjpcDBKTlVWAjj/panel/clients"
         },
         {
             "name": "BWH_XR",
-            "url": "https://xr.w1997.eu.org:16263/gH1lwwLBrdI2BpVQHT/panel/inbounds"
+            "url": "https://xr.w1997.eu.org:16263/gH1lwwLBrdI2BpVQHT/panel/clients"
         },
         {
             "name": "ARM",
-            "url": "https://193.123.244.140:5246/X1EIFrCGdsBhU6AHg8/panel/inbounds"
+            "url": "https://193.123.244.140:5246/X1EIFrCGdsBhU6AHg8/panel/clients"
         },
         {
             "name": "GPT",
-            "url": "https://193.122.114.105:59421/zg9M0cnOd9CfuKLSBw/panel/inbounds"
+            "url": "https://193.122.114.105:59421/zg9M0cnOd9CfuKLSBw/panel/clients"
         },
         {
             "name": "VPS",
-            "url": "https://kr.w1997.eu.org:54011/V4DB6v4dLLTbhHQADI/panel/inbounds"
+            "url": "https://kr.w1997.eu.org:54011/V4DB6v4dLLTbhHQADI/panel/clients"
+        },
+        {
+            "name": "DE",
+            "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients"
         }
     ],
     "Other": [
