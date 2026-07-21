@@ -101,40 +101,24 @@ const data = {
     ],
     "Generative": [
         {
-            "name": "Gemini",
-            "url": "https://gemini.google.com/app"
-        },
-        {
             "name": "ChatGPT",
             "url": "https://chatgpt.com/"
+        },
+        {
+            "name": "Gemini",
+            "url": "https://gemini.google.com/app"
         },
         {
             "name": "LibTV",
             "url": "https://www.liblib.tv/"
         },
         {
-            "name": "Google Flow",
-            "url": "https://labs.google/flow/about"
-        },
-        {
             "name": "Jianying",
             "url": "https://jimeng.jianying.com/ai-tool/home"
         },
         {
-            "name": "Labs",
-            "url": "https://labs.google/fx"
-        },
-        {
-            "name": "Grok",
-            "url": "https://grok.com/"
-        },
-        {
-            "name": "Google AI Studio",
-            "url": "https://aistudio.google.com/"
-        },
-        {
-            "name": "Lovart",
-            "url": "https://www.lovart.ai/"
+            "name": "Beeble",
+            "url": "https://app.beeble.ai/home"
         },
         {
             "name": "Higgsfield",
@@ -143,10 +127,6 @@ const data = {
         {
             "name": "Suno",
             "url": "https://suno.com/"
-        },
-        {
-            "name": "Doubao",
-            "url": "https://www.doubao.com/chat/"
         },
         {
             "name": "Elevenlabs",
@@ -163,10 +143,6 @@ const data = {
         {
             "name": "Hyper3d",
             "url": "https://hyper3d.ai/"
-        },
-        {
-            "name": "Coze",
-            "url": "https://www.coze.cn/"
         }
     ],
     "Tech": [
@@ -175,16 +151,8 @@ const data = {
             "url": "https://www.apple.com/"
         },
         {
-            "name": "Samsung",
-            "url": "https://www.samsung.com/"
-        },
-        {
             "name": "Mi",
             "url": "https://www.mi.com/"
-        },
-        {
-            "name": "Huawei",
-            "url": "https://www.huawei.com/en/"
         },
         {
             "name": "Honor",
@@ -211,20 +179,12 @@ const data = {
             "url": "https://www.doogee.com/"
         },
         {
-            "name": "Umidigi",
-            "url": "https://umidigi.com/"
-        },
-        {
-            "name": "AGMdevice",
-            "url": "http://www.agmdevice.com/"
+            "name": "Fossibot",
+            "url": "https://www.fossibot.com/"
         },
         {
             "name": "Crosscall",
             "url": "https://www.crosscall.com/"
-        },
-        {
-            "name": "Fossibot",
-            "url": "https://www.fossibot.com/"
         },
         {
             "name": "Hotwav",
@@ -283,10 +243,6 @@ const data = {
             "url": "https://www.youtube.com/@TECNOMobile/videos"
         },
         {
-            "name": "Honor",
-            "url": "https://www.youtube.com/@honormalaysia/videos"
-        },
-        {
             "name": "Infinix",
             "url": "https://www.youtube.com/@infinixindia/videos"
         },
@@ -313,12 +269,16 @@ const data = {
     ],
     "Assets": [
         {
+            "name": "Seying123",
+            "url": "https://www.seying123.com/"
+        },
+        {
             "name": "千库网",
             "url": "https://588ku.com/video/"
         },
         {
             "name": "影视飓风",
-            "url": "https://www.ysjf.com/home"
+            "url": "https://www.ysjf.com/"
         },
         {
             "name": "电影色彩",
@@ -365,10 +325,6 @@ const data = {
             "url": "https://moshpro.app/#top"
         },
         {
-            "name": "Seying123",
-            "url": "https://www.seying123.com/"
-        },
-        {
             "name": "Pngtree",
             "url": "https://pngtree.com/"
         },
@@ -387,10 +343,6 @@ const data = {
         {
             "name": "Upscale",
             "url": "https://www.upscale.media/"
-        },
-        {
-            "name": "Halftone",
-            "url": "https://halftonemaker.com/"
         },
         {
             "name": "CGtrader",
@@ -417,24 +369,12 @@ const data = {
             "url": "https://sketchfab.com/3d-models"
         },
         {
-            "name": "Kim",
-            "url": "https://blender.kim/"
-        },
-        {
-            "name": "Moi3d",
-            "url": "https://moi3d.com/"
-        },
-        {
             "name": "Blueprints",
             "url": "https://www.the-blueprints.com/"
         },
         {
-            "name": "Meshtek",
-            "url": "https://www.meshtek.cn/#/download"
-        },
-        {
-            "name": "glTF Viewer",
-            "url": "https://gltf-viewer.donmccurdy.com/"
+            "name": "Moi3d",
+            "url": "https://moi3d.com/"
         },
         {
             "name": "glTF Report",
@@ -513,20 +453,12 @@ const data = {
             "url": "https://www.spaceship.com/zh/domain-search/?query=7778333.xyz&tab=domains"
         },
         {
-            "name": "qijishow",
-            "url": "https://www.qijishow.com/down/plug-in.html"
+            "name": "Aigei",
+            "url": "https://www.aigei.com/"
         },
         {
             "name": "Xaudiopro",
             "url": "https://www.xaudiopro.com/aivoice/"
-        },
-        {
-            "name": "千库网",
-            "url": "https://www.588ku.com"
-        },
-        {
-            "name": "Aigei",
-            "url": "https://www.aigei.com/"
         },
         {
             "name": "日常口语3000词",
@@ -569,18 +501,6 @@ const data = {
             "url": "https://www.sony.rs/electronics/support/software/00263050"
         },
         {
-            "name": "Milanote",
-            "url": "https://milanote.com/"
-        },
-        {
-            "name": "Drive",
-            "url": "https://drive.google.com/drive/u/0/home"
-        },
-        {
-            "name": "Alist",
-            "url": "https://alist.19971008.eu.org/Samples"
-        },
-        {
             "name": "Mail",
             "url": "https://exmail.qq.com/login"
         },
@@ -589,12 +509,20 @@ const data = {
             "url": "https://uom.caac.gov.cn/"
         },
         {
+            "name": "Milanote",
+            "url": "https://app.milanote.com/1P5FeH1ShjXWuA/home"
+        },
+        {
+            "name": "Ulefone",
+            "url": "http://192.168.31.156/cgi-bin/luci/"
+        },
+        {
             "name": "SoMe",
             "url": "http://192.168.50.1/"
         },
         {
-            "name": "Ulefone",
-            "url": "http://192.168.31.1:9999/ui"
+            "name": "Studio",
+            "url": "http://192.168.31.1:9999/ui/#/proxies"
         }
     ]
 };
