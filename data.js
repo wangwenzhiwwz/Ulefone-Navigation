@@ -387,6 +387,10 @@ const data = {
             "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients"
         },
         {
+            "name": "CloudCone",
+            "url": "https://cc.w1997.eu.org:26693/kYvtDmscKfUTfbqfvO/panel/clients"
+        },
+        {
             "name": "ColoCrossing",
             "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/clients"
         },
