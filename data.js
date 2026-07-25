@@ -522,7 +522,7 @@ const data = {
         },
         {
             "name": "SoMe",
-            "url": "http://192.168.50.1/"
+            "url": "http://192.168.50.1:9999/ui/#/proxies"
         },
         {
             "name": "Studio",
