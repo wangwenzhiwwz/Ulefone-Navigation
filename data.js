@@ -14,11 +14,11 @@ const data = {
         },
         {
             "name": "Mediastory",
-            "url": "https://web.mediastory.cc/#/"
+            "url": "https://web.mediastory.cc"
         },
         {
-            "name": "Youtube",
-            "url": "https://www.youtube.com/@Ulefone/videos"
+            "name": "Artlist.io",
+            "url": "https://artlist.io"
         },
         {
             "name": "Vimeo",
@@ -29,20 +29,20 @@ const data = {
             "url": "https://www.instagram.com/ulefone.global/"
         },
         {
-            "name": "Facebook",
-            "url": "https://www.facebook.com/"
+            "name": "Youtube",
+            "url": "https://www.youtube.com/@Ulefone/videos"
         },
         {
-            "name": "Linkedin",
-            "url": "https://www.linkedin.com/feed/"
+            "name": "Facebook",
+            "url": "https://www.facebook.com/"
         },
         {
             "name": "Tiktok",
             "url": "https://www.tiktok.com/@ulefone"
         },
         {
-            "name": "Artlist.io",
-            "url": "https://artlist.io"
+            "name": "Linkedin",
+            "url": "https://www.linkedin.com/feed/"
         },
         {
             "name": "itdog",
@@ -51,36 +51,36 @@ const data = {
     ],
     "Workspace": [
         {
-            "name": "Teambition",
+            "name": "工作安排",
             "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
-        },
-        {
-            "name": "本周视频拍摄",
-            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
-        },
-        {
-            "name": "策划计划",
-            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghXbjgNBEVKe0xjE3"
-        },
-        {
-            "name": "产品型号及其编码",
-            "url": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWm3k9bNOT3q2AlngJGlDd3mE"
-        },
-        {
-            "name": "Ulefone 产品线",
-            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX14wvlpMlMzeJ/overview"
-        },
-        {
-            "name": "RugOne 产品线",
-            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX14vvAwwANzeJ/overview"
-        },
-        {
-            "name": "品牌营销中心",
-            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX10nxxO3ALzeJ/overview"
         },
         {
             "name": "冠群影业",
             "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
+        },
+        {
+            "name": "拍摄事项",
+            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
+        },
+        {
+            "name": "拍摄策划",
+            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghXbjgNBEVKe0xjE3"
+        },
+        {
+            "name": "Ulefone 产品线",
+            "url": "https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWe74qzKghOqGxy0DJxkXOEP2"
+        },
+        {
+            "name": "RugOne 产品线",
+            "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSE0rwP7vJA7depqY"
+        },
+        {
+            "name": "产品及事项项目管理",
+            "url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp72kypwh1Gq7bjKV9dEq3XD?cid=43873761291&corpId=dinga746ce2278192d4f35c2f4657eb6378f&iframeQuery=entrance%3Ddata%26sheetId%3DhMBeNQO%26viewId%3DlgsL55a"
+        },
+        {
+            "name": "品牌营销中心",
+            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX10nxxO3ALzeJ/overview"
         },
         {
             "name": "Ulefone 资料库",
@@ -91,12 +91,12 @@ const data = {
             "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1beJj1rkkmeJ/overview"
         },
         {
-            "name": "产品及事项项目管理",
-            "url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp72kypwh1Gq7bjKV9dEq3XD?cid=43873761291&corpId=dinga746ce2278192d4f35c2f4657eb6378f&iframeQuery=entrance%3Ddata%26sheetId%3DhMBeNQO%26viewId%3DlgsL55a"
-        },
-        {
             "name": "数字资产管理",
             "url": "https://alidocs.dingtalk.com/i/nodes/pq7N1kjGYznWyOXQZlB3JO43vrPX95oA"
+        },
+        {
+            "name": "产品型号及其编码",
+            "url": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWm3k9bNOT3q2AlngJGlDd3mE"
         }
     ],
     "Generative": [
@@ -369,10 +369,6 @@ const data = {
             "url": "https://sketchfab.com/3d-models"
         },
         {
-            "name": "Blueprints",
-            "url": "https://www.the-blueprints.com/"
-        },
-        {
             "name": "Moi3d",
             "url": "https://moi3d.com/"
         },
@@ -387,12 +383,12 @@ const data = {
             "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients"
         },
         {
-            "name": "CloudCone",
-            "url": "https://cc.w1997.eu.org:26693/kYvtDmscKfUTfbqfvO/panel/clients"
-        },
-        {
             "name": "ColoCrossing",
             "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/clients"
+        },
+        {
+            "name": "CloudCone",
+            "url": "https://cc.w1997.eu.org:26693/kYvtDmscKfUTfbqfvO/panel/clients"
         },
         {
             "name": "BWH_WZ",
@@ -453,10 +449,6 @@ const data = {
             "url": "https://freetts.com/text-to-speech"
         },
         {
-            "name": "Spaceship",
-            "url": "https://www.spaceship.com/zh/domain-search/?query=7778333.xyz&tab=domains"
-        },
-        {
             "name": "Aigei",
             "url": "https://www.aigei.com/"
         },
@@ -475,10 +467,6 @@ const data = {
         {
             "name": "常用500句",
             "url": "https://www.kdocs.cn/l/cp3UiPfkxinj"
-        },
-        {
-            "name": "Anyconv",
-            "url": "https://anyconv.com/"
         },
         {
             "name": "Jpsmile",
@@ -518,7 +506,7 @@ const data = {
         },
         {
             "name": "Ulefone",
-            "url": "http://192.168.31.156/cgi-bin/luci/"
+            "url": "http://192.168.30.20/"
         },
         {
             "name": "SoMe",
