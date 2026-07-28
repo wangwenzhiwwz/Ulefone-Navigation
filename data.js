@@ -405,6 +405,10 @@ const data = {
         {
             "name": "BWH_XR",
             "url": "https://xr.w1997.eu.org:16263/gH1lwwLBrdI2BpVQHT/panel/clients"
+        },
+        {
+            "name": "VPS",
+            "url": "https://kr.w1997.eu.org:59014/MgUJkNNLy7S0qqRYXZ/panel/clients"
         }
     ],
     "Other": [
