@@ -405,6 +405,10 @@ const data = {
         {
             "name": "VPS",
             "url": "https://kr.w1997.eu.org:59014/MgUJkNNLy7S0qqRYXZ/panel/clients"
+        },
+        {
+            "name": "EUserv",
+            "url": "https://eu6.w1997.eu.org:51334/xli7ci5Bf61IpjEPmX/panel/clients"
         }
     ],
     "Other": [
