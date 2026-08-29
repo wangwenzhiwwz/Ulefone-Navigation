@@ -379,10 +379,6 @@ const data = {
     ],
     "Panel": [
         {
-            "name": "EUserv_DE",
-            "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients"
-        },
-        {
             "name": "ColoCrossing",
             "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/clients"
         },
@@ -409,6 +405,10 @@ const data = {
         {
             "name": "EUserv",
             "url": "https://eu6.w1997.eu.org:51334/xli7ci5Bf61IpjEPmX/panel/clients"
+        },
+        {
+            "name": "EUserv_DE",
+            "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients"
         }
     ],
     "Other": [
