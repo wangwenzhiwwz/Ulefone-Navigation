@@ -5,16 +5,16 @@ const data = {
             "url": "https://www.figma.com/board/ezkxBYgd0vgkF1BoOz2Ooi/Untitled?node-id=0-1&p=f&t=jog6kAYANsyRigoH-0"
         },
         {
+            "name": "Whimsical",
+            "url": "https://whimsical.com"
+        },
+        {
             "name": "Ulefone",
             "url": "https://www.ulefone.com/"
         },
         {
             "name": "RugOne",
             "url": "https://rugone.net/"
-        },
-        {
-            "name": "Whimsical",
-            "url": "https://whimsical.com"
         },
         {
             "name": "Mediastory",
@@ -27,10 +27,6 @@ const data = {
         {
             "name": "itdog",
             "url": "https://www.itdog.cn/ping/kr.w1997.eu.org"
-        },
-        {
-            "name": "Vimeo",
-            "url": "https://vimeo.com/home"
         },
         {
             "name": "Instagram",
