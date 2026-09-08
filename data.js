@@ -2,11 +2,7 @@ const data = {
     "Favorites": [
         {
             "name": "FigJam",
-            "url": "https://www.figma.com/board/ezkxBYgd0vgkF1BoOz2Ooi/Untitled?node-id=0-1&p=f&t=jog6kAYANsyRigoH-0"
-        },
-        {
-            "name": "Whimsical",
-            "url": "https://whimsical.com"
+            "url": "https://www.figma.com/"
         },
         {
             "name": "Ulefone",
@@ -25,8 +21,8 @@ const data = {
             "url": "https://artlist.io"
         },
         {
-            "name": "itdog",
-            "url": "https://www.itdog.cn/ping/kr.w1997.eu.org"
+            "name": "LibTV",
+            "url": "https://www.liblib.tv/"
         },
         {
             "name": "Instagram",
@@ -55,16 +51,12 @@ const data = {
             "url": "https://www.teambition.com/organization/61ade96d461f91c76e3bfc06/task/shortcut/66d920b8e2a3f00f0ddca2e3/"
         },
         {
-            "name": "冠群影业",
-            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
-        },
-        {
             "name": "拍摄事项",
             "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
         },
         {
-            "name": "拍摄策划",
-            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghXbjgNBEVKe0xjE3"
+            "name": "冠群影业",
+            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
         },
         {
             "name": "Ulefone 产品线",
@@ -91,10 +83,6 @@ const data = {
             "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1beJj1rkkmeJ/overview"
         },
         {
-            "name": "数字资产管理",
-            "url": "https://alidocs.dingtalk.com/i/nodes/pq7N1kjGYznWyOXQZlB3JO43vrPX95oA"
-        },
-        {
             "name": "产品型号及其编码",
             "url": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWm3k9bNOT3q2AlngJGlDd3mE"
         }
@@ -107,10 +95,6 @@ const data = {
         {
             "name": "Gemini",
             "url": "https://gemini.google.com/app"
-        },
-        {
-            "name": "LibTV",
-            "url": "https://www.liblib.tv/"
         },
         {
             "name": "Jianying",
@@ -433,10 +417,6 @@ const data = {
             "url": "https://atelier-anchor.com/typefaces/smiley-sans"
         },
         {
-            "name": "Tiktok",
-            "url": "https://www.tiktok.com/font"
-        },
-        {
             "name": "OPPO Sans",
             "url": "https://www.coloros.com/article/A00000050/"
         },
@@ -485,28 +465,20 @@ const data = {
             "url": "https://www.lookae.com/"
         },
         {
-            "name": "Talkae",
-            "url": "https://www.talkae.com/"
-        },
-        {
             "name": "Sucaitu",
             "url": "https://www.sucaitu.cc/"
         },
         {
-            "name": "Sony",
-            "url": "https://www.sony.rs/electronics/support/software/00263050"
-        },
-        {
-            "name": "Mail",
-            "url": "https://exmail.qq.com/login"
-        },
-        {
-            "name": "UOM 无人机登记",
-            "url": "https://uom.caac.gov.cn/"
+            "name": "Whimsical",
+            "url": "https://whimsical.com"
         },
         {
             "name": "Milanote",
             "url": "https://app.milanote.com/1P5FeH1ShjXWuA/home"
+        },
+        {
+            "name": "UOM 无人机登记",
+            "url": "https://uom.caac.gov.cn/"
         },
         {
             "name": "Ulefone",
