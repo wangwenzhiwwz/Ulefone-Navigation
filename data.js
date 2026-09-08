@@ -1,6 +1,10 @@
 const data = {
     "Favorites": [
         {
+            "name": "FigJam",
+            "url": "https://www.figma.com/board/ezkxBYgd0vgkF1BoOz2Ooi/Untitled?node-id=0-1&p=f&t=jog6kAYANsyRigoH-0"
+        },
+        {
             "name": "Ulefone",
             "url": "https://www.ulefone.com/"
         },
