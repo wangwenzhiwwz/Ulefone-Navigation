@@ -21,10 +21,6 @@ const data = {
             "url": "https://artlist.io"
         },
         {
-            "name": "LibTV",
-            "url": "https://www.liblib.tv/"
-        },
-        {
             "name": "Instagram",
             "url": "https://www.instagram.com/ulefone.global/"
         },
@@ -88,6 +84,10 @@ const data = {
         }
     ],
     "Generative": [
+        {
+            "name": "LibTV",
+            "url": "https://www.liblib.tv/"
+        },
         {
             "name": "ChatGPT",
             "url": "https://chatgpt.com/"
