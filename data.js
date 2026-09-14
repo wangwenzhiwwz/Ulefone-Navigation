@@ -397,6 +397,10 @@ const data = {
     ],
     "Other": [
         {
+            "name": "Kickstarter",
+            "url": "https://www.kickstarter.com/projects/rugone/rugone-xsnap-7-pro-rugged-phone-detachable-action-camera/pledge"
+        },
+        {
             "name": "artvee",
             "url": "https://artvee.com/"
         },
