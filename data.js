@@ -372,7 +372,7 @@ const data = {
         },
         {
             "name": "BWH_WZ",
-            "url": "https://wz.w1997.eu.org:58753/H3IFDq3LLXEeczH49E/panel/clients"
+            "url": "https://wz.w1997.eu.org:20309/4wPwNqf447kpA44btK/panel/inbounds"
         },
         {
             "name": "BWH_BR",
