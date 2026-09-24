@@ -388,7 +388,7 @@ const data = {
         },
         {
             "name": "EUserv",
-            "url": "https://eu6.w1997.eu.org:51334/xli7ci5Bf61IpjEPmX/panel/clients"
+            "url": "https://eu6.w1997.eu.org:54871/Dfn2x0eiKirHE4oPnO/panel/clients"
         },
         {
             "name": "EUserv_DE",
