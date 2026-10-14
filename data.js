@@ -1,10 +1,6 @@
 const data = {
     "Favorites": [
         {
-            "name": "FigJam",
-            "url": "https://www.figma.com/"
-        },
-        {
             "name": "Ulefone",
             "url": "https://www.ulefone.com/"
         },
@@ -17,8 +13,12 @@ const data = {
             "url": "https://web.mediastory.cc"
         },
         {
+            "name": "FigJam",
+            "url": "https://www.figma.com/"
+        },
+        {
             "name": "Artlist.io",
-            "url": "https://artlist.io"
+            "url": "https://artlist.io/royalty-free-music"
         },
         {
             "name": "Instagram",
