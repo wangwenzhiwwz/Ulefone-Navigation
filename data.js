@@ -277,6 +277,10 @@ const data = {
             "url": "https://vidcoder.net/"
         },
         {
+            "name": "Vocal Remover",
+            "url": "https://vocalremover.org/"
+        },
+        {
             "name": "GoogleEarth",
             "url": "https://www.google.com/earth/studio/"
         },
