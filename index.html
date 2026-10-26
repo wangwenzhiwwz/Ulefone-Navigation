@@ -1747,13 +1747,15 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
-/* Keep category labels centered and prevent edge clipping */
-#category-list {
-  justify-content: center !important;
-  position: relative;
-  left: -10px;
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
+/* Desktop only: center category labels, shift left slightly, and avoid edge fade */
+@media (min-width: 781px) {
+  #category-list {
+    justify-content: center !important;
+    position: relative;
+    left: -10px;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
 }
 </style>
 </head>
