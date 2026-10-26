@@ -567,6 +567,55 @@ body.dark-mode .add-category-block {
     .app-card, .add-card { width: 100%; max-width: none; }
 }
 
+/* Align the admin workspace to the same centered content width as the homepage */
+:root { --admin-content-width: 1060px; }
+.dashboard-header,
+.stats-row,
+#contentArea,
+.add-category-block {
+    width: 100%;
+    max-width: var(--admin-content-width);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+#contentArea .app-grid {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    justify-content: start;
+    margin-left: 0;
+    margin-right: 0;
+}
+#contentArea .app-card,
+#contentArea .add-card {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    box-sizing: border-box;
+}
+.dashboard-header,
+.stats-row,
+.add-category-block {
+    box-sizing: border-box;
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+    #contentArea .app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+    .dashboard-header,
+    .stats-row,
+    #contentArea,
+    .add-category-block {
+        width: 100%;
+        max-width: 100%;
+    }
+    #contentArea .app-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px;
+    }
+}
+
 </style>
 </head>
 <body>
