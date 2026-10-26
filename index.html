@@ -1747,12 +1747,17 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
-/* Desktop only: center category labels, shift left slightly, and avoid edge fade */
+/* Desktop only: center category labels and shift left without clipping edge buttons */
 @media (min-width: 781px) {
+  .header .sidebar {
+    max-width: none;
+  }
   #category-list {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    box-sizing: border-box;
     justify-content: center !important;
-    position: relative;
-    left: -10px;
+    position: static;
     -webkit-mask-image: none !important;
     mask-image: none !important;
   }
