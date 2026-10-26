@@ -993,7 +993,13 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
       const listRect = els.categories.getBoundingClientRect();
       const activeRect = active.getBoundingClientRect();
       if (window.matchMedia('(max-width: 780px)').matches) {
-        const targetLeft = active.offsetLeft - (els.categories.clientWidth - active.offsetWidth) / 2;
+        // Use viewport geometry plus current scroll position. offsetLeft may be relative
+        // to the <li> offset parent, which can send the nav to the wrong scroll position.
+        const listRect = els.categories.getBoundingClientRect();
+        const activeRect = active.getBoundingClientRect();
+        const activeCenterInContent = els.categories.scrollLeft
+          + activeRect.left - listRect.left + activeRect.width / 2;
+        const targetLeft = activeCenterInContent - els.categories.clientWidth / 2;
         const maxLeft = Math.max(0, els.categories.scrollWidth - els.categories.clientWidth);
         const clampedLeft = Math.min(maxLeft, Math.max(0, targetLeft));
         if (Math.abs(els.categories.scrollLeft - clampedLeft) > 3) {
