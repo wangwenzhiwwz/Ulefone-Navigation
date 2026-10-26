@@ -1707,6 +1707,22 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   pointer-events: auto !important;
 }
 
+/* Keep the search glyph visible inside the inline search pill */
+#mobileSearchSlot #searchPopover > i.fas.fa-search {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 18px;
+  margin-right: 10px;
+  color: var(--muted);
+  font-size: 16px;
+  opacity: .9;
+}
+#mobileSearchSlot #searchPopover #search {
+  min-width: 0;
+}
+
 </style>
 </head>
 <body>
