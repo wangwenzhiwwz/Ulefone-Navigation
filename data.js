@@ -93,6 +93,10 @@ const data = {
             "url": "https://gemini.google.com/app"
         },
         {
+            "name": "Claude",
+            "url": "https://claude.ai/"
+        },
+        {
             "name": "LibTV",
             "url": "https://www.liblib.tv/"
         },
@@ -102,7 +106,7 @@ const data = {
             "icon": "https://app.wwz.im/images/Flow.jpg"
         },
         {
-            "name": "Jianying",
+            "name": "即梦",
             "url": "https://jimeng.jianying.com/ai-tool/home"
         },
         {
