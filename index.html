@@ -1386,6 +1386,18 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   .section, .welcome-block { animation-duration: .35s; }
 }
 
+/* Always keep a visible icon surface, including while remote favicons are unavailable */
+.card-icon {
+  background: var(--chip);
+  flex-shrink: 0;
+}
+.card-icon img {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: contain;
+}
+.card-icon img:not(.loaded) { opacity: .92; }
+
 </style>
 </head>
 <body>
@@ -1483,12 +1495,11 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 
   function faviconCandidates(item) {
-    // Prefer a configured icon, otherwise use one favicon provider only.
-    // Avoid serially probing several external services on slow mobile networks.
+    // Prefer the configured icon, then try Google's favicon service once.
     const customIcon = item.icon && safeUrl(item.icon) !== '#' ? safeUrl(item.icon) : '';
-    if (customIcon) return [customIcon];
     const domain = getDomain(item.url);
-    return domain ? [`https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(item.url || '')}`] : [];
+    const googleIcon = domain ? `https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(item.url || '')}` : '';
+    return [...new Set([customIcon, googleIcon].filter(Boolean))];
   }
 
   function appendHighlightedText(target, text, query) {
@@ -1524,23 +1535,40 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     const img = document.createElement('img');
     const iconSources = faviconCandidates(item);
     let iconIndex = 0;
+    let iconFallbackTimer;
     img.alt = '';
     img.loading = 'lazy';
     img.decoding = 'async';
     img.referrerPolicy = 'no-referrer';
-    img.addEventListener('load', () => img.classList.add('loaded'));
-    let iconFallbackTimer;
+    img.addEventListener('load', () => {
+      img.classList.add('loaded');
+      window.clearTimeout(iconFallbackTimer);
+    });
     const useFallback = () => {
       if (img.dataset.avatarFallback) return;
       img.dataset.avatarFallback = '1';
       window.clearTimeout(iconFallbackTimer);
+      img.onerror = null;
       img.src = fallbackIcon(item.name);
     };
-    img.addEventListener('load', () => window.clearTimeout(iconFallbackTimer), { once: true });
-    img.addEventListener('error', useFallback, { once: true });
-    // Do not let a stalled external favicon keep a card without an icon indefinitely.
-    iconFallbackTimer = window.setTimeout(useFallback, 2200);
-    img.src = iconSources[0] || fallbackIcon(item.name);
+    img.addEventListener('error', () => {
+      window.clearTimeout(iconFallbackTimer);
+      if (img.dataset.avatarFallback) return;
+      iconIndex += 1;
+      if (iconIndex < iconSources.length) {
+        img.src = iconSources[iconIndex];
+        iconFallbackTimer = window.setTimeout(useFallback, 1800);
+      } else {
+        useFallback();
+      }
+    });
+    if (iconSources.length) {
+      img.src = iconSources[0];
+      // If the external service stalls instead of failing, move to a guaranteed local fallback.
+      iconFallbackTimer = window.setTimeout(useFallback, 2800);
+    } else {
+      useFallback();
+    }
     iconWrap.append(img);
 
     const meta = document.createElement('div');
