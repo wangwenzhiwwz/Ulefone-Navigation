@@ -1645,6 +1645,40 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   box-shadow: none !important;
 }
 
+/* Compact search field: only slightly wider than the clock text, with clearer interaction */
+@media (min-width: 781px) {
+  #mobileSearchSlot {
+    width: max-content !important;
+    max-width: calc(100vw - 48px) !important;
+  }
+  #mobileSearchSlot #searchPopover {
+    width: auto !important;
+    max-width: none !important;
+    min-width: 360px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 4px 18px !important;
+    transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  #mobileSearchSlot #search {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 16px !important;
+    color: var(--text);
+    cursor: text;
+  }
+  #mobileSearchSlot #searchPopover:focus-within {
+    background: var(--surface, rgba(255,255,255,.82)) !important;
+    border-color: rgba(120,120,128,.22) !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,.045) !important;
+  }
+}
+@media (max-width: 780px) {
+  #mobileSearchSlot #searchPopover:focus-within {
+    border-color: rgba(120,120,128,.2) !important;
+  }
+}
+
 </style>
 </head>
 <body>
