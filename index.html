@@ -1679,6 +1679,19 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
+/* Slightly wider search field while keeping it close to the clock width */
+@media (min-width: 781px) {
+  #mobileSearchSlot {
+    width: min(100%, 620px) !important;
+    max-width: 620px !important;
+  }
+  #mobileSearchSlot #searchPopover {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 620px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2013,11 +2026,11 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   const searchHome = els.searchPopover.parentElement;
   const mobileSearchSlot = $('#mobileSearchSlot');
   function placeSearchField() {
-    // Keep the search field directly below the clock on both desktop and mobile.
+    // Keep the search field mounted below the clock on both desktop and mobile.
     if (mobileSearchSlot && els.searchPopover.parentElement !== mobileSearchSlot) {
       mobileSearchSlot.appendChild(els.searchPopover);
     }
-    els.searchPopover.classList.remove('open');
+    // Never close or hide the inline search while the user is typing.
     els.searchPopover.style.removeProperty('display');
     els.searchPopover.setAttribute('aria-hidden', 'false');
     els.searchToggle.setAttribute('aria-expanded', 'false');
@@ -2039,9 +2052,17 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     searchRenderTimer = window.setTimeout(() => render(query), 90);
   });
   els.searchToggle.addEventListener('click', e => { e.stopPropagation(); setSearchOpen(!els.searchPopover.classList.contains('open')); });
-  els.searchClose.addEventListener('click', () => setSearchOpen(false));
+  els.searchClose.addEventListener('click', () => {
+    els.search.value = '';
+    render('');
+    els.search.focus();
+  });
   els.searchPopover.addEventListener('click', e => e.stopPropagation());
-  document.addEventListener('click', () => setSearchOpen(false));
+  // The inline search remains visible when clicking elsewhere or while results update.
+  document.addEventListener('click', () => {
+    if (els.searchPopover.parentElement === mobileSearchSlot) return;
+    setSearchOpen(false);
+  });
   document.addEventListener('keydown', e => {
     const shortcut = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k';
     if ((e.key === '/' && document.activeElement !== els.search) || shortcut) {
