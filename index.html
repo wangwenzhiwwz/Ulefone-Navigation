@@ -335,9 +335,9 @@ body.dark-mode .stat-img-wrapper img { filter: grayscale(100%) invert(1); }
 .card:hover { transform: translateY(-2px); background: var(--hover); border-color: color-mix(in srgb, var(--glass-edge) 78%, var(--text) 8%); }
 .card:active { transform: scale(.985); }
 .card-icon {
-  width: 46px;
-  height: 46px;
-  margin-right: 13px;
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
   flex: 0 0 auto;
   display: flex;
   align-items: center;
@@ -352,8 +352,8 @@ body.dark-mode .stat-img-wrapper img { filter: grayscale(100%) invert(1); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
-  clip-path: inset(0 round 12px);
+  border-radius: 9px;
+  clip-path: inset(0 round 9px);
   opacity: 0;
   transform: scale(.96);
   transition: opacity .2s ease, transform .2s ease;
@@ -361,8 +361,8 @@ body.dark-mode .stat-img-wrapper img { filter: grayscale(100%) invert(1); }
 .card-icon img.loaded { opacity: 1; transform: scale(1); }
 body.dark-mode .card-icon img { filter: drop-shadow(0 1px 1px rgba(0,0,0,.12)); }
 @media (max-width: 640px) {
-  .card-icon { width: 36px; height: 36px; border-radius: 10px; }
-  .card-icon img { border-radius: 10px; clip-path: inset(0 round 10px); }
+  .card-icon { width: 30px; height: 30px; border-radius: 8px; }
+  .card-icon img { border-radius: 8px; clip-path: inset(0 round 8px); }
 }
 .card-meta { min-width: 0; flex: 1; }
 .card-title { margin-bottom: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; font-weight: 650; }
@@ -460,7 +460,7 @@ mark { background: var(--text); color: var(--bg); padding: 0 2px; border-radius:
   .open-all { padding-inline: 5px; font-size: 10px; }
   .cards { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
   .card { min-height: 78px; padding: 15px 14px; border-radius: 15px; }
-  .card-icon { width: 36px; height: 36px; margin-right: 10px; border-radius: 10px; }
+  .card-icon { width: 30px; height: 30px; margin-right: 8px; border-radius: 8px; }
   .card-title { font-size: 13px; }
   .card-url { font-size: 10.5px; }
 }
