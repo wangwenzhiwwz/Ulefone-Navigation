@@ -1747,11 +1747,13 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
-/* Center the category group, then shift it slightly left for visual alignment */
+/* Keep category labels centered and prevent edge clipping */
 #category-list {
   justify-content: center !important;
   position: relative;
   left: -10px;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
 }
 </style>
 </head>
