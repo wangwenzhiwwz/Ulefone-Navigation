@@ -334,6 +334,35 @@ dialog::backdrop { background: rgba(0,0,0,.36); backdrop-filter: blur(7px); }
   }
 }
 
+/* Layout refinement: centered content on wide screens, readable cards on narrow screens */
+@media (min-width: 1600px) {
+    main { padding-left: clamp(36px, 4vw, 72px); padding-right: clamp(36px, 4vw, 72px); }
+    .dashboard-header, #contentArea, .add-category-block {
+        width: 100%;
+        max-width: 1500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+    .app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+    main { width: 100%; max-width: none; padding-left: 16px; padding-right: 16px; }
+    .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .dashboard-header, .stats-row { min-width: 0; }
+    .stat-pill { min-width: 0; padding: 12px 14px; }
+}
+@media (max-width: 560px) {
+    .app-grid { grid-template-columns: minmax(0, 1fr); }
+    .app-card { min-width: 0; padding: 14px; }
+    .card-meta { min-width: 0; }
+    .app-name, .app-desc { overflow: hidden; text-overflow: ellipsis; }
+    .card-controls { flex-shrink: 0; gap: 6px; }
+    .dashboard-header { padding: 18px; }
+    .stats-row { gap: 10px; }
+}
+
 </style>
 </head>
 <body>
