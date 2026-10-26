@@ -989,17 +989,20 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     if (active) {
       active.classList.add('active');
       active.setAttribute('aria-current', 'page');
-      // 移动端将当前分类平滑移至导航栏中央，方便继续点击后续分类。
+      // 用目标绝对滚动位置居中，避免 scrollspy 连续触发 scrollBy 导致导航来回抖动或按钮移出视野。
       const listRect = els.categories.getBoundingClientRect();
       const activeRect = active.getBoundingClientRect();
       if (window.matchMedia('(max-width: 780px)').matches) {
-        const listCenter = listRect.left + listRect.width / 2;
-        const activeCenter = activeRect.left + activeRect.width / 2;
-        els.categories.scrollBy({ left: activeCenter - listCenter, behavior: 'smooth' });
+        const targetLeft = active.offsetLeft - (els.categories.clientWidth - active.offsetWidth) / 2;
+        const maxLeft = Math.max(0, els.categories.scrollWidth - els.categories.clientWidth);
+        const clampedLeft = Math.min(maxLeft, Math.max(0, targetLeft));
+        if (Math.abs(els.categories.scrollLeft - clampedLeft) > 3) {
+          els.categories.scrollTo({ left: clampedLeft, behavior: 'smooth' });
+        }
       } else if (activeRect.left < listRect.left) {
-        els.categories.scrollBy({ left: activeRect.left - listRect.left - 12, behavior: 'smooth' });
+        els.categories.scrollTo({ left: els.categories.scrollLeft + activeRect.left - listRect.left - 12, behavior: 'smooth' });
       } else if (activeRect.right > listRect.right) {
-        els.categories.scrollBy({ left: activeRect.right - listRect.right + 12, behavior: 'smooth' });
+        els.categories.scrollTo({ left: els.categories.scrollLeft + activeRect.right - listRect.right + 12, behavior: 'smooth' });
       }
     }
   }
