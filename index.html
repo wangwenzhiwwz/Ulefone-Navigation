@@ -1010,81 +1010,6 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   .stat-item + .stat-item { padding-left: 14px; }
 }
 
-/* Replace the search icon with a persistent, compact search field */
-.header .header-actions {
-  gap: 8px;
-}
-.header #searchToggle { display: none !important; }
-.header .search-popover {
-  position: absolute;
-  top: 50%;
-  right: calc(max(var(--header-x), env(safe-area-inset-right)) + 44px);
-  left: auto;
-  width: min(280px, 30vw);
-  min-width: 190px;
-  min-height: 36px;
-  padding: 3px 12px;
-  box-sizing: border-box;
-  transform: translateY(-50%) !important;
-  transform-origin: center;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  display: flex;
-  gap: 8px;
-  border-radius: 999px;
-  background: rgba(120,120,128,.09);
-  border: 1px solid rgba(120,120,128,.08);
-  box-shadow: none;
-  z-index: 2;
-}
-.header .search-popover > i {
-  flex: 0 0 auto;
-  color: var(--muted);
-  font-size: 13px;
-}
-.header .search-popover .search-input {
-  height: 28px;
-  min-width: 0;
-  font-size: 13px;
-}
-.header .search-popover .search-close { display: none; }
-@media (max-width: 780px) {
-  .header {
-    grid-template-columns: minmax(0, 70px) minmax(0, 1fr) 34px !important;
-  }
-  .header .header-actions {
-    width: 30px;
-    gap: 0;
-  }
-  .header .search-popover {
-    left: auto;
-    right: 48px;
-    width: clamp(112px, 27vw, 180px);
-    min-width: 0;
-    min-height: 32px;
-    padding: 2px 9px;
-  }
-  .header .search-popover .search-input {
-    height: 26px;
-    font-size: 12px;
-  }
-  .header .search-popover > i { font-size: 12px; }
-}
-@media (max-width: 420px) {
-  .header {
-    grid-template-columns: minmax(0, 58px) minmax(0, 1fr) 30px !important;
-    column-gap: 3px;
-  }
-  .header > .logo img { max-height: 14px; }
-  .header .search-popover {
-    right: 40px;
-    width: clamp(100px, 28vw, 136px);
-    padding-inline: 7px;
-  }
-  .header .search-popover .search-input { font-size: 11px; }
-}
-
 </style>
 </head>
 <body>
@@ -1119,6 +1044,7 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
       <div id="live-time" class="time-capsule">00:00:00</div>
       <div class="welcome-info"><span id="date-info">Loading...</span></div>
     </div>
+    <div class="search-slot" id="mobileSearchSlot"></div>
     <div class="stats-row">
       <div class="stat-item"><div class="stat-num" id="stat-total">--</div><div class="stat-label">Bookmarks</div></div>
       <div class="stat-item">
@@ -1402,6 +1328,18 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     els.searchToggle.setAttribute('aria-expanded', String(open));
     if (open) requestAnimationFrame(() => els.search.focus());
   }
+
+  const searchHome = els.searchPopover.parentElement;
+  const mobileSearchSlot = $('#mobileSearchSlot');
+  function placeSearchField() {
+    const mobile = window.matchMedia('(max-width: 780px)').matches;
+    const target = mobile ? mobileSearchSlot : searchHome;
+    if (target && els.searchPopover.parentElement !== target) target.appendChild(els.searchPopover);
+    els.searchPopover.classList.toggle('open', mobile);
+    els.searchPopover.setAttribute('aria-hidden', 'false');
+  }
+  placeSearchField();
+  window.addEventListener('resize', placeSearchField);
 
   function updateClock() {
     const now = new Date();
