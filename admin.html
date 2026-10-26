@@ -146,7 +146,7 @@
     }
     .cat-title-input:hover, .cat-title-input:focus { padding-left: 12px; background: var(--bg-block); }
 
-    /* Cards (同步前台加大图标) */
+    /* Cards（与主页图标样式同步） */
     .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
     .app-card {
         background: var(--bg-surface); border-radius: 16px; padding: 16px;
@@ -156,15 +156,21 @@
     .app-card:hover { transform: translateY(-3px); z-index: 2; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
     .app-card:active { cursor: grabbing; transform: scale(0.98); }
     
-    .icon-wrapper { 
-        width: 48px; height: 48px; /* 图标容器加大 */
-        margin-right: 16px; 
-        border-radius: 12px; 
-        background: var(--bg-block); 
-        overflow: hidden; flex-shrink: 0; 
-        display: flex; align-items: center; justify-content: center; 
+    .icon-wrapper {
+        width: 36px; height: 36px;
+        margin-right: 10px;
+        border-radius: 12px;
+        background: transparent;
+        overflow: hidden; flex-shrink: 0;
+        display: flex; align-items: center; justify-content: center;
     }
-    .app-icon-img { width: 70%; height: 70%; object-fit: contain; } /* 图标占比加大 */
+    .app-icon-img {
+        display: block; width: 100%; height: 100%;
+        object-fit: cover; border-radius: 9px;
+        opacity: 0; transform: scale(.96);
+        transition: opacity .2s ease, transform .2s ease;
+    }
+    .app-icon-img.loaded { opacity: 1; transform: scale(1); }
     
     .card-meta { flex: 1; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
     .app-name { font-size: 15px; font-weight: 700; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -257,7 +263,8 @@
         .app-grid { grid-template-columns: 1fr; gap: 10px; }
         .app-card { padding: 16px; border-radius: 14px; }
         .card-controls { opacity: 1; position: relative; top: 0; right: 0; margin-left: auto; }
-        .icon-wrapper { width: 42px; height: 42px; margin-right: 12px; }
+        .icon-wrapper { width: 30px; height: 30px; margin-right: 10px; border-radius: 8px; }
+        .app-icon-img { border-radius: 8px; }
     }
 </style>
 </head>
@@ -389,7 +396,6 @@ function render() {
         
         data[key].forEach((app, ai) => {
             const domain = getDomain(app.url);
-            const favicon = app.icon || `https://www.google.com/s2/favicons?sz=64&domain_url=${app.url}`;
             
             const card = document.createElement('div');
             card.className = 'app-card';
@@ -407,7 +413,7 @@ function render() {
             // 编辑按钮
             card.innerHTML = `
                 <div class="icon-wrapper">
-                    <img class="app-icon-img" src="${favicon}" onerror="this.src='https://ui-avatars.com/api/?name=${app.name}&background=random&color=fff&size=64';">
+                    <img class="app-icon-img" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                 </div>
                 <div class="card-meta">
                     <div class="app-name">${app.name}</div>
@@ -418,6 +424,7 @@ function render() {
                     <button class="control-btn btn-del" onclick="event.stopPropagation(); deleteApp('${key}', ${ai})" title="删除"><i class="fa-solid fa-minus"></i></button>
                 </div>
             `;
+            setFavicon(card.querySelector('.app-icon-img'), app);
             grid.appendChild(card);
         });
 
@@ -436,7 +443,44 @@ function render() {
 }
 
 function getDomain(url) {
-    try { return new URL(url).hostname.replace('www.', ''); } catch { return 'link'; }
+    try { return new URL(url).hostname.replace(/^www\./, '') || 'link'; } catch { return 'link'; }
+}
+
+function safeIconUrl(value) {
+    try { const parsed = new URL(value, location.href); return /^https?:$/.test(parsed.protocol) ? parsed.href : ''; } catch { return ''; }
+}
+
+function fallbackIcon(name) {
+    return 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name || 'Link') + '&background=e9e9ec&color=333&size=96&bold=true&format=svg';
+}
+
+function faviconCandidates(app) {
+    const domain = getDomain(app.url);
+    let originFavicon = '';
+    try { originFavicon = new URL(app.url).origin + '/favicon.ico'; } catch {}
+    return [...new Set([
+        safeIconUrl(app.icon),
+        'https://www.google.com/s2/favicons?sz=128&domain_url=' + encodeURIComponent(app.url || ''),
+        originFavicon,
+        'https://icons.duckduckgo.com/ip3/' + encodeURIComponent(domain) + '.ico',
+        'https://favicon.im/' + encodeURIComponent(domain)
+    ].filter(Boolean))];
+}
+
+function setFavicon(img, app) {
+    const sources = faviconCandidates(app);
+    let index = 0;
+    img.classList.remove('loaded');
+    delete img.dataset.avatarFallback;
+    img.onerror = () => {
+        index += 1;
+        if (index < sources.length) { img.src = sources[index]; return; }
+        if (img.dataset.avatarFallback) return;
+        img.dataset.avatarFallback = '1';
+        img.src = fallbackIcon(app.name);
+    };
+    img.onload = () => img.classList.add('loaded');
+    img.src = sources[0] || fallbackIcon(app.name);
 }
 
 function setupScrollSpy() {
@@ -470,13 +514,7 @@ function openEdit(key, ai) {
 
 function updateModalPreview(url, customIcon) {
     const img = document.getElementById('modalIconPreview');
-    if(customIcon) {
-        img.src = customIcon;
-    } else {
-        const domain = getDomain(url);
-        img.src = `https://www.google.com/s2/favicons?sz=64&domain_url=${url}`;
-    }
-    img.onerror = () => img.src = `https://ui-avatars.com/api/?name=App&background=f0f0f0&color=333&size=64`;
+    setFavicon(img, { name: document.getElementById('inpName').value || 'Link', url, icon: customIcon || '' });
 }
 
 function saveEdit() {
