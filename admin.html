@@ -147,7 +147,12 @@
     .cat-title-input:hover, .cat-title-input:focus { padding-left: 12px; background: var(--bg-block); }
 
     /* Cards（与主页图标样式同步） */
-    .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .app-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 14px;
+        align-items: stretch;
+    }
     .app-card {
         background: var(--bg-surface); border-radius: 16px; padding: 16px;
         display: flex; flex-direction: row; align-items: center; position: relative;
@@ -260,15 +265,30 @@
         .stats-row { width: 100%; }
         .stat-pill { flex: 1; }
 
-        .app-grid { grid-template-columns: 1fr; gap: 10px; }
-        .app-card { padding: 16px; border-radius: 14px; }
+        .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+        .app-card { padding: 14px 12px; border-radius: 14px; min-width: 0; }
+        .app-name { font-size: 14px; }
+        .app-desc { font-size: 11px; }
         .card-controls { opacity: 1; position: relative; top: 0; right: 0; margin-left: auto; }
         .icon-wrapper { width: 30px; height: 30px; margin-right: 10px; border-radius: 8px; }
         .app-icon-img { border-radius: 8px; }
     }
 
 /* Unified interaction system */
-:root {
+/* Responsive grid: five items maximum per row on desktop */
+    @media (max-width: 1400px) {
+        main { padding-left: 36px; padding-right: 36px; }
+        .app-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    @media (max-width: 1100px) {
+        main { padding-left: 28px; padding-right: 28px; }
+        .app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 420px) {
+        .app-grid { grid-template-columns: 1fr; }
+    }
+
+    :root {
   --motion-fast: 160ms;
   --motion-ease: cubic-bezier(.2,.7,.2,1);
   --focus-color: var(--text-main);
