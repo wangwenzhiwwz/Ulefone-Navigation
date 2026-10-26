@@ -1105,31 +1105,115 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   #mobileSearchSlot #search { font-size: 14px; }
 }
 
+/* Compact mobile hero: English-only date and a balanced stats row below search */
+@media (max-width: 780px) {
+  .welcome-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 0 18px;
+    margin-bottom: 18px;
+  }
+  .welcome-block > div:first-child {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  .time-capsule {
+    margin: 0;
+    font-size: clamp(38px, 9vw, 46px);
+    line-height: 1;
+    letter-spacing: -.05em;
+  }
+  .welcome-info { font-size: 13px; line-height: 1.35; }
+  #mobileSearchSlot { width: 100%; max-width: 520px; }
+  #mobileSearchSlot #searchPopover {
+    min-height: 44px !important;
+    height: 44px !important;
+    padding: 3px 14px !important;
+  }
+  .welcome-block .stats-row {
+    width: 100%;
+    max-width: 520px;
+    margin: 4px auto 0 !important;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 0;
+  }
+  .welcome-block .stat-item {
+    min-width: 0;
+    min-height: 54px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 16px 0 4px;
+    border-left: 0;
+  }
+  .welcome-block .stat-item + .stat-item {
+    padding: 0 0 0 18px;
+    border-left: 1px solid var(--line);
+  }
+  .welcome-block .stat-num {
+    font-size: 25px;
+    line-height: 1.05;
+    margin: 0 0 4px;
+  }
+  .welcome-block .stat-img-wrapper {
+    max-width: 100%;
+    height: 25px;
+    margin: 0 0 4px;
+    overflow: hidden;
+  }
+  .welcome-block .stat-img-wrapper img {
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+  .welcome-block .stat-label {
+    font-size: 10px;
+    line-height: 1.25;
+    letter-spacing: .07em;
+  }
+}
+@media (max-width: 380px) {
+  .welcome-block { gap: 12px; padding-top: 18px; }
+  .time-capsule { font-size: 37px; }
+  .welcome-block .stats-row { margin-top: 2px !important; }
+  .welcome-block .stat-item { padding-right: 10px; }
+  .welcome-block .stat-item + .stat-item { padding-left: 12px; }
+}
+
 </style>
 </head>
 <body>
 <header class="header">
-  <button class="logo" id="homeBtn" type="button" aria-label="返回顶部" title="返回顶部">
+  <button class="logo" id="homeBtn" type="button" aria-label="Back to top" title="Back to top">
     <img id="siteLogo" src="https://wangwenzhi.eu.org/images/ulefone-logo/logo.png" alt="Ulefone">
   </button>
 
-  <nav class="sidebar" aria-label="分类导航">
+  <nav class="sidebar" aria-label="Category navigation">
     <ul id="category-list"></ul>
   </nav>
 
   <div class="header-actions">
-    <button class="icon-btn" id="searchToggle" type="button" title="搜索" aria-label="搜索" aria-expanded="false">
+    <button class="icon-btn" id="searchToggle" type="button" title="Search" aria-label="Search" aria-expanded="false">
       <i class="fas fa-search"></i>
     </button>
-    <a class="icon-btn" href="admin.html" title="管理后台" aria-label="管理后台">
+    <a class="icon-btn" href="admin.html" title="Admin" aria-label="Admin">
       <i class="fas fa-gear"></i>
     </a>
   </div>
 
   <div class="search-popover" id="searchPopover" role="search" aria-hidden="true">
     <i class="fas fa-search" aria-hidden="true"></i>
-    <input class="search-input" id="search" type="search" aria-label="搜索书签" placeholder="搜索名称、域名或链接" autocomplete="off" spellcheck="false">
-    <button class="icon-btn search-close" id="searchClose" type="button" aria-label="关闭搜索"><i class="fas fa-times"></i></button>
+    <input class="search-input" id="search" type="search" aria-label="Search bookmarks" placeholder="Search bookmarks…" autocomplete="off" spellcheck="false">
+    <button class="icon-btn search-close" id="searchClose" type="button" aria-label="Close search"><i class="fas fa-times"></i></button>
   </div>
 </header>
 
@@ -1137,7 +1221,7 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   <section class="welcome-block" id="section-top">
     <div>
       <div id="live-time" class="time-capsule">00:00:00</div>
-      <div class="welcome-info"><span id="date-info">Loading...</span></div>
+      <div class="welcome-info"><span id="date-info">Loading…</span></div>
     </div>
     <div class="search-slot" id="mobileSearchSlot"></div>
     <div class="stats-row">
@@ -1151,7 +1235,7 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   <div id="content-area"></div>
   <footer class="footer">© <span id="year"></span> Ulefone Navigation</footer>
 </main>
-<button id="scrollTopBtn" class="scroll-top-btn" type="button" title="返回顶部" aria-label="返回顶部"><i class="fas fa-arrow-up"></i></button>
+<button id="scrollTopBtn" class="scroll-top-btn" type="button" title="Back to top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 <script src="data.js"></script>
 <script>
 (() => {
@@ -1358,7 +1442,7 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
 
   function render(query = '') {
     if (typeof data === 'undefined' || !data || typeof data !== 'object') {
-      els.content.innerHTML = '<div class="error-state"><i class="fas fa-triangle-exclamation"></i><h3>无法加载书签数据</h3><p>请确认 data.js 与 index.html 位于同一目录。</p></div>';
+      els.content.innerHTML = '<div class="error-state"><i class="fas fa-triangle-exclamation"></i><h3>Unable to load bookmarks</h3><p>Make sure data.js and index.html are in the same directory.</p></div>';
       return;
     }
 
@@ -1395,9 +1479,9 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     if (normalized && !filteredEntries.length) {
       const empty = document.createElement('div');
       empty.className = 'empty-state';
-      empty.innerHTML = '<i class="fas fa-search"></i><h3>没有找到结果</h3>';
+      empty.innerHTML = '<i class="fas fa-search"></i><h3>No results found</h3>';
       const p = document.createElement('p');
-      p.textContent = `没有匹配“${query.trim()}”的书签。`;
+      p.textContent = `No bookmarks match “${query.trim()}””.`;
       empty.append(p);
       els.content.append(empty);
     }
@@ -1446,7 +1530,7 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   function updateClock() {
     const now = new Date();
     $('#live-time').textContent = now.toLocaleTimeString('en-GB', { hour12: false });
-    $('#date-info').textContent = now.toLocaleDateString('zh-CN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    $('#date-info').textContent = now.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
   }
 
   $('#homeBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
