@@ -1502,6 +1502,77 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   .stats-footer .stat-label { font-size: 10px; }
 }
 
+/* Desktop search field follows the mobile hero layout: inline below the clock, no search icon */
+@media (min-width: 781px) {
+  .header #searchToggle { display: none !important; }
+  .header #searchPopover {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    display: flex !important;
+    width: min(100%, 780px) !important;
+    max-width: 780px !important;
+    min-width: 0 !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    margin: 0 auto !important;
+    padding: 6px 22px !important;
+    gap: 0 !important;
+    border-radius: 999px !important;
+    background: rgba(120,120,128,.09) !important;
+    border: 1px solid rgba(120,120,128,.06) !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+  .header #searchPopover > i,
+  .header #searchClose { display: none !important; }
+  .header #search {
+    width: 100%;
+    min-width: 0;
+    height: 40px;
+    font-size: 17px;
+  }
+  .welcome-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+  .welcome-block > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 5px;
+  }
+  .welcome-block .time-capsule {
+    margin: 0;
+    line-height: 1;
+    font-size: clamp(44px, 4.2vw, 56px);
+    letter-spacing: -.05em;
+  }
+  .welcome-block .welcome-info {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .welcome-block #mobileSearchSlot {
+    display: block !important;
+    width: min(100%, 780px);
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .welcome-block #mobileSearchSlot #searchPopover {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Move the actual search control into the hero on desktop as well */
+  .header #searchPopover { display: none !important; }
+}
+
 </style>
 </head>
 <body>
