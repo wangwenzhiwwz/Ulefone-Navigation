@@ -265,14 +265,8 @@ body.dark-mode .search-popover {
   padding: calc(var(--header-top) + var(--header-h) + 36px + env(safe-area-inset-top)) 0 calc(90px + env(safe-area-inset-bottom));
 }
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 12px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 .welcome-block {
   min-height: 112px;
@@ -297,7 +291,7 @@ body.dark-mode .search-popover {
 .stat-img-wrapper { height: 20px; display: flex; align-items: center; margin-bottom: 3px; }
 .stat-img-wrapper img { height: 100%; max-width: 100%; object-fit: contain; opacity: .68; filter: grayscale(100%); }
 body.dark-mode .stat-img-wrapper img { filter: grayscale(100%) invert(1); }
-.section { margin-bottom: 42px; scroll-margin-top: var(--scroll-offset); animation: fadeInUp .9s cubic-bezier(.22, 1, .36, 1) both; will-change: opacity, transform; }
+.section { margin-bottom: 42px; scroll-margin-top: var(--scroll-offset); animation: fadeInUp .9s cubic-bezier(.22, 1, .36, 1) both; }
 .section-header {
   position: static;
   min-height: 0;
@@ -775,7 +769,14 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     if (active) {
       active.classList.add('active');
       active.setAttribute('aria-current', 'page');
-      active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      // 仅滚动分类导航自身，避免 scrollIntoView 连带滚动整个页面造成跳动。
+      const listRect = els.categories.getBoundingClientRect();
+      const activeRect = active.getBoundingClientRect();
+      if (activeRect.left < listRect.left) {
+        els.categories.scrollBy({ left: activeRect.left - listRect.left - 12, behavior: 'smooth' });
+      } else if (activeRect.right > listRect.right) {
+        els.categories.scrollBy({ left: activeRect.right - listRect.right + 12, behavior: 'smooth' });
+      }
     }
   }
 
