@@ -266,7 +266,54 @@
         .icon-wrapper { width: 30px; height: 30px; margin-right: 10px; border-radius: 8px; }
         .app-icon-img { border-radius: 8px; }
     }
-</style>
+
+/* Unified interaction system */
+:root {
+  --motion-fast: 160ms;
+  --motion-ease: cubic-bezier(.2,.7,.2,1);
+  --focus-color: var(--text-main);
+}
+button, a, input, select, textarea, .app-card, .nav-item, .control-btn, .btn, .add-card, .add-category-block, dialog {
+  transition-timing-function: var(--motion-ease);
+}
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible,
+[role="button"]:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 3px;
+}
+button:disabled, input:disabled, select:disabled, textarea:disabled {
+  cursor: not-allowed;
+  opacity: .48;
+}
+button, .nav-item, .add-card, .add-category-block, .app-card { -webkit-user-select: none; user-select: none; }
+.control-btn, .btn, .nav-item, .add-card, .add-category-block, .form-input {
+  transition-duration: var(--motion-fast);
+}
+.control-btn:active, .btn:active, .nav-item:active, .add-card:active, .add-category-block:active {
+  transform: scale(.985);
+}
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--text-main) 12%, transparent);
+}
+dialog {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+dialog::backdrop { background: rgba(0,0,0,.36); backdrop-filter: blur(7px); }
+@media (hover: hover) {
+  .app-card:hover { transform: translateY(-2px); }
+  .control-btn:hover, .btn-secondary:hover { box-shadow: 0 3px 12px rgba(0,0,0,.06); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+\n</style>
 </head>
 <body>
 
