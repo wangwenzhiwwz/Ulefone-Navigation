@@ -540,6 +540,33 @@ body.dark-mode .add-category-block {
     .card-controls .control-btn { width: 21px; height: 21px; font-size: 9px; }
 }
 
+/* Match the public page's desktop card width (five compact cards per row) */
+@media (min-width: 1401px) {
+    .app-grid {
+        grid-template-columns: repeat(5, minmax(0, 203px)) !important;
+        justify-content: start;
+        max-width: none;
+    }
+    .app-card, .add-card { width: 100%; max-width: 203px; }
+}
+@media (min-width: 1101px) and (max-width: 1400px) {
+    .app-grid {
+        grid-template-columns: repeat(4, minmax(0, 203px)) !important;
+        justify-content: start;
+    }
+    .app-card, .add-card { width: 100%; max-width: 203px; }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+    .app-grid {
+        grid-template-columns: repeat(3, minmax(0, 203px)) !important;
+        justify-content: start;
+    }
+    .app-card, .add-card { width: 100%; max-width: 203px; }
+}
+@media (max-width: 768px) {
+    .app-card, .add-card { width: 100%; max-width: none; }
+}
+
 </style>
 </head>
 <body>
