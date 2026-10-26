@@ -625,6 +625,32 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   .icon-btn { width: 30px; height: 30px; }
 }
 
+/* Keep mobile category pills compact; center the active category for easier access */
+@media (max-width: 780px) {
+  .category-btn {
+    min-height: 27px;
+    height: 27px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 640px) {
+  .category-btn {
+    min-height: 26px;
+    height: 26px;
+    padding: 0 9px;
+    font-size: 11.5px;
+  }
+}
+@media (max-width: 370px) {
+  .category-btn {
+    min-height: 25px;
+    height: 25px;
+    padding: 0 8px;
+    font-size: 11px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -836,10 +862,14 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     if (active) {
       active.classList.add('active');
       active.setAttribute('aria-current', 'page');
-      // 仅滚动分类导航自身，避免 scrollIntoView 连带滚动整个页面造成跳动。
+      // 移动端将当前分类平滑移至导航栏中央，方便继续点击后续分类。
       const listRect = els.categories.getBoundingClientRect();
       const activeRect = active.getBoundingClientRect();
-      if (activeRect.left < listRect.left) {
+      if (window.matchMedia('(max-width: 780px)').matches) {
+        const listCenter = listRect.left + listRect.width / 2;
+        const activeCenter = activeRect.left + activeRect.width / 2;
+        els.categories.scrollBy({ left: activeCenter - listCenter, behavior: 'smooth' });
+      } else if (activeRect.left < listRect.left) {
         els.categories.scrollBy({ left: activeRect.left - listRect.left - 12, behavior: 'smooth' });
       } else if (activeRect.right > listRect.right) {
         els.categories.scrollBy({ left: activeRect.right - listRect.right + 12, behavior: 'smooth' });
