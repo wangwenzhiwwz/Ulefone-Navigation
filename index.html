@@ -267,13 +267,11 @@ body.dark-mode .search-popover {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translate3d(0, 14px, 0);
-    filter: blur(5px);
+    transform: translate3d(0, 12px, 0);
   }
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
-    filter: blur(0);
   }
 }
 .welcome-block {
@@ -285,7 +283,7 @@ body.dark-mode .search-popover {
   justify-content: space-between;
   gap: 28px;
   scroll-margin-top: var(--scroll-offset);
-  animation: fadeInUp .72s cubic-bezier(.22, 1, .36, 1) both;
+  animation: fadeInUp .5s cubic-bezier(.22, 1, .36, 1) both;
   transition: max-height .3s ease, opacity .2s ease, margin .3s ease, padding .3s ease;
 }
 .welcome-block.hidden { min-height: 0; max-height: 0; margin: 0; padding-block: 0; opacity: 0; overflow: hidden; }
@@ -299,7 +297,7 @@ body.dark-mode .search-popover {
 .stat-img-wrapper { height: 20px; display: flex; align-items: center; margin-bottom: 3px; }
 .stat-img-wrapper img { height: 100%; max-width: 100%; object-fit: contain; opacity: .68; filter: grayscale(100%); }
 body.dark-mode .stat-img-wrapper img { filter: grayscale(100%) invert(1); }
-.section { margin-bottom: 42px; scroll-margin-top: var(--scroll-offset); animation: fadeInUp .78s cubic-bezier(.22, 1, .36, 1) both; will-change: opacity, transform, filter; }
+.section { margin-bottom: 42px; scroll-margin-top: var(--scroll-offset); animation: fadeInUp .52s cubic-bezier(.22, 1, .36, 1) both; will-change: opacity, transform; }
 .section-header {
   position: static;
   min-height: 0;
@@ -744,7 +742,7 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     const section = document.createElement('section');
     section.className = 'section';
     section.id = `section-${index}`;
-    section.style.animationDelay = `${Math.min(index * .045, .32)}s`;
+    section.style.animationDelay = `${index * .09}s`;
 
     const header = document.createElement('div');
     header.className = 'section-header';
