@@ -1607,6 +1607,44 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
+/* Refine desktop search field dimensions and remove native focus outline */
+@media (min-width: 781px) {
+  #mobileSearchSlot #searchPopover {
+    width: min(100%, 680px) !important;
+    max-width: 680px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 4px 20px !important;
+  }
+  #mobileSearchSlot #search {
+    box-sizing: border-box !important;
+    height: 38px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  #mobileSearchSlot #search:focus,
+  #mobileSearchSlot #search:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+}
+#mobileSearchSlot #search {
+  outline: none;
+  box-shadow: none;
+}
+#mobileSearchSlot #search:focus,
+#mobileSearchSlot #search:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 </style>
 </head>
 <body>
