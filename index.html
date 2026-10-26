@@ -374,7 +374,7 @@ mark { background: var(--text); color: var(--bg); padding: 0 2px; border-radius:
 .empty-state p, .error-state p { margin: 0; font-size: 13px; }
 .scroll-top-btn {
   position: fixed;
-  right: max(22px, env(safe-area-inset-right));
+  right: max(34px, calc((100vw - 1060px) / 2), env(safe-area-inset-right));
   bottom: max(22px, env(safe-area-inset-bottom));
   z-index: 900;
   width: 42px;
