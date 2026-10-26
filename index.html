@@ -1735,6 +1735,18 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
+/* Slightly lengthen desktop search field while keeping it compact */
+@media (min-width: 781px) {
+  #mobileSearchSlot {
+    width: min(78%, 500px) !important;
+    max-width: 500px !important;
+  }
+  #mobileSearchSlot #searchPopover {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 </style>
 </head>
 <body>
