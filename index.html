@@ -758,6 +758,26 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
+/* Always show at least two bookmark cards per row on mobile */
+@media (max-width: 370px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px;
+  }
+  .card {
+    min-width: 0;
+    padding: 10px 8px;
+    gap: 8px;
+  }
+  .card-icon {
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+  }
+  .card-title { font-size: 12px; }
+  .card-url { font-size: 10px; }
+}
+
 </style>
 </head>
 <body>
