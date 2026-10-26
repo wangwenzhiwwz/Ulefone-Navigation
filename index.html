@@ -1692,6 +1692,21 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
+/* Keep the inline search visible while results are filtered */
+.welcome-block.searching #clock,
+.welcome-block.searching #date,
+.welcome-block.searching .clock,
+.welcome-block.searching .date,
+.welcome-block.searching .welcome-info {
+  opacity: .55;
+}
+#mobileSearchSlot #searchPopover {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
 </style>
 </head>
 <body>
@@ -1988,7 +2003,10 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
       els.content.append(createSection(key, items, index, normalized));
     });
 
-    els.welcome.classList.toggle('hidden', Boolean(normalized));
+    // Keep the hero mounted during filtering because the inline search field lives inside it.
+    // Hide only the clock/date decoration while searching; never hide the search input itself.
+    els.welcome.classList.remove('hidden');
+    els.welcome.classList.toggle('searching', Boolean(normalized));
     $('#stat-total').textContent = Object.values(data).flat().length;
 
     if (normalized && !filteredEntries.length) {
