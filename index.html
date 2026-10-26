@@ -778,6 +778,96 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   .card-url { font-size: 10px; }
 }
 
+/* Repair mobile header overflow: constrain the logo, give categories a real scroll viewport */
+@media (max-width: 780px) {
+  .header {
+    grid-template-columns: minmax(0, 76px) minmax(0, 1fr) 64px !important;
+    column-gap: 6px;
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    overflow: visible;
+  }
+  .header > .logo {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    justify-content: flex-start;
+  }
+  .header > .logo img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 17px;
+    object-fit: contain;
+    object-position: left center;
+  }
+  .header > .sidebar {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    justify-self: stretch;
+    overflow: hidden;
+  }
+  .header #category-list {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: flex-start;
+    gap: 3px;
+    padding: 0 4px;
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+  }
+  .header #category-list li {
+    flex: 0 0 auto;
+    width: max-content;
+    min-width: max-content;
+  }
+  .header .category-btn,
+  .header .category-btn.active {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    color: var(--nav-text, #66666d);
+  }
+  .header .category-btn.active {
+    background: #111114;
+    color: #fff;
+  }
+  .header .header-actions {
+    width: 64px;
+    min-width: 0;
+    gap: 2px;
+  }
+  .header .icon-btn {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+  }
+}
+@media (max-width: 420px) {
+  .header {
+    grid-template-columns: minmax(0, 70px) minmax(0, 1fr) 60px !important;
+    column-gap: 4px;
+  }
+  .header > .logo img { max-height: 15px; }
+  .header .header-actions { width: 60px; }
+  .header .icon-btn {
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+}
+
 </style>
 </head>
 <body>
