@@ -1747,14 +1747,15 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
-/* Desktop only: center category labels and shift left without clipping edge buttons */
+/* Desktop only: center the full navigation module within the viewport */
 @media (min-width: 781px) {
   .header .sidebar {
     max-width: none;
+    transform: translateX(-24px);
   }
   #category-list {
-    width: calc(100% + 20px);
-    margin-left: -10px;
+    width: 100%;
+    margin-left: 0;
     box-sizing: border-box;
     justify-content: center !important;
     position: static;
