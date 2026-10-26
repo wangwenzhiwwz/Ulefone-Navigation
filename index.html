@@ -1398,6 +1398,45 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
 }
 .card-icon img:not(.loaded) { opacity: .92; }
 
+/* Keep statistics in the hero on desktop; move them to the page end on mobile */
+.stats-footer { display: none; }
+@media (max-width: 780px) {
+  #section-top > .stats-row { display: none !important; }
+  .stats-footer {
+    display: grid !important;
+    width: min(calc(100% - 32px), 390px);
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+    margin: 24px auto 12px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stats-footer .stat-item {
+    min-width: 0;
+    min-height: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+    padding: 0 16px 0 0;
+    border: 0;
+  }
+  .stats-footer .stat-item + .stat-item {
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 0 0 16px;
+    border-left: 1px solid var(--line);
+  }
+  .stats-footer .stat-num { font-size: 26px; line-height: 1.05; margin: 0 0 4px; }
+  .stats-footer .stat-img-wrapper { height: 25px; margin: 0 0 4px; }
+  .stats-footer .stat-img-wrapper img { height: 24px; max-width: 100%; }
+  .stats-footer .stat-label { font-size: 10px; letter-spacing: .075em; }
+  .footer { margin-top: 8px; }
+}
+
 </style>
 </head>
 <body>
@@ -1433,15 +1472,15 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
       <div class="welcome-info"><span id="date-info">Loading…</span></div>
     </div>
     <div class="search-slot" id="mobileSearchSlot"></div>
-    <div class="stats-row">
-      <div class="stat-item"><div class="stat-num" id="stat-total">--</div><div class="stat-label">Bookmarks</div></div>
-      <div class="stat-item">
-        <div class="stat-img-wrapper"><img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fwww.ulefone.gq%2F&color=%23e8e9ec" alt="Visitor Counter" loading="lazy" decoding="async"></div>
-        <div class="stat-label">Visits</div>
-      </div>
-    </div>
   </section>
   <div id="content-area"></div>
+  <div class="stats-row stats-footer" id="stats-footer">
+    <div class="stat-item"><div class="stat-num" id="stat-total">--</div><div class="stat-label">Bookmarks</div></div>
+    <div class="stat-item">
+      <div class="stat-img-wrapper"><img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fwww.ulefone.gq%2F&color=%23e8e9ec" alt="Visitor Counter" loading="lazy" decoding="async"></div>
+      <div class="stat-label">Visits</div>
+    </div>
+  </div>
   <footer class="footer">© <span id="year"></span> Ulefone Navigation</footer>
 </main>
 <button id="scrollTopBtn" class="scroll-top-btn" type="button" title="Back to top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
