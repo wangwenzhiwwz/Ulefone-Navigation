@@ -1902,7 +1902,9 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     let iconIndex = 0;
     let iconFallbackTimer;
     img.alt = '';
-    img.loading = 'lazy';
+    // Load bookmark icons immediately on first visit. Lazy loading can postpone
+    // off-screen images while the fallback timer is already running.
+    img.loading = 'eager';
     img.decoding = 'async';
     img.referrerPolicy = 'no-referrer';
     img.addEventListener('load', () => {
@@ -1929,8 +1931,8 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     });
     if (iconSources.length) {
       img.src = iconSources[0];
-      // If the external service stalls instead of failing, move to a guaranteed local fallback.
-      iconFallbackTimer = window.setTimeout(useFallback, 2800);
+      // Give remote icon hosts time to respond on a cold cache / slow connection.
+      iconFallbackTimer = window.setTimeout(useFallback, 7000);
     } else {
       useFallback();
     }
