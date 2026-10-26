@@ -576,14 +576,17 @@ mark { background: var(--text); color: var(--bg); padding: 0 2px; border-radius:
   }
 
   function faviconCandidates(item) {
-    if (item.icon && safeUrl(item.icon) !== '#') {
-      return [safeUrl(item.icon), `https://icons.duckduckgo.com/ip3/${encodeURIComponent(getDomain(item.url))}.ico`, `https://www.google.com/s2/favicons?sz=128&domain_url=${encodeURIComponent(item.url || '')}`];
-    }
     const domain = getDomain(item.url);
-    return [
+    let originFavicon = '';
+    try { originFavicon = new URL(item.url).origin + '/favicon.ico'; } catch {}
+    const candidates = [
+      item.icon && safeUrl(item.icon) !== '#' ? safeUrl(item.icon) : '',
+      `https://www.google.com/s2/favicons?sz=128&domain_url=${encodeURIComponent(item.url || '')}`,
+      originFavicon,
       `https://icons.duckduckgo.com/ip3/${encodeURIComponent(domain)}.ico`,
-      `https://www.google.com/s2/favicons?sz=128&domain_url=${encodeURIComponent(item.url || '')}`
+      `https://favicon.im/${encodeURIComponent(domain}`
     ];
+    return [...new Set(candidates.filter(Boolean))];
   }
 
   function appendHighlightedText(target, text, query) {
