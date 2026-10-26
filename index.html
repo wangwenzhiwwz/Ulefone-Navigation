@@ -1569,8 +1569,6 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     width: 100% !important;
     max-width: 100% !important;
   }
-  /* Move the actual search control into the hero on desktop as well */
-  .header #searchPopover { display: none !important; }
 }
 
 </style>
@@ -1907,18 +1905,14 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   const searchHome = els.searchPopover.parentElement;
   const mobileSearchSlot = $('#mobileSearchSlot');
   function placeSearchField() {
-    const mobile = window.matchMedia('(max-width: 780px)').matches;
-    const target = mobile ? mobileSearchSlot : searchHome;
-    if (target && els.searchPopover.parentElement !== target) target.appendChild(els.searchPopover);
-    // Mobile search is permanently visible below the clock; desktop keeps the toggle popover.
-    els.searchPopover.classList.toggle('open', false);
-    if (mobile) {
-      els.searchPopover.style.removeProperty('display');
-      els.searchPopover.setAttribute('aria-hidden', 'false');
-      els.searchToggle.setAttribute('aria-expanded', 'false');
-    } else {
-      els.searchPopover.setAttribute('aria-hidden', String(!els.searchPopover.classList.contains('open')));
+    // Keep the search field directly below the clock on both desktop and mobile.
+    if (mobileSearchSlot && els.searchPopover.parentElement !== mobileSearchSlot) {
+      mobileSearchSlot.appendChild(els.searchPopover);
     }
+    els.searchPopover.classList.remove('open');
+    els.searchPopover.style.removeProperty('display');
+    els.searchPopover.setAttribute('aria-hidden', 'false');
+    els.searchToggle.setAttribute('aria-expanded', 'false');
   }
   placeSearchField();
   window.addEventListener('resize', placeSearchField);
