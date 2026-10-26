@@ -1302,6 +1302,19 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   .welcome-block .stat-item + .stat-item { padding-left: 12px; }
 }
 
+/* Softer visitor counter badge to match the page's neutral palette */
+.stat-img-wrapper img {
+  border-radius: 7px;
+  opacity: .9;
+  filter: saturate(.45);
+}
+@media (max-width: 780px) {
+  .welcome-block .stat-img-wrapper img {
+    border-radius: 6px;
+    opacity: .92;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1340,7 +1353,7 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     <div class="stats-row">
       <div class="stat-item"><div class="stat-num" id="stat-total">--</div><div class="stat-label">Bookmarks</div></div>
       <div class="stat-item">
-        <div class="stat-img-wrapper"><img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fwww.ulefone.gq%2F&color=%23000000" alt="Visitor Counter" loading="lazy" decoding="async"></div>
+        <div class="stat-img-wrapper"><img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fwww.ulefone.gq%2F&color=%23e8e9ec" alt="Visitor Counter" loading="lazy" decoding="async"></div>
         <div class="stat-label">Visits</div>
       </div>
     </div>
