@@ -1315,6 +1315,67 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
+/* Unify both statistic columns: quieter counter badge, aligned labels and divider */
+.stats-row {
+  align-items: center;
+}
+.stats-row .stat-item {
+  min-width: 0;
+}
+.stats-row .stat-label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .075em;
+  line-height: 1.25;
+}
+.stat-img-wrapper {
+  height: 25px;
+  margin: 0 0 5px;
+  display: flex;
+  align-items: center;
+}
+.stat-img-wrapper img {
+  display: block;
+  width: auto;
+  height: 24px;
+  max-width: 100%;
+  border-radius: 6px;
+  opacity: .82;
+  filter: grayscale(1) contrast(.92);
+}
+@media (max-width: 780px) {
+  .welcome-block .stats-row {
+    width: min(100%, 390px);
+    align-items: center;
+  }
+  .welcome-block .stat-item {
+    min-height: 68px;
+  }
+  .welcome-block .stat-num {
+    color: var(--text);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -.035em;
+  }
+  .welcome-block .stat-img-wrapper {
+    height: 27px;
+    margin: 0 0 4px;
+  }
+  .welcome-block .stat-img-wrapper img {
+    height: 25px;
+    border-radius: 6px;
+  }
+  .welcome-block .stat-label {
+    font-size: 10px;
+    letter-spacing: .075em;
+  }
+}
+@media (max-width: 380px) {
+  .welcome-block .stat-num { font-size: 25px; }
+  .welcome-block .stat-img-wrapper img { height: 23px; }
+}
+
 </style>
 </head>
 <body>
