@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b0b0d" media="(prefers-color-scheme: dark)">
 <title>Ulefone | Navigation</title>
-<script type="text/javascript" nonce="a1f80f22728c45a6912153d287a" src="//local.adguard.org?ts=1788923205700&amp;type=content-script&amp;dmn=chatgpt.com&amp;url=https%3A%2F%2Fchatgpt.com%2Fbackend-api%2Festuary%2Fcontent%3Fid%3Dfile_00000000d00881fdb56db6721621eca0%26ts%3D496923%26p%3Dfs%26cid%3D1%26sig%3Ded63ea31d6743e4939a42d98fb15e16f288178e5415a41ece153ab303b6e4ee0%26v%3D0&amp;app=chrome.exe&amp;css=2&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1&amp;stealth=1&amp;st-dnt"></script><script type="text/javascript" nonce="a1f80f22728c45a6912153d287a" src="//local.adguard.org?ts=1788923205700&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link rel="icon" href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" sizes="32x32" type="image/png">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://hitscounter.dev" crossorigin>
 <link rel="preconnect" href="https://wangwenzhi.eu.org" crossorigin>
@@ -1376,6 +1376,16 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   .welcome-block .stat-img-wrapper img { height: 23px; }
 }
 
+/* Mobile performance: reduce GPU-heavy fixed glass effects while preserving the visual style */
+@media (max-width: 780px) {
+  .header, .search-popover, .scroll-top-btn {
+    -webkit-backdrop-filter: blur(10px) saturate(125%);
+    backdrop-filter: blur(10px) saturate(125%);
+  }
+  .header::before { opacity: .35; }
+  .section, .welcome-block { animation-duration: .35s; }
+}
+
 </style>
 </head>
 <body>
@@ -1473,17 +1483,12 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 
   function faviconCandidates(item) {
+    // Prefer a configured icon, otherwise use one favicon provider only.
+    // Avoid serially probing several external services on slow mobile networks.
+    const customIcon = item.icon && safeUrl(item.icon) !== '#' ? safeUrl(item.icon) : '';
+    if (customIcon) return [customIcon];
     const domain = getDomain(item.url);
-    let originFavicon = '';
-    try { originFavicon = new URL(item.url).origin + '/favicon.ico'; } catch {}
-    const candidates = [
-      item.icon && safeUrl(item.icon) !== '#' ? safeUrl(item.icon) : '',
-      `https://www.google.com/s2/favicons?sz=128&domain_url=${encodeURIComponent(item.url || '')}`,
-      originFavicon,
-      `https://icons.duckduckgo.com/ip3/${encodeURIComponent(domain)}.ico`,
-      `https://favicon.im/${encodeURIComponent(domain)}`
-    ];
-    return [...new Set(candidates.filter(Boolean))];
+    return domain ? [`https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(item.url || '')}`] : [];
   }
 
   function appendHighlightedText(target, text, query) {
@@ -1524,17 +1529,18 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     img.decoding = 'async';
     img.referrerPolicy = 'no-referrer';
     img.addEventListener('load', () => img.classList.add('loaded'));
-    img.addEventListener('error', () => {
-      iconIndex += 1;
-      if (iconIndex < iconSources.length) {
-        img.src = iconSources[iconIndex];
-        return;
-      }
+    let iconFallbackTimer;
+    const useFallback = () => {
       if (img.dataset.avatarFallback) return;
       img.dataset.avatarFallback = '1';
+      window.clearTimeout(iconFallbackTimer);
       img.src = fallbackIcon(item.name);
-    });
-    img.src = iconSources[0];
+    };
+    img.addEventListener('load', () => window.clearTimeout(iconFallbackTimer), { once: true });
+    img.addEventListener('error', useFallback, { once: true });
+    // Do not let a stalled external favicon keep a card without an icon indefinitely.
+    iconFallbackTimer = window.setTimeout(useFallback, 2200);
+    img.src = iconSources[0] || fallbackIcon(item.name);
     iconWrap.append(img);
 
     const meta = document.createElement('div');
