@@ -1213,6 +1213,25 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   }
 }
 
+/* Align the left statistic with the center divider, rather than the outer edge */
+@media (max-width: 780px) {
+  .welcome-block .stats-row {
+    max-width: 520px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .welcome-block .stat-item:first-child {
+    padding-left: 0 !important;
+    padding-right: 14px;
+  }
+  .welcome-block .stat-item + .stat-item {
+    padding-left: 14px !important;
+  }
+}
+@media (max-width: 380px) {
+  .welcome-block .stat-item:first-child { padding-right: 10px; }
+  .welcome-block .stat-item + .stat-item { padding-left: 10px !important; }
+}
+
 </style>
 </head>
 <body>
