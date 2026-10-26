@@ -616,6 +616,82 @@ body.dark-mode .add-category-block {
     }
 }
 
+/* Refine dashboard header: compact title block and aligned statistic tiles */
+.dashboard-header {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) auto;
+    justify-content: start;
+    align-items: center;
+    column-gap: 32px;
+    row-gap: 18px;
+    padding: 28px 32px;
+    min-height: 0;
+}
+.dashboard-header .dash-info {
+    min-width: 0;
+    max-width: 300px;
+}
+.dashboard-header .dash-info h1 {
+    margin: 0 0 8px;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+}
+.dashboard-header .dash-info p {
+    margin: 0;
+    line-height: 1.55;
+    max-width: 28ch;
+}
+.dashboard-header .stats-row {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 12px;
+    margin: 0;
+}
+.dashboard-header .stat-pill {
+    width: 112px;
+    min-width: 112px;
+    min-height: 96px;
+    padding: 16px 12px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-radius: 20px;
+}
+.dashboard-header .stat-val { line-height: 1.1; }
+.dashboard-header .stat-lbl { line-height: 1.35; }
+@media (max-width: 768px) {
+    .dashboard-header {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        padding: 22px;
+        align-items: start;
+    }
+    .dashboard-header .dash-info { max-width: none; }
+    .dashboard-header .dash-info p { max-width: 38ch; }
+    .dashboard-header .stats-row {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 112px));
+        gap: 10px;
+    }
+    .dashboard-header .stat-pill {
+        width: 100%;
+        min-width: 0;
+        min-height: 82px;
+        border-radius: 16px;
+        padding: 12px;
+    }
+}
+@media (max-width: 420px) {
+    .dashboard-header { padding: 18px; gap: 14px; }
+    .dashboard-header .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .dashboard-header .stat-pill { min-height: 74px; }
+}
+
 </style>
 </head>
 <body>
