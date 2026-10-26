@@ -1010,6 +1010,101 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   .stat-item + .stat-item { padding-left: 14px; }
 }
 
+/* Final responsive search layout: desktop uses the icon popover; mobile uses an inline field */
+@media (min-width: 781px) {
+  .header #searchToggle { display: inline-flex !important; }
+  .header #searchPopover {
+    position: fixed !important;
+    top: calc(var(--header-h) + 8px + env(safe-area-inset-top)) !important;
+    right: calc(var(--header-x) + var(--action-size) + var(--action-gap)) !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: min(420px, calc(100vw - 2 * var(--header-x))) !important;
+    min-height: 56px !important;
+    padding: 6px 7px 6px 16px !important;
+    border-radius: 18px !important;
+    display: flex !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px) scale(.985) !important;
+    pointer-events: none !important;
+  }
+  .header #searchPopover.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+}
+@media (max-width: 780px) {
+  .header #searchToggle { display: none !important; }
+  .header .header-actions { grid-column: 3; }
+  .welcome-block {
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
+    align-items: center !important;
+    text-align: center;
+  }
+  .welcome-block > div:first-child {
+    width: 100%;
+    min-width: 0;
+    align-items: center;
+  }
+  .welcome-block #mobileSearchSlot {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    min-width: 0;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  #mobileSearchSlot #searchPopover,
+  .welcome-block #searchPopover {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    transform-origin: center !important;
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 48px !important;
+    height: 48px;
+    margin: 0 !important;
+    padding: 4px 16px !important;
+    gap: 10px;
+    border-radius: 999px !important;
+    background: rgba(120,120,128,.09) !important;
+    border: 1px solid rgba(120,120,128,.06) !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    z-index: 1;
+  }
+  #mobileSearchSlot #searchPopover > i { font-size: 16px; flex: 0 0 auto; }
+  #mobileSearchSlot #search {
+    width: 100%;
+    min-width: 0;
+    height: 38px;
+    flex: 1 1 auto;
+    font-size: 15px;
+  }
+  #mobileSearchSlot #searchClose { display: none !important; }
+  .welcome-block .stats-row { margin-top: 2px; }
+}
+@media (max-width: 380px) {
+  #mobileSearchSlot #searchPopover { min-height: 44px !important; height: 44px; padding-inline: 13px !important; }
+  #mobileSearchSlot #search { font-size: 14px; }
+}
+
 </style>
 </head>
 <body>
@@ -1335,8 +1430,15 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     const mobile = window.matchMedia('(max-width: 780px)').matches;
     const target = mobile ? mobileSearchSlot : searchHome;
     if (target && els.searchPopover.parentElement !== target) target.appendChild(els.searchPopover);
-    els.searchPopover.classList.toggle('open', mobile);
-    els.searchPopover.setAttribute('aria-hidden', 'false');
+    // Mobile search is permanently visible below the clock; desktop keeps the toggle popover.
+    els.searchPopover.classList.toggle('open', false);
+    if (mobile) {
+      els.searchPopover.style.removeProperty('display');
+      els.searchPopover.setAttribute('aria-hidden', 'false');
+      els.searchToggle.setAttribute('aria-expanded', 'false');
+    } else {
+      els.searchPopover.setAttribute('aria-hidden', String(!els.searchPopover.classList.contains('open')));
+    }
   }
   placeSearchField();
   window.addEventListener('resize', placeSearchField);
