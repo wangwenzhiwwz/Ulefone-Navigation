@@ -514,7 +514,47 @@ body.dark-mode .scroll-top-btn:hover {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
-</style>
+
+/* Unified interaction system */
+:root {
+  --motion-fast: 160ms;
+  --motion-ease: cubic-bezier(.2,.7,.2,1);
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--text) 16%, transparent);
+}
+button, a, input, select, textarea, .card, .app-card, .nav-item, .control-btn, .btn, .add-card, .add-category-block {
+  transition-timing-function: var(--motion-ease);
+}
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+button:disabled, input:disabled, select:disabled, textarea:disabled {
+  cursor: not-allowed;
+  opacity: .48;
+}
+button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -webkit-user-select: none; user-select: none; }
+.icon-btn, .search-close, .scroll-top-btn, .control-btn {
+  transition: color var(--motion-fast) var(--motion-ease),
+              background var(--motion-fast) var(--motion-ease),
+              border-color var(--motion-fast) var(--motion-ease),
+              box-shadow var(--motion-fast) var(--motion-ease),
+              transform var(--motion-fast) var(--motion-ease),
+              opacity var(--motion-fast) var(--motion-ease);
+}
+@media (hover: hover) {
+  .card:hover, .app-card:hover { transform: translateY(-2px); }
+  .icon-btn:hover, .control-btn:hover { box-shadow: 0 3px 12px rgba(0,0,0,.07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+\n</style>
 </head>
 <body>
 <header class="header">
