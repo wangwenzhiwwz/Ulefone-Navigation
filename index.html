@@ -1723,6 +1723,18 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
   min-width: 0;
 }
 
+/* Reduce desktop search field width to two-thirds of its current size */
+@media (min-width: 781px) {
+  #mobileSearchSlot {
+    width: min(66.6667%, 413px) !important;
+    max-width: 413px !important;
+  }
+  #mobileSearchSlot #searchPopover {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 </style>
 </head>
 <body>
