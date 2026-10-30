@@ -90,12 +90,12 @@ const data = {
             "url": "https://chatgpt.com/"
         },
         {
-            "name": "Gemini",
-            "url": "https://gemini.google.com/app"
-        },
-        {
             "name": "Claude",
             "url": "https://claude.ai/"
+        },
+        {
+            "name": "Gemini",
+            "url": "https://gemini.google.com/app"
         },
         {
             "name": "Flow",
@@ -415,8 +415,12 @@ const data = {
     ],
     "Other": [
         {
+            "name": "Mail.QQ",
+            "url": "https://wx.mail.qq.com"
+        },
+        {
             "name": "Kickstarter",
-            "url": "https://www.kickstarter.com/projects/rugone/rugone-xsnap-7-pro-rugged-phone-detachable-action-camera/pledge"
+            "url": "https://www.kickstarter.com/"
         },
         {
             "name": "artvee",
