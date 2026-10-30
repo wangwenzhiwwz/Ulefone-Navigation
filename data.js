@@ -327,6 +327,10 @@ const data = {
             "url": "https://kaboompics.com/"
         },
         {
+            "name": "artvee",
+            "url": "https://artvee.com/"
+        },
+        {
             "name": "Lifeofpix",
             "url": "https://www.lifeofpix.com/"
         },
@@ -421,10 +425,6 @@ const data = {
         {
             "name": "Kickstarter",
             "url": "https://www.kickstarter.com/"
-        },
-        {
-            "name": "artvee",
-            "url": "https://artvee.com/"
         },
         {
             "name": "100font",
