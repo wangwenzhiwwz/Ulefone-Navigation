@@ -51,27 +51,38 @@ const data = {
         },
         {
             "name": "拍摄事项",
-            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
+            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd",
+            "icon": "https://pic.pngsucai.com/00/07/36/f382ae92b259fd66.webp"
         },
         {
             "name": "冠群影业",
-            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview"
+            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1ERPZ3lYLXeJ/overview",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl-MIavAl0csEwPlayaeNuzzg7osD6vS9kdtVGL11wzw&s=10"
         },
         {
             "name": "Ulefone 产品线",
-            "url": "https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWe74qzKghOqGxy0DJxkXOEP2"
+            "url": "https://alidocs.dingtalk.com/i/nodes/r1R7q3QmWe74qzKghOqGxy0DJxkXOEP2",
+            "icon": "https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/751e52c735faffd2ec4a858d9ced2cc7~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=b294b855&x-expires=1793523600&x-signature=r8B6F%2F5%2BpGe9T8P1i8TIt5N%2FZ4s%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2"
         },
         {
             "name": "RugOne 产品线",
-            "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSE0rwP7vJA7depqY"
+            "url": "https://alidocs.dingtalk.com/i/nodes/vy20BglGWOea57mLSE0rwP7vJA7depqY",
+            "icon": "https://p16-common-sign.tiktokcdn.com/tos-maliva-avt-0068/02f340b3151d913a8f6eb9bf0ad093c3~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=39463245&x-expires=1793523600&x-signature=KMGR8ecMgCNkgUxQ%2FIpZBep6eCk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2"
         },
         {
             "name": "产品及事项项目管理",
-            "url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp72kypwh1Gq7bjKV9dEq3XD?cid=43873761291&corpId=dinga746ce2278192d4f35c2f4657eb6378f&iframeQuery=entrance%3Ddata%26sheetId%3DhMBeNQO%26viewId%3DlgsL55a"
+            "url": "https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp72kypwh1Gq7bjKV9dEq3XD?cid=43873761291&corpId=dinga746ce2278192d4f35c2f4657eb6378f&iframeQuery=entrance%3Ddata%26sheetId%3DhMBeNQO%26viewId%3DlgsL55a",
+            "icon": "https://img.magnific.com/premium-vector/employee-management-icon-vector-image-can-be-used-project-management_120816-132629.jpg"
         },
         {
             "name": "品牌营销中心",
-            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX10nxxO3ALzeJ/overview"
+            "url": "https://alidocs.dingtalk.com/i/spaces/a0gX10nxxO3ALzeJ/overview",
+            "icon": "https://play-lh.googleusercontent.com/rV9ISthY5DdPsvRYUrh1wpRhwu4hzxTNzbJeSJnWfGH_84SEB2amd6ODgIkDikC0kfntqPCszqaeEn_fyhazxw"
+        },
+        {
+            "name": "产品型号及其编码",
+            "url": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWm3k9bNOT3q2AlngJGlDd3mE",
+            "icon": "https://pbs.twimg.com/media/HUw7gQna0AA1i_p?format=webp&name=large"
         },
         {
             "name": "Ulefone 资料库",
@@ -80,10 +91,6 @@ const data = {
         {
             "name": "RugOne 资料库",
             "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1beJj1rkkmeJ/overview"
-        },
-        {
-            "name": "产品型号及其编码",
-            "url": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWm3k9bNOT3q2AlngJGlDd3mE"
         }
     ],
     "Generative": [
@@ -183,8 +190,8 @@ const data = {
             "url": "https://www.hotwav.com/"
         },
         {
-            "name": "IIIF150",
-            "url": "https://www.youtube.com/@IIIF150/videos"
+            "name": "Apple",
+            "url": "https://www.youtube.com/@Apple/videos"
         },
         {
             "name": "Samsung",
@@ -193,6 +200,10 @@ const data = {
         {
             "name": "Xiaomi",
             "url": "https://www.youtube.com/@xiaomi/videos"
+        },
+        {
+            "name": "IIIF150",
+            "url": "https://www.youtube.com/@IIIF150/videos"
         },
         {
             "name": "Huawei",
@@ -209,10 +220,6 @@ const data = {
         {
             "name": "Doogee",
             "url": "https://www.youtube.com/@Doogee/videos"
-        },
-        {
-            "name": "Apple",
-            "url": "https://www.youtube.com/@Apple/videos"
         },
         {
             "name": "AGM",
