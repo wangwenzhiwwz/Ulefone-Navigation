@@ -1,40 +1,41 @@
 const data = {
     "Favorites": [
         {
-            "name": "Ulefone",
-            "url": "https://www.ulefone.com/"
-        },
-        {
-            "name": "RugOne",
-            "url": "https://rugone.net/"
-        },
-        {
-            "name": "Mediastory",
-            "url": "https://web.mediastory.cc"
+            "name": "Google",
+            "url": "https://google.wwz.im/",
+            "icon": "https://yt3.googleusercontent.com/bAseQlKvNmjdLQrvYWm_q3QDp8C8YKyYI-nYJewgOkPi0JU1_3X9oFgjrEdzkOlXzLGFxFbnsw=s900-c-k-c0x00ffffff-no-rj"
         },
         {
             "name": "FigJam",
             "url": "https://www.figma.com/"
         },
         {
-            "name": "Artlist.io",
-            "url": "https://artlist.io/royalty-free-music"
+            "name": "Mediastory",
+            "url": "https://web.mediastory.cc"
         },
         {
-            "name": "Instagram",
-            "url": "https://www.instagram.com/ulefone.global/"
+            "name": "LibTV",
+            "url": "https://www.liblib.tv/"
+        },
+        {
+            "name": "Artlist.io",
+            "url": "https://artlist.io/royalty-free-music"
         },
         {
             "name": "Youtube",
             "url": "https://www.youtube.com/@Ulefone/videos"
         },
         {
+            "name": "Tiktok",
+            "url": "https://www.tiktok.com/@ulefone"
+        },
+        {
             "name": "Facebook",
             "url": "https://www.facebook.com/"
         },
         {
-            "name": "Tiktok",
-            "url": "https://www.tiktok.com/@ulefone"
+            "name": "Instagram",
+            "url": "https://www.instagram.com/ulefone.global/"
         },
         {
             "name": "Linkedin",
@@ -95,10 +96,6 @@ const data = {
         {
             "name": "Claude",
             "url": "https://claude.ai/"
-        },
-        {
-            "name": "LibTV",
-            "url": "https://www.liblib.tv/"
         },
         {
             "name": "Flow",
