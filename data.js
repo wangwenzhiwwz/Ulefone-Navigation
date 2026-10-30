@@ -26,20 +26,22 @@ const data = {
             "url": "https://www.youtube.com/@Ulefone/videos"
         },
         {
-            "name": "Tiktok",
-            "url": "https://www.tiktok.com/@ulefone"
+            "name": "RugOne",
+            "url": "https://www.tiktok.com/@rugone.official",
+            "icon": "https://p16-common-sign.tiktokcdn.com/tos-maliva-avt-0068/02f340b3151d913a8f6eb9bf0ad093c3~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=39463245&x-expires=1793523600&x-signature=KMGR8ecMgCNkgUxQ%2FIpZBep6eCk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2"
+        },
+        {
+            "name": "Ulefone",
+            "url": "https://www.tiktok.com/@ulefone",
+            "icon": "https://p16-common-sign.tiktokcdn.com/tos-alisg-avt-0068/751e52c735faffd2ec4a858d9ced2cc7~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=b294b855&x-expires=1793523600&x-signature=r8B6F%2F5%2BpGe9T8P1i8TIt5N%2FZ4s%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2"
         },
         {
             "name": "Facebook",
-            "url": "https://www.facebook.com/"
+            "url": "https://www.facebook.com/UlefoneMobile/reels/"
         },
         {
             "name": "Instagram",
-            "url": "https://www.instagram.com/ulefone.global/"
-        },
-        {
-            "name": "Linkedin",
-            "url": "https://www.linkedin.com/feed/"
+            "url": "https://www.instagram.com/ulefone.global/reels/"
         }
     ],
     "Workspace": [
@@ -327,10 +329,6 @@ const data = {
             "url": "https://kaboompics.com/"
         },
         {
-            "name": "artvee",
-            "url": "https://artvee.com/"
-        },
-        {
             "name": "Lifeofpix",
             "url": "https://www.lifeofpix.com/"
         },
@@ -425,6 +423,10 @@ const data = {
         {
             "name": "Kickstarter",
             "url": "https://www.kickstarter.com/"
+        },
+        {
+            "name": "artvee",
+            "url": "https://artvee.com/"
         },
         {
             "name": "100font",
