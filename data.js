@@ -393,7 +393,7 @@ const data = {
         },
         {
             "name": "BWH_WZ",
-            "url": "https://wz.w1997.eu.org:20309/4wPwNqf447kpA44btK/panel/clients",
+            "url": "https://wz.w1997.eu.org:15284/nPhwHJ7DOaGrNds7yN/panel/inbounds",
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
         },
         {
