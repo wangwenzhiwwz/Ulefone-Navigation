@@ -51,8 +51,7 @@ const data = {
         },
         {
             "name": "拍摄事项",
-            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd",
-            "icon": "https://pic.pngsucai.com/00/07/36/f382ae92b259fd66.webp"
+            "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
         },
         {
             "name": "冠群影业",
@@ -393,7 +392,7 @@ const data = {
         },
         {
             "name": "BWH_WZ",
-            "url": "https://wz.w1997.eu.org:15284/nPhwHJ7DOaGrNds7yN/panel/clients",
+            "url": "https://wz.w1997.eu.org:15284/nPhwHJ7DOaGrNds7yN/panel/inbounds",
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
         },
         {
@@ -521,11 +520,6 @@ const data = {
             "name": "Ulefone",
             "url": "http://192.168.30.20/",
             "icon": "https://app.wwz.im/images/openwrt.png"
-        },
-        {
-            "name": "SoMe",
-            "url": "http://192.168.50.1:9999/ui/#/proxies",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoF2_OPymibPOjCUFEK2qZR_7mFN5w2bF-i_9omnAcZQ&s=10"
         },
         {
             "name": "Studio",
