@@ -1184,13 +1184,12 @@ window.moveCategory = (key, direction) => {
     const targetIndex = currentIndex + direction;
     if (currentIndex < 0 || targetIndex < 0 || targetIndex >= keys.length) return;
 
-    const reordered = {};
-    keys.forEach((name, index) => {
-        if (index === currentIndex) reordered[keys[targetIndex]] = data[keys[targetIndex]];
-        else if (index === targetIndex) reordered[key] = data[key];
-        else reordered[name] = data[name];
-    });
+    const reorderedKeys = [...keys];
+    const [movedKey] = reorderedKeys.splice(currentIndex, 1);
+    reorderedKeys.splice(targetIndex, 0, movedKey);
 
+    const reordered = {};
+    reorderedKeys.forEach(name => { reordered[name] = data[name]; });
     Object.keys(data).forEach(name => delete data[name]);
     Object.assign(data, reordered);
     render();
