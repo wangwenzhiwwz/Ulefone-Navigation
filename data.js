@@ -211,12 +211,80 @@ const data = {
     ],
     "YouTube": [
         {
+            "name": "Marques Brownlee",
+            "url": "https://www.youtube.com/@mkbhd/videos"
+        },
+        {
             "name": "Mediastorm",
-            "url": "https://www.youtube.com/@mediastorm6801"
+            "url": "https://www.youtube.com/@mediastorm6801/videos"
+        },
+        {
+            "name": "HTX Studio",
+            "url": "https://www.youtube.com/@hetongxue/videos"
+        },
+        {
+            "name": "Links TV",
+            "url": "https://www.youtube.com/@linksphotograph/videos"
+        },
+        {
+            "name": "Dave2D",
+            "url": "https://www.youtube.com/@Dave2D/videos"
+        },
+        {
+            "name": "BlackCat's Studio",
+            "url": "https://www.youtube.com/@blackcatxh/videos"
+        },
+        {
+            "name": "Canoopsy",
+            "url": "https://www.youtube.com/@canoopsy/videos"
+        },
+        {
+            "name": "Geekerwan",
+            "url": "https://www.youtube.com/@geekerwan1024/videos"
         },
         {
             "name": "WekiHome",
-            "url": "https://www.youtube.com/@wekihome9414"
+            "url": "https://www.youtube.com/@wekihome9414/videos"
+        },
+        {
+            "name": "STORMCREW",
+            "url": "https://www.youtube.com/@STORMCREW-YSJF/videos"
+        },
+        {
+            "name": "Lawrence",
+            "url": "https://www.youtube.com/@lawrence_raw/videos"
+        },
+        {
+            "name": "APPLEFANS",
+            "url": "https://www.youtube.com/@applefans520/videos"
+        },
+        {
+            "name": "Oliur / UltraLinx",
+            "url": "https://www.youtube.com/@Oliur/videos"
+        },
+        {
+            "name": "Unbox Therapy",
+            "url": "https://www.youtube.com/@unboxtherapy/videos"
+        },
+        {
+            "name": "Will Bowers",
+            "url": "https://www.youtube.com/@willbowers/videos"
+        },
+        {
+            "name": "橙红Iris",
+            "url": "https://www.youtube.com/@Iris-yc5my/videos"
+        },
+        {
+            "name": "大耳朵TV",
+            "url": "https://www.youtube.com/@%E5%A4%A7%E8%80%B3%E6%9C%B5TV/videos"
+        },
+        {
+            "name": " Linus Tech Tips",
+            "url": "https://www.youtube.com/@LinusTechTips/videos"
+        },
+        {
+            "name": "小宁子 XNZ",
+            "url": "https://www.youtube.com/@xnzxnz/videos"
         }
     ],
     "Tech": [
@@ -234,7 +302,7 @@ const data = {
         },
         {
             "name": "Google",
-            "url": "https://www.youtube.com/@madebygoogle"
+            "url": "https://www.youtube.com/@madebygoogle/videos"
         },
         {
             "name": " POCO Global",
@@ -250,15 +318,15 @@ const data = {
         },
         {
             "name": "Garmin",
-            "url": "https://www.youtube.com/@Garmin"
+            "url": "https://www.youtube.com/@Garmin/videos"
         },
         {
             "name": "Insta360",
-            "url": "https://www.youtube.com/@insta360"
+            "url": "https://www.youtube.com/@insta360/videos"
         },
         {
             "name": "EcoFlow",
-            "url": "https://www.youtube.com/@EcoFlowTech"
+            "url": "https://www.youtube.com/@EcoFlowTech/videos"
         },
         {
             "name": "Huawei",
@@ -314,7 +382,7 @@ const data = {
         },
         {
             "name": "Anker",
-            "url": "https://www.youtube.com/@AnkerCharging"
+            "url": "https://www.youtube.com/@AnkerCharging/videos"
         },
         {
             "name": "UGREEN",
@@ -330,7 +398,7 @@ const data = {
         },
         {
             "name": "OPPO",
-            "url": "https://www.youtube.com/@OPPOglobal"
+            "url": "https://www.youtube.com/@OPPOglobal/videos"
         },
         {
             "name": "HONOR",
@@ -338,11 +406,11 @@ const data = {
         },
         {
             "name": "Tesla",
-            "url": "https://www.youtube.com/@tesla"
+            "url": "https://www.youtube.com/@tesla/videos"
         },
         {
             "name": "Monster Energy",
-            "url": "https://www.youtube.com/@MonsterEnergy"
+            "url": "https://www.youtube.com/@MonsterEnergy/videos"
         },
         {
             "name": "Red Bull",
