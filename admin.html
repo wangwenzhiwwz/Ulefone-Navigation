@@ -790,6 +790,16 @@ aside .dashboard-header .stat-lbl {
 @media (max-width: 768px) {
     aside .dashboard-header { margin-bottom: 14px; }
 }
+
+
+    /* Category ordering controls */
+    .category-order-controls { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+    .category-order-controls .control-btn:disabled { opacity: .28; cursor: not-allowed; transform: none; }
+    @media (max-width: 560px) {
+        .cat-header { gap: 8px; }
+        .category-order-controls { gap: 5px; }
+        .category-order-controls .control-btn { width: 28px; height: 28px; }
+    }
 </style>
 </head>
 <body>
@@ -894,12 +904,17 @@ function render() {
     catKeys.forEach((key, index) => {
         const navItem = document.createElement('div');
         navItem.className = 'nav-item';
-        navItem.innerHTML = `<span>${key}</span> <span class="badge">${data[key].length}</span>`;
+        const navLabel = document.createElement('span');
+        navLabel.textContent = key;
+        const navBadge = document.createElement('span');
+        navBadge.className = 'badge';
+        navBadge.textContent = data[key].length;
+        navItem.append(navLabel, navBadge);
         navItem.onclick = () => {
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             navItem.classList.add('active');
             document.getElementById(`group-${index}`).scrollIntoView({behavior: 'smooth', block: 'start'});
-            if(window.innerWidth <= 768) toggleSidebar(); // 手机点击后收起侧栏
+            if(window.innerWidth <= 768) toggleSidebar();
         };
         nav.appendChild(navItem);
 
@@ -909,10 +924,44 @@ function render() {
         
         const header = document.createElement('div');
         header.className = 'cat-header';
-        header.innerHTML = `
-            <input class="cat-title-input" value="${key}" onchange="renameCategory('${key}', this.value)">
-            <button class="control-btn btn-del" onclick="deleteCategory('${key}')" title="删除整组"><i class="fa-solid fa-trash"></i></button>
-        `;
+
+        const titleInput = document.createElement('input');
+        titleInput.className = 'cat-title-input';
+        titleInput.value = key;
+        titleInput.setAttribute('aria-label', '分类名称');
+        titleInput.addEventListener('change', () => renameCategory(key, titleInput.value));
+
+        const orderControls = document.createElement('div');
+        orderControls.className = 'category-order-controls';
+
+        const moveUp = document.createElement('button');
+        moveUp.type = 'button';
+        moveUp.className = 'control-btn';
+        moveUp.title = '分类上移';
+        moveUp.setAttribute('aria-label', '分类上移');
+        moveUp.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+        moveUp.disabled = index === 0;
+        moveUp.addEventListener('click', () => moveCategory(key, -1));
+
+        const moveDown = document.createElement('button');
+        moveDown.type = 'button';
+        moveDown.className = 'control-btn';
+        moveDown.title = '分类下移';
+        moveDown.setAttribute('aria-label', '分类下移');
+        moveDown.innerHTML = '<i class="fa-solid fa-arrow-down"></i>';
+        moveDown.disabled = index === catKeys.length - 1;
+        moveDown.addEventListener('click', () => moveCategory(key, 1));
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.type = 'button';
+        deleteBtn.className = 'control-btn btn-del';
+        deleteBtn.title = '删除分类';
+        deleteBtn.setAttribute('aria-label', '删除分类');
+        deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+        deleteBtn.addEventListener('click', () => deleteCategory(key));
+
+        orderControls.append(moveUp, moveDown, deleteBtn);
+        header.append(titleInput, orderControls);
         section.appendChild(header);
 
         const grid = document.createElement('div');
@@ -1119,10 +1168,32 @@ window.renameCategory = (oldName, newName) => {
 };
 
 window.deleteCategory = (key) => {
-    if(confirm(`确定删除分类 "${key}" 及其所有书签吗?`)) {
+    const count = Array.isArray(data[key]) ? data[key].length : 0;
+    const detail = count
+        ? `该分类包含 ${count} 个书签，删除后这些书签也会从配置中移除。`
+        : '该分类当前没有书签。';
+    if(confirm(`确定删除分类“${key}”吗？\\n${detail}`)) {
         delete data[key];
         render();
     }
+};
+
+window.moveCategory = (key, direction) => {
+    const keys = Object.keys(data);
+    const currentIndex = keys.indexOf(key);
+    const targetIndex = currentIndex + direction;
+    if (currentIndex < 0 || targetIndex < 0 || targetIndex >= keys.length) return;
+
+    const reordered = {};
+    keys.forEach((name, index) => {
+        if (index === currentIndex) reordered[keys[targetIndex]] = data[keys[targetIndex]];
+        else if (index === targetIndex) reordered[key] = data[key];
+        else reordered[name] = data[name];
+    });
+
+    Object.keys(data).forEach(name => delete data[name]);
+    Object.assign(data, reordered);
+    render();
 };
 
 function setupDrag() {
