@@ -211,6 +211,16 @@ const data = {
     ],
     "YouTube": [
         {
+            "name": "Mediastorm",
+            "url": "https://www.youtube.com/@mediastorm6801"
+        },
+        {
+            "name": "WekiHome",
+            "url": "https://www.youtube.com/@wekihome9414"
+        }
+    ],
+    "Tech": [
+        {
             "name": "Apple",
             "url": "https://www.youtube.com/@Apple/videos"
         },
@@ -227,8 +237,8 @@ const data = {
             "url": "https://www.youtube.com/@madebygoogle"
         },
         {
-            "name": "TECNO",
-            "url": "https://www.youtube.com/@TECNOMobile/videos"
+            "name": " POCO Global",
+            "url": "https://www.youtube.com/@POCOGlobal/videos"
         },
         {
             "name": "GoPro",
@@ -253,6 +263,10 @@ const data = {
         {
             "name": "Huawei",
             "url": "https://www.youtube.com/@HuaweiMobile/videos"
+        },
+        {
+            "name": "TECNO",
+            "url": "https://www.youtube.com/@TECNOMobile/videos"
         },
         {
             "name": "Blackview",
@@ -295,8 +309,12 @@ const data = {
             "url": "https://www.youtube.com/@IIIF150/videos"
         },
         {
+            "name": "Wuben ECL",
+            "url": "https://www.youtube.com/@wubenecl/videos"
+        },
+        {
             "name": "Anker",
-            "url": "https://www.youtube.com/@AnkerOfficial/videos"
+            "url": "https://www.youtube.com/@AnkerCharging"
         },
         {
             "name": "UGREEN",
@@ -309,6 +327,30 @@ const data = {
         {
             "name": "CMF",
             "url": "https://www.youtube.com/@CMFbyNothing/videos"
+        },
+        {
+            "name": "OPPO",
+            "url": "https://www.youtube.com/@OPPOglobal"
+        },
+        {
+            "name": "HONOR",
+            "url": "https://www.youtube.com/@honormalaysia/videos"
+        },
+        {
+            "name": "Tesla",
+            "url": "https://www.youtube.com/@tesla"
+        },
+        {
+            "name": "Monster Energy",
+            "url": "https://www.youtube.com/@MonsterEnergy"
+        },
+        {
+            "name": "Red Bull",
+            "url": "https://www.youtube.com/@redbull/videos"
+        },
+        {
+            "name": "SpaceX",
+            "url": "https://www.youtube.com/@SpaceX/videos"
         }
     ],
     "Assets": [
