@@ -103,6 +103,10 @@ const data = {
             "icon": "https://app.wwz.im/images/Flow.jpg"
         },
         {
+            "name": "Elevenlabs",
+            "url": "https://elevenlabs.io/app/home"
+        },
+        {
             "name": "即梦",
             "url": "https://jimeng.jianying.com/ai-tool/home"
         },
@@ -119,10 +123,6 @@ const data = {
             "url": "https://suno.com/"
         },
         {
-            "name": "Elevenlabs",
-            "url": "https://elevenlabs.io/app/home"
-        },
-        {
             "name": "Minimax",
             "url": "https://www.minimaxi.com/audio"
         },
@@ -135,7 +135,15 @@ const data = {
             "url": "https://hyper3d.ai/"
         }
     ],
-    "Tech": [
+    "Official": [
+        {
+            "name": "Ulefone",
+            "url": "https://www.ulefone.com/"
+        },
+        {
+            "name": "RugOne",
+            "url": "https://rugone.net/"
+        },
         {
             "name": "Apple",
             "url": "https://www.apple.com/"
@@ -145,41 +153,43 @@ const data = {
             "url": "https://www.mi.com/"
         },
         {
-            "name": "Honor",
-            "url": "https://www.honor.com/global/"
-        },
-        {
-            "name": "vivo",
-            "url": "https://www.vivo.com/en"
-        },
-        {
-            "name": "oppo",
-            "url": "https://www.oppo.com/en/"
+            "name": "Crosscall",
+            "url": "https://www.crosscall.com/"
         },
         {
             "name": "Oukitel",
             "url": "https://oukitel.com/"
         },
         {
+            "name": "Doogee",
+            "url": "https://www.doogee.com/"
+        },
+        {
             "name": "Blackview",
             "url": "https://www.blackview.hk/"
         },
         {
-            "name": "Doogee",
-            "url": "https://www.doogee.com/"
+            "name": "Hotwav",
+            "url": "https://www.hotwav.com/"
         },
         {
             "name": "Fossibot",
             "url": "https://www.fossibot.com/"
         },
         {
-            "name": "Crosscall",
-            "url": "https://www.crosscall.com/"
+            "name": "oppo",
+            "url": "https://www.oppo.com/en/"
         },
         {
-            "name": "Hotwav",
-            "url": "https://www.hotwav.com/"
+            "name": "vivo",
+            "url": "https://www.vivo.com/en"
         },
+        {
+            "name": "Honor",
+            "url": "https://www.honor.com/global/"
+        }
+    ],
+    "YouTube": [
         {
             "name": "Apple",
             "url": "https://www.youtube.com/@Apple/videos"
@@ -193,8 +203,32 @@ const data = {
             "url": "https://www.youtube.com/@xiaomi/videos"
         },
         {
-            "name": "IIIF150",
-            "url": "https://www.youtube.com/@IIIF150/videos"
+            "name": "Google",
+            "url": "https://www.youtube.com/@madebygoogle"
+        },
+        {
+            "name": "TECNO",
+            "url": "https://www.youtube.com/@TECNOMobile/videos"
+        },
+        {
+            "name": "GoPro",
+            "url": "https://www.youtube.com/@GoPro/videos"
+        },
+        {
+            "name": "DJI",
+            "url": "https://www.youtube.com/@DJI/videos"
+        },
+        {
+            "name": "Garmin",
+            "url": "https://www.youtube.com/@Garmin"
+        },
+        {
+            "name": "Insta360",
+            "url": "https://www.youtube.com/@insta360"
+        },
+        {
+            "name": "EcoFlow",
+            "url": "https://www.youtube.com/@EcoFlowTech"
         },
         {
             "name": "Huawei",
@@ -225,14 +259,6 @@ const data = {
             "url": "https://www.youtube.com/@CubotNet/videos"
         },
         {
-            "name": "Google",
-            "url": "https://www.youtube.com/@madebygoogle"
-        },
-        {
-            "name": "TECNO",
-            "url": "https://www.youtube.com/@TECNOMobile/videos"
-        },
-        {
             "name": "Infinix",
             "url": "https://www.youtube.com/@infinixindia/videos"
         },
@@ -245,8 +271,8 @@ const data = {
             "url": "https://www.youtube.com/@NothingTechnology/videos"
         },
         {
-            "name": "DJI",
-            "url": "https://www.youtube.com/@DJI/videos"
+            "name": "IIIF150",
+            "url": "https://www.youtube.com/@IIIF150/videos"
         },
         {
             "name": "Anker",
@@ -255,6 +281,14 @@ const data = {
         {
             "name": "UGREEN",
             "url": "https://www.youtube.com/@UGREENOfficial/videos"
+        },
+        {
+            "name": "TCL",
+            "url": "https://www.youtube.com/@TCLMobile/videos"
+        },
+        {
+            "name": "CMF",
+            "url": "https://www.youtube.com/@CMFbyNothing/videos"
         }
     ],
     "Assets": [
