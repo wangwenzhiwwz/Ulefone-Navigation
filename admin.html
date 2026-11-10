@@ -928,6 +928,17 @@ function render() {
         const navLabel = document.createElement('span');
         navLabel.textContent = key;
         navLabelWrap.append(dragHandle, navLabel);
+        dragHandle.addEventListener('pointerdown', (event) => {
+            if (event.pointerType !== 'touch') return;
+            event.preventDefault();
+            touchDragPending = { key, startX: event.clientX, startY: event.clientY };
+            clearTimeout(touchDragTimer);
+            touchDragTimer = setTimeout(() => {
+                if (!touchDragPending) return;
+                touchCategoryDrag = { key };
+                navItem.classList.add('dragging');
+            }, 220);
+        });
         const navBadge = document.createElement('span');
         navBadge.className = 'badge';
         navBadge.textContent = data[key].length;
@@ -1226,6 +1237,54 @@ window.deleteCategory = (key) => {
 };
 
 let categoryWasDragged = false;
+let touchCategoryDrag = null;
+let touchDragPending = null;
+let touchDragTimer = null;
+
+document.addEventListener('pointermove', (event) => {
+    if (touchDragPending && !touchCategoryDrag) {
+        const dx = event.clientX - touchDragPending.startX;
+        const dy = event.clientY - touchDragPending.startY;
+        if (Math.hypot(dx, dy) > 9) {
+            clearTimeout(touchDragTimer);
+            touchDragPending = null;
+        }
+    }
+    if (!touchCategoryDrag) return;
+    event.preventDefault();
+    const target = document.elementFromPoint(event.clientX, event.clientY)?.closest('.nav-item');
+    clearCategoryDropIndicators();
+    if (target) {
+        const rect = target.getBoundingClientRect();
+        target.classList.add(event.clientY < rect.top + rect.height / 2 ? 'drag-over-before' : 'drag-over-after');
+    }
+}, { passive: false });
+
+document.addEventListener('pointerup', (event) => {
+    clearTimeout(touchDragTimer);
+    if (touchCategoryDrag) {
+        const sourceKey = touchCategoryDrag.key;
+        const target = document.elementFromPoint(event.clientX, event.clientY)?.closest('.nav-item');
+        if (target) {
+            const targetKey = target.dataset.cat;
+            const rect = target.getBoundingClientRect();
+            const insertAfter = event.clientY >= rect.top + rect.height / 2;
+            if (targetKey && targetKey !== sourceKey) reorderCategoryByDrop(sourceKey, targetKey, insertAfter);
+        }
+        document.querySelectorAll('.nav-item.dragging').forEach(item => item.classList.remove('dragging'));
+    }
+    touchCategoryDrag = null;
+    touchDragPending = null;
+    clearCategoryDropIndicators();
+});
+
+document.addEventListener('pointercancel', () => {
+    clearTimeout(touchDragTimer);
+    touchCategoryDrag = null;
+    touchDragPending = null;
+    document.querySelectorAll('.nav-item.dragging').forEach(item => item.classList.remove('dragging'));
+    clearCategoryDropIndicators();
+});
 
 function clearCategoryDropIndicators() {
     document.querySelectorAll('.nav-item').forEach(item => {
