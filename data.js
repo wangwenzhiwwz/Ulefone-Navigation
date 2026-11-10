@@ -149,6 +149,10 @@ const data = {
             "url": "https://www.apple.com/"
         },
         {
+            "name": "Samsung",
+            "url": "https://www.samsung.com"
+        },
+        {
             "name": "Mi",
             "url": "https://www.mi.com/"
         },
@@ -187,6 +191,22 @@ const data = {
         {
             "name": "Honor",
             "url": "https://www.honor.com/global/"
+        },
+        {
+            "name": "AnKer",
+            "url": "https://www.anker.com/"
+        },
+        {
+            "name": "DJI",
+            "url": "https://store.dji.com/"
+        },
+        {
+            "name": "Insta360",
+            "url": "https://store.insta360.com/"
+        },
+        {
+            "name": "Garmin",
+            "url": "https://www.garmin.com/"
         }
     ],
     "YouTube": [
