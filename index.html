@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0b0b0d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <title>Ulefone | Navigation</title>
 <link rel="icon" href="https://wangwenzhi.eu.org/images/ulefone-logo/icon.png" sizes="32x32" type="image/png">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -1763,6 +1763,53 @@ button:not(:disabled), .nav-item, .add-card, .add-category-block, .app-card { -w
     mask-image: none !important;
   }
 }
+
+/* Dark mode refinement: true black canvas, quiet separators, readable surfaces */
+body.dark-mode {
+  --bg: #000000;
+  --bg-layer: #000000;
+  --surface: #141416;
+  --surface-strong: #1b1b1e;
+  --glass: rgba(20,20,22,.92);
+  --glass-edge: rgba(255,255,255,.045);
+  --line: rgba(255,255,255,.055);
+  --hover: #202023;
+  --chip: rgba(255,255,255,.055);
+  background: #000000;
+}
+body.dark-mode .header {
+  background: rgba(0,0,0,.88);
+  border-bottom-color: rgba(255,255,255,.035);
+  box-shadow: none;
+}
+body.dark-mode .header::before { opacity: 0; }
+body.dark-mode .search-popover {
+  background: #151517;
+  border-color: rgba(255,255,255,.055);
+  box-shadow: 0 16px 40px rgba(0,0,0,.48);
+}
+body.dark-mode .card {
+  border-color: rgba(255,255,255,.045);
+  box-shadow: none;
+}
+body.dark-mode .card:hover {
+  border-color: rgba(255,255,255,.085);
+}
+body.dark-mode .stat-item + .stat-item,
+body.dark-mode .footer,
+body.dark-mode .section-header {
+  border-color: rgba(255,255,255,.055);
+}
+body.dark-mode .scroll-top-btn {
+  border-color: rgba(255,255,255,.07);
+  background: rgba(25,25,28,.92);
+  box-shadow: 0 5px 18px rgba(0,0,0,.36);
+}
+body.dark-mode .scroll-top-btn:hover {
+  background: #242428;
+  box-shadow: 0 7px 22px rgba(0,0,0,.42);
+}
+
 </style>
 </head>
 <body>
