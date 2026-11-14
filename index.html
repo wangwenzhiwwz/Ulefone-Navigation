@@ -1829,6 +1829,68 @@ body.dark-mode .header::before {
   body.dark-mode .header { background: rgba(8,8,10,.90) !important; }
 }
 
+
+/* Normalize vertical centering for every navigation item on desktop and mobile */
+.header {
+  box-sizing: border-box;
+  align-items: center !important;
+}
+.header > .logo,
+.header > .sidebar,
+.header > .header-actions {
+  align-self: center !important;
+  height: var(--header-h);
+  min-height: 0;
+  margin-block: 0 !important;
+  transform: none;
+}
+.header > .logo {
+  display: flex;
+  align-items: center;
+}
+.header > .sidebar {
+  display: flex;
+  align-items: center;
+}
+.header #category-list {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center !important;
+}
+.header #category-list li {
+  height: 100%;
+  display: flex;
+  align-items: center !important;
+}
+.header .category-btn,
+.header .category-btn.active {
+  height: 27px;
+  min-height: 27px;
+  max-height: 27px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1 !important;
+  margin-block: 0 !important;
+}
+.header .header-actions {
+  display: flex;
+  align-items: center !important;
+}
+.header .icon-btn {
+  flex: 0 0 var(--action-size);
+  align-self: center;
+}
+@media (max-width: 780px) {
+  .header .category-btn,
+  .header .category-btn.active {
+    height: auto;
+    min-height: 23px;
+    max-height: none;
+  }
+}
+
 </style>
 </head>
 <body>
