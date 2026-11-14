@@ -1956,6 +1956,39 @@ body.dark-mode .header .icon-btn:hover {
   outline-offset: 2px;
 }
 
+/* Dark-mode control visibility: brighter labels and clearer interactive states */
+body.dark-mode .header .category-btn { color: #d0d0d8; }
+body.dark-mode .header .category-btn:hover {
+  color: #f1f1f5;
+  background: rgba(255,255,255,.10);
+}
+body.dark-mode .header .category-btn.active {
+  color: #ffffff;
+  background: rgba(255,255,255,.17);
+}
+body.dark-mode .header .icon-btn { color: #eeeeF3; }
+body.dark-mode .header .icon-btn:hover {
+  color: #ffffff;
+  background: rgba(255,255,255,.15);
+}
+body.dark-mode .open-all { color: #bfc0c8; }
+body.dark-mode .open-all:hover {
+  color: #ffffff;
+  background: rgba(255,255,255,.08);
+}
+body.dark-mode .scroll-top-btn {
+  color: #ffffff;
+  border-color: rgba(255,255,255,.22);
+  background: linear-gradient(145deg, rgba(105,105,116,.58), rgba(48,48,56,.42));
+  box-shadow: 0 8px 26px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.24);
+}
+body.dark-mode .scroll-top-btn:hover {
+  background: linear-gradient(145deg, rgba(125,125,138,.76), rgba(62,62,72,.60));
+}
+body.dark-mode .search-popover > i { color: #c9c9d1; }
+body.dark-mode .search-input::placeholder { color: #a9a9b2; opacity: 1; }
+
+
 </style>
 </head>
 <body>
