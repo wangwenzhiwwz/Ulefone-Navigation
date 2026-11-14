@@ -1891,6 +1891,68 @@ body.dark-mode .header::before {
   }
 }
 
+
+/* Improve navigation legibility while keeping the glass surface borderless */
+.header {
+  background: rgba(248,249,251,.78) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(175%);
+  backdrop-filter: blur(24px) saturate(175%);
+}
+.header .category-btn {
+  color: #55565d;
+  font-weight: 560;
+  text-shadow: none;
+}
+.header .category-btn:hover {
+  color: #17171b;
+  background: rgba(0,0,0,.055);
+}
+.header .category-btn.active {
+  color: #fff;
+  background: #17171b;
+  font-weight: 650;
+}
+.header .icon-btn {
+  color: #45464d;
+}
+.header .icon-btn:hover {
+  color: #111114;
+  background: rgba(0,0,0,.065);
+}
+body.dark-mode .header {
+  background: rgba(9,9,11,.72) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(175%);
+  backdrop-filter: blur(24px) saturate(175%);
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body.dark-mode .header .category-btn {
+  color: #c9c9d0;
+  font-weight: 560;
+}
+body.dark-mode .header .category-btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,.10);
+}
+body.dark-mode .header .category-btn.active {
+  color: #fff;
+  background: rgba(255,255,255,.16);
+  font-weight: 650;
+}
+body.dark-mode .header .icon-btn {
+  color: #e2e2e8;
+}
+body.dark-mode .header .icon-btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,.11);
+}
+.header .category-btn:focus-visible,
+.header .icon-btn:focus-visible,
+.header .logo:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
 </style>
 </head>
 <body>
