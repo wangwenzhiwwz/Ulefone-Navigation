@@ -1989,6 +1989,18 @@ body.dark-mode .search-popover > i { color: #c9c9d1; }
 body.dark-mode .search-input::placeholder { color: #a9a9b2; opacity: 1; }
 
 
+
+/* Navigation header: remove heavy elevation while retaining the glass blur */
+.header,
+body.dark-mode .header {
+  box-shadow: none !important;
+  border-bottom-color: transparent !important;
+}
+.header::before,
+body.dark-mode .header::before {
+  box-shadow: none !important;
+  filter: none !important;
+}
 </style>
 </head>
 <body>
