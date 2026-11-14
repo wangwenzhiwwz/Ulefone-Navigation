@@ -1892,11 +1892,13 @@ body.dark-mode .header::before {
 }
 
 
-/* Navigation glass: brighter in light mode, softly lifted in dark mode */
+/* Stronger frosted glass navigation without a visible border */
 .header {
-  background: rgba(255,255,255,.90) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(255,255,255,.68) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  backdrop-filter: blur(32px) saturate(200%);
+  border: 0 !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.07);
 }
 .header .category-btn {
   color: #505158;
@@ -1920,11 +1922,11 @@ body.dark-mode .header::before {
   background: rgba(0,0,0,.065);
 }
 body.dark-mode .header {
-  background: rgba(17,17,20,.78) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(175%);
-  backdrop-filter: blur(24px) saturate(175%);
+  background: rgba(12,12,15,.62) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  backdrop-filter: blur(32px) saturate(190%);
   border: 0 !important;
-  box-shadow: none !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.24);
 }
 body.dark-mode .header .category-btn {
   color: #d0d0d6;
