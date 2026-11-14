@@ -2450,3 +2450,16 @@ body:not(.dark-mode) .scroll-top-btn:hover {
 body:not(.dark-mode) .header {
   box-shadow: none !important;
 }
+
+
+/* Definitive light-theme header cleanup: no elevation, edge line, or shadow-like filter */
+body:not(.dark-mode) .header,
+body:not(.dark-mode) header.header {
+  box-shadow: none !important;
+  filter: none !important;
+  border-bottom: 0 !important;
+}
+body:not(.dark-mode) .header::before {
+  box-shadow: none !important;
+  filter: none !important;
+}
