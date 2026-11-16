@@ -2066,6 +2066,67 @@ body.dark-mode .header::before {
   .footer-bottom { line-height: 1.8; }
 }
 
+
+/* Refined footer hierarchy and navigation utilities */
+.footer {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 34px 0 calc(24px + env(safe-area-inset-bottom));
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.footer-shell { width: 100%; }
+.footer-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 0 2px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.footer-brand { color: var(--text); font-size: 14px; line-height: 1.25; font-weight: 680; letter-spacing: -.025em; }
+.footer-description { margin-top: 5px; color: var(--muted); font-size: 11px; }
+.footer-resource-count { display: inline-block; margin-top: 8px; color: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; }
+.footer-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 7px; }
+.footer-action {
+  min-height: 34px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--chip);
+  color: var(--text);
+  font: inherit; font-size: 10.5px; font-weight: 570;
+  white-space: nowrap; cursor: pointer;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease, opacity .18s ease;
+}
+.footer-action:hover { background: var(--hover); border-color: color-mix(in srgb, var(--line) 45%, var(--text) 16%); }
+.footer-action:active { transform: scale(.97); }
+.footer-action i { font-size: 11px; opacity: .78; }
+.footer-explore { padding: 17px 2px 15px; border-bottom: 1px solid var(--line); }
+.footer-section-label { margin-bottom: 9px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .12em; }
+.footer-categories { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 17px; }
+.footer-category-link { color: var(--muted); font-size: 10.5px; text-decoration: none; transition: color .16s ease; }
+.footer-category-link:hover { color: var(--text); }
+.footer-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 7px 16px; padding: 13px 2px 0; color: var(--muted); font-size: 10px; }
+.footer-meta a { color: var(--text); opacity: .72; text-decoration: none; }
+.footer-meta a:hover { opacity: 1; }
+.footer-meta-right { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+@media (max-width: 640px) {
+  .footer { padding: 28px 0 calc(20px + env(safe-area-inset-bottom)); }
+  .footer-main { align-items: flex-start; flex-direction: column; gap: 15px; padding: 0 2px 16px; }
+  .footer-actions { width: 100%; justify-content: flex-start; gap: 6px; }
+  .footer-action { min-height: 32px; padding-inline: 10px; font-size: 10px; }
+  .footer-explore { padding-block: 14px 13px; }
+  .footer-categories { gap: 8px 14px; }
+  .footer-meta { align-items: flex-start; flex-direction: column; padding-top: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-action, .footer-category-link { transition: none; }
+}
+
 </style>
 </head>
 <body>
@@ -2111,20 +2172,39 @@ body.dark-mode .header::before {
     </div>
   </div>
   <footer class="footer" aria-label="Site footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-brand">Ulefone Navigation</div>
-        <div class="footer-description">A curated hub for Ulefone resources and tools.</div>
+    <div class="footer-shell">
+      <div class="footer-main">
+        <div class="footer-identity">
+          <div class="footer-brand">Ulefone Navigation</div>
+          <div class="footer-description">A curated directory of Ulefone tools, channels and resources.</div>
+          <div class="footer-resource-count" id="footerResourceCount">Loading resources…</div>
+        </div>
+        <div class="footer-actions" aria-label="Quick actions">
+          <button class="footer-action" id="randomLinkBtn" type="button" title="Open a random resource">
+            <i class="fas fa-shuffle" aria-hidden="true"></i> Discover
+          </button>
+          <a class="footer-action" href="https://github.com/wangwenzhiwwz/Ulefone-Navigation" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github" aria-hidden="true"></i> GitHub
+          </a>
+          <a class="footer-action" href="https://github.com/wangwenzhiwwz/Ulefone-Navigation/issues/new" target="_blank" rel="noopener noreferrer">
+            <i class="far fa-comment-dots" aria-hidden="true"></i> Feedback
+          </a>
+          <button class="footer-action" id="footerTopBtn" type="button">
+            <i class="fas fa-arrow-up" aria-hidden="true"></i> Back to top
+          </button>
+        </div>
       </div>
-      <nav class="footer-links" aria-label="Footer links">
-        <a class="footer-link" href="https://github.com/wangwenzhiwwz/Ulefone-Navigation" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-        <a class="footer-link" href="https://github.com/wangwenzhiwwz/Ulefone-Navigation/issues/new" target="_blank" rel="noopener noreferrer"><i class="far fa-comment-dots" aria-hidden="true"></i> Report an issue</a>
-        <a class="footer-link" href="#section-top"><i class="fas fa-arrow-up" aria-hidden="true"></i> Back to top</a>
-      </nav>
-      <div class="footer-bottom">
+      <section class="footer-explore" aria-label="Explore categories">
+        <div class="footer-section-label">EXPLORE CATEGORIES</div>
+        <nav class="footer-categories" id="footerCategories" aria-label="Category shortcuts"></nav>
+      </section>
+      <div class="footer-meta">
         <span>© <span id="year"></span> Ulefone Navigation</span>
-        <span class="footer-separator" aria-hidden="true">·</span>
-        <span>Channel avatars by <a href="https://avatarsapi.com" target="_blank" rel="noopener noreferrer">AvatarsAPI</a> and <a href="https://unavatar.io" target="_blank" rel="noopener noreferrer">unavatar</a></span>
+        <span class="footer-meta-right">
+          <span>Search shortcut: / or Ctrl/⌘ K</span>
+          <span aria-hidden="true">·</span>
+          <span>Avatars by <a href="https://avatarsapi.com" target="_blank" rel="noopener noreferrer">AvatarsAPI</a> and <a href="https://unavatar.io" target="_blank" rel="noopener noreferrer">unavatar</a></span>
+        </span>
       </div>
     </div>
   </footer>
@@ -2376,6 +2456,23 @@ body.dark-mode .header::before {
     sections.forEach(section => scrollObserver.observe(section));
   }
 
+  function updateFooter(entries) {
+    const categoryNav = $('#footerCategories');
+    const resourceCount = $('#footerResourceCount');
+    if (!categoryNav || !resourceCount) return;
+    categoryNav.replaceChildren();
+    entries.forEach(([name], index) => {
+      const link = document.createElement('a');
+      link.className = 'footer-category-link';
+      link.href = `#section-${index}`;
+      link.textContent = name;
+      categoryNav.append(link);
+    });
+    const total = Object.values(data).reduce((sum, items) => sum + (Array.isArray(items) ? items.length : 0), 0);
+    const categoryTotal = Object.keys(data).length;
+    resourceCount.textContent = `${total.toLocaleString()} resources · ${categoryTotal} categories`;
+  }
+
   function render(query = '') {
     if (typeof data === 'undefined' || !data || typeof data !== 'object') {
       els.content.innerHTML = '<div class="error-state"><i class="fas fa-triangle-exclamation"></i><h3>Unable to load bookmarks</h3><p>Make sure data.js and index.html are in the same directory.</p></div>';
@@ -2425,6 +2522,7 @@ body.dark-mode .header::before {
       els.content.append(empty);
     }
     setupScrollSpy();
+    updateFooter(filteredEntries);
   }
 
   function effectiveDark() {
@@ -2496,6 +2594,14 @@ body.dark-mode .header::before {
     if (e.key === 'Escape') setSearchOpen(false);
   });
   els.scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  $('#footerTopBtn')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  $('#randomLinkBtn')?.addEventListener('click', () => {
+    if (typeof data === 'undefined' || !data) return;
+    const candidates = Object.values(data).flat().filter(item => item && safeUrl(item.url) !== '#');
+    if (!candidates.length) return;
+    const item = candidates[Math.floor(Math.random() * candidates.length)];
+    window.open(safeUrl(item.url), '_blank', 'noopener,noreferrer');
+  });
   window.addEventListener('scroll', () => els.scrollTop.classList.toggle('show', window.scrollY > 320), { passive: true });
   themeMedia.addEventListener?.('change', () => { if (!userTheme) applyTheme(); });
 
