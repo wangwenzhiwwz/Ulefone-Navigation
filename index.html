@@ -2031,6 +2031,41 @@ body.dark-mode .header::before {
   }
 }
 
+
+/* Footer: compact project links and utility actions */
+.footer {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 12px calc(24px + env(safe-area-inset-bottom));
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.footer-brand { color: var(--text); font-size: 12px; font-weight: 650; letter-spacing: -.01em; }
+.footer-description { margin-top: 2px; color: var(--muted); font-size: 10.5px; }
+.footer-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 18px; }
+.footer-link, .footer-top {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 2px; border: 0; background: transparent;
+  color: var(--muted); font: inherit; cursor: pointer;
+  transition: color .18s ease, opacity .18s ease;
+}
+.footer-link:hover, .footer-top:hover { color: var(--text); }
+.footer-bottom { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 10px; padding-top: 10px; border-top: 1px solid var(--line); width: 100%; }
+.footer-bottom a { color: var(--text); opacity: .76; text-decoration: none; text-underline-offset: 3px; }
+.footer-bottom a:hover { opacity: 1; }
+.footer-separator { opacity: .45; }
+@media (max-width: 640px) {
+  .footer { padding: 20px 8px calc(20px + env(safe-area-inset-bottom)); font-size: 10.5px; }
+  .footer-inner { gap: 10px; }
+  .footer-links { gap: 6px 15px; }
+  .footer-bottom { line-height: 1.8; }
+}
+
 </style>
 </head>
 <body>
@@ -2075,7 +2110,24 @@ body.dark-mode .header::before {
       <div class="stat-label">Visits</div>
     </div>
   </div>
-  <footer class="footer">© <span id="year"></span> Ulefone Navigation · YouTube channel avatars by <a href="https://avatarsapi.com" target="_blank" rel="noopener noreferrer">AvatarsAPI</a> and <a href="https://unavatar.io" target="_blank" rel="noopener noreferrer">unavatar</a></footer>
+  <footer class="footer" aria-label="Site footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Ulefone Navigation</div>
+        <div class="footer-description">A curated hub for Ulefone resources and tools.</div>
+      </div>
+      <nav class="footer-links" aria-label="Footer links">
+        <a class="footer-link" href="https://github.com/wangwenzhiwwz/Ulefone-Navigation" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+        <a class="footer-link" href="https://github.com/wangwenzhiwwz/Ulefone-Navigation/issues/new" target="_blank" rel="noopener noreferrer"><i class="far fa-comment-dots" aria-hidden="true"></i> Report an issue</a>
+        <a class="footer-link" href="#section-top"><i class="fas fa-arrow-up" aria-hidden="true"></i> Back to top</a>
+      </nav>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Ulefone Navigation</span>
+        <span class="footer-separator" aria-hidden="true">·</span>
+        <span>Channel avatars by <a href="https://avatarsapi.com" target="_blank" rel="noopener noreferrer">AvatarsAPI</a> and <a href="https://unavatar.io" target="_blank" rel="noopener noreferrer">unavatar</a></span>
+      </div>
+    </div>
+  </footer>
 </main>
 <button id="scrollTopBtn" class="scroll-top-btn" type="button" title="Back to top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 <script src="data.js"></script>
