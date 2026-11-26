@@ -1,6 +1,26 @@
 const data = {
     "Favorites": [
         {
+            "name": "ChatGPT",
+            "url": "https://chatgpt.com/"
+        },
+        {
+            "name": "Claude",
+            "url": "https://claude.ai/"
+        },
+        {
+            "name": "Gemini",
+            "url": "https://gemini.google.com/app"
+        },
+        {
+            "name": "Elevenlabs",
+            "url": "https://elevenlabs.io/app/home"
+        },
+        {
+            "name": "LibTV",
+            "url": "https://www.liblib.tv/"
+        },
+        {
             "name": "Google",
             "url": "https://google.wwz.im/",
             "icon": "https://yt3.googleusercontent.com/bAseQlKvNmjdLQrvYWm_q3QDp8C8YKyYI-nYJewgOkPi0JU1_3X9oFgjrEdzkOlXzLGFxFbnsw=s900-c-k-c0x00ffffff-no-rj"
@@ -12,10 +32,6 @@ const data = {
         {
             "name": "Mediastory",
             "url": "https://web.mediastory.cc"
-        },
-        {
-            "name": "LibTV",
-            "url": "https://www.liblib.tv/"
         },
         {
             "name": "Artlist.io",
@@ -84,74 +100,11 @@ const data = {
             "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1beJj1rkkmeJ/overview"
         }
     ],
-    "Panel": [
-        {
-            "name": "BWH_XR",
-            "url": "https://xr.w1997.eu.org:16263/gH1lwwLBrdI2BpVQHT/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "CloudCone",
-            "url": "https://cc.w1997.eu.org:26693/kYvtDmscKfUTfbqfvO/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "ColoCrossing",
-            "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "BWH_WZ",
-            "url": "https://wz.w1997.eu.org:15284/nPhwHJ7DOaGrNds7yN/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "BWH_BR",
-            "url": "https://br.w1997.eu.org:49899/Dm8TUjpcDBKTlVWAjj/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "EUserv_DE",
-            "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "VPS",
-            "url": "https://kr.w1997.eu.org:59014/MgUJkNNLy7S0qqRYXZ/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "EUserv",
-            "url": "https://eu6.w1997.eu.org:54871/Dfn2x0eiKirHE4oPnO/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "Studio",
-            "url": "http://192.168.31.1:9999/ui/#/proxies",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoF2_OPymibPOjCUFEK2qZR_7mFN5w2bF-i_9omnAcZQ&s=10"
-        }
-    ],
     "Generative": [
-        {
-            "name": "ChatGPT",
-            "url": "https://chatgpt.com/"
-        },
-        {
-            "name": "Claude",
-            "url": "https://claude.ai/"
-        },
-        {
-            "name": "Gemini",
-            "url": "https://gemini.google.com/app"
-        },
         {
             "name": "Flow",
             "url": "https://flow.google.com/",
             "icon": "https://app.wwz.im/images/Flow.jpg"
-        },
-        {
-            "name": "Elevenlabs",
-            "url": "https://elevenlabs.io/app/home"
         },
         {
             "name": "即梦",
@@ -166,20 +119,50 @@ const data = {
             "url": "https://app.beeble.ai/home"
         },
         {
-            "name": "Suno",
-            "url": "https://suno.com/"
-        },
-        {
-            "name": "Minimax",
-            "url": "https://www.minimaxi.com/audio"
-        },
-        {
-            "name": "Subeasy",
-            "url": "https://www.subeasy.ai/"
-        },
-        {
             "name": "Hyper3d",
             "url": "https://hyper3d.ai/"
+        }
+    ],
+    "Panel": [
+        {
+            "name": "ColoCrossing",
+            "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "CloudCone",
+            "url": "https://cc.w1997.eu.org:26693/kYvtDmscKfUTfbqfvO/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "BWH_WZ",
+            "url": "https://wz.w1997.eu.org:15284/nPhwHJ7DOaGrNds7yN/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "BWH_BR",
+            "url": "https://br.w1997.eu.org:49899/Dm8TUjpcDBKTlVWAjj/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "BWH_XR",
+            "url": "https://xr.w1997.eu.org:16263/gH1lwwLBrdI2BpVQHT/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "VPS",
+            "url": "https://kr.w1997.eu.org:59014/MgUJkNNLy7S0qqRYXZ/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "EUserv",
+            "url": "https://eu6.w1997.eu.org:54871/Dfn2x0eiKirHE4oPnO/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "EUserv_DE",
+            "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
         }
     ],
     "Official": [
@@ -676,6 +659,16 @@ const data = {
             "name": "UOM 无人机登记",
             "url": "https://uom.caac.gov.cn/",
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2PKfdHyk6PdfViNC0bSALpg82-bhRHuD_X9uNMOesDQ&s=10"
+        },
+        {
+            "name": "Ulefone",
+            "url": "http://192.168.30.20/",
+            "icon": "https://app.wwz.im/images/openwrt.png"
+        },
+        {
+            "name": "Studio",
+            "url": "http://192.168.31.1:9999/ui/#/proxies",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoF2_OPymibPOjCUFEK2qZR_7mFN5w2bF-i_9omnAcZQ&s=10"
         }
     ]
 };
