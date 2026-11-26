@@ -56,6 +56,10 @@ const data = {
         {
             "name": "Instagram",
             "url": "https://www.instagram.com/ulefone.global/reels/"
+        },
+        {
+            "name": "Mail.QQ",
+            "url": "https://wx.mail.qq.com"
         }
     ],
     "Workspace": [
@@ -163,6 +167,11 @@ const data = {
             "name": "EUserv_DE",
             "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients",
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "Studio",
+            "url": "http://192.168.31.1:9999/ui/#/proxies",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoF2_OPymibPOjCUFEK2qZR_7mFN5w2bF-i_9omnAcZQ&s=10"
         }
     ],
     "Official": [
@@ -567,8 +576,8 @@ const data = {
     ],
     "Other": [
         {
-            "name": "Mail.QQ",
-            "url": "https://wx.mail.qq.com"
+            "name": "魔音工坊",
+            "url": "https://www.moyin.com/real-voice-index"
         },
         {
             "name": "Kickstarter",
@@ -659,16 +668,6 @@ const data = {
             "name": "UOM 无人机登记",
             "url": "https://uom.caac.gov.cn/",
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2PKfdHyk6PdfViNC0bSALpg82-bhRHuD_X9uNMOesDQ&s=10"
-        },
-        {
-            "name": "Ulefone",
-            "url": "http://192.168.30.20/",
-            "icon": "https://app.wwz.im/images/openwrt.png"
-        },
-        {
-            "name": "Studio",
-            "url": "http://192.168.31.1:9999/ui/#/proxies",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoF2_OPymibPOjCUFEK2qZR_7mFN5w2bF-i_9omnAcZQ&s=10"
         }
     ]
 };
