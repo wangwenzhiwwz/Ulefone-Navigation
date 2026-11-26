@@ -86,13 +86,18 @@ const data = {
     ],
     "Panel": [
         {
-            "name": "ColoCrossing",
-            "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/clients",
+            "name": "BWH_XR",
+            "url": "https://xr.w1997.eu.org:16263/gH1lwwLBrdI2BpVQHT/panel/clients",
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
         },
         {
             "name": "CloudCone",
             "url": "https://cc.w1997.eu.org:26693/kYvtDmscKfUTfbqfvO/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "ColoCrossing",
+            "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/clients",
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
         },
         {
@@ -106,8 +111,8 @@ const data = {
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
         },
         {
-            "name": "BWH_XR",
-            "url": "https://xr.w1997.eu.org:16263/gH1lwwLBrdI2BpVQHT/panel/clients",
+            "name": "EUserv_DE",
+            "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients",
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
         },
         {
@@ -121,9 +126,9 @@ const data = {
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
         },
         {
-            "name": "EUserv_DE",
-            "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+            "name": "Studio",
+            "url": "http://192.168.31.1:9999/ui/#/proxies",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoF2_OPymibPOjCUFEK2qZR_7mFN5w2bF-i_9omnAcZQ&s=10"
         }
     ],
     "Generative": [
@@ -671,16 +676,6 @@ const data = {
             "name": "UOM 无人机登记",
             "url": "https://uom.caac.gov.cn/",
             "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2PKfdHyk6PdfViNC0bSALpg82-bhRHuD_X9uNMOesDQ&s=10"
-        },
-        {
-            "name": "Ulefone",
-            "url": "http://192.168.30.20/",
-            "icon": "https://app.wwz.im/images/openwrt.png"
-        },
-        {
-            "name": "Studio",
-            "url": "http://192.168.31.1:9999/ui/#/proxies",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoF2_OPymibPOjCUFEK2qZR_7mFN5w2bF-i_9omnAcZQ&s=10"
         }
     ]
 };
