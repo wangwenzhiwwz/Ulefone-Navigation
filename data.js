@@ -84,6 +84,48 @@ const data = {
             "url": "https://alidocs.dingtalk.com/i/spaces/a0gX1beJj1rkkmeJ/overview"
         }
     ],
+    "Panel": [
+        {
+            "name": "ColoCrossing",
+            "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "CloudCone",
+            "url": "https://cc.w1997.eu.org:26693/kYvtDmscKfUTfbqfvO/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "BWH_WZ",
+            "url": "https://wz.w1997.eu.org:15284/nPhwHJ7DOaGrNds7yN/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "BWH_BR",
+            "url": "https://br.w1997.eu.org:49899/Dm8TUjpcDBKTlVWAjj/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "BWH_XR",
+            "url": "https://xr.w1997.eu.org:16263/gH1lwwLBrdI2BpVQHT/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "VPS",
+            "url": "https://kr.w1997.eu.org:59014/MgUJkNNLy7S0qqRYXZ/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "EUserv",
+            "url": "https://eu6.w1997.eu.org:54871/Dfn2x0eiKirHE4oPnO/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        },
+        {
+            "name": "EUserv_DE",
+            "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients",
+            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
+        }
+    ],
     "Generative": [
         {
             "name": "ChatGPT",
@@ -533,48 +575,6 @@ const data = {
         {
             "name": "glTF Report",
             "url": "https://gltf.report/"
-        }
-    ],
-    "Panel": [
-        {
-            "name": "ColoCrossing",
-            "url": "https://cx.w1997.eu.org:61472/xyeazBr7KD8clKI2m5/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "CloudCone",
-            "url": "https://cc.w1997.eu.org:26693/kYvtDmscKfUTfbqfvO/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "BWH_WZ",
-            "url": "https://wz.w1997.eu.org:15284/nPhwHJ7DOaGrNds7yN/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "BWH_BR",
-            "url": "https://br.w1997.eu.org:49899/Dm8TUjpcDBKTlVWAjj/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "BWH_XR",
-            "url": "https://xr.w1997.eu.org:16263/gH1lwwLBrdI2BpVQHT/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "VPS",
-            "url": "https://kr.w1997.eu.org:59014/MgUJkNNLy7S0qqRYXZ/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "EUserv",
-            "url": "https://eu6.w1997.eu.org:54871/Dfn2x0eiKirHE4oPnO/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
-        },
-        {
-            "name": "EUserv_DE",
-            "url": "https://de.w1997.eu.org:53792/TuAyzXQVDIrwQXyAMz/panel/clients",
-            "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2eVrxjEiV4XOlscmTBU4NDa8Em-C0yivzevSh7d9Dvg&s=10"
         }
     ],
     "Other": [
