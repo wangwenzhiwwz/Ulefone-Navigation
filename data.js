@@ -58,8 +58,8 @@ const data = {
             "url": "https://www.instagram.com/ulefone.global/reels/"
         },
         {
-            "name": "Mail.QQ",
-            "url": "https://wx.mail.qq.com"
+            "name": "Mediastory",
+            "url": "https://mediastory.wwz.im/"
         }
     ],
     "Workspace": [
@@ -575,6 +575,10 @@ const data = {
         }
     ],
     "Other": [
+        {
+            "name": "Mail.QQ",
+            "url": "https://wx.mail.qq.com"
+        },
         {
             "name": "魔音工坊",
             "url": "https://www.moyin.com/real-voice-index"
