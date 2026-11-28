@@ -26,12 +26,18 @@ const data = {
             "icon": "https://yt3.googleusercontent.com/bAseQlKvNmjdLQrvYWm_q3QDp8C8YKyYI-nYJewgOkPi0JU1_3X9oFgjrEdzkOlXzLGFxFbnsw=s900-c-k-c0x00ffffff-no-rj"
         },
         {
-            "name": "FigJam",
-            "url": "https://www.figma.com/"
+            "name": "Wboard",
+            "url": "https://wboard.wwz.im/",
+            "icon": "https://wboard.wwz.im/favicon.svg"
         },
         {
             "name": "Mediastory",
-            "url": "https://web.mediastory.cc"
+            "url": "https://mediastory.wwz.im/",
+            "icon": "https://mediastory.wwz.im/apple-icon.png"
+        },
+        {
+            "name": "FigJam",
+            "url": "https://www.figma.com/"
         },
         {
             "name": "Artlist.io",
@@ -56,10 +62,6 @@ const data = {
         {
             "name": "Instagram",
             "url": "https://www.instagram.com/ulefone.global/reels/"
-        },
-        {
-            "name": "Mediastory",
-            "url": "https://mediastory.wwz.im/"
         }
     ],
     "Workspace": [
@@ -70,6 +72,10 @@ const data = {
         {
             "name": "拍摄事项",
             "url": "https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJzMw5jbghgBeN0kZVKe0xjE3?iframeQuery=entrance%3Ddata%26sheetId%3Ddv19yqvsgs3oebp3pcjys%26viewId%3Dsvv483egebdyzv464wcxd"
+        },
+        {
+            "name": "Mediastory",
+            "url": "https://web.mediastory.cc"
         },
         {
             "name": "冠群影业",
